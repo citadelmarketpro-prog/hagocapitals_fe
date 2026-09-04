@@ -1,0 +1,455 @@
+@import "tailwindcss";
+
+/* ─── Dark mode via .dark class (next-themes) ──────────────────────── */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ─── Progress bar gloss sweep ─────────────────────────────────────── */
+@keyframes gloss {
+  0%   { transform: translateX(-100%); }
+  60%  { transform: translateX(400%); }
+  100% { transform: translateX(400%); }
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   LIGHT MODE — Default tokens
+   Source: Figma light_mode designs
+══════════════════════════════════════════════════════════════════════ */
+:root {
+  /* ── Page backgrounds ───────────────────────────────────────────── */
+  --background:        #ffffff;        /* default page / most sections   */
+  --background-alt:    #eaeadf;        /* "What you can copy" warm beige */
+  --muted:             #f5f5f5;        /* stats bar, subtle sections     */
+
+  /* ── Card surfaces ──────────────────────────────────────────────── */
+  --card:              #ffffff;
+  --card-foreground:   #001011;
+  --card-border:       #e5e5e5;
+
+  /* ── Typography ─────────────────────────────────────────────────── */
+  --foreground:        #001011;        /* exact from SVG — dark teal-black */
+  --muted-foreground:  #666666;        /* body / secondary text            */
+  --heading:           #001011;
+  --heading-brand:     #001011;
+
+  /* ── Brand accent — Citadelsmarket-style deep forest green ───────── */
+  --primary:           #0c5c45;        /* deep forest green (was lime #B0D45A) */
+  --primary-hover:     #0e6b52;        /* lighter green, hover fill        */
+  --primary-foreground:#ffffff;
+  --primary-tint:      #eaf5f0;        /* faint green section tint         */
+  --primary-tint-border: #cfe8dd;
+
+  /* ── "Sign in" button — exact from SVG ──────────────────────────── */
+  --signin-bg:         #F9FDEF;        /* soft mint/cream button fill      */
+  --signin-border:     #ECF8CF;        /* light lime border (1px)          */
+  --signin-fg:         #001011;
+
+  /* ── Secondary / dark button ────────────────────────────────────── */
+  --secondary:         #001011;
+  --secondary-foreground: #ffffff;
+
+  /* ── Ghost / outlined button ────────────────────────────────────── */
+  --ghost-border:      #0c5c45;
+  --ghost-foreground:  #0c5c45;
+  --ghost-hover-bg:    #eaf5f0;
+
+  /* ── Navigation — exact from SVG (1440×80px) ────────────────────── */
+  --nav-bg:            #ffffff;
+  --nav-border:        #e5e5e5;
+  --nav-text:          #001011;
+  --nav-text-muted:    #444444;
+  --nav-height:        80px;           /* confirmed from SVG viewBox       */
+
+  /* ── Borders & inputs ────────────────────────────────────────────── */
+  --border:            #e5e5e5;
+  --input:             #e5e5e5;
+  --ring:              #0c5c45;
+
+  /* ── Status / trading ────────────────────────────────────────────── */
+  --profit:            #16a34a;        /* positive % arrows & numbers     */
+  --loss:              #dc2626;        /* negative % arrows & numbers     */
+  --success:           #16a34a;
+  --success-bg:        #dcfce7;
+
+  /* ── Badges ──────────────────────────────────────────────────────── */
+  --badge-balanced-bg: #e6f4ea;        /* "Balanced Risk" badge bg        */
+  --badge-balanced-fg: #16a34a;        /* "Balanced Risk" badge text      */
+
+  /* ── FAQ / Accordion ─────────────────────────────────────────────── */
+  --faq-item-bg:       #edf4ec;        /* accordion item background       */
+  --faq-item-border:   #d4e8d4;
+  --faq-item-fg:       #001011;
+
+  /* ── Icons (outline style) ───────────────────────────────────────── */
+  --icon-stroke:       #0c5c45;        /* feature section icons           */
+
+  /* ── Market ticker ───────────────────────────────────────────────── */
+  --ticker-bg:         #ffffff;
+  --ticker-border:     #e5e5e5;
+
+  /* ── Dividers ────────────────────────────────────────────────────── */
+  --divider:           #e5e5e5;
+
+  /* ── Preloader accent — deep green on the light tint bg ───────────── */
+  --preloader-accent:      #0c5c45;
+  --preloader-accent-soft: rgba(12, 92, 69, 0.15);
+
+  /* ── Site (marketing) black sections — Citadelsmarket-style ──────── */
+  --site-black:            #0a0a0a;
+  --site-black-gradient:
+    linear-gradient(transparent 0%, #000 95%),
+    radial-gradient(194.14% 91.43% at 2.43% 88.15%, rgba(10,10,10,.8) 0%, rgba(10,10,10,0) 100%),
+    conic-gradient(from 5deg at 92.78% 73.8%, rgba(65,64,62,.4) 0deg, rgba(37,37,35,.4) 360deg),
+    conic-gradient(from -49deg at 85.69% 75.64%, rgba(98,97,97,.3) 0deg, rgba(37,37,37,.3) 360deg),
+    #0a0a0a;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   DARK MODE — Override tokens
+   Source: Figma dark_mode designs
+══════════════════════════════════════════════════════════════════════ */
+.dark {
+  /* ── Page backgrounds ───────────────────────────────────────────── */
+  --background:        #0b1c11;        /* deep dark forest green         */
+  --background-alt:    #0d2016;        /* slightly lighter for sections  */
+  --muted:             #0d2016;
+
+  /* ── Card surfaces ──────────────────────────────────────────────── */
+  --card:              #132b1a;        /* dark green card surface        */
+  --card-foreground:   #f0f0f0;
+  --card-border:       #1e3827;
+
+  /* ── Typography ─────────────────────────────────────────────────── */
+  --foreground:        #f0f0f0;
+  --muted-foreground:  #8fa896;        /* subdued green-gray             */
+  --heading:           #ffffff;
+  --heading-brand:     #ffffff;
+
+  /* ── Brand accent (same exact lime green, confirmed from SVG) ───── */
+  --primary:           #B0D45A;
+  --primary-foreground:#001011;
+
+  /* ── "Sign in" button (dark mode outlined variant) ───────────────── */
+  --signin-bg:         #1a3020;
+  --signin-border:     #2a4a34;
+  --signin-fg:         #f0f0f0;
+
+  /* ── Secondary / dark button ────────────────────────────────────── */
+  --secondary:         #1a3020;
+  --secondary-foreground: #f0f0f0;
+
+  /* ── Ghost / outlined button ────────────────────────────────────── */
+  --ghost-border:      #2a4a34;
+  --ghost-foreground:  #f0f0f0;
+
+  /* ── Navigation ─────────────────────────────────────────────────── */
+  --nav-bg:            #0b1c11;
+  --nav-border:        #1e3827;
+  --nav-text:          #f0f0f0;
+  --nav-text-muted:    #8fa896;
+  --nav-height:        80px;
+
+  /* ── Borders & inputs ────────────────────────────────────────────── */
+  --border:            #1e3827;
+  --input:             #1e3827;
+  --ring:              #B0D45A;
+
+  /* ── Status / trading ────────────────────────────────────────────── */
+  --profit:            #22c55e;
+  --loss:              #f87171;
+  --success:           #22c55e;
+  --success-bg:        #14532d;
+
+  /* ── Badges ──────────────────────────────────────────────────────── */
+  --badge-balanced-bg: #1a3020;
+  --badge-balanced-fg: #4ade80;
+
+  /* ── FAQ / Accordion ─────────────────────────────────────────────── */
+  --faq-item-bg:       #0e2016;
+  --faq-item-border:   #1e3827;
+  --faq-item-fg:       #f0f0f0;
+
+  /* ── Icons (outline style) ───────────────────────────────────────── */
+  --icon-stroke:       #B0D45A;
+
+  /* ── Market ticker ───────────────────────────────────────────────── */
+  --ticker-bg:         #0d2016;
+  --ticker-border:     #1e3827;
+
+  /* ── Dividers ────────────────────────────────────────────────────── */
+  --divider:           #1e3827;
+
+  /* ── Preloader accent — bright green reads on the near-black dark bg ── */
+  --preloader-accent:      #34d399;
+  --preloader-accent-soft: rgba(52, 211, 153, 0.15);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   SITE (MARKETING) PAGES — locked to light mode
+   ─────────────────────────────────────────────────────────────────────
+   The (site) route group has no dark mode (dashboard/auth keep both).
+   Its own markup carries no `dark:` classes, but a few shared pieces
+   (.btn-fx-primary, .btn-fx-ghost, .hero-badge below) read CSS tokens
+   that still flip under a global `.dark` ancestor — e.g. dark mode was
+   toggled on the dashboard earlier in the same session, then the user
+   navigated to a site page without a full reload. Re-declaring the
+   light values here, scoped to `.site-light-scope` (wrapping every
+   (site) page — see app/(site)/layout.tsx), guarantees they stay light
+   regardless of that ancestor.
+══════════════════════════════════════════════════════════════════════ */
+.dark .site-light-scope {
+  --background:            #ffffff;
+  --background-alt:        #eaeadf;
+  --muted:                 #f5f5f5;
+  --card:                  #ffffff;
+  --card-foreground:       #001011;
+  --card-border:           #e5e5e5;
+  --foreground:            #001011;
+  --muted-foreground:      #666666;
+  --heading:               #001011;
+  --heading-brand:         #001011;
+  --primary:               #0c5c45;
+  --primary-hover:         #0e6b52;
+  --primary-foreground:    #ffffff;
+  --primary-tint:          #eaf5f0;
+  --primary-tint-border:   #cfe8dd;
+  --signin-bg:             #F9FDEF;
+  --signin-border:         #ECF8CF;
+  --signin-fg:             #001011;
+  --secondary:             #001011;
+  --secondary-foreground:  #ffffff;
+  --ghost-border:          #0c5c45;
+  --ghost-foreground:      #0c5c45;
+  --ghost-hover-bg:        #eaf5f0;
+  --nav-bg:                #ffffff;
+  --nav-border:            #e5e5e5;
+  --nav-text:              #001011;
+  --nav-text-muted:        #444444;
+  --border:                #e5e5e5;
+  --input:                 #e5e5e5;
+  --ring:                  #0c5c45;
+  --profit:                #16a34a;
+  --loss:                  #dc2626;
+  --success:               #16a34a;
+  --success-bg:            #dcfce7;
+  --badge-balanced-bg:     #e6f4ea;
+  --badge-balanced-fg:     #16a34a;
+  --faq-item-bg:           #edf4ec;
+  --faq-item-border:       #d4e8d4;
+  --faq-item-fg:           #001011;
+  --icon-stroke:           #0c5c45;
+  --ticker-bg:             #ffffff;
+  --ticker-border:         #e5e5e5;
+  --divider:               #e5e5e5;
+  --site-black:            #0a0a0a;
+  --site-black-gradient:
+    linear-gradient(transparent 0%, #000 95%),
+    radial-gradient(194.14% 91.43% at 2.43% 88.15%, rgba(10,10,10,.8) 0%, rgba(10,10,10,0) 100%),
+    conic-gradient(from 5deg at 92.78% 73.8%, rgba(65,64,62,.4) 0deg, rgba(37,37,35,.4) 360deg),
+    conic-gradient(from -49deg at 85.69% 75.64%, rgba(98,97,97,.3) 0deg, rgba(37,37,37,.3) 360deg),
+    #0a0a0a;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   TAILWIND v4 — @theme inline
+   Maps every CSS var → Tailwind utility class (bg-*, text-*, etc.)
+══════════════════════════════════════════════════════════════════════ */
+@theme inline {
+  /* Fonts */
+  --font-sans: 'Poppins', Arial, sans-serif;
+  --font-mono: ui-monospace, monospace;
+
+  /* Backgrounds */
+  --color-background:              var(--background);
+  --color-background-alt:          var(--background-alt);
+  --color-muted:                   var(--muted);
+
+  /* Cards */
+  --color-card:                    var(--card);
+  --color-card-foreground:         var(--card-foreground);
+  --color-card-border:             var(--card-border);
+
+  /* Typography */
+  --color-foreground:              var(--foreground);
+  --color-muted-foreground:        var(--muted-foreground);
+  --color-heading:                 var(--heading);
+  --color-heading-brand:           var(--heading-brand);
+
+  /* Brand */
+  --color-primary:                 var(--primary);
+  --color-primary-hover:           var(--primary-hover);
+  --color-primary-foreground:      var(--primary-foreground);
+  --color-primary-tint:            var(--primary-tint);
+  --color-primary-tint-border:     var(--primary-tint-border);
+
+  /* Buttons */
+  --color-secondary:               var(--secondary);
+  --color-secondary-foreground:    var(--secondary-foreground);
+  --color-ghost-border:            var(--ghost-border);
+  --color-ghost-foreground:        var(--ghost-foreground);
+  --color-ghost-hover-bg:          var(--ghost-hover-bg);
+  --color-signin-bg:               var(--signin-bg);
+  --color-signin-border:           var(--signin-border);
+  --color-signin-fg:               var(--signin-fg);
+
+  /* Site (marketing) black sections */
+  --color-site-black:              var(--site-black);
+
+  /* Navigation */
+  --color-nav-bg:                  var(--nav-bg);
+  --color-nav-border:              var(--nav-border);
+  --color-nav-text:                var(--nav-text);
+  --color-nav-text-muted:          var(--nav-text-muted);
+
+  /* Borders */
+  --color-border:                  var(--border);
+  --color-input:                   var(--input);
+  --color-ring:                    var(--ring);
+  --color-divider:                 var(--divider);
+
+  /* Status */
+  --color-profit:                  var(--profit);
+  --color-loss:                    var(--loss);
+  --color-success:                 var(--success);
+  --color-success-bg:              var(--success-bg);
+
+  /* Badges */
+  --color-badge-balanced-bg:       var(--badge-balanced-bg);
+  --color-badge-balanced-fg:       var(--badge-balanced-fg);
+
+  /* FAQ */
+  --color-faq-item-bg:             var(--faq-item-bg);
+  --color-faq-item-border:         var(--faq-item-border);
+  --color-faq-item-fg:             var(--faq-item-fg);
+
+  /* Icons */
+  --color-icon-stroke:             var(--icon-stroke);
+
+  /* Ticker */
+  --color-ticker-bg:               var(--ticker-bg);
+  --color-ticker-border:           var(--ticker-border);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   BASE STYLES
+══════════════════════════════════════════════════════════════════════ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: var(--border);
+  outline-color: var(--ring);
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), 'Poppins', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+}
+
+/* ── Hero badge — translucent chip for the dark (Citadelsmarket-style)
+   hero section. Hero only ever renders on (site) pages, and that hero
+   is always dark now, so this is intentionally NOT theme-dependent. ── */
+.hero-badge {
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* ── Marquee animations ───────────────────────────────────────────── */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+.animate-marquee-reverse {
+  animation: marquee-reverse 35s linear infinite;
+}
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+.animate-carousel {
+  animation: marquee 50s linear infinite;
+}
+.animate-carousel:hover {
+  animation-play-state: paused;
+}
+
+/* Prevent flash of unstyled content during theme transition */
+html.dark body {
+  background-color: #0b1c11;
+  color: #f0f0f0;
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   CTA BUTTON HOVER — shared across every site page
+   ─────────────────────────────────────────────────────────────────────
+   Pure CSS (no JS/framer) so it costs nothing on page load. Matches
+   Citadelsmarket's own CTA pattern: a solid deep-green fill that
+   lightens on hover, and a white/green-outline "ghost" pairing —
+   works unmodified whether the button sits on a white or black
+   section, since ghost is always solid white regardless of context.
+══════════════════════════════════════════════════════════════════════ */
+.btn-fx {
+  border-radius: 9999px;
+  transition: background-color 0.18s ease, color 0.18s ease,
+    border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  transform: translateY(0) scale(1);
+}
+.btn-fx:hover {
+  transform: translateY(-2px) scale(1.035);
+}
+.btn-fx:active {
+  transform: translateY(0) scale(0.96);
+  transition-duration: 0.08s;
+}
+
+.btn-fx-primary {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+}
+.btn-fx-primary:hover {
+  background-color: var(--primary-hover);
+  color: var(--primary-foreground);
+  box-shadow: 0 10px 28px -10px rgba(12, 92, 69, 0.45);
+}
+
+.btn-fx-ghost {
+  background-color: #ffffff;
+  color: var(--ghost-foreground);
+  border-color: var(--ghost-border);
+}
+.btn-fx-ghost:hover {
+  background-color: var(--ghost-hover-bg);
+  color: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 10px 28px -10px rgba(12, 92, 69, 0.25);
+}
+
+/* ══════════════════════════════════════════════════════════════════════
+   CONFIRMED EXACT VALUES (from SVG exports)
+   ─────────────────────────────────────────────────────────────────────
+   Source: Header.svg (1440×80px)
+   • Logo "Signal":   #001011  (dark teal-black)
+   • Logo "sync":     #B0D45A  (exact brand lime green)
+   • Nav height:      80px
+   • Sign in btn bg:  #F9FDEF
+   • Sign in btn bd:  #ECF8CF
+   • All nav text:    #001011
+══════════════════════════════════════════════════════════════════════ */
