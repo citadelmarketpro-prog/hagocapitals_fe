@@ -49,6 +49,21 @@ const NET_WORTHS = [
  "$100,000 – $500,000", "$500,000 – $1,000,000", "Over $1,000,000",
 ];
 
+// ─── Phone number formatting ─────────────────────────────────────────────────
+// Groups digits as the user types (e.g. "+1 234 567 890") instead of letting
+// them type one long unbroken string of digits, and hard-caps the length at
+// 15 digits — the real-world maximum for a phone number under the E.164
+// international standard (a leading "+" is kept if the user typed one).
+
+const PHONE_MAX_DIGITS = 15;
+
+function formatPhoneInput(raw: string): string {
+ const hasPlus = raw.trim().startsWith("+");
+ const digits = raw.replace(/\D/g, "").slice(0, PHONE_MAX_DIGITS);
+ const groups = digits.match(/.{1,3}/g) || [];
+ return (hasPlus ? "+" : "") + groups.join(" ");
+}
+
 // ─── Form state type ─────────────────────────────────────────────────────────
 
 interface KycForm {
@@ -182,16 +197,16 @@ export default function KycPage() {
 
  {/* ── Hero banner ── */}
  <div
- className="relative overflow-hidden px-6 py-10 md:py-14"
- style={{ backgroundColor: "#34d399" }}
+ className="relative overflow-hidden rounded-2xl px-6 py-10 md:py-14"
+ style={{ backgroundColor: "#06811d" }}
  >
  <div className="max-w-275 mx-auto flex items-center justify-between gap-8">
  {/* Text */}
  <div>
- <h1 className="text-[28px] md:text-[36px] font-black text-[#001011] leading-tight mb-2">
+ <h1 className="text-[28px] md:text-[36px] font-black text-white leading-tight mb-2">
  Complete Your Profile
  </h1>
- <p className="text-[14px] text-[#2a3a10] max-w-105 leading-relaxed">
+ <p className="text-[14px] text-white/80 max-w-105 leading-relaxed">
  Help us keep your account secure and personalized by providing your
  information below.
  </p>
@@ -201,15 +216,15 @@ export default function KycPage() {
  <div className="hidden md:flex items-center gap-6 relative shrink-0">
  {/* Overlapping avatars */}
  <div className="flex items-center">
- <div className="w-14 h-14 rounded-full border-[3px] border-[#34d399] overflow-hidden shadow-lg z-30">
+ <div className="w-14 h-14 rounded-full border-[3px] border-[#06811d] overflow-hidden shadow-lg z-30">
  {/* eslint-disable-next-line @next/next/no-img-element */}
  <img src="/images/avatar_1.png" alt="Trader" className="w-full h-full object-cover" />
  </div>
- <div className="w-16 h-16 rounded-full border-[3px] border-[#34d399] overflow-hidden shadow-lg -ml-4 z-20">
+ <div className="w-16 h-16 rounded-full border-[3px] border-[#06811d] overflow-hidden shadow-lg -ml-4 z-20">
  {/* eslint-disable-next-line @next/next/no-img-element */}
  <img src="/images/avatar_2.png" alt="Trader" className="w-full h-full object-cover" />
  </div>
- <div className="w-14 h-14 rounded-full border-[3px] border-[#34d399] overflow-hidden shadow-lg -ml-4 z-10">
+ <div className="w-14 h-14 rounded-full border-[3px] border-[#06811d] overflow-hidden shadow-lg -ml-4 z-10">
  {/* eslint-disable-next-line @next/next/no-img-element */}
  <img src="/images/avatar_3.png" alt="Trader" className="w-full h-full object-cover" />
  </div>
@@ -218,13 +233,13 @@ export default function KycPage() {
  <div className="bg-[#001011]/20 backdrop-blur-sm rounded-xl px-5 py-3 border border-white/20">
  <div className="flex items-center gap-1.5 mb-0.5">
  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
- <polyline points="1,9 4,5 7,7 11,2" stroke="#001011" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
- <polyline points="8,2 11,2 11,5" stroke="#001011" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+ <polyline points="1,9 4,5 7,7 11,2" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+ <polyline points="8,2 11,2 11,5" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
  </svg>
- <p className="text-[12px] font-semibold text-[#001011]/80">Verified users</p>
+ <p className="text-[12px] font-semibold text-white/90">Verified users</p>
  </div>
- <p className="text-[28px] font-black text-[#001011] leading-none">118K+</p>
- <p className="text-[11px] text-[#001011]/60 mt-0.5">Trusted globally</p>
+ <p className="text-[28px] font-black text-white leading-none">118K+</p>
+ <p className="text-[11px] text-white/70 mt-0.5">Trusted globally</p>
  </div>
  </div>
  </div>
@@ -377,7 +392,13 @@ function Step2({ form, set }: { form: KycForm; set: (k: keyof KycForm, v: string
  <KycInput placeholder="Enter zipcode" value={form.zipcode} onChange={(v) => set("zipcode", v)} />
  </FieldRow>
  <FieldRow num={5} label="Phone">
- <KycInput type="tel" placeholder="+1 234 567 8900" value={form.phone} onChange={(v) => set("phone", v)} />
+ <KycInput
+ type="tel"
+ placeholder="+1 234 567 8900"
+ value={form.phone}
+ onChange={(v) => set("phone", formatPhoneInput(v))}
+ maxLength={20}
+ />
  </FieldRow>
  <FieldRow num={6} label="Identification Type">
  <KycSelect
@@ -500,11 +521,13 @@ function KycInput({
  placeholder,
  value,
  onChange,
+ maxLength,
 }: {
  type?: string;
  placeholder?: string;
  value: string;
  onChange: (v: string) => void;
+ maxLength?: number;
 }) {
  return (
  <input
@@ -512,6 +535,7 @@ function KycInput({
  placeholder={placeholder}
  value={value}
  onChange={(e) => onChange(e.target.value)}
+ maxLength={maxLength}
  className="w-full h-12 px-4 bg-[#f8f8f4] border border-[#e5e5e0] focus:border-[#06811d] focus:bg-white text-[14px] text-[#001011] placeholder-[#bbbbbb] outline-none transition-all"
  />
  );
