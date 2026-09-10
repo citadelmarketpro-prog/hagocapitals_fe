@@ -106,7 +106,7 @@ export default function BlogPage() {
                 className={`h-[34px] px-5 rounded-full text-[12px] font-semibold transition-colors border ${
                   c === "All"
                     ? "bg-[#001011] text-white border-transparent"
-                    : "border-[#e5e5e5] text-[#555555] hover:border-[#0c5c45] hover:text-[#001011]"
+                    : "border-[#e5e5e5] text-[#555555] hover:border-[#06811d] hover:text-[#001011]"
                 }`}
               >
                 {c}
@@ -143,7 +143,7 @@ export default function BlogPage() {
                   </p>
                   <div className="flex items-center justify-between pt-2 border-t border-[#e5e5e5]">
                     <span className="text-[11px] text-[#888888]">{post.readTime}</span>
-                    <span className="text-[12px] font-semibold text-[#0c5c45] hover:underline cursor-pointer">
+                    <span className="text-[12px] font-semibold text-[#06811d] hover:underline cursor-pointer">
                       Read more →
                     </span>
                   </div>

@@ -37,7 +37,7 @@ interface AuthContextValue {
   user: AuthUser | null;
   loading: boolean;
   login: (email: string, password: string) => Promise<void>;
-  register: (username: string, email: string, password: string, password2: string) => Promise<void>;
+  register: (username: string, email: string, password: string, password2: string, referralCode?: string) => Promise<void>;
   logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
 }
@@ -119,8 +119,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [router]);
 
   const register = useCallback(
-    async (username: string, email: string, password: string, password2: string) => {
-      await api.post("/api/auth/register/", { username, email, password, password2 });
+    async (username: string, email: string, password: string, password2: string, referralCode?: string) => {
+      await api.post("/api/auth/register/", {
+        username, email, password, password2,
+        ...(referralCode ? { referral_code: referralCode } : {}),
+      });
       const me = await api.get<AuthUser>("/api/auth/me/");
       setUser(me);
       router.push(me.kyc_status === "not_submitted" ? "/kyc" : "/dashboard");

@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       "Copy top traders automatically with HagoCapitals. Real-time trade copying and smart portfolio management.",
     start_url: "/",
     display: "standalone",
-    background_color: "#0b1c11",
-    theme_color: "#B0D45A",
+    background_color: "#ffffff",
+    theme_color: "#06811d",
     icons: [
       {
         src: "/android-chrome-192x192.png",

@@ -143,14 +143,14 @@ export default function AffiliatePage() {
           className="absolute inset-x-0 top-0 pointer-events-none"
           style={{
             height: "160px",
-            background: "linear-gradient(to bottom, rgba(12,92,69,0.12) 0%, transparent 100%)",
+            background: "linear-gradient(to bottom, rgba(6,129,29,0.12) 0%, transparent 100%)",
           }}
         />
 
         <div className="relative z-10 flex flex-col items-center text-center px-6 pt-20 lg:pt-[120px] pb-20 lg:pb-[120px]">
           <h1 className="font-bold leading-[1.1] text-[#001011] text-[40px] sm:text-[56px] lg:text-[72px] max-w-4xl">
             Join our{" "}
-            <span className="text-[#0c5c45]">Affiliate</span>
+            <span className="text-[#06811d]">Affiliate</span>
             <br />
             Program
           </h1>
@@ -164,7 +164,7 @@ export default function AffiliatePage() {
             <Link
               href="/sign-up"
               className="inline-flex items-center gap-2 h-[48px] px-8 rounded-full text-[14px] font-bold transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#0c5c45", color: "#ffffff" }}
+              style={{ backgroundColor: "#06811d", color: "#ffffff" }}
             >
               Become an affiliate
               <ArrowRightIcon />
@@ -272,7 +272,7 @@ export default function AffiliatePage() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] py-16 lg:py-24">
           <h2 className="text-[28px] lg:text-[38px] font-bold text-[#001011] mb-12">
             How to Become an Affiliate in{" "}
-            <span className="text-[#0c5c45]">3 Simple Steps</span>
+            <span className="text-[#06811d]">3 Simple Steps</span>
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {HOW_TO_STEPS.map((step) => (
@@ -297,7 +297,7 @@ export default function AffiliatePage() {
             <Link
               href="/sign-up"
               className="self-start sm:self-center inline-flex items-center gap-2 h-[44px] px-7 rounded-full text-[13px] font-bold transition-opacity hover:opacity-90 shrink-0"
-              style={{ backgroundColor: "#0c5c45", color: "#ffffff" }}
+              style={{ backgroundColor: "#06811d", color: "#ffffff" }}
             >
               Become an affiliate
               <ArrowRightIcon />
@@ -432,7 +432,7 @@ function StepIcon() {
   return (
     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
       {/* Outer circle */}
-      <circle cx="20" cy="20" r="18" fill="#edf4e5" stroke="#0c5c45" strokeWidth="1.5" />
+      <circle cx="20" cy="20" r="18" fill="#edf4e5" stroke="#06811d" strokeWidth="1.5" />
       {/* Diamond (rotated square) overlapping */}
       <rect
         x="22"
@@ -441,13 +441,13 @@ function StepIcon() {
         height="18"
         rx="3"
         transform="rotate(45 31 31)"
-        fill="#0c5c45"
+        fill="#06811d"
         fillOpacity="0.22"
-        stroke="#0c5c45"
+        stroke="#06811d"
         strokeWidth="1.5"
       />
       {/* Center dot */}
-      <circle cx="24" cy="24" r="4" fill="#0c5c45" />
+      <circle cx="24" cy="24" r="4" fill="#06811d" />
     </svg>
   );
 }

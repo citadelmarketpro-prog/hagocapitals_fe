@@ -136,7 +136,7 @@ export default function DeclarationOfConsentPage() {
 
                 {/* Withdrawal notice */}
                 <div className="flex items-start gap-3 rounded-xl border border-[#e5e5e5] bg-[#f9faf5] px-5 py-5">
-                  <span className="shrink-0 mt-0.5 text-[#0c5c45]">
+                  <span className="shrink-0 mt-0.5 text-[#06811d]">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <circle cx="12" cy="12" r="10" />
                       <line x1="12" y1="8" x2="12" y2="12" />
@@ -147,7 +147,7 @@ export default function DeclarationOfConsentPage() {
                     You can withdraw this Declaration of Consent at any time by emailing{" "}
                     <a
                       href="mailto:dpo@HagoCapitals.com"
-                      className="text-[#0c5c45] hover:underline underline-offset-2 transition-opacity hover:opacity-80"
+                      className="text-[#06811d] hover:underline underline-offset-2 transition-opacity hover:opacity-80"
                     >
                       dpo@HagoCapitals.com
                     </a>

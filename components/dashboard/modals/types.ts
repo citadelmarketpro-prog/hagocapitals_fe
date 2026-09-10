@@ -6,6 +6,7 @@ export interface AdminWallet {
   network:      string;
   address:      string;
   icon_url:     string | null;
+  qr_code_url:  string | null;
 }
 
 export interface SavedPaymentMethod {

@@ -28,7 +28,7 @@ export default function WhatYouCanCopy() {
 
         {/* ── Header — centered ── */}
         <FadeUp className="text-center px-6 pt-14 pb-12 sm:pt-16 sm:pb-14 lg:pt-20 lg:pb-16 border-t border-[#cfe8dd]">
-          <h2 className="text-[26px] sm:text-[38px] lg:text-[52px] font-extrabold text-[#0c5c45] leading-tight">
+          <h2 className="text-[26px] sm:text-[38px] lg:text-[52px] font-extrabold text-[#06811d] leading-tight">
             What you can copy
           </h2>
         </FadeUp>
@@ -48,7 +48,7 @@ export default function WhatYouCanCopy() {
                 <img src={item.icon} alt={item.title} className="w-full h-full object-contain" />
               </div>
 
-              <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] font-extrabold text-[#0c5c45] leading-snug mb-4">
+              <h3 className="text-[18px] sm:text-[20px] lg:text-[22px] font-extrabold text-[#06811d] leading-snug mb-4">
                 {item.title}
               </h3>
               <p className="text-[14px] lg:text-[15px] leading-[1.75] text-[#445544]">

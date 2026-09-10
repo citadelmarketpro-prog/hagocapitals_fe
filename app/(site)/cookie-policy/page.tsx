@@ -341,7 +341,7 @@ function LimeLink({ href, children }: { href: string; children: React.ReactNode 
   return (
     <a
       href={href}
-      className="text-[#0c5c45] hover:underline underline-offset-2 transition-opacity hover:opacity-80"
+      className="text-[#06811d] hover:underline underline-offset-2 transition-opacity hover:opacity-80"
     >
       {children}
     </a>

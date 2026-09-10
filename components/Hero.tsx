@@ -162,8 +162,8 @@ export default function Hero() {
                 backgroundClip: "text",
               }}
             >
-              Copy Futures, Options &{" "}
-              <span className="block sm:inline">Contracts with Precision</span>
+              Mirror Stocks, Options &{" "}
+              <span className="block sm:inline">Futures with Precision</span>
             </h1>
           </StaggerItem>
 
@@ -183,13 +183,13 @@ export default function Hero() {
               href="/sign-up"
               className="btn-fx btn-fx-primary w-full inline-flex items-center justify-center h-11 sm:h-[52px] px-8 text-[14px] sm:text-[15px] font-bold"
             >
-              Start Copying Now
+              Register
             </Link>
             <Link
-              href="/sign-up"
+              href="/sign-in"
               className="btn-fx btn-fx-ghost w-full inline-flex items-center justify-center h-11 sm:h-[52px] border px-8 text-[14px] sm:text-[15px] font-medium"
             >
-              View expert traders
+              Login
             </Link>
           </StaggerItem>
         </Stagger>
@@ -234,7 +234,7 @@ export default function Hero() {
 function StatItem({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col items-center justify-center py-6 sm:py-12 lg:py-20">
-      <span className="font-extrabold text-[28px] sm:text-[48px] lg:text-[72px] leading-none text-[#0c5c45]">
+      <span className="font-extrabold text-[28px] sm:text-[48px] lg:text-[72px] leading-none text-[#06811d]">
         {value}
       </span>
       <span className="mt-2 sm:mt-3 text-[11px] sm:text-[13px] lg:text-[17px] text-[#666666]">

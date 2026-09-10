@@ -75,13 +75,14 @@ export default function Footer() {
 
           {/* ── Brand column ── */}
           <SlideIn dir="left" className="px-6  py-12 lg:py-16 lg:border-r border-[#e8ead8] flex flex-col gap-1">
-            <Link href="/" className="inline-flex items-baseline text-[35px]">
-              <span className="font-extrabold  text-[#0a0a0a] leading-none">
-                Hago
-              </span>
-              <span className="font-extrabold text-[#0c5c45] leading-none">
-                Capitals
-              </span>
+            <Link href="/" className="inline-flex items-center">
+              <Image
+                src="/logos/logo_one.png"
+                alt="HagoCapitals"
+                width={376}
+                height={284}
+                className="h-16 w-auto object-contain"
+              />
             </Link>
 
             <p className=" text-[#444444] text-[13px] mt-5">

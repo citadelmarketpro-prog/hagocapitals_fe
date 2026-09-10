@@ -62,7 +62,7 @@ export default function FAQSection() {
                 className={[
                   "rounded-2xl overflow-hidden transition-colors duration-200",
                   isOpen
-                    ? "bg-[#0c5c45]"
+                    ? "bg-[#06811d]"
                     : "bg-[#eaf5f0]",
                 ].join(" ")}
               >
@@ -75,7 +75,7 @@ export default function FAQSection() {
                       "text-[15px] sm:text-[16px] font-semibold leading-snug",
                       isOpen
                         ? "text-white"
-                        : "text-[#0c5c45]",
+                        : "text-[#06811d]",
                     ].join(" ")}
                   >
                     {faq.question}
@@ -87,7 +87,7 @@ export default function FAQSection() {
                       "shrink-0 text-[22px] font-light leading-none",
                       isOpen
                         ? "text-white"
-                        : "text-[#0c5c45]",
+                        : "text-[#06811d]",
                     ].join(" ")}
                   >
                     +

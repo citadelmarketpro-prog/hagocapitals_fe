@@ -78,7 +78,7 @@ export default function PressPage() {
               <p className="mt-3 text-[14px] lg:text-[15px] text-[#555555] max-w-xl">
                 News, announcements, and media coverage of HagoCapitals. For press enquiries,
                 contact{" "}
-                <a href="mailto:press@HagoCapitals.com" className="text-[#0c5c45] hover:underline underline-offset-2">
+                <a href="mailto:press@HagoCapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
                   press@HagoCapitals.com
                 </a>
               </p>
@@ -114,7 +114,7 @@ export default function PressPage() {
             </div>
             <button
               className="self-start sm:self-auto inline-flex items-center gap-2 h-[42px] px-7 rounded-full text-[13px] font-bold hover:opacity-90 transition-opacity shrink-0"
-              style={{ backgroundColor: "#0c5c45", color: "#ffffff" }}
+              style={{ backgroundColor: "#06811d", color: "#ffffff" }}
             >
               Download kit
               <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -146,7 +146,7 @@ export default function PressPage() {
                 <p className="text-[13px] text-[#444444] group-hover:text-[#001011] transition-colors flex-1">
                   {item.headline}
                 </p>
-                <span className="shrink-0 text-[12px] font-semibold text-[#0c5c45]">Read →</span>
+                <span className="shrink-0 text-[12px] font-semibold text-[#06811d]">Read →</span>
               </a>
             ))}
           </div>

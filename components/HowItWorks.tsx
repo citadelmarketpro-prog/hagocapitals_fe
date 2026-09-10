@@ -67,12 +67,12 @@ function RiskSlider({
         <div className="absolute left-0 right-0 h-[6px] bg-[#e0e0da] rounded-full" />
         {/* Fill */}
         <div
-          className="absolute left-0 h-[6px] bg-[#0c5c45] rounded-full pointer-events-none transition-[width] duration-75"
+          className="absolute left-0 h-[6px] bg-[#06811d] rounded-full pointer-events-none transition-[width] duration-75"
           style={{ width: `${value}%` }}
         />
         {/* Thumb */}
         <div
-          className="absolute top-1/2 w-3.5 h-3.5 -translate-y-1/2 -translate-x-1/2 rounded-full bg-white border-2 border-[#0c5c45] shadow pointer-events-none transition-[left] duration-75"
+          className="absolute top-1/2 w-3.5 h-3.5 -translate-y-1/2 -translate-x-1/2 rounded-full bg-white border-2 border-[#06811d] shadow pointer-events-none transition-[left] duration-75"
           style={{ left: `${value}%` }}
         />
         {/* Real range input — invisible, drives everything above */}
@@ -181,7 +181,7 @@ function Card4() {
           <circle
             cx="18" cy="18" r="14"
             fill="none"
-            stroke="#0c5c45"
+            stroke="#06811d"
             strokeWidth="6"
             strokeDasharray="79.2 8.8"
             strokeLinecap="round"

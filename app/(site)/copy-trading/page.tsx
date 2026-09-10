@@ -73,14 +73,14 @@ export default function CopyTradingPage() {
           <h1 className="font-bold leading-[1.08] text-[#001011] text-[42px] sm:text-[58px] lg:text-[76px] max-w-4xl">
             Copy the World&apos;s Best
             <br />
-            <span className="text-[#0c5c45]">Traders</span>
+            <span className="text-[#06811d]">Traders</span>
           </h1>
           <p className="mt-6 max-w-xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
             HagoCapitals&apos;s copy trading lets you automatically replicate the moves of expert
             Leaders — so you invest smarter without needing to trade yourself.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link href="/sign-up" className="inline-flex items-center gap-2 h-[50px] px-10 rounded-full text-[14px] font-bold hover:opacity-90 transition-opacity" style={{ backgroundColor: "#0c5c45", color: "#ffffff" }}>
+            <Link href="/sign-up" className="inline-flex items-center gap-2 h-[50px] px-10 rounded-full text-[14px] font-bold hover:opacity-90 transition-opacity" style={{ backgroundColor: "#06811d", color: "#ffffff" }}>
               Start copying
               <Arrow />
             </Link>
@@ -103,8 +103,8 @@ export default function CopyTradingPage() {
             {HOW_IT_WORKS.map((s) => (
               <div key={s.num} className="relative rounded-2xl border border-[#e5e5e5] bg-white p-8 flex flex-col gap-4 overflow-hidden">
                 <span className="absolute top-4 right-5 text-[64px] font-black leading-none text-[#f0f0ea] select-none pointer-events-none">{s.num}</span>
-                <div className="w-10 h-10 rounded-full border border-[#0c5c45] bg-[#0c5c45]/15 flex items-center justify-center">
-                  <span className="text-[#0c5c45] text-[13px] font-bold">{s.num}</span>
+                <div className="w-10 h-10 rounded-full border border-[#06811d] bg-[#06811d]/15 flex items-center justify-center">
+                  <span className="text-[#06811d] text-[13px] font-bold">{s.num}</span>
                 </div>
                 <h3 className="text-[15px] font-bold text-[#001011]">{s.title}</h3>
                 <p className="text-[13px] leading-[1.75] text-[#555555]">{s.body}</p>
@@ -153,8 +153,8 @@ function Arrow() {
 function CheckCircle() {
   return (
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <circle cx="14" cy="14" r="13" stroke="#0c5c45" strokeWidth="1.5" />
-      <polyline points="8,14 12,18 20,10" stroke="#0c5c45" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="14" cy="14" r="13" stroke="#06811d" strokeWidth="1.5" />
+      <polyline points="8,14 12,18 20,10" stroke="#06811d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

@@ -139,7 +139,7 @@ export default function BrokerPage() {
           <h1 className="font-bold leading-[1.08] text-[#001011] text-[42px] sm:text-[58px] lg:text-[78px] max-w-4xl">
             Rewrite the Rules of
             <br />
-            <span className="text-[#0c5c45]">Brokerage</span>
+            <span className="text-[#06811d]">Brokerage</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
@@ -151,7 +151,7 @@ export default function BrokerPage() {
             <Link
               href="/sign-up"
               className="inline-flex items-center gap-2 h-[50px] px-10 rounded-full text-[14px] font-bold transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#0c5c45", color: "#ffffff" }}
+              style={{ backgroundColor: "#06811d", color: "#ffffff" }}
             >
               Book a meeting with us
               <ArrowRightIcon />
@@ -170,7 +170,7 @@ export default function BrokerPage() {
           <div className="text-center mb-12">
             <h2 className="text-[28px] lg:text-[42px] font-bold text-[#001011]">
               Why Partner With{" "}
-              <span className="text-[#0c5c45]">HagoCapitals</span>?
+              <span className="text-[#06811d]">HagoCapitals</span>?
             </h2>
             <p className="mt-3 text-[14px] text-[#555555]">
               Adaptation and Acquisitions are the best formula for automated solutions.
@@ -220,7 +220,7 @@ export default function BrokerPage() {
             ].map((step, i) => (
               <div key={i} className="flex flex-col items-center sm:items-start text-center sm:text-left px-6 lg:px-10 pb-10 sm:pb-0 relative">
                 {/* Step dot */}
-                <div className="w-6 h-6 rounded-full border-2 border-[#0c5c45] bg-[#0c5c45]/20 mb-5 relative z-10" />
+                <div className="w-6 h-6 rounded-full border-2 border-[#06811d] bg-[#06811d]/20 mb-5 relative z-10" />
                 <h3 className="text-[17px] lg:text-[19px] font-bold text-[#001011] leading-snug">
                   {step.title}
                 </h3>
@@ -232,7 +232,7 @@ export default function BrokerPage() {
                 {step.cta && (
                   <a
                     href="/affiliate"
-                    className="mt-1.5 text-[13px] text-[#0c5c45] hover:underline underline-offset-2"
+                    className="mt-1.5 text-[13px] text-[#06811d] hover:underline underline-offset-2"
                   >
                     {step.cta}
                   </a>
@@ -310,7 +310,7 @@ export default function BrokerPage() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] py-16 lg:py-20 flex flex-col items-center text-center gap-6">
           <h2 className="text-[28px] lg:text-[46px] font-bold leading-tight text-[#001011] max-w-2xl">
             Ready to transform your{" "}
-            <span className="text-[#0c5c45]">Brokerage</span>?
+            <span className="text-[#06811d]">Brokerage</span>?
           </h2>
           <p className="text-[14px] lg:text-[15px] text-[#555555] max-w-md">
             Join the leading brokers who have already partnered with HagoCapitals. Let&apos;s
@@ -319,7 +319,7 @@ export default function BrokerPage() {
           <Link
             href="/sign-up"
             className="inline-flex items-center gap-2 h-[50px] px-10 rounded-full text-[14px] font-bold transition-opacity hover:opacity-90"
-            style={{ backgroundColor: "#0c5c45", color: "#ffffff" }}
+            style={{ backgroundColor: "#06811d", color: "#ffffff" }}
           >
             Get started now
             <ArrowRightIcon />
@@ -341,8 +341,8 @@ export default function BrokerPage() {
           <div className="max-w-[600px] mx-auto rounded-2xl border border-[#e5e5e5] bg-[#f4f4ef] p-8 lg:p-10">
             {submitted ? (
               <div className="text-center py-8 flex flex-col gap-4">
-                <div className="w-14 h-14 rounded-full bg-[#0c5c45]/20 border border-[#0c5c45] flex items-center justify-center mx-auto">
-                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#0c5c45" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <div className="w-14 h-14 rounded-full bg-[#06811d]/20 border border-[#06811d] flex items-center justify-center mx-auto">
+                  <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#06811d" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="4,11 9,16 18,7" />
                   </svg>
                 </div>
@@ -429,7 +429,7 @@ export default function BrokerPage() {
                 <button
                   type="submit"
                   className="w-full h-[50px] rounded-full text-[14px] font-bold flex items-center justify-center gap-2 transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: "#0c5c45", color: "#ffffff" }}
+                  style={{ backgroundColor: "#06811d", color: "#ffffff" }}
                 >
                   Send message
                   <ArrowRightIcon />
@@ -449,7 +449,7 @@ export default function BrokerPage() {
 
 /* ── Form helpers ─────────────────────────────────────────────────── */
 const inputCls =
-  "w-full h-[42px] px-4 rounded-lg border border-[#d8d8d8] bg-white text-[13px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#0c5c45] focus:ring-1 focus:ring-[#0c5c45]/40 transition-colors";
+  "w-full h-[42px] px-4 rounded-lg border border-[#d8d8d8] bg-white text-[13px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#06811d] focus:ring-1 focus:ring-[#06811d]/40 transition-colors";
 
 function FormField({ label, children }: { label: string; children: React.ReactNode }) {
   return (

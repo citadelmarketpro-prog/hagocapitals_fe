@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { MotionButton, ICON_BTN_TAP, ICON_BTN_SPRING } from "@/components/ScrollReveal";
@@ -21,12 +22,14 @@ export default function Navbar() {
 
         {/* ── Logo ── */}
         <Link href="/" className="flex items-center shrink-0">
-          <span className="font-extrabold leading-none text-[20px] lg:text-[24px] text-[#001011]">
-            Hago
-          </span>
-          <span className="font-extrabold leading-none text-[20px] lg:text-[24px] text-[#0c5c45]">
-            Capitals
-          </span>
+          <Image
+            src="/logos/logo_one.png"
+            alt="HagoCapitals"
+            width={376}
+            height={284}
+            priority
+            className="h-11 lg:h-13 w-auto object-contain"
+          />
         </Link>
 
         {/* ── Desktop nav links — absolutely centered ── */}

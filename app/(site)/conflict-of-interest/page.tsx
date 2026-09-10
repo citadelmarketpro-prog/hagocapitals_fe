@@ -405,13 +405,13 @@ function ConflictCard({
       </div>
       {/* Measures */}
       <div className="bg-white px-5 py-4">
-        <p className="text-[11px] font-semibold uppercase tracking-widest text-[#0c5c45] mb-3">
+        <p className="text-[11px] font-semibold uppercase tracking-widest text-[#06811d] mb-3">
           Measures Taken
         </p>
         <ul className="flex flex-col gap-2.5">
           {measures.map((m, i) => (
             <li key={i} className="flex items-start gap-2">
-              <span className="shrink-0 mt-[5px] w-1.5 h-1.5 rounded-full bg-[#0c5c45]" />
+              <span className="shrink-0 mt-[5px] w-1.5 h-1.5 rounded-full bg-[#06811d]" />
               <span className="text-[13px] leading-[1.75] text-[#444444]">
                 {m}
               </span>

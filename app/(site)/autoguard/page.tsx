@@ -59,7 +59,7 @@ export default function AutoGuardPage() {
           style={{
             height: "160px",
             background:
-              "linear-gradient(to bottom, rgba(12,92,69,0.12) 0%, transparent 100%)",
+              "linear-gradient(to bottom, rgba(6,129,29,0.12) 0%, transparent 100%)",
           }}
         />
 
@@ -68,14 +68,14 @@ export default function AutoGuardPage() {
           <h1 className="font-bold leading-[1.08] text-[#001011] text-[40px] sm:text-[56px] lg:text-[68px]">
             Autoprotect your
             <br />
-            <span className="text-[#0c5c45]">account</span>
+            <span className="text-[#06811d]">account</span>
           </h1>
 
           <div className="mt-8 lg:mt-10">
             <Link
               href="/sign-up"
               className="inline-flex items-center justify-center gap-2 h-[44px] px-8 rounded-full text-[14px] font-bold transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#0c5c45", color: "#ffffff" }}
+              style={{ backgroundColor: "#06811d", color: "#ffffff" }}
             >
               Create account
               <ArrowRightIcon />

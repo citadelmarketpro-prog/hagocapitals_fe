@@ -426,8 +426,8 @@ function LimeBulletList({ items }: { items: string[] }) {
     <ul className="flex flex-col gap-1.5">
       {items.map((item) => (
         <li key={item} className="flex items-start gap-2">
-          <span className="shrink-0 mt-[3px] text-[#0c5c45]">•</span>
-          <span className="text-[14px] text-[#0c5c45] leading-snug">{item}</span>
+          <span className="shrink-0 mt-[3px] text-[#06811d]">•</span>
+          <span className="text-[14px] text-[#06811d] leading-snug">{item}</span>
         </li>
       ))}
     </ul>
@@ -451,7 +451,7 @@ function BulletList({ items }: { items: string[] }) {
 
 function LimeLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <a href={href} className="text-[#0c5c45] hover:underline underline-offset-2 transition-opacity hover:opacity-80">
+    <a href={href} className="text-[#06811d] hover:underline underline-offset-2 transition-opacity hover:opacity-80">
       {children}
     </a>
   );
@@ -460,7 +460,7 @@ function LimeLink({ href, children }: { href: string; children: React.ReactNode 
 function ExampleCard({ letter, children }: { letter: string; children: React.ReactNode }) {
   return (
     <div className="rounded-xl bg-[#eaeadf] px-6 py-6 flex flex-col gap-3">
-      <p className="text-[52px] font-bold text-[#0c5c45] leading-none">{letter}</p>
+      <p className="text-[52px] font-bold text-[#06811d] leading-none">{letter}</p>
       {children}
     </div>
   );

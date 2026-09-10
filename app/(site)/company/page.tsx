@@ -53,7 +53,7 @@ export default function CompanyPage() {
           <h1 className="font-bold leading-[1.08] text-[#001011] text-[42px] sm:text-[58px] lg:text-[76px] max-w-4xl">
             About
             <br />
-            <span className="text-[#0c5c45]">HagoCapitals</span>
+            <span className="text-[#06811d]">HagoCapitals</span>
           </h1>
           <p className="mt-6 max-w-2xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
             HagoCapitals is a leading social copy-trading platform built to make professional
@@ -150,7 +150,7 @@ export default function CompanyPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 divide-y divide-[#cfe8dd] border border-[#cfe8dd] rounded-2xl overflow-hidden">
             {VALUES.map((v, i) => (
               <div key={i} className={`p-8 lg:p-10 flex flex-col gap-3 bg-white ${i % 2 === 0 ? "sm:border-r border-[#cfe8dd]" : ""}`}>
-                <h3 className="text-[16px] font-bold text-[#0c5c45]">{v.title}</h3>
+                <h3 className="text-[16px] font-bold text-[#06811d]">{v.title}</h3>
                 <p className="text-[13px] leading-[1.75] text-[#555555]">{v.body}</p>
               </div>
             ))}

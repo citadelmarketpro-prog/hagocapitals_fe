@@ -67,14 +67,14 @@ export default function SmartPortfolioPage() {
           <h1 className="font-bold leading-[1.08] text-[#001011] text-[42px] sm:text-[58px] lg:text-[76px] max-w-4xl">
             Invest Smarter with
             <br />
-            <span className="text-[#0c5c45]">Smart Portfolio</span>
+            <span className="text-[#06811d]">Smart Portfolio</span>
           </h1>
           <p className="mt-6 max-w-xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
             Smart Portfolio is HagoCapitals&apos;s intelligent allocation engine — it builds
             a diversified, risk-managed portfolio of top Leaders for you automatically.
           </p>
           <div className="mt-10">
-            <Link href="/sign-up" className="inline-flex items-center gap-2 h-[50px] px-10 rounded-full text-[14px] font-bold hover:opacity-90 transition-opacity" style={{ backgroundColor: "#0c5c45", color: "#ffffff" }}>
+            <Link href="/sign-up" className="inline-flex items-center gap-2 h-[50px] px-10 rounded-full text-[14px] font-bold hover:opacity-90 transition-opacity" style={{ backgroundColor: "#06811d", color: "#ffffff" }}>
               Build my portfolio
               <Arrow />
             </Link>
@@ -148,8 +148,8 @@ function Arrow() {
 function CheckCircle() {
   return (
     <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
-      <circle cx="14" cy="14" r="13" stroke="#0c5c45" strokeWidth="1.5" />
-      <polyline points="8,14 12,18 20,10" stroke="#0c5c45" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      <circle cx="14" cy="14" r="13" stroke="#06811d" strokeWidth="1.5" />
+      <polyline points="8,14 12,18 20,10" stroke="#06811d" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }

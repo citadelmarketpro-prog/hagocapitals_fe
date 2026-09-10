@@ -415,7 +415,7 @@ export default function UserGuidePage() {
                     },
                   ].map((step) => (
                     <div key={step.n} className="flex gap-3">
-                      <span className="shrink-0 mt-[2px] text-[14px] font-semibold text-[#0c5c45] leading-none">
+                      <span className="shrink-0 mt-[2px] text-[14px] font-semibold text-[#06811d] leading-none">
                         {step.n}.
                       </span>
                       <div className="flex flex-col gap-1">
@@ -680,7 +680,7 @@ function SectionHeading({ children }: { children: React.ReactNode }) {
 
 function LimeSubHeading({ children }: { children: React.ReactNode }) {
   return (
-    <h3 className="text-[15px] font-semibold text-[#0c5c45] leading-snug">{children}</h3>
+    <h3 className="text-[15px] font-semibold text-[#06811d] leading-snug">{children}</h3>
   );
 }
 
@@ -712,7 +712,7 @@ function BulletList({ items }: { items: string[] }) {
 
 function LimeLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <a href={href} className="text-[#0c5c45] hover:underline underline-offset-2 transition-opacity hover:opacity-80">
+    <a href={href} className="text-[#06811d] hover:underline underline-offset-2 transition-opacity hover:opacity-80">
       {children}
     </a>
   );
@@ -721,7 +721,7 @@ function LimeLink({ href, children }: { href: string; children: React.ReactNode 
 function NumberedItem({ n, title, children }: { n: string; title: string; children: React.ReactNode }) {
   return (
     <div className="flex gap-3">
-      <span className="shrink-0 mt-[2px] text-[14px] font-semibold text-[#0c5c45] leading-none">{n}.</span>
+      <span className="shrink-0 mt-[2px] text-[14px] font-semibold text-[#06811d] leading-none">{n}.</span>
       <div className="flex flex-col gap-2">
         <p className="text-[14px] font-semibold text-[#001011] leading-snug">{title}</p>
         {children}
@@ -732,8 +732,8 @@ function NumberedItem({ n, title, children }: { n: string; title: string; childr
 
 function NoteBlock({ children }: { children: React.ReactNode }) {
   return (
-    <div className="rounded-lg border-l-2 border-[#0c5c45] pl-4 py-1 bg-[#fafaf8]">
-      <p className="text-[13px] font-semibold text-[#0c5c45] mb-1">Note:</p>
+    <div className="rounded-lg border-l-2 border-[#06811d] pl-4 py-1 bg-[#fafaf8]">
+      <p className="text-[13px] font-semibold text-[#06811d] mb-1">Note:</p>
       <p className="text-[13px] leading-[1.8] text-[#444444]">{children}</p>
     </div>
   );

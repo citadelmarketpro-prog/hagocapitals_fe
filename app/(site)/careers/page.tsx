@@ -68,7 +68,7 @@ export default function CareersPage() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] pt-16 lg:pt-24 pb-14 lg:pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             <div className="max-w-2xl">
-              <p className="text-[12px] font-bold tracking-widest text-[#0c5c45] uppercase mb-4">
+              <p className="text-[12px] font-bold tracking-widest text-[#06811d] uppercase mb-4">
                 We&apos;re hiring
               </p>
               <h1 className="text-[36px] lg:text-[56px] font-bold leading-[1.08] text-[#001011]">
@@ -150,7 +150,7 @@ export default function CareersPage() {
                 <div className="flex items-center gap-6 shrink-0">
                   <span className="text-[12px] text-[#666666]">{r.location}</span>
                   <span className="text-[11px] text-[#888888]">{r.type}</span>
-                  <button className="text-[12px] font-semibold text-[#0c5c45] hover:underline underline-offset-2">
+                  <button className="text-[12px] font-semibold text-[#06811d] hover:underline underline-offset-2">
                     Apply →
                   </button>
                 </div>
@@ -160,7 +160,7 @@ export default function CareersPage() {
 
           <p className="mt-8 text-[13px] text-[#666666]">
             Don&apos;t see a role that fits? Send your CV to{" "}
-            <a href="mailto:careers@HagoCapitals.com" className="text-[#0c5c45] hover:underline underline-offset-2">
+            <a href="mailto:careers@HagoCapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
               careers@HagoCapitals.com
             </a>{" "}
             and we&apos;ll keep you in mind for future openings.

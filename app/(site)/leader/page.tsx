@@ -64,7 +64,7 @@ const PLATFORMS = [
     name: "XOH Trading Platform",
     body: "XOH Trading Platform is our proprietary web-based platform designed specifically for social trading and copy trading, offering real-time copy trades for novice and expert traders alike.",
     icon: "XOH",
-    accent: "#0c5c45",
+    accent: "#06811d",
   },
   {
     name: "ActTrader",
@@ -167,7 +167,7 @@ export default function LeaderPage() {
           <h1 className="font-bold leading-[1.08] text-[#001011] text-[42px] sm:text-[58px] lg:text-[76px] max-w-4xl">
             Become a Leader with
             <br />
-            <span className="text-[#0c5c45]">HagoCapitals</span>
+            <span className="text-[#06811d]">HagoCapitals</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
@@ -182,7 +182,7 @@ export default function LeaderPage() {
             <Link
               href="/sign-up"
               className="inline-flex items-center gap-2 h-[50px] px-10 rounded-full text-[14px] font-bold transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#0c5c45", color: "#ffffff" }}
+              style={{ backgroundColor: "#06811d", color: "#ffffff" }}
             >
               Create account
               <ArrowRightIcon />
@@ -321,7 +321,7 @@ export default function LeaderPage() {
             <Link
               href="/sign-up"
               className="self-start sm:self-center inline-flex items-center gap-2 h-[44px] px-7 rounded-full text-[13px] font-bold transition-opacity hover:opacity-90 shrink-0"
-              style={{ backgroundColor: "#0c5c45", color: "#ffffff" }}
+              style={{ backgroundColor: "#06811d", color: "#ffffff" }}
             >
               Open account
               <ArrowRightIcon />
@@ -388,7 +388,7 @@ function LeaderStepIcon() {
       {/* Large dark circle (back) */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full border border-[#d0d0d0] bg-[#f0f0ea]" />
       {/* Small lime circle with sparkle (front) */}
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#0c5c45]/20 border border-[#0c5c45] flex items-center justify-center z-10">
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-[#06811d]/20 border border-[#06811d] flex items-center justify-center z-10">
         <SparkleIcon />
       </div>
     </div>
@@ -408,7 +408,7 @@ function LeaderFaqCard({ question, answer }: { question: string; answer: string 
           {question}
         </span>
         <span
-          className={`shrink-0 text-[#0c5c45] text-[20px] font-light leading-none transition-transform duration-200 ${
+          className={`shrink-0 text-[#06811d] text-[20px] font-light leading-none transition-transform duration-200 ${
             open ? "rotate-45" : ""
           }`}
         >
@@ -441,7 +441,7 @@ function SparkleIcon() {
     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
       <path
         d="M7 1 L7.8 5.5 L12 7 L7.8 8.5 L7 13 L6.2 8.5 L2 7 L6.2 5.5 Z"
-        fill="#0c5c45"
+        fill="#06811d"
         strokeLinejoin="round"
       />
     </svg>

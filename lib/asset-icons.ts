@@ -85,3 +85,16 @@ const FALLBACK: AssetMeta = { color: "#1e2a20", textColor: "#8fa896", icon: null
 export function getAssetMeta(ticker: string): AssetMeta {
   return ASSET_META[ticker] ?? FALLBACK;
 }
+
+/**
+ * FMP's public logo CDN — no API key required. Covers most stocks, crypto,
+ * indices and futures shorthand, and forex pairs once the slash is stripped
+ * (e.g. "EUR/USD" -> "EURUSD"). A handful of tickers 404 (SPX, NQ, GC, DOGE,
+ * bare index/futures shorthand) — callers should treat a failed image load
+ * as "no icon" and fall back to `getAssetMeta(ticker)`'s color/textColor
+ * badge, not assume this URL always resolves.
+ */
+export function getFmpIconUrl(ticker: string): string {
+  const symbol = ticker.replace(/\//g, "");
+  return `https://images.financialmodelingprep.com/symbol/${symbol}.png`;
+}
