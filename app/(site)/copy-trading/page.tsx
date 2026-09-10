@@ -9,11 +9,21 @@ export const metadata: Metadata = {
     description:
       "Follow expert traders and mirror their positions in real time. Grow your portfolio without years of experience.",
     url: "https://HagoCapitals.com/copy-trading",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HagoCapitals — Copy Trading Platform",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Copy Trading | HagoCapitals",
     description:
       "Follow expert traders and mirror their positions in real time. Grow your portfolio without years of experience.",
+    images: ["/opengraph-image.png"],
   },
 };
 

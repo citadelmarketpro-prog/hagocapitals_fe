@@ -9,11 +9,21 @@ export const metadata: Metadata = {
     description:
       "HagoCapitals in the news. Latest press coverage, media mentions, and official press releases.",
     url: "https://HagoCapitals.com/press",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HagoCapitals — Copy Trading Platform",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Press | HagoCapitals",
     description:
       "HagoCapitals in the news. Latest press coverage, media mentions, and official press releases.",
+    images: ["/opengraph-image.png"],
   },
 };
 

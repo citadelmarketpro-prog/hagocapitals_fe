@@ -9,6 +9,21 @@ export const metadata: Metadata = {
     description:
       "Review the consents you provide when creating a HagoCapitals account and using our services.",
     url: "https://HagoCapitals.com/declaration-of-consent",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HagoCapitals — Copy Trading Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Declaration of Consent | HagoCapitals",
+    description:
+      "Review the consents you provide when creating a HagoCapitals account and using our services.",
+    images: ["/opengraph-image.png"],
   },
 };
 

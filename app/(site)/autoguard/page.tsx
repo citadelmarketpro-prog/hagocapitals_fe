@@ -9,11 +9,21 @@ export const metadata: Metadata = {
     description:
       "Automated risk management that sets stop-loss limits, monitors drawdown, and safeguards your capital 24/7.",
     url: "https://HagoCapitals.com/autoguard",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HagoCapitals — Copy Trading Platform",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "AutoGuard Risk Protection | HagoCapitals",
     description:
       "Automated risk management that sets stop-loss limits, monitors drawdown, and safeguards your capital 24/7.",
+    images: ["/opengraph-image.png"],
   },
 };
 

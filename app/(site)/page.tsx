@@ -16,11 +16,21 @@ export const metadata: Metadata = {
     description:
       "Join HagoCapitals and automatically copy the trades of expert investors. Real-time signals, smart portfolios, and AutoGuard risk protection.",
     url: "https://HagoCapitals.com",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HagoCapitals — Copy Trading Platform",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "HagoCapitals — Copy Top Traders Automatically",
     description:
       "Join HagoCapitals and automatically copy the trades of expert investors. Real-time signals, smart portfolios, and AutoGuard risk protection.",
+    images: ["/opengraph-image.png"],
   },
 };
 

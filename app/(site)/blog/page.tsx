@@ -9,11 +9,21 @@ export const metadata: Metadata = {
     description:
       "Trading tips, platform updates, market insights, and community stories from the HagoCapitals team.",
     url: "https://HagoCapitals.com/blog",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HagoCapitals — Copy Trading Platform",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Blog | HagoCapitals",
     description:
       "Trading tips, platform updates, market insights, and community stories from the HagoCapitals team.",
+    images: ["/opengraph-image.png"],
   },
 };
 

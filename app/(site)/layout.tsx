@@ -6,6 +6,18 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "HagoCapitals",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HagoCapitals — Copy Trading Platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/opengraph-image.png"],
   },
 };
 

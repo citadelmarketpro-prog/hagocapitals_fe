@@ -9,11 +9,21 @@ export const metadata: Metadata = {
     description:
       "Join the HagoCapitals team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
     url: "https://HagoCapitals.com/careers",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HagoCapitals — Copy Trading Platform",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Careers | HagoCapitals",
     description:
       "Join the HagoCapitals team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
+    images: ["/opengraph-image.png"],
   },
 };
 

@@ -9,11 +9,21 @@ export const metadata: Metadata = {
     description:
       "Learn about HagoCapitals — our mission to make expert-level investing accessible to everyone, our story, values, and the team behind the platform.",
     url: "https://HagoCapitals.com/company",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HagoCapitals — Copy Trading Platform",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Company | HagoCapitals",
     description:
       "Learn about HagoCapitals — our mission to make expert-level investing accessible to everyone.",
+    images: ["/opengraph-image.png"],
   },
 };
 

@@ -9,11 +9,21 @@ export const metadata: Metadata = {
     description:
       "Build a diversified investment portfolio automatically. Intelligent allocation across top-performing traders and asset classes.",
     url: "https://HagoCapitals.com/smart-portfolio",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HagoCapitals — Copy Trading Platform",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Smart Portfolio | HagoCapitals",
     description:
       "Build a diversified investment portfolio automatically. Intelligent allocation across top-performing traders and asset classes.",
+    images: ["/opengraph-image.png"],
   },
 };
 

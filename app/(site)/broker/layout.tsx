@@ -9,11 +9,21 @@ export const metadata: Metadata = {
     description:
       "Partner with HagoCapitals as a broker. Integrate copy trading technology and offer best-in-class social investing tools.",
     url: "https://HagoCapitals.com/broker",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HagoCapitals — Copy Trading Platform",
+      },
+    ],
   },
   twitter: {
+    card: "summary_large_image",
     title: "Broker Partnership | HagoCapitals",
     description:
       "Partner with HagoCapitals as a broker. Integrate copy trading technology and offer best-in-class social investing tools.",
+    images: ["/opengraph-image.png"],
   },
 };
 
