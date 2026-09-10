@@ -123,7 +123,7 @@ export default function RootLayout({
         </ThemeProvider>
 
         <Script
-          src="//code.jivosite.com/widget/2Rfs1A2vFt"
+          src="//code.jivosite.com/widget/wlChsKiI52"
           strategy="afterInteractive"
         /> 
 
