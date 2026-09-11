@@ -216,25 +216,19 @@ export default function Hero() {
       </section>
 
       {/* ════════════════════════════════════════════════════════
-          STATS BAR — dark card, the "white" beat right after the
-          dark hero (a light section wrapping a dark floating card)
+          STATS BAR — the "white" beat right after the dark hero
       ════════════════════════════════════════════════════════ */}
-      <div className="w-full bg-white py-10 sm:py-14 lg:py-20 px-5">
-        <Stagger
-          className="max-w-[1100px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10"
-          style={{ backgroundColor: "#141414" }}
-        >
-          <div className="grid grid-cols-3 divide-x divide-white/10">
-            <StaggerItem><StatItem value="1M+"    label="Registered users" /></StaggerItem>
-            <StaggerItem><StatItem value="50K+"   label="Active traders (monthly)" /></StaggerItem>
-            <StaggerItem><StatItem value="$500M+" label="Trading volume (annual)" /></StaggerItem>
-          </div>
-          <div className="border-t border-white/10 py-4 sm:py-5 text-center">
-            <span className="text-[11px] sm:text-[13px] text-gray-400">
-              As of {currentQuarterLabel()} &middot; audited figures
-            </span>
-          </div>
+      <div className="w-full bg-white border-y-2 border-[#e8ead8]">
+        <Stagger className="max-w-[1440px] mx-auto grid grid-cols-3 divide-x-2 divide-[#e8ead8]">
+          <StaggerItem><StatItem value="1M+"    label="Registered users" /></StaggerItem>
+          <StaggerItem><StatItem value="50K+"   label="Active traders (monthly)" /></StaggerItem>
+          <StaggerItem><StatItem value="$500M+" label="Trading volume (annual)" /></StaggerItem>
         </Stagger>
+        <div className="text-center py-3 sm:py-4 border-t-2 border-[#e8ead8]">
+          <span className="text-[11px] sm:text-[13px] text-[#888888]">
+            As of {currentQuarterLabel()} &middot; audited figures
+          </span>
+        </div>
       </div>
     </>
   );
@@ -251,11 +245,11 @@ function currentQuarterLabel(): string {
 
 function StatItem({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex flex-col items-center justify-center text-center px-2 py-6 sm:py-12 lg:py-16">
-      <span className="font-extrabold text-[26px] sm:text-[40px] lg:text-[56px] leading-none text-white">
+    <div className="flex flex-col items-center justify-center px-1 py-6 sm:py-12 lg:py-20">
+      <span className="font-extrabold text-[21px] sm:text-[48px] lg:text-[72px] leading-none text-[#06811d]">
         {value}
       </span>
-      <span className="mt-2 sm:mt-3 text-[11px] sm:text-[13px] lg:text-[15px] text-gray-400 leading-snug">
+      <span className="mt-2 sm:mt-3 text-[10px] sm:text-[13px] lg:text-[17px] text-[#666666] leading-tight text-center">
         {label}
       </span>
     </div>
