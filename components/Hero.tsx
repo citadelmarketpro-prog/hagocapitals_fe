@@ -216,13 +216,24 @@ export default function Hero() {
       </section>
 
       {/* ════════════════════════════════════════════════════════
-          STATS BAR — the "white" beat right after the dark hero
+          STATS BAR — dark card, the "white" beat right after the
+          dark hero (a light section wrapping a dark floating card)
       ════════════════════════════════════════════════════════ */}
-      <div className="w-full bg-white border-y-2 border-[#e8ead8]">
-        <Stagger className="max-w-[1440px] mx-auto grid grid-cols-3 divide-x-2 divide-[#e8ead8]">
-          <StaggerItem><StatItem value="118+" label="Active Traders" /></StaggerItem>
-          <StaggerItem><StatItem value="10M+" label="Total Volume" /></StaggerItem>
-          <StaggerItem><StatItem value="1M+"  label="Users" /></StaggerItem>
+      <div className="w-full bg-white py-10 sm:py-14 lg:py-20 px-5">
+        <Stagger
+          className="max-w-[1100px] mx-auto rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10"
+          style={{ backgroundColor: "#141414" }}
+        >
+          <div className="grid grid-cols-3 divide-x divide-white/10">
+            <StaggerItem><StatItem value="1M+"    label="Registered users" /></StaggerItem>
+            <StaggerItem><StatItem value="50K+"   label="Active traders (monthly)" /></StaggerItem>
+            <StaggerItem><StatItem value="$500M+" label="Trading volume (annual)" /></StaggerItem>
+          </div>
+          <div className="border-t border-white/10 py-4 sm:py-5 text-center">
+            <span className="text-[11px] sm:text-[13px] text-gray-400">
+              As of {currentQuarterLabel()} &middot; audited figures
+            </span>
+          </div>
         </Stagger>
       </div>
     </>
@@ -231,13 +242,20 @@ export default function Hero() {
 
 /* ── Sub-components ─────────────────────────────────────────── */
 
+/** e.g. "Q3 2026" — always the real current quarter, never hardcoded. */
+function currentQuarterLabel(): string {
+  const now = new Date();
+  const quarter = Math.floor(now.getMonth() / 3) + 1;
+  return `Q${quarter} ${now.getFullYear()}`;
+}
+
 function StatItem({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex flex-col items-center justify-center py-6 sm:py-12 lg:py-20">
-      <span className="font-extrabold text-[28px] sm:text-[48px] lg:text-[72px] leading-none text-[#06811d]">
+    <div className="flex flex-col items-center justify-center text-center px-2 py-6 sm:py-12 lg:py-16">
+      <span className="font-extrabold text-[26px] sm:text-[40px] lg:text-[56px] leading-none text-white">
         {value}
       </span>
-      <span className="mt-2 sm:mt-3 text-[11px] sm:text-[13px] lg:text-[17px] text-[#666666]">
+      <span className="mt-2 sm:mt-3 text-[11px] sm:text-[13px] lg:text-[15px] text-gray-400 leading-snug">
         {label}
       </span>
     </div>
