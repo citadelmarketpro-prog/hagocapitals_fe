@@ -71,7 +71,7 @@ export default function LoyaltyProgramCard() {
  </button>
  </div>
  <p
- className="mt-1 text-[12px] text-[#888888] cursor-pointer hover:text-[#06811d] transition-colors underline decoration-dashed underline-offset-4 w-fit"
+ className="mt-1 text-[12px] text-[#888888] cursor-pointer hover:text-[#16a34a] transition-colors underline decoration-dashed underline-offset-4 w-fit"
  onClick={() => setShowInfoModal(true)}
  >
  Deposit more to increase your Loyalty Rank
@@ -100,16 +100,16 @@ export default function LoyaltyProgramCard() {
 
  {/* Upgrade amount / max tier message */}
  {!isMax ? (
- <div className="p-3.5 rounded-xl bg-[#eaf5f0] border border-[#06811d]/15">
+ <div className="p-3.5 rounded-xl bg-[#eaf5f0] border border-[#16a34a]/15">
  <div className="flex items-start gap-2.5">
- <div className="w-8 h-8 rounded-full bg-[#06811d]/10 border border-[#06811d]/25 flex items-center justify-center shrink-0">
- <TrendingUp className="w-4 h-4 text-[#06811d]" />
+ <div className="w-8 h-8 rounded-full bg-[#16a34a]/10 border border-[#16a34a]/25 flex items-center justify-center shrink-0">
+ <TrendingUp className="w-4 h-4 text-[#16a34a]" />
  </div>
  <div className="flex-1 min-w-0">
- <p className="text-[11px] text-[#06811d] font-medium mb-0.5">
+ <p className="text-[11px] text-[#16a34a] font-medium mb-0.5">
  Deposit to upgrade to <span className="capitalize">{next}</span>
  </p>
- <p className="text-[18px] font-bold text-[#06811d]">
+ <p className="text-[18px] font-bold text-[#16a34a]">
  ${amount.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
  </p>
  </div>

@@ -125,7 +125,7 @@ export default function RootLayout({
         <Script id="smartsupp-livechat" strategy="afterInteractive">
           {`
             var _smartsupp = _smartsupp || {};
-            _smartsupp.key = '596111f10d79021528b98745e41544a90a4139a9';
+            _smartsupp.key = '0ed4e71313b1deb7239632a2a9b6e390ae9e3f6d';
             window.smartsupp || (function (d) {
               var s, c, o = smartsupp = function () { o._.push(arguments); }; o._ = [];
               s = d.getElementsByTagName('script')[0]; c = d.createElement('script');

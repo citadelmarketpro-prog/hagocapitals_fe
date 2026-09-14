@@ -72,29 +72,29 @@ export default function LoyaltyProgramModal({
  <div className="p-6">
  {isLoading || !data ? (
  <div className="flex items-center justify-center py-16">
- <Loader2 className="w-6 h-6 animate-spin text-[#06811d]" />
+ <Loader2 className="w-6 h-6 animate-spin text-[#16a34a]" />
  </div>
  ) : (
  <>
  {/* Your progress */}
- <div className="rounded-2xl p-4 mb-5 bg-[#eaf5f0] border border-[#06811d]/15">
+ <div className="rounded-2xl p-4 mb-5 bg-[#eaf5f0] border border-[#16a34a]/15">
  <div className="flex items-center justify-between mb-2">
  <span className="text-[12px] font-semibold text-[#001011] capitalize">Your tier: {data.current_tier}</span>
- <span className="text-[12px] font-semibold text-[#06811d]">
+ <span className="text-[12px] font-semibold text-[#16a34a]">
  ${data.total_deposits.toLocaleString(undefined, { maximumFractionDigits: 0 })}
  {!isMax && ` / $${data.next_amount_to_upgrade.toLocaleString(undefined, { maximumFractionDigits: 0 })}`}
  </span>
  </div>
  <div className="h-2 rounded-full bg-white overflow-hidden">
  <div
- className="h-full rounded-full bg-gradient-to-r from-[#06811d] to-[#22c55e] transition-all duration-500"
+ className="h-full rounded-full bg-gradient-to-r from-[#16a34a] to-[#22c55e] transition-all duration-500"
  style={{ width: `${pct}%` }}
  />
  </div>
  <p className="text-[11px] text-[#555555] mt-2">
  {isMax
  ? "You've reached the highest tier — thank you for being a top member!"
- : <>Deposit <span className="font-semibold text-[#06811d]">${Math.max(0, data.next_amount_to_upgrade - data.total_deposits).toLocaleString(undefined, { maximumFractionDigits: 0 })}</span> more to reach <span className="capitalize font-semibold">{data.next_tier}</span>.</>}
+ : <>Deposit <span className="font-semibold text-[#16a34a]">${Math.max(0, data.next_amount_to_upgrade - data.total_deposits).toLocaleString(undefined, { maximumFractionDigits: 0 })}</span> more to reach <span className="capitalize font-semibold">{data.next_tier}</span>.</>}
  </p>
  </div>
 
@@ -108,11 +108,11 @@ export default function LoyaltyProgramModal({
  <div
  key={tier.key}
  className={`relative rounded-2xl border p-3.5 transition-opacity ${
- isCurrent ? "border-[#06811d] bg-[#eaf5f0]" : "border-[#e5e5e5] bg-white"
+ isCurrent ? "border-[#16a34a] bg-[#eaf5f0]" : "border-[#e5e5e5] bg-white"
  } ${!isUnlocked ? "opacity-60" : ""}`}
  >
  {isCurrent && (
- <span className="absolute -top-2 right-3 px-2 py-0.5 bg-[#06811d] text-white text-[9px] font-bold uppercase tracking-wider rounded-full">
+ <span className="absolute -top-2 right-3 px-2 py-0.5 bg-[#16a34a] text-white text-[9px] font-bold uppercase tracking-wider rounded-full">
  Current
  </span>
  )}
@@ -124,7 +124,7 @@ export default function LoyaltyProgramModal({
  <div className="flex items-center gap-2">
  <span className="text-[13.5px] font-bold text-[#001011]">{tier.name}</span>
  {isUnlocked && !isCurrent && (
- <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#eaf5f0] text-[#06811d] font-medium">Unlocked</span>
+ <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#eaf5f0] text-[#16a34a] font-medium">Unlocked</span>
  )}
  </div>
  <div className="flex items-center gap-3 mt-1 text-[10.5px] text-[#888888]">
@@ -142,7 +142,7 @@ export default function LoyaltyProgramModal({
 
  <button
  onClick={() => { onClose(); onDeposit?.(); }}
- className="w-full h-11 mt-5 rounded-full text-[13px] font-bold text-white bg-[#06811d] hover:opacity-90 transition-opacity"
+ className="w-full h-11 mt-5 rounded-full text-[13px] font-bold text-white bg-[#16a34a] hover:opacity-90 transition-opacity"
  >
  Make a Deposit
  </button>

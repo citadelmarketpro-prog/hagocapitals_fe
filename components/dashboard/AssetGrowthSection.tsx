@@ -62,7 +62,7 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
   return (
     <div className="bg-white border border-[#e5e5e5] rounded-lg px-3 py-2 shadow-lg">
       <p className="text-[10px] text-[#888888] mb-1">{label}</p>
-      <p className={`text-sm font-bold ${isPos ? "text-[#06811d]" : "text-[#dc2626]"}`}>
+      <p className={`text-sm font-bold ${isPos ? "text-[#16a34a]" : "text-[#dc2626]"}`}>
         {fmtSigned(val)}
       </p>
     </div>
@@ -71,7 +71,7 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
 
 function CustomActiveDot({ cx, cy, payload }: { cx?: number; cy?: number; payload?: ChartPoint }) {
   const isPos = (payload?.cumulative_pnl ?? 0) >= 0;
-  const color = isPos ? "#06811d" : "#dc2626";
+  const color = isPos ? "#16a34a" : "#dc2626";
   return (
     <g>
       <circle cx={cx} cy={cy} r={9} fill={color} fillOpacity={0.15} />
@@ -87,14 +87,17 @@ export default function AssetGrowthSection() {
   const points = useMemo(() => data?.points ?? [], [data]);
   const totalPnl = data?.total_pnl ?? 0;
   const isPositive = totalPnl >= 0;
-  const lineColor = isPositive ? "#06811d" : "#dc2626";
+  const lineColor = isPositive ? "#16a34a" : "#dc2626";
   const gradientId = isPositive ? "assetGrowthGreen" : "assetGrowthRed";
 
   return (
-    <div className="bg-white border border-[#e5e5e5] rounded-xl p-4 sm:p-5">
+    <div
+      className="rounded-xl p-4 sm:p-5 bg-white/55 border border-white/90 backdrop-blur-2xl"
+      style={{ boxShadow: "0 8px 32px rgba(31,41,55,0.08), inset 0 1px 0 rgba(255,255,255,0.6)" }}
+    >
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-[16px] font-bold text-[#001011]">Asset Growth</h2>
-        <div className={`flex items-center gap-1.5 ${isPositive ? "text-[#06811d]" : "text-[#dc2626]"}`}>
+        <div className={`flex items-center gap-1.5 ${isPositive ? "text-[#16a34a]" : "text-[#dc2626]"}`}>
           {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
           <span className="text-[13px] font-bold">{fmtSigned(totalPnl)}</span>
         </div>
@@ -113,7 +116,7 @@ export default function AssetGrowthSection() {
             <AreaChart data={points} margin={{ top: 10, right: 4, left: 0, bottom: 0 }}>
               <defs>
                 <linearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor={lineColor} stopOpacity={0.25} />
+                  <stop offset="5%" stopColor={lineColor} stopOpacity={0.3} />
                   <stop offset="95%" stopColor={lineColor} stopOpacity={0} />
                 </linearGradient>
               </defs>
@@ -149,7 +152,7 @@ export default function AssetGrowthSection() {
             onClick={() => setPeriod(value)}
             className={`h-6 px-2.5 rounded-full text-[11px] font-medium transition-colors ${
               period === value
-                ? "bg-[#06811d] text-white"
+                ? "bg-[#16a34a] text-white"
                 : "text-[#888888] hover:text-[#001011]"
             }`}
           >

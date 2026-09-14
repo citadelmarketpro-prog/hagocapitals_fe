@@ -87,7 +87,10 @@ export default function DashboardPage() {
  const kycStatus = profile?.kyc_status ?? null; // null = still loading
 
  return (
- <div className="min-h-screen flex flex-col">
+ <div
+ className="min-h-screen flex flex-col"
+ style={{ background: "radial-gradient(circle at 30% 0%, #eef6f1 0%, #e4edf3 45%, #dfe7ef 100%)" }}
+ >
  <DashNav />
  <main className="flex-1 px-4 py-4 lg:px-6 lg:py-5">
  <div className="max-w-[1360px] mx-auto flex flex-col gap-4">
@@ -167,7 +170,7 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  <div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-white border-b border-[#f0f0ec]">
  <span className="text-[15px] font-bold text-[#001011]">Notifications</span>
  {unread > 0 && (
- <span className="w-5 h-5 rounded-full bg-[#06811d] flex items-center justify-center text-[10px] font-bold text-white shrink-0">{unread}</span>
+ <span className="w-5 h-5 rounded-full bg-[#16a34a] flex items-center justify-center text-[10px] font-bold text-white shrink-0">{unread}</span>
  )}
  {unread > 0 && (
  <button onClick={markAllRead} className="ml-auto text-[12px] text-[#555555] hover:text-[#001011] transition-colors whitespace-nowrap">
@@ -185,7 +188,7 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  ) : notifs.map((n) => (
  <div key={n.id} onClick={() => { if (!n.is_read) markOneRead(n.id); }}
  className="flex gap-3 px-4 py-3.5 border-b border-[#f5f5f0] hover:bg-[#fafaf7] transition-colors cursor-pointer">
- <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#06811d]" : "bg-[#ebebea]"}`}>
+ <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#16a34a]" : "bg-[#ebebea]"}`}>
  <SyncIcon color={!n.is_read ? "white" : "#999999"} />
  </div>
  <div className="flex-1 min-w-0">
@@ -193,7 +196,7 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  {n.body && <p className="text-[12px] text-[#666666] leading-snug mb-1">{n.body}</p>}
  <p className="text-[11px] text-[#aaaaaa] text-right">{timeAgo(n.created_at)}</p>
  </div>
- {!n.is_read && <span className="w-2 h-2 rounded-full bg-[#06811d] shrink-0 mt-1.5" />}
+ {!n.is_read && <span className="w-2 h-2 rounded-full bg-[#16a34a] shrink-0 mt-1.5" />}
  </div>
  ))}
  </div>
@@ -306,7 +309,7 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  <input
  value={firstName}
  onChange={(e) => setFirstName(e.target.value)}
- className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
  />
  </div>
  <div>
@@ -316,7 +319,7 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  <input
  value={lastName}
  onChange={(e) => setLastName(e.target.value)}
- className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
  />
  </div>
  </div>
@@ -330,9 +333,9 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  <input
  value={username}
  onChange={(e) => setUsername(e.target.value)}
- className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
  />
- <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#06811d]">
+ <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#16a34a]">
  <GreenCheckCircleIcon />
  </div>
  </div>
@@ -347,9 +350,9 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  <input
  value={email}
  onChange={(e) => setEmail(e.target.value)}
- className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
  />
- <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#06811d]">
+ <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#16a34a]">
  <GreenCheckCircleIcon />
  </div>
  </div>
@@ -357,7 +360,7 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  </div>
 
  {/* Submit */}
- <button className="w-full h-11 mt-6 rounded-full text-[13px] font-bold bg-[#06811d] text-white hover:opacity-90 transition-opacity">
+ <button className="w-full h-11 mt-6 rounded-full text-[13px] font-bold bg-[#16a34a] text-white hover:opacity-90 transition-opacity">
  Update information
  </button>
  </div>
@@ -404,7 +407,7 @@ function KycBadge({ status }: { status: string | null }) {
  }
  if (status === "approved") {
  return (
- <span className="inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[10px] font-semibold w-fit bg-[rgba(6,129,29,0.1)] border border-[rgba(6,129,29,0.2)] text-[#06811d]">
+ <span className="inline-flex items-center gap-1 rounded-md px-2 py-0.5 text-[10px] font-semibold w-fit bg-[rgba(22,163,74,0.1)] border border-[rgba(22,163,74,0.2)] text-[#16a34a]">
  ✓ Verified
  </span>
  );
@@ -448,16 +451,19 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  const pct = stats ? stats.pct_change : 0;
  const pctLabel = pct >= 0 ? `+${pct.toFixed(1)}%` : `${pct.toFixed(1)}%`;
  const pctColor = pct >= 0
- ? "text-[#06811d]"
+ ? "text-[#16a34a]"
  : "text-[#dc2626]";
  const todayPnl = stats?.today_pnl ?? 0;
  const todayPnlPct = stats?.today_pnl_pct ?? 0;
  const todayUp = todayPnl >= 0;
- const todayColor = todayUp ? "#06811d" : "#dc2626";
+ const todayColor = todayUp ? "#16a34a" : "#dc2626";
 
  return (
  <>
- <div className="overflow-hidden rounded-xl bg-[#e5e3d5] border border-[#d0cec0]">
+ <div
+ className="overflow-hidden rounded-xl bg-white/55 border border-white/90 backdrop-blur-2xl"
+ style={{ boxShadow: "0 8px 32px rgba(31,41,55,0.08), inset 0 1px 0 rgba(255,255,255,0.6)" }}
+ >
 
  {/* ── Top section ── */}
  <div className="px-5 pt-5 pb-5">
@@ -467,12 +473,12 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  <KycBadge status={kycStatus} />
 
  {/* LIVE indicator */}
- <div className="flex items-center gap-1.5 rounded-full px-3 py-1.5 bg-[rgba(6,129,29,0.08)] border border-[rgba(6,129,29,0.15)]">
+ <div className="flex items-center gap-1.5 rounded-full px-3 py-1.5 bg-[rgba(22,163,74,0.08)] border border-[rgba(22,163,74,0.15)]">
  <span className="relative flex w-2 h-2">
  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
  <span className="relative inline-flex w-2 h-2 rounded-full bg-emerald-500" />
  </span>
- <span className="text-[11px] font-bold tracking-wide text-[#06811d]">LIVE</span>
+ <span className="text-[11px] font-bold tracking-wide text-[#16a34a]">LIVE</span>
  </div>
  </div>
 
@@ -525,7 +531,7 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  {/* Stats */}
  <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-0">
  <StatBox label="Deposited" value={`$${balance}`} />
- <div className="hidden sm:block w-px self-stretch bg-[#c4c1b4] mx-5" />
+ <div className="hidden sm:block w-px self-stretch bg-black/10 mx-5" />
  <StatBox label="Profit" value={`$${profit}`} />
  </div>
  </div>
@@ -545,12 +551,12 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  </div>
 
 {/* ── 4-button action grid ── */}
- <div className="grid grid-cols-4 gap-2 px-4 pb-5 pt-4 border-t border-[#d0cec0]">
+ <div className="grid grid-cols-4 gap-2 px-4 pb-5 pt-4 border-t border-black/[0.06]">
 
  {/* Deposit — primary */}
  <button
  onClick={() => setModal("addFunds")}
- className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-[#06811d]"
+ className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-[#16a34a]"
  >
  <div className="w-7 h-7 rounded-[9px] flex items-center justify-center bg-white/20">
  <svg viewBox="0 0 14 14" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" className="w-3.5 h-3.5">
@@ -563,41 +569,41 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  {/* Withdraw */}
  <button
  onClick={() => setModal("withdraw")}
- className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-[#f0efe6]"
+ className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-black/[0.04]"
  >
- <div className="w-7 h-7 rounded-[9px] flex items-center justify-center bg-[rgba(6,129,29,0.12)]">
- <svg viewBox="0 0 14 14" fill="none" stroke="#06811d" strokeWidth="2" strokeLinecap="round" className="w-3.5 h-3.5">
+ <div className="w-7 h-7 rounded-[9px] flex items-center justify-center bg-[rgba(22,163,74,0.12)]">
+ <svg viewBox="0 0 14 14" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" className="w-3.5 h-3.5">
  <path d="M7 13V4M3 8l4-4 4 4M1 1h12" />
  </svg>
  </div>
- <span className="text-[11px] font-bold text-[#06811d]">Withdraw</span>
+ <span className="text-[11px] font-bold text-[#16a34a]">Withdraw</span>
  </button>
 
  {/* Transfer */}
  <button
  onClick={() => setModal("transfer")}
- className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-[#f0efe6]"
+ className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-black/[0.04]"
  >
- <div className="w-7 h-7 rounded-[9px] flex items-center justify-center bg-[rgba(6,129,29,0.12)]">
- <svg viewBox="0 0 14 14" fill="none" stroke="#06811d" strokeWidth="2" strokeLinecap="round" className="w-3.5 h-3.5">
+ <div className="w-7 h-7 rounded-[9px] flex items-center justify-center bg-[rgba(22,163,74,0.12)]">
+ <svg viewBox="0 0 14 14" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" className="w-3.5 h-3.5">
  <path d="M1 4h12M9 1l3 3-3 3M13 10H1M5 7l-3 3 3 3" />
  </svg>
  </div>
- <span className="text-[11px] font-bold text-[#06811d]">Transfer</span>
+ <span className="text-[11px] font-bold text-[#16a34a]">Transfer</span>
  </button>
 
  {/* History */}
  <button
  onClick={() => router.push("/trade-history")}
- className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-[#f0efe6]"
+ className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-black/[0.04]"
  >
- <div className="w-7 h-7 rounded-[9px] flex items-center justify-center bg-[rgba(6,129,29,0.12)]">
- <svg viewBox="0 0 14 14" fill="none" stroke="#06811d" strokeWidth="2" strokeLinecap="round" className="w-3.5 h-3.5">
+ <div className="w-7 h-7 rounded-[9px] flex items-center justify-center bg-[rgba(22,163,74,0.12)]">
+ <svg viewBox="0 0 14 14" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" className="w-3.5 h-3.5">
  <circle cx="7" cy="7" r="6" />
  <path d="M7 4v3.5L9.5 9" />
  </svg>
  </div>
- <span className="text-[11px] font-bold text-[#06811d]">History</span>
+ <span className="text-[11px] font-bold text-[#16a34a]">History</span>
  </button>
 
  </div>
@@ -625,19 +631,22 @@ function PortfolioTargetBar() {
  const pct = target > 0 ? Math.min(Math.max((stats.roi / target) * 100, 0), 100) : 0;
 
  return (
- <div className="rounded-xl bg-[#e5e3d5] border border-[#d0cec0] px-5 py-4">
+ <div
+ className="rounded-xl px-5 py-4 bg-white/55 border border-white/90 backdrop-blur-2xl"
+ style={{ boxShadow: "0 8px 32px rgba(31,41,55,0.08), inset 0 1px 0 rgba(255,255,255,0.6)" }}
+ >
  <div className="flex items-center justify-between mb-2">
  <span className="text-[11px] font-semibold uppercase tracking-[0.7px] text-[#888888]">
  Portfolio Target
  </span>
- <span className="text-[11px] font-bold text-[#06811d]">
+ <span className="text-[11px] font-bold text-[#16a34a]">
  {fmtCompact(target)} target
  </span>
  </div>
- <div className="h-2 rounded-full bg-[#d0cec0] overflow-hidden">
+ <div className="h-2 rounded-full bg-black/10 overflow-hidden">
  <div
  className="h-full rounded-full transition-all duration-1000 ease-out"
- style={{ width: `${pct}%`, backgroundColor: "#06811d" }}
+ style={{ width: `${pct}%`, backgroundColor: "#16a34a" }}
  />
  </div>
  <div className="flex items-center justify-end mt-1.5">
@@ -791,7 +800,7 @@ function TransferModal({ onClose }: { onClose: () => void }) {
  />
  <button
  onClick={() => setAmount(String(fromValue))}
- className="text-[11px] font-semibold text-[#06811d] hover:underline"
+ className="text-[11px] font-semibold text-[#16a34a] hover:underline"
  >
  MAX
  </button>
@@ -801,7 +810,7 @@ function TransferModal({ onClose }: { onClose: () => void }) {
  <button
  onClick={handleTransfer}
  disabled={!canSubmit}
- className={`w-full h-11 rounded-full text-[13px] font-bold text-white bg-[#06811d] transition-opacity ${
+ className={`w-full h-11 rounded-full text-[13px] font-bold text-white bg-[#16a34a] transition-opacity ${
  canSubmit
  ? "hover:opacity-90 cursor-pointer"
  : "opacity-40 cursor-not-allowed"
@@ -862,17 +871,17 @@ function TradeAssetIcon({ asset, logoUrl }: { asset: string; logoUrl?: string })
 function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: boolean }) {
  const [open, setOpen] = useState(true);
  const statusCls = (s: string) =>
- s === "open" ? "bg-[#eaf5f0] text-[#06811d]" :
+ s === "open" ? "bg-[#eaf5f0] text-[#16a34a]" :
  s === "pending" ? "bg-[#fef3c7] text-[#d97706]" :
  "bg-[#f0f0ec] text-[#555555]";
 
  const dirCls = (d: string) =>
  d === "Buy"
- ? "bg-[#eaf5f0] text-[#06811d]"
+ ? "bg-[#eaf5f0] text-[#16a34a]"
  : "bg-[#fee2e2] text-[#dc2626]";
 
  const pnlCls = (pos: boolean) =>
- pos ? "text-[#06811d]" : "text-[#dc2626]";
+ pos ? "text-[#16a34a]" : "text-[#dc2626]";
 
  const typeLbl: Record<string, string> = { stock: "Stock", crypto: "Crypto", forex: "Forex" };
 
@@ -935,7 +944,7 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  <a
  href="/traders"
  className="h-10 px-8 rounded-full flex items-center justify-center text-[13px] font-bold text-white hover:opacity-90 transition-opacity"
- style={{ backgroundColor: "#06811d" }}
+ style={{ backgroundColor: "#16a34a" }}
  >
  Explore Traders
  </a>
@@ -1110,7 +1119,7 @@ function BreakdownCard() {
  const growth = data?.growth_pct ?? 0;
  const growthStr = `${growth >= 0 ? "+" : ""}${growth.toFixed(1)}%`;
  const growthColor = growth >= 0
- ? "text-[#06811d]"
+ ? "text-[#16a34a]"
  : "text-[#dc2626]";
 
  // 3 fixed bars — always 148px wide
@@ -1270,7 +1279,7 @@ function FollowingCard({ copying, loading }: { copying: CopyingTrader[]; loading
  placeholder="Search for trader"
  value={search}
  onChange={(e) => setSearch(e.target.value)}
- className="w-full h-9 pl-8 pr-3 border border-[#e5e5e5] bg-[#fafaf8] text-[13px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-9 pl-8 pr-3 border border-[#e5e5e5] bg-[#fafaf8] text-[13px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#16a34a] transition-colors"
  />
  </div>
 
@@ -1302,7 +1311,7 @@ function FollowingCard({ copying, loading }: { copying: CopyingTrader[]; loading
  <a
  href="/traders"
  className="h-10 px-6 rounded-full flex items-center justify-center text-[13px] font-bold text-white hover:opacity-90 transition-opacity"
- style={{ backgroundColor: "#06811d" }}
+ style={{ backgroundColor: "#16a34a" }}
  >
  Explore Traders
  </a>
@@ -1329,7 +1338,7 @@ function FollowingCard({ copying, loading }: { copying: CopyingTrader[]; loading
  ) : (
  <div
  className="w-8 h-8 flex items-center justify-center text-[11px] font-bold text-white shrink-0 rounded-full"
- style={{ backgroundColor: t.avatar_color || "#06811d" }}
+ style={{ backgroundColor: t.avatar_color || "#16a34a" }}
  >
  {getInitials(t.trader_name)}
  </div>
@@ -1337,7 +1346,7 @@ function FollowingCard({ copying, loading }: { copying: CopyingTrader[]; loading
  <span className="flex-1 text-[13px] font-medium text-[#001011] truncate">
  {t.trader_name}
  </span>
- <span className={`text-[13px] font-semibold shrink-0 ${parseFloat(t.roi) >= 0 ? "text-[#06811d]" : "text-[#dc2626]"}`}>
+ <span className={`text-[13px] font-semibold shrink-0 ${parseFloat(t.roi) >= 0 ? "text-[#16a34a]" : "text-[#dc2626]"}`}>
  {formatRoi(t.roi)}
  </span>
  </a>
@@ -1439,7 +1448,7 @@ function WavyLineIcon() {
  <svg width="22" height="14" viewBox="0 0 22 14" fill="none">
  <path
  d="M1 10 C3 6, 5 10, 7 7 C9 4, 11 9, 13 6 C15 3, 17 7, 21 4"
- stroke="#06811d"
+ stroke="#16a34a"
  strokeWidth="1.6"
  strokeLinecap="round"
  strokeLinejoin="round"
@@ -1453,7 +1462,7 @@ function MiniTrendIcon() {
  <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
  <polyline
  points="1,10 5,6 9,8 15,2"
- stroke="#06811d"
+ stroke="#16a34a"
  strokeWidth="1.5"
  strokeLinecap="round"
  strokeLinejoin="round"
@@ -1481,7 +1490,7 @@ function CloseIcon() {
 
 function BigCheckIcon() {
  return (
- <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#06811d" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+ <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
  <polyline points="5,17 13,25 29,9" />
  </svg>
  );
@@ -1529,8 +1538,8 @@ function LogoutIcon() {
 function GreenCheckCircleIcon() {
  return (
  <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
- <circle cx="12" cy="12" r="10" stroke="#06811d" strokeWidth="1.5" />
- <polyline points="8,12 11,15 16,9" stroke="#06811d" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+ <circle cx="12" cy="12" r="10" stroke="#16a34a" strokeWidth="1.5" />
+ <polyline points="8,12 11,15 16,9" stroke="#16a34a" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
  </svg>
  );
 }

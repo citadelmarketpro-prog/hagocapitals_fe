@@ -142,7 +142,7 @@ export default function DashNav() {
  >
  <BellIcon />
  {unreadCount > 0 && (
- <span className="absolute top-0.5 right-0.5 min-w-[16px] h-4 rounded-full bg-[#06811d] text-white text-[9px] font-bold flex items-center justify-center px-0.5 leading-none">
+ <span className="absolute top-0.5 right-0.5 min-w-[16px] h-4 rounded-full bg-[#16a34a] text-white text-[9px] font-bold flex items-center justify-center px-0.5 leading-none">
  {unreadCount}
  </span>
  )}
@@ -167,7 +167,7 @@ export default function DashNav() {
  ) : (
  <div
  className="w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-bold text-white shrink-0"
- style={{ backgroundColor: "#06811d" }}
+ style={{ backgroundColor: "#16a34a" }}
  >
  {initials}
  </div>
@@ -325,7 +325,7 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  <div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-white border-b border-[#f0f0ec]">
  <span className="text-[15px] font-bold text-[#001011]">Notifications</span>
  {unread > 0 && (
- <span className="w-5 h-5 rounded-full bg-[#06811d] flex items-center justify-center text-[10px] font-bold text-white shrink-0">
+ <span className="w-5 h-5 rounded-full bg-[#16a34a] flex items-center justify-center text-[10px] font-bold text-white shrink-0">
  {unread}
  </span>
  )}
@@ -361,7 +361,7 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  onClick={() => { if (!n.is_read) markOneRead(n.id); }}
  className="flex gap-3 px-4 py-3.5 border-b border-[#f5f5f0] hover:bg-[#fafaf7] transition-colors cursor-pointer"
  >
- <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#06811d]" : "bg-[#ebebea]"}`}>
+ <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#16a34a]" : "bg-[#ebebea]"}`}>
  <SyncIcon color={!n.is_read ? "white" : "#999999"} />
  </div>
  <div className="flex-1 min-w-0">
@@ -374,7 +374,7 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  <p className="text-[11px] text-[#aaaaaa] text-right">{timeAgo(n.created_at)}</p>
  </div>
  {!n.is_read && (
- <span className="w-2 h-2 rounded-full bg-[#06811d] shrink-0 mt-1.5" />
+ <span className="w-2 h-2 rounded-full bg-[#16a34a] shrink-0 mt-1.5" />
  )}
  </div>
  ))
@@ -382,7 +382,7 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  <Link
  href="/notifications"
  onClick={onClose}
- className="sticky bottom-0 block text-center px-4 py-3 text-[12.5px] font-semibold text-[#06811d] bg-white border-t border-[#f0f0ec] hover:bg-[#fafaf7] transition-colors"
+ className="sticky bottom-0 block text-center px-4 py-3 text-[12.5px] font-semibold text-[#16a34a] bg-white border-t border-[#f0f0ec] hover:bg-[#fafaf7] transition-colors"
  >
  View all notifications
  </Link>
@@ -422,7 +422,7 @@ function ProfileDropdown({
  ) : (
  <div
  className="w-11 h-11 rounded-full flex items-center justify-center text-[14px] font-bold text-white shrink-0"
- style={{ backgroundColor: "#06811d" }}
+ style={{ backgroundColor: "#16a34a" }}
  >
  {initials}
  </div>
@@ -618,7 +618,7 @@ function EditProfileModal({
  ) : (
  <div
  className="w-[68px] h-[68px] rounded-full flex items-center justify-center text-[22px] font-bold text-white"
- style={{ backgroundColor: "#06811d" }}
+ style={{ backgroundColor: "#16a34a" }}
  >
  {displayInitials}
  </div>
@@ -664,7 +664,7 @@ function EditProfileModal({
  <input
  value={firstName}
  onChange={(e) => setFirstName(e.target.value)}
- className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
  />
  </div>
  <div>
@@ -672,7 +672,7 @@ function EditProfileModal({
  <input
  value={lastName}
  onChange={(e) => setLastName(e.target.value)}
- className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
  />
  </div>
  </div>
@@ -683,7 +683,7 @@ function EditProfileModal({
  <input
  value={username}
  onChange={(e) => setUsername(e.target.value)}
- className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
  />
  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#22c55e]">
  <GreenCheckCircleIcon />
@@ -709,7 +709,7 @@ function EditProfileModal({
  <button
  onClick={handleSave}
  disabled={saving}
- className="w-full h-11 mt-6 rounded-full text-[13px] font-bold bg-[#06811d] text-white hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
+ className="w-full h-11 mt-6 rounded-full text-[13px] font-bold bg-[#16a34a] text-white hover:opacity-90 transition-opacity disabled:opacity-60 disabled:cursor-not-allowed"
  >
  {saving ? "Saving…" : "Update information"}
  </button>
