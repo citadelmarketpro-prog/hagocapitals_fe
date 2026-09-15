@@ -251,13 +251,13 @@ export default function ConnectWalletPage() {
  <label htmlFor="wallet-address" className="text-[12px] font-semibold text-[#001011]">
  Wallet Address
  </label>
- <input
+ <textarea
  id="wallet-address"
- type="text"
+ rows={3}
  placeholder={`Enter your ${selectedWallet.name} public address`}
  value={walletAddress}
  onChange={(e) => setWalletAddress(e.target.value)}
- className="mt-1.5 w-full h-11 px-3 bg-white border border-[#e5e5e5] rounded-lg text-[13px] text-[#001011] placeholder:text-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
+ className="mt-1.5 w-full px-3 py-2.5 bg-white border border-[#e5e5e5] rounded-lg text-[13px] text-[#001011] placeholder:text-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors resize-none"
  disabled={isLoading}
  />
  </div>
