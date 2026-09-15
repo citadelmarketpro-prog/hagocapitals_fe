@@ -35,6 +35,7 @@ const NAV_ITEMS = [
  { href: "/stocks", label: "Stocks", icon: <CandlestickIcon /> },
  { href: "/my-portfolio", label: "Live Trading", icon: <ChartLineIcon /> },
  { href: "/transactions", label: "Transactions", icon: <BarChartIcon /> },
+ { href: "/signals", label: "Signals", icon: <SignalIcon /> },
  { href: "/news", label: "News", icon: <NewsIcon /> },
 ];
 
@@ -900,6 +901,14 @@ function WalletNavIcon() {
  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
  <path d="M3 7a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v1H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-4" />
  <circle cx="16.5" cy="14.5" r="1.2" fill="currentColor" stroke="none" />
+ </svg>
+ );
+}
+
+function SignalIcon() {
+ return (
+ <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+ <path d="M4 12h4l3 8 4-16 3 8h4" />
  </svg>
  );
 }
