@@ -98,3 +98,14 @@ export function getFmpIconUrl(ticker: string): string {
   const symbol = ticker.replace(/\//g, "");
   return `https://images.financialmodelingprep.com/symbol/${symbol}.png`;
 }
+
+/**
+ * Some crypto tickers 404 on FMP's CDN by their bare symbol but resolve fine
+ * with a "USD" suffix (e.g. ADA -> 404, ADAUSD -> 200). Forex pairs and
+ * tickers already ending in "USD" have nothing useful to append, so this
+ * returns null for those — callers should skip straight to the badge fallback.
+ */
+export function getFmpIconUrlUsd(ticker: string): string | null {
+  if (ticker.includes("/") || ticker.toUpperCase().endsWith("USD")) return null;
+  return `https://images.financialmodelingprep.com/symbol/${ticker}USD.png`;
+}
