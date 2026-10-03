@@ -122,26 +122,13 @@ export default function RootLayout({
           </AuthProvider>
         </ThemeProvider>
 
-        <Script id="smartsupp-livechat" strategy="afterInteractive">
-          {`
-            var _smartsupp = _smartsupp || {};
-            _smartsupp.key = '0ed4e71313b1deb7239632a2a9b6e390ae9e3f6d';
-            window.smartsupp || (function (d) {
-              var s, c, o = smartsupp = function () { o._.push(arguments); }; o._ = [];
-              s = d.getElementsByTagName('script')[0]; c = d.createElement('script');
-              c.type = 'text/javascript'; c.charset = 'utf-8'; c.async = true;
-              c.src = 'https://www.smartsuppchat.com/loader.js?';
-              s.parentNode.insertBefore(c, s);
-            })(document);
-          `}
-        </Script>
-        <noscript>
-          Powered by{" "}
-          <a href="https://www.smartsupp.com" target="_blank" rel="noopener noreferrer">
-            Smartsupp
-          </a>
-        </noscript>
-
+        
+        {/* LiveChat - Jivo */}
+        <Script
+          src="//code.jivosite.com/widget/wlChsKiI52"
+          strategy="afterInteractive"
+        />
+      
       </body>
     </html>
   );
