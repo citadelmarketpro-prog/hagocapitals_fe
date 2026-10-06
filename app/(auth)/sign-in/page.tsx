@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import AuthLayout from "@/components/AuthLayout";
 import { useAuth } from "@/context/AuthContext";
 import { ApiError } from "@/lib/api";
 
 export default function SignInPage() {
  const { login } = useAuth();
+ const router = useRouter();
 
  const [email, setEmail] = useState("");
  const [password, setPassword] = useState("");
@@ -23,7 +25,11 @@ export default function SignInPage() {
  setError("");
  setSubmitting(true);
  try {
- await login(email.trim(), password);
+ const result = await login(email.trim(), password);
+ if (result.requires_2fa) {
+ router.push(`/verify-2fa?email=${encodeURIComponent(email.trim())}`);
+ return;
+ }
  // login() handles redirect to /dashboard on success
  } catch (err) {
  setError(err instanceof ApiError ? err.detail : "Something went wrong. Please try again.");

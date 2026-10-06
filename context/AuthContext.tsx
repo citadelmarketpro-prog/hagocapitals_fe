@@ -30,13 +30,15 @@ export interface AuthUser {
   min_capital: string;
   specialty: string;
   kyc_status: "not_submitted" | "submitted" | "under_review" | "approved" | "rejected";
+  two_factor_enabled: boolean;
   date_joined: string;
 }
 
 interface AuthContextValue {
   user: AuthUser | null;
   loading: boolean;
-  login: (email: string, password: string) => Promise<void>;
+  login: (email: string, password: string) => Promise<{ requires_2fa: boolean }>;
+  verifyTwoFactor: (email: string, code: string) => Promise<void>;
   register: (username: string, email: string, password: string, password2: string, referralCode?: string) => Promise<void>;
   logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
@@ -112,7 +114,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [router]);
 
   const login = useCallback(async (email: string, password: string) => {
-    await api.post("/api/auth/login/", { email, password });
+    const res = await api.post<{ requires_2fa?: boolean }>("/api/auth/login/", { email, password });
+    if (res.requires_2fa) {
+      return { requires_2fa: true };
+    }
+    const me = await api.get<AuthUser>("/api/auth/me/");
+    setUser(me);
+    router.push(me.kyc_status === "not_submitted" ? "/kyc" : "/dashboard");
+    return { requires_2fa: false };
+  }, [router]);
+
+  const verifyTwoFactor = useCallback(async (email: string, code: string) => {
+    await api.post("/api/auth/2fa/verify/", { email, code });
     const me = await api.get<AuthUser>("/api/auth/me/");
     setUser(me);
     router.push(me.kyc_status === "not_submitted" ? "/kyc" : "/dashboard");
@@ -147,7 +160,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [router]);
 
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout, refreshUser }}>
+    <AuthContext.Provider value={{ user, loading, login, verifyTwoFactor, register, logout, refreshUser }}>
       {children}
     </AuthContext.Provider>
   );

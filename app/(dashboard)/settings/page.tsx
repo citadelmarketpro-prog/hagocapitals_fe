@@ -8,7 +8,7 @@ import { api, ApiError } from "@/lib/api";
 import type { SavedPaymentMethod } from "@/components/dashboard/modals/types";
 
 type Tab = "profile" | "security" | "payment";
-type EditType = "name" | "username" | "bio" | "password" | "payment" | null;
+type EditType = "name" | "username" | "bio" | "password" | "payment" | "disable2fa" | null;
 
 const VALID_TABS: Tab[] = ["profile", "security", "payment"];
 
@@ -19,6 +19,7 @@ interface Settings {
  email: string;
  bio: string;
  kyc_status: string;
+ two_factor_enabled: boolean;
 }
 
 export default function SettingsPage() {
@@ -54,11 +55,12 @@ function SettingsContent() {
  const [paymentLoading, setPaymentLoading] = useState(false);
  const [editingWallet, setEditingWallet] = useState<SavedPaymentMethod | null>(null);
  const [removingWalletId, setRemovingWalletId] = useState<number | null>(null);
+ const [togglingTwoFactor, setTogglingTwoFactor] = useState(false);
 
  const [form, setForm] = useState({
  firstName: "", lastName: "", username: "", bio: "",
  oldPassword: "", newPassword: "", confirmPassword: "",
- paymentAddress: "",
+ paymentAddress: "", disable2faPassword: "",
  });
 
  useEffect(() => { fetchSettings(); }, []);
@@ -113,6 +115,7 @@ function SettingsContent() {
  if (type === "username") setForm((f) => ({ ...f, username: settings.username }));
  if (type === "bio") setForm((f) => ({ ...f, bio: settings.bio }));
  if (type === "password") setForm((f) => ({ ...f, oldPassword: "", newPassword: "", confirmPassword: "" }));
+ if (type === "disable2fa") setForm((f) => ({ ...f, disable2faPassword: "" }));
  if (type === "payment" && wallet) {
  setEditingWallet(wallet);
  setForm((f) => ({ ...f, paymentAddress: wallet.address }));
@@ -120,6 +123,22 @@ function SettingsContent() {
  setEditType(type);
  setError(null);
  setSuccessMessage(null);
+ }
+
+ async function handleEnableTwoFactor() {
+ if (!settings || togglingTwoFactor) return;
+ setTogglingTwoFactor(true);
+ setError(null);
+ setSuccessMessage(null);
+ try {
+ await api.post("/api/auth/2fa/enable/");
+ setSettings((s) => (s ? { ...s, two_factor_enabled: true } : s));
+ setSuccessMessage("Two-factor authentication enabled.");
+ } catch (err) {
+ setError(err instanceof ApiError ? err.detail : "Something went wrong. Please try again.");
+ } finally {
+ setTogglingTwoFactor(false);
+ }
  }
 
  function closeEdit() {
@@ -147,6 +166,15 @@ function SettingsContent() {
  password2: form.confirmPassword,
  });
  setSuccessMessage("Password changed successfully.");
+ } else if (editType === "disable2fa") {
+ if (!form.disable2faPassword) {
+ setError("Please enter your password.");
+ setUpdating(false);
+ return;
+ }
+ await api.post("/api/auth/2fa/disable/", { password: form.disable2faPassword });
+ setSettings((s) => (s ? { ...s, two_factor_enabled: false } : s));
+ setSuccessMessage("Two-factor authentication disabled.");
  } else if (editType === "payment") {
  if (!editingWallet) return;
  const address = form.paymentAddress.trim();
@@ -272,6 +300,30 @@ function SettingsContent() {
  <SettingsRow label="Password" value="••••••••" editLabel="Change" onEdit={() => openEdit("password")} />
 
  <div className="rounded-2xl bg-white border border-[#e5e5e5] p-5">
+ <div className="flex items-start gap-3">
+ <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#eaf5f0] text-[#06811d]">
+ <ShieldCheck className="w-4.5 h-4.5" />
+ </div>
+ <div className="flex-1 min-w-0">
+ <p className="text-[13.5px] font-semibold text-[#001011] mb-1">Two-Factor Authentication</p>
+ <p className="text-[12.5px] text-[#666666] leading-relaxed">
+ {settings.two_factor_enabled
+ ? "Enabled. We'll email you a code to confirm every sign-in."
+ : "Add an extra layer of security — we'll email you a code to confirm each sign-in."}
+ </p>
+ </div>
+ <ToggleSwitch
+ checked={settings.two_factor_enabled}
+ disabled={togglingTwoFactor}
+ onChange={(next) => {
+ if (next) handleEnableTwoFactor();
+ else openEdit("disable2fa");
+ }}
+ />
+ </div>
+ </div>
+
+ <div className="rounded-2xl bg-white border border-[#e5e5e5] p-5">
  <div className="flex items-start gap-3 mb-3">
  <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#eaf5f0] text-[#06811d]">
  <ShieldCheck className="w-4.5 h-4.5" />
@@ -378,6 +430,7 @@ function SettingsContent() {
  {editType === "username" && "Edit Username"}
  {editType === "bio" && "Edit Bio"}
  {editType === "password" && "Change Password"}
+ {editType === "disable2fa" && "Disable Two-Factor Authentication"}
  {editType === "payment" && `${editingWallet?.symbol ?? ""} Address`}
  </h3>
  <button onClick={closeEdit} className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors">
@@ -431,6 +484,19 @@ function SettingsContent() {
  onChange={(v) => setForm((f) => ({ ...f, paymentAddress: v }))}
  />
  )}
+ {editType === "disable2fa" && (
+ <>
+ <p className="text-[12.5px] text-[#666666] -mt-1">
+ Enter your password to confirm turning off two-factor authentication.
+ </p>
+ <Field
+ label="Password"
+ type="password"
+ value={form.disable2faPassword}
+ onChange={(v) => setForm((f) => ({ ...f, disable2faPassword: v }))}
+ />
+ </>
+ )}
  </div>
 
  <div className="flex gap-3 mt-5">
@@ -472,6 +538,27 @@ function SettingsRow({ label, value, editLabel = "Edit", onEdit }: { label: stri
  </button>
  )}
  </div>
+ );
+}
+
+function ToggleSwitch({ checked, onChange, disabled }: { checked: boolean; onChange: (next: boolean) => void; disabled?: boolean }) {
+ return (
+ <button
+ type="button"
+ role="switch"
+ aria-checked={checked}
+ disabled={disabled}
+ onClick={() => onChange(!checked)}
+ className={`relative shrink-0 w-11 h-6 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
+ checked ? "bg-[#06811d]" : "bg-[#e5e5e5]"
+ }`}
+ >
+ <span
+ className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform ${
+ checked ? "translate-x-5" : "translate-x-0"
+ }`}
+ />
+ </button>
  );
 }
 
