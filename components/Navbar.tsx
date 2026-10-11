@@ -24,7 +24,7 @@ export default function Navbar() {
         <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/logos/logo_one.png"
-            alt="HagoCapitals"
+            alt="CaplinkTrades"
             width={376}
             height={284}
             priority

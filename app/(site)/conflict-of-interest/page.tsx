@@ -110,14 +110,14 @@ export default function ConflictOfInterestPage() {
               <section id="general-information" className="flex flex-col gap-8 scroll-mt-34 lg:scroll-mt-28">
         <FadeUp>
                 <SectionHeading>
-                  Information Regarding the Conflicts of Interest Policy of HagoCapitals
+                  Information Regarding the Conflicts of Interest Policy of CaplinkTrades
                 </SectionHeading>
 
                 {/* 1.1 */}
                 <div className="flex flex-col gap-4">
                   <SubHeading>1.1 Purpose of this Document</SubHeading>
                   <BodyText>
-                    By this document, HagoCapitals provides you with information regarding the policy
+                    By this document, CaplinkTrades provides you with information regarding the policy
                     it has implemented in order to comply with the requirements to have appropriate
                     procedures and policies in order to avoid and/or manage situations of conflicts of
                     interests that may occur during the provision of investment and ancillary services
@@ -129,7 +129,7 @@ export default function ConflictOfInterestPage() {
                 <div className="flex flex-col gap-4">
                   <SubHeading>1.2 Regulatory Framework</SubHeading>
                   <BodyText>
-                    For the above purpose, HagoCapitals has established and applies a number of
+                    For the above purpose, CaplinkTrades has established and applies a number of
                     measures and procedures for the avoidance and management of conflicts of interests
                     (hereinafter the &quot;Conflicts of Interests Policy&quot; or the &quot;Policy&quot;) pursuant to, and
                     in compliance with the requirements of Directive 2014/65/EU of the European
@@ -153,7 +153,7 @@ export default function ConflictOfInterestPage() {
                 <div className="flex flex-col gap-4">
                   <SubHeading>1.3 Scope and Function of the Conflicts of Interest Policy</SubHeading>
                   <BodyText>
-                    HagoCapitals applies measures and policies appropriate to its size and organization
+                    CaplinkTrades applies measures and policies appropriate to its size and organization
                     and to the nature, extent and complexity of its activities, in order to avoid or
                     manage conflict of interest situations and to ensure that its board members,
                     managers, employees, tied agents, and any natural persons involved in the provision
@@ -180,11 +180,11 @@ export default function ConflictOfInterestPage() {
                 <div className="flex flex-col gap-4">
                   <SubHeading>2.1 Definition of Conflict of Interest</SubHeading>
                   <BodyText>
-                    HagoCapitals defines a conflict of interest as any situation where there is a
-                    conflict between the interests of HagoCapitals or certain persons connected to
-                    HagoCapitals and the duty we owe to a client, or between the differing interests
-                    of two or more of our clients, to whom HagoCapitals owes in each case a duty, with
-                    a potential result to ensure a gain or benefit to HagoCapitals, or any connected
+                    CaplinkTrades defines a conflict of interest as any situation where there is a
+                    conflict between the interests of CaplinkTrades or certain persons connected to
+                    CaplinkTrades and the duty we owe to a client, or between the differing interests
+                    of two or more of our clients, to whom CaplinkTrades owes in each case a duty, with
+                    a potential result to ensure a gain or benefit to CaplinkTrades, or any connected
                     person or any particular client at the detriment of another client.
                   </BodyText>
                 </div>
@@ -198,10 +198,10 @@ export default function ConflictOfInterestPage() {
                   </p>
                   <BodyText>
                     Conflicts may arise either during the provision of investment and/or ancillary
-                    services, or with any other manner, between the interests of HagoCapitals or any
+                    services, or with any other manner, between the interests of CaplinkTrades or any
                     Relevant Person and the interests of one or more of its clients, or between the
-                    interests of different clients of HagoCapitals. In particular, a conflict may arise
-                    when HagoCapitals or a Relevant Person:
+                    interests of different clients of CaplinkTrades. In particular, a conflict may arise
+                    when CaplinkTrades or a Relevant Person:
                   </BodyText>
                   <BulletList
                     items={[
@@ -216,7 +216,7 @@ export default function ConflictOfInterestPage() {
                     (b) Potential sources of conflicts
                   </p>
                   <BodyText>
-                    Such situations may occur when HagoCapitals (or any other Relevant Person) may
+                    Such situations may occur when CaplinkTrades (or any other Relevant Person) may
                     have a financial benefit or avoid a financial loss, to the detriment of one or
                     more clients, or to favor the interests of one client or group of clients against
                     those of another client.
@@ -228,12 +228,12 @@ export default function ConflictOfInterestPage() {
                   <SubHeading>2.3 Examples of Potential Situations of Conflict and Relevant Measures</SubHeading>
                   <BodyText>
                     Conflicts of interest may arise in several situations during the provision of
-                    services. HagoCapitals has identified a number of such potential situations in
+                    services. CaplinkTrades has identified a number of such potential situations in
                     advance and has taken appropriate steps to assess the risk of their occurrence
                     and, when such risk exists, to avoid them proactively.
                   </BodyText>
                   <BodyText>
-                    In particular, HagoCapitals has adopted effective procedures (including
+                    In particular, CaplinkTrades has adopted effective procedures (including
                     remuneration policies) to prevent or control the exchange of information between
                     relevant persons engaged in activities involving a risk of a conflict of interest,
                     to ensure the separate supervision of activities bearing a risk of material
@@ -243,33 +243,33 @@ export default function ConflictOfInterestPage() {
                   {/* Conflict cards */}
                   <div className="flex flex-col gap-4">
                     <ConflictCard
-                      situation="HagoCapitals or a Relevant Person may have an interest in executing personal orders or orders of a client in more favorable conditions than the orders of another client, or in maximizing the client's losses."
+                      situation="CaplinkTrades or a Relevant Person may have an interest in executing personal orders or orders of a client in more favorable conditions than the orders of another client, or in maximizing the client's losses."
                       measures={[
-                        "HagoCapitals has implemented policies and procedures for the monitoring and (when necessary) restriction of personal transactions of Relevant Persons.",
+                        "CaplinkTrades has implemented policies and procedures for the monitoring and (when necessary) restriction of personal transactions of Relevant Persons.",
                         "Transactions are processed through automated means, based on the time priority of the reception of such order, thus ensuring that relevant employees will not be allowed to intervene in your transactions.",
                         "Conflicts related to the personal capacity of the client are reported to the compliance function as soon as they are identified.",
-                        "HagoCapitals does not provide investment advice with respect to FX and CFD transactions and thus cannot recommend any particular transactions.",
-                        "When HagoCapitals provides portfolio management through its autotrading platform, all transactions are initiated based on automated systems developed by third parties (signal providers) and their operation is not subject to human intervention.",
+                        "CaplinkTrades does not provide investment advice with respect to FX and CFD transactions and thus cannot recommend any particular transactions.",
+                        "When CaplinkTrades provides portfolio management through its autotrading platform, all transactions are initiated based on automated systems developed by third parties (signal providers) and their operation is not subject to human intervention.",
                       ]}
                     />
 
                     <ConflictCard
-                      situation="A Relevant Person may have an interest in recommending to a client a particular transaction in respect of which HagoCapitals or the Relevant Person may receive a benefit from a third party, or taking into account the interests of another client."
+                      situation="A Relevant Person may have an interest in recommending to a client a particular transaction in respect of which CaplinkTrades or the Relevant Person may receive a benefit from a third party, or taking into account the interests of another client."
                       measures={[
-                        "HagoCapitals does not provide investment advice with respect to your trades and thus cannot recommend any particular transactions.",
+                        "CaplinkTrades does not provide investment advice with respect to your trades and thus cannot recommend any particular transactions.",
                         "Where third parties developing the automated systems (signal providers) are remunerated based on transaction volumes, such remunerations depend also on the generation of profits, so that a signal provider may not be remunerated if their system generates losses during a determined period of time.",
-                        "HagoCapitals's auto-trading platform provides customers with tools that allow them to set parameters and limits to the trading activity generated by automated signals.",
+                        "CaplinkTrades's auto-trading platform provides customers with tools that allow them to set parameters and limits to the trading activity generated by automated signals.",
                       ]}
                     />
 
                     <ConflictCard
-                      situation="HagoCapitals may be regarded as having an interest in maximizing trading volumes or client losses in order to achieve higher remunerations."
+                      situation="CaplinkTrades may be regarded as having an interest in maximizing trading volumes or client losses in order to achieve higher remunerations."
                       measures={[
-                        "HagoCapitals does not currently trade as your counterparty and does not receive remunerations from Liquidity Providers based on your losses.",
-                        "HagoCapitals does not have a way to influence the outcome of your transactions and the persons supervising the processing of your orders are not remunerated based on your trading volumes or losses.",
-                        "HagoCapitals monitors regularly the operation of systems used for the processing of clients' orders in a way to exclude any unnecessary human intervention.",
-                        "HagoCapitals does not have any interests in the profits realized by Liquidity Providers where such Liquidity Providers trade against HagoCapitals's positions.",
-                        "In accordance with the applicable best execution policy, HagoCapitals is prohibited from directing your transactions to an Execution Venue based solely on remunerations to be received by HagoCapitals.",
+                        "CaplinkTrades does not currently trade as your counterparty and does not receive remunerations from Liquidity Providers based on your losses.",
+                        "CaplinkTrades does not have a way to influence the outcome of your transactions and the persons supervising the processing of your orders are not remunerated based on your trading volumes or losses.",
+                        "CaplinkTrades monitors regularly the operation of systems used for the processing of clients' orders in a way to exclude any unnecessary human intervention.",
+                        "CaplinkTrades does not have any interests in the profits realized by Liquidity Providers where such Liquidity Providers trade against CaplinkTrades's positions.",
+                        "In accordance with the applicable best execution policy, CaplinkTrades is prohibited from directing your transactions to an Execution Venue based solely on remunerations to be received by CaplinkTrades.",
                       ]}
                     />
                   </div>
@@ -288,9 +288,9 @@ export default function ConflictOfInterestPage() {
                 <div className="flex flex-col gap-4">
                   <SubHeading>3.1 Disclosure of Conflict of Interest</SubHeading>
                   <BodyText>
-                    When the measures taken by HagoCapitals to avoid or manage situations of conflicts
+                    When the measures taken by CaplinkTrades to avoid or manage situations of conflicts
                     of interest are not sufficient to ensure, with reasonable confidence, that the
-                    risk of damage to clients&apos; interests will be prevented, HagoCapitals will disclose
+                    risk of damage to clients&apos; interests will be prevented, CaplinkTrades will disclose
                     to the client the specific conflict of interest and the steps taken to mitigate
                     the risks associated thereto, with a durable medium, before providing the service
                     affected by the situation of conflict.
@@ -301,9 +301,9 @@ export default function ConflictOfInterestPage() {
                 <div className="flex flex-col gap-4">
                   <SubHeading>3.2 Record Keeping</SubHeading>
                   <BodyText>
-                    HagoCapitals maintains a record, which is regularly updated, of the kinds of
+                    CaplinkTrades maintains a record, which is regularly updated, of the kinds of
                     investment and ancillary services or investment activities carried out by
-                    HagoCapitals or on its behalf in which a conflict of interest entailing a material
+                    CaplinkTrades or on its behalf in which a conflict of interest entailing a material
                     risk of damage to the interests of one or more clients has arisen.
                   </BodyText>
                 </div>
@@ -312,7 +312,7 @@ export default function ConflictOfInterestPage() {
                 <div className="flex flex-col gap-4">
                   <SubHeading>3.3 Review</SubHeading>
                   <BodyText>
-                    HagoCapitals carries out regular internal review of the measures and procedures
+                    CaplinkTrades carries out regular internal review of the measures and procedures
                     applied to ensure that they remain appropriate, effective, comprehensive and
                     proportionate to the nature, scale and complexity of its business activities,
                     especially in terms of the nature and the range of the investment services and
@@ -320,9 +320,9 @@ export default function ConflictOfInterestPage() {
                     deficiencies will be taken without undue delay.
                   </BodyText>
                   <BodyText>
-                    In addition to all the above measures, HagoCapitals has an internal audit function
+                    In addition to all the above measures, CaplinkTrades has an internal audit function
                     and a compliance function which are in charge of controlling the application of
-                    HagoCapitals&apos;s legal and/or regulatory obligations and internal procedures,
+                    CaplinkTrades&apos;s legal and/or regulatory obligations and internal procedures,
                     including the above measures and the satisfaction of the requirement to avoid
                     situations of conflicts of interest.
                   </BodyText>

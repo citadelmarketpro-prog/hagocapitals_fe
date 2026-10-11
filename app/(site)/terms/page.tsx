@@ -95,13 +95,13 @@ export default function TermsPage() {
                 <SectionHeading>Terms of Service</SectionHeading>
                 <Body>Last updated: March 2026</Body>
                 <Body>
-                  These Terms of Service (&quot;Terms&quot;) govern your access to and use of HagoCapitals&apos;s
+                  These Terms of Service (&quot;Terms&quot;) govern your access to and use of CaplinkTrades&apos;s
                   platform, website, mobile applications, and services (collectively, the
                   &quot;Service&quot;). By registering an account or using the Service, you agree to be
                   bound by these Terms. If you do not agree, do not use the Service.
                 </Body>
                 <Body>
-                  HagoCapitals is a social copy-trading platform that connects Investors with Leaders.
+                  CaplinkTrades is a social copy-trading platform that connects Investors with Leaders.
                   Investors may choose to copy the trading activity of Leaders they follow. Leaders
                   share their trading strategies and earn commissions when Investors copy them.
                 </Body>
@@ -131,7 +131,7 @@ export default function TermsPage() {
                   ].map((item, i) => <BulletItem key={i}>{item}</BulletItem>)}
                 </ul>
                 <Body>
-                  HagoCapitals reserves the right to refuse registration or suspend any account at
+                  CaplinkTrades reserves the right to refuse registration or suspend any account at
                   its sole discretion, including where it suspects fraudulent, abusive, or
                   non-compliant activity.
                 </Body>
@@ -148,10 +148,10 @@ export default function TermsPage() {
                 <ul className="flex flex-col gap-3 pl-5 list-disc">
                   {[
                     "Their trading activity is visible to other users and may be copied.",
-                    "They must trade in accordance with applicable laws and HagoCapitals's community guidelines.",
-                    "They may earn commissions when Investors copy their trades, subject to HagoCapitals's commission structure.",
+                    "They must trade in accordance with applicable laws and CaplinkTrades's community guidelines.",
+                    "They may earn commissions when Investors copy their trades, subject to CaplinkTrades's commission structure.",
                     "They must not engage in market manipulation, misleading conduct, or any strategy designed to inflate apparent performance.",
-                    "HagoCapitals reserves the right to remove a Leader from the program if they breach these Terms.",
+                    "CaplinkTrades reserves the right to remove a Leader from the program if they breach these Terms.",
                   ].map((item, i) => <BulletItem key={i}>{item}</BulletItem>)}
                 </ul>
               </FadeUp>
@@ -161,7 +161,7 @@ export default function TermsPage() {
         <FadeUp>
                 <SectionHeading>3. Investor Obligations</SectionHeading>
                 <Body>
-                  As an Investor on HagoCapitals, you are responsible for your own investment
+                  As an Investor on CaplinkTrades, you are responsible for your own investment
                   decisions, including the decision to copy a Leader. By using copy-trading features,
                   you acknowledge that:
                 </Body>
@@ -170,7 +170,7 @@ export default function TermsPage() {
                     "Copying a Leader does not guarantee profitable outcomes.",
                     "Past performance of any Leader is not an indication of future results.",
                     "You must set appropriate risk parameters and stop-loss levels for your account.",
-                    "HagoCapitals is not liable for losses arising from your decision to copy any Leader.",
+                    "CaplinkTrades is not liable for losses arising from your decision to copy any Leader.",
                     "You should seek independent financial advice before investing.",
                   ].map((item, i) => <BulletItem key={i}>{item}</BulletItem>)}
                 </ul>
@@ -181,14 +181,14 @@ export default function TermsPage() {
         <FadeUp>
                 <SectionHeading>4. Fees &amp; Payments</SectionHeading>
                 <Body>
-                  HagoCapitals may charge fees for certain services as described on its website.
+                  CaplinkTrades may charge fees for certain services as described on its website.
                   All applicable fees will be disclosed prior to your agreement. By using paid
-                  features, you authorise HagoCapitals to charge the applicable fees to your
+                  features, you authorise CaplinkTrades to charge the applicable fees to your
                   designated payment method.
                 </Body>
                 <Body>
                   Leader commissions are calculated and distributed in accordance with the
-                  commission structure published on the platform. HagoCapitals reserves the right
+                  commission structure published on the platform. CaplinkTrades reserves the right
                   to modify its fee structure with reasonable notice to users.
                 </Body>
               </FadeUp>
@@ -204,7 +204,7 @@ export default function TermsPage() {
                   lose.
                 </WarningBox>
                 <Body>
-                  HagoCapitals does not provide investment advice. Nothing on the platform
+                  CaplinkTrades does not provide investment advice. Nothing on the platform
                   constitutes a solicitation, recommendation, or endorsement to buy or sell any
                   financial instrument. Please refer to our full Risk Disclaimer for further
                   details.
@@ -216,14 +216,14 @@ export default function TermsPage() {
         <FadeUp>
                 <SectionHeading>6. Intellectual Property</SectionHeading>
                 <Body>
-                  All content, trademarks, software, and materials on the HagoCapitals platform
-                  are owned by or licensed to HagoCapitals and are protected by applicable
+                  All content, trademarks, software, and materials on the CaplinkTrades platform
+                  are owned by or licensed to CaplinkTrades and are protected by applicable
                   intellectual property laws. You may not reproduce, distribute, or create
                   derivative works without our express written consent.
                 </Body>
                 <Body>
                   User-generated content (such as posts, comments, and trade notes) remains the
-                  property of the respective user, but by posting it you grant HagoCapitals a
+                  property of the respective user, but by posting it you grant CaplinkTrades a
                   non-exclusive, royalty-free licence to use, display, and distribute such content
                   in connection with the Service.
                 </Body>
@@ -234,7 +234,7 @@ export default function TermsPage() {
         <FadeUp>
                 <SectionHeading>7. Termination</SectionHeading>
                 <Body>
-                  You may close your account at any time by contacting support. HagoCapitals may
+                  You may close your account at any time by contacting support. CaplinkTrades may
                   suspend or terminate your account immediately and without notice if you violate
                   these Terms or if required by applicable law or regulation.
                 </Body>
@@ -257,8 +257,8 @@ export default function TermsPage() {
                 </Body>
                 <Body>
                   For questions about these Terms, please contact us at{" "}
-                  <a href="mailto:support@HagoCapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
-                    support@HagoCapitals.com
+                  <a href="mailto:support@CaplinkTrades.com" className="text-[#06811d] hover:underline underline-offset-2">
+                    support@CaplinkTrades.com
                   </a>.
                 </Body>
               </FadeUp>

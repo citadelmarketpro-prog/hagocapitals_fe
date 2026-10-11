@@ -3,26 +3,26 @@
 export const metadata: Metadata = {
   title: "Declaration of Consent",
   description:
-    "HagoCapitals Declaration of Consent. Review the consents you provide when creating an account and using our copy trading services.",
+    "CaplinkTrades Declaration of Consent. Review the consents you provide when creating an account and using our copy trading services.",
   openGraph: {
-    title: "Declaration of Consent | HagoCapitals",
+    title: "Declaration of Consent | CaplinkTrades",
     description:
-      "Review the consents you provide when creating a HagoCapitals account and using our services.",
-    url: "https://HagoCapitals.com/declaration-of-consent",
+      "Review the consents you provide when creating a CaplinkTrades account and using our services.",
+    url: "https://CaplinkTrades.com/declaration-of-consent",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "CaplinkTrades — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Declaration of Consent | HagoCapitals",
+    title: "Declaration of Consent | CaplinkTrades",
     description:
-      "Review the consents you provide when creating a HagoCapitals account and using our services.",
+      "Review the consents you provide when creating a CaplinkTrades account and using our services.",
     images: ["/opengraph-image.png"],
   },
 };

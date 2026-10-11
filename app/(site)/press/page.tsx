@@ -3,26 +3,26 @@
 export const metadata: Metadata = {
   title: "Press",
   description:
-    "HagoCapitals in the news. Read the latest press coverage, media mentions, and official press releases about our copy trading platform.",
+    "CaplinkTrades in the news. Read the latest press coverage, media mentions, and official press releases about our copy trading platform.",
   openGraph: {
-    title: "Press | HagoCapitals",
+    title: "Press | CaplinkTrades",
     description:
-      "HagoCapitals in the news. Latest press coverage, media mentions, and official press releases.",
-    url: "https://HagoCapitals.com/press",
+      "CaplinkTrades in the news. Latest press coverage, media mentions, and official press releases.",
+    url: "https://CaplinkTrades.com/press",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "CaplinkTrades — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Press | HagoCapitals",
+    title: "Press | CaplinkTrades",
     description:
-      "HagoCapitals in the news. Latest press coverage, media mentions, and official press releases.",
+      "CaplinkTrades in the news. Latest press coverage, media mentions, and official press releases.",
     images: ["/opengraph-image.png"],
   },
 };
@@ -36,25 +36,25 @@ const PRESS_ITEMS = [
   {
     outlet: "Financial Times",
     date: "Feb 2026",
-    headline: "HagoCapitals reaches one million registered users as copy-trading demand surges",
+    headline: "CaplinkTrades reaches one million registered users as copy-trading demand surges",
     url: "#",
   },
   {
     outlet: "TechCrunch",
     date: "Jan 2026",
-    headline: "HagoCapitals launches Smart Portfolio, an AI-driven copy-trade allocation engine",
+    headline: "CaplinkTrades launches Smart Portfolio, an AI-driven copy-trade allocation engine",
     url: "#",
   },
   {
     outlet: "CoinDesk",
     date: "Dec 2025",
-    headline: "Social trading platform HagoCapitals expands into crypto copy-trading",
+    headline: "Social trading platform CaplinkTrades expands into crypto copy-trading",
     url: "#",
   },
   {
     outlet: "Reuters",
     date: "Nov 2025",
-    headline: "HagoCapitals receives FCA authorisation for UK financial services expansion",
+    headline: "CaplinkTrades receives FCA authorisation for UK financial services expansion",
     url: "#",
   },
   {
@@ -86,17 +86,17 @@ export default function PressPage() {
                 Press & Media
               </h1>
               <p className="mt-3 text-[14px] lg:text-[15px] text-[#555555] max-w-xl">
-                News, announcements, and media coverage of HagoCapitals. For press enquiries,
+                News, announcements, and media coverage of CaplinkTrades. For press enquiries,
                 contact{" "}
-                <a href="mailto:press@HagoCapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
-                  press@HagoCapitals.com
+                <a href="mailto:press@CaplinkTrades.com" className="text-[#06811d] hover:underline underline-offset-2">
+                  press@CaplinkTrades.com
                 </a>
               </p>
             </div>
             <div className="relative rounded-3xl overflow-hidden aspect-4/3">
               <Image
                 src="/images/connection.jpg"
-                alt="HagoCapitals in the media"
+                alt="CaplinkTrades in the media"
                 fill
                 className="object-cover"
                 priority
@@ -113,7 +113,7 @@ export default function PressPage() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] py-10">
           <div className="rounded-2xl border border-[#e5e5e5] bg-white overflow-hidden flex flex-col sm:flex-row sm:items-center gap-0">
             <div className="relative w-full sm:w-[180px] h-[140px] sm:h-[110px] shrink-0">
-              <Image src="/images/business-2.jpg" alt="HagoCapitals press kit" fill className="object-cover" />
+              <Image src="/images/business-2.jpg" alt="CaplinkTrades press kit" fill className="object-cover" />
             </div>
             <div className="px-8 py-7 flex flex-col sm:flex-row sm:items-center justify-between gap-5 flex-1">
             <div>

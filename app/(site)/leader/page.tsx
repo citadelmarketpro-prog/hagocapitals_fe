@@ -26,14 +26,14 @@ const LEADER_TABS = [
     id: "broadcast",
     label: "Broadcast",
     heading: "Share your trading signals in real time and let investors copy your moves automatically.",
-    body: "When you execute a trade, HagoCapitals broadcasts your signal to every investor copying you. Your strategies are mirrored proportionally to their capital, so they benefit directly from your expertise.",
+    body: "When you execute a trade, CaplinkTrades broadcasts your signal to every investor copying you. Your strategies are mirrored proportionally to their capital, so they benefit directly from your expertise.",
   },
 ];
 
 /* ── Steps data ───────────────────────────────────────────────────── */
 const STEPS = [
   {
-    title: "Join HagoCapitals as a Leader",
+    title: "Join CaplinkTrades as a Leader",
     body: "Access the Leaders Program page and sign up using our free form to fast-track your approval.",
   },
   {
@@ -98,19 +98,19 @@ const REASONS = [
   },
   {
     title: "Global Reach",
-    body: "Access a worldwide network of investors looking to copy proven strategies. HagoCapitals's global platform connects you with followers across multiple markets.",
+    body: "Access a worldwide network of investors looking to copy proven strategies. CaplinkTrades's global platform connects you with followers across multiple markets.",
   },
 ];
 
 /* ── FAQ data ─────────────────────────────────────────────────────── */
 const FAQ_ITEMS = [
   {
-    q: "Can anyone become a HagoCapitals Leader?",
-    a: "Yes, anyone with trading experience and a proven track record can apply to become a HagoCapitals Leader.",
+    q: "Can anyone become a CaplinkTrades Leader?",
+    a: "Yes, anyone with trading experience and a proven track record can apply to become a CaplinkTrades Leader.",
   },
   {
-    q: "Can I become a Leader without being a HagoCapitals client?",
-    a: "No, you need to be a registered HagoCapitals client first. Once registered, you can apply to join the Leaders Program through your dashboard.",
+    q: "Can I become a Leader without being a CaplinkTrades client?",
+    a: "No, you need to be a registered CaplinkTrades client first. Once registered, you can apply to join the Leaders Program through your dashboard.",
   },
   {
     q: "What are the general trading hours for all the instruments?",
@@ -118,14 +118,14 @@ const FAQ_ITEMS = [
   },
   {
     q: "How will I become a successful Leader?",
-    a: "Consistent research, disciplined risk management, and transparent communication with your investors are the foundations. HagoCapitals also provides resources and a dedicated Leaders Desk to support your growth.",
+    a: "Consistent research, disciplined risk management, and transparent communication with your investors are the foundations. CaplinkTrades also provides resources and a dedicated Leaders Desk to support your growth.",
   },
   {
-    q: "What are the charges for me as a new Leader with HagoCapitals?",
+    q: "What are the charges for me as a new Leader with CaplinkTrades?",
     a: "There are no upfront or monthly fees to become a Leader. You only earn — you pay nothing. Commissions are performance-based and paid out automatically.",
   },
   {
-    q: "Is there a minimum amount for me to start trading with HagoCapitals?",
+    q: "Is there a minimum amount for me to start trading with CaplinkTrades?",
     a: "Yes, a minimum deposit is required to open a Leader account. Please refer to our account requirements page or contact our Leaders Desk for current minimum deposit details.",
   },
 ];
@@ -167,11 +167,11 @@ export default function LeaderPage() {
           <h1 className="font-bold leading-[1.08] text-[#001011] text-[42px] sm:text-[58px] lg:text-[76px] max-w-4xl">
             Become a Leader with
             <br />
-            <span className="text-[#06811d]">HagoCapitals</span>
+            <span className="text-[#06811d]">CaplinkTrades</span>
           </h1>
 
           <p className="mt-6 max-w-2xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-            HagoCapitals is one of the most transparent social trading platforms in the world,
+            CaplinkTrades is one of the most transparent social trading platforms in the world,
             where each goal is to support investors and traders in their investment goals. Our
             Leader Program is open for individual traders who possess trading skills. Become a
             Leader today by sharing profitable signals and strategies with investors, to follow
@@ -316,7 +316,7 @@ export default function LeaderPage() {
           {/* Header row */}
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-12">
             <h2 className="text-[28px] lg:text-[38px] font-bold leading-tight text-[#001011] max-w-sm">
-              Reasons to Become a Leader with HagoCapitals
+              Reasons to Become a Leader with CaplinkTrades
             </h2>
             <Link
               href="/sign-up"

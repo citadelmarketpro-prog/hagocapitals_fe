@@ -3,26 +3,26 @@
 export const metadata: Metadata = {
   title: "Company",
   description:
-    "Learn about HagoCapitals — our mission to make expert-level investing accessible to everyone, our story, values, and the team behind the platform.",
+    "Learn about CaplinkTrades — our mission to make expert-level investing accessible to everyone, our story, values, and the team behind the platform.",
   openGraph: {
-    title: "Company | HagoCapitals",
+    title: "Company | CaplinkTrades",
     description:
-      "Learn about HagoCapitals — our mission to make expert-level investing accessible to everyone, our story, values, and the team behind the platform.",
-    url: "https://HagoCapitals.com/company",
+      "Learn about CaplinkTrades — our mission to make expert-level investing accessible to everyone, our story, values, and the team behind the platform.",
+    url: "https://CaplinkTrades.com/company",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "CaplinkTrades — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Company | HagoCapitals",
+    title: "Company | CaplinkTrades",
     description:
-      "Learn about HagoCapitals — our mission to make expert-level investing accessible to everyone.",
+      "Learn about CaplinkTrades — our mission to make expert-level investing accessible to everyone.",
     images: ["/opengraph-image.png"],
   },
 };
@@ -44,7 +44,7 @@ const VALUES = [
   { title: "Transparency",  body: "We believe every investor deserves full visibility into the strategies they follow. Our platform surfaces every trade, stat, and risk metric openly." },
   { title: "Trust",         body: "We are licensed and regulated in multiple jurisdictions. Compliance and security are at the heart of everything we build." },
   { title: "Innovation",    body: "From AutoGuard™ to Smart Portfolio, we constantly invest in tools that give our users a genuine edge in the markets." },
-  { title: "Community",     body: "HagoCapitals is built on the idea that the crowd, when properly curated, is smarter than any single investor. We foster a global community of collaborative trading." },
+  { title: "Community",     body: "CaplinkTrades is built on the idea that the crowd, when properly curated, is smarter than any single investor. We foster a global community of collaborative trading." },
 ];
 
 export default function CompanyPage() {
@@ -63,10 +63,10 @@ export default function CompanyPage() {
           <h1 className="font-bold leading-[1.08] text-[#001011] text-[42px] sm:text-[58px] lg:text-[76px] max-w-4xl">
             About
             <br />
-            <span className="text-[#06811d]">HagoCapitals</span>
+            <span className="text-[#06811d]">CaplinkTrades</span>
           </h1>
           <p className="mt-6 max-w-2xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-            HagoCapitals is a leading social copy-trading platform built to make professional
+            CaplinkTrades is a leading social copy-trading platform built to make professional
             investing accessible to everyone — regardless of experience or background.
           </p>
         </div>
@@ -100,7 +100,7 @@ export default function CompanyPage() {
             <div className="flex flex-col gap-5">
               <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
                 Founded with the vision of democratising access to the financial markets,
-                HagoCapitals has grown into one of the world&apos;s most trusted social trading
+                CaplinkTrades has grown into one of the world&apos;s most trusted social trading
                 platforms. We developed our copy-trading technology from the ground up, so we
                 know everything about building and optimising social trading networks.
               </p>
@@ -128,23 +128,23 @@ export default function CompanyPage() {
             <div className="relative rounded-3xl overflow-hidden aspect-4/3 lg:aspect-auto">
               <Image
                 src="/images/business-hero.jpg"
-                alt="The HagoCapitals team collaborating"
+                alt="The CaplinkTrades team collaborating"
                 fill
                 className="object-cover"
               />
             </div>
             <div className="grid grid-cols-2 gap-6">
               <div className="relative rounded-3xl overflow-hidden aspect-square">
-                <Image src="/images/team/team_3.jpg" alt="HagoCapitals team member" fill className="object-cover" />
+                <Image src="/images/team/team_3.jpg" alt="CaplinkTrades team member" fill className="object-cover" />
               </div>
               <div className="relative rounded-3xl overflow-hidden aspect-square translate-y-8">
-                <Image src="/images/team/team_4.jpg" alt="HagoCapitals team member" fill className="object-cover" />
+                <Image src="/images/team/team_4.jpg" alt="CaplinkTrades team member" fill className="object-cover" />
               </div>
               <div className="relative rounded-3xl overflow-hidden aspect-square -translate-y-8">
-                <Image src="/images/business-1.jpg" alt="HagoCapitals office" fill className="object-cover" />
+                <Image src="/images/business-1.jpg" alt="CaplinkTrades office" fill className="object-cover" />
               </div>
               <div className="relative rounded-3xl overflow-hidden aspect-square">
-                <Image src="/images/team/team_5.jpg" alt="HagoCapitals team member" fill className="object-cover" />
+                <Image src="/images/team/team_5.jpg" alt="CaplinkTrades team member" fill className="object-cover" />
               </div>
             </div>
           </div>

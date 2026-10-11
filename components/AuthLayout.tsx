@@ -14,7 +14,7 @@ export default function AuthLayout({
  <Link href="/" className="flex items-center mb-10 shrink-0">
  <Image
  src="/logos/logo_one.png"
- alt="HagoCapitals"
+ alt="CaplinkTrades"
  width={376}
  height={284}
  priority
@@ -36,7 +36,7 @@ export default function AuthLayout({
  <div className="hidden lg:block relative w-[48%] xl:w-[46%] shrink-0">
  <Image
  src="/account_creation_green.jpg"
- alt="HagoCapitals trading background"
+ alt="CaplinkTrades trading background"
  fill
  className="object-cover object-center"
  priority

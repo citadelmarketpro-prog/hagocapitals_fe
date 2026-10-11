@@ -143,7 +143,7 @@ export default function BrokerPage() {
           </h1>
 
           <p className="mt-6 max-w-xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-            You can be the first brokerage industry innovation. With HagoCapitals, alongside
+            You can be the first brokerage industry innovation. With CaplinkTrades, alongside
             your Traders and restart your profits manifold.
           </p>
 
@@ -162,7 +162,7 @@ export default function BrokerPage() {
         </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          WHY PARTNER WITH HagoCapitals?
+          WHY PARTNER WITH CaplinkTrades?
       ══════════════════════════════════════════════════════════════ */}
       <section className="w-full bg-[#eaf5f0]">
         <FadeUp>
@@ -170,7 +170,7 @@ export default function BrokerPage() {
           <div className="text-center mb-12">
             <h2 className="text-[28px] lg:text-[42px] font-bold text-[#001011]">
               Why Partner With{" "}
-              <span className="text-[#06811d]">HagoCapitals</span>?
+              <span className="text-[#06811d]">CaplinkTrades</span>?
             </h2>
             <p className="mt-3 text-[14px] text-[#555555]">
               Adaptation and Acquisitions are the best formula for automated solutions.
@@ -278,17 +278,17 @@ export default function BrokerPage() {
         </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          ABOUT HagoCapitals
+          ABOUT CaplinkTrades
       ══════════════════════════════════════════════════════════════ */}
       <section className="w-full bg-white">
         <FadeUp>
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] py-16 lg:py-24">
           <div className="max-w-3xl mx-auto text-center flex flex-col gap-5">
             <h2 className="text-[28px] lg:text-[42px] font-bold text-[#001011]">
-              About HagoCapitals
+              About CaplinkTrades
             </h2>
             <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#555555]">
-              HagoCapitals is a leading copy trading partner. We developed it. So we know
+              CaplinkTrades is a leading copy trading partner. We developed it. So we know
               everything about building and optimizing social trading networks over the past
               7 years and counting.
             </p>
@@ -313,7 +313,7 @@ export default function BrokerPage() {
             <span className="text-[#06811d]">Brokerage</span>?
           </h2>
           <p className="text-[14px] lg:text-[15px] text-[#555555] max-w-md">
-            Join the leading brokers who have already partnered with HagoCapitals. Let&apos;s
+            Join the leading brokers who have already partnered with CaplinkTrades. Let&apos;s
             grow together.
           </p>
           <Link

@@ -3,24 +3,24 @@
 export const metadata: Metadata = {
   title: "AutoGuard Risk Protection",
   description:
-    "Protect your investments with HagoCapitals AutoGuard. Automated risk management that sets stop-loss limits, monitors drawdown, and safeguards your capital 24/7.",
+    "Protect your investments with CaplinkTrades AutoGuard. Automated risk management that sets stop-loss limits, monitors drawdown, and safeguards your capital 24/7.",
   openGraph: {
-    title: "AutoGuard Risk Protection | HagoCapitals",
+    title: "AutoGuard Risk Protection | CaplinkTrades",
     description:
       "Automated risk management that sets stop-loss limits, monitors drawdown, and safeguards your capital 24/7.",
-    url: "https://HagoCapitals.com/autoguard",
+    url: "https://CaplinkTrades.com/autoguard",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "CaplinkTrades — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "AutoGuard Risk Protection | HagoCapitals",
+    title: "AutoGuard Risk Protection | CaplinkTrades",
     description:
       "Automated risk management that sets stop-loss limits, monitors drawdown, and safeguards your capital 24/7.",
     images: ["/opengraph-image.png"],
@@ -121,7 +121,7 @@ export default function AutoGuardPage() {
                 <p className="text-[14px] leading-[1.8] text-[#555555]">
                   AutoGuard™ Capital Protection is available for all investors,
                   and it is mandatory for the users residing in the EU using the
-                  EU HagoCapitals platform as it creates a protection shield for
+                  EU CaplinkTrades platform as it creates a protection shield for
                   your investment capital.
                 </p>
               </div>

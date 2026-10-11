@@ -1,5 +1,5 @@
 ﻿/**
- * Central API client for HagoCapitals.
+ * Central API client for CaplinkTrades.
  * - Sends cookies with every request (credentials: "include")
  * - On 401 automatically tries one token refresh, then retries
  * - Throws ApiError for non-2xx responses so callers can handle them

@@ -25,7 +25,7 @@ export default function YouShouldKnow() {
             <p className="text-[14px] sm:text-[15px] text-[#666666] leading-[1.75]">
               Building and maintaining a trading strategy is hard. Options require
               timing, strategy, and discipline. Only 11–26% of manual investors
-              succeed on their own. With HagoCapitals, you can replicate successful
+              succeed on their own. With CaplinkTrades, you can replicate successful
               trades from seasoned options traders to tilt the odds in your favor.
             </p>
           </SlideIn>

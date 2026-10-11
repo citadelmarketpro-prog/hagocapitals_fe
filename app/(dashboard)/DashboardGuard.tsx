@@ -28,7 +28,7 @@ function SessionSpinner() {
  <div className="mb-8 text-center select-none flex flex-col items-center">
  <Image
  src="/logos/logo_two.png"
- alt="HagoCapitals"
+ alt="CaplinkTrades"
  width={815}
  height={473}
  priority

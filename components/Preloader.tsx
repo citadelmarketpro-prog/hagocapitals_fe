@@ -38,7 +38,7 @@ export default function Preloader() {
  {/* Logo — fading in and out, nothing else */}
  <Image
  src="/logos/logo_two.png"
- alt="HagoCapitals"
+ alt="CaplinkTrades"
  width={815}
  height={473}
  priority

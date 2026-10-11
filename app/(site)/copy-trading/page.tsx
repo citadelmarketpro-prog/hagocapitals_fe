@@ -3,24 +3,24 @@
 export const metadata: Metadata = {
   title: "Copy Trading",
   description:
-    "Discover how HagoCapitals copy trading works. Follow expert traders, mirror their positions in real time, and grow your portfolio without years of experience.",
+    "Discover how CaplinkTrades copy trading works. Follow expert traders, mirror their positions in real time, and grow your portfolio without years of experience.",
   openGraph: {
-    title: "Copy Trading | HagoCapitals",
+    title: "Copy Trading | CaplinkTrades",
     description:
       "Follow expert traders and mirror their positions in real time. Grow your portfolio without years of experience.",
-    url: "https://HagoCapitals.com/copy-trading",
+    url: "https://CaplinkTrades.com/copy-trading",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "CaplinkTrades — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Copy Trading | HagoCapitals",
+    title: "Copy Trading | CaplinkTrades",
     description:
       "Follow expert traders and mirror their positions in real time. Grow your portfolio without years of experience.",
     images: ["/opengraph-image.png"],
@@ -86,7 +86,7 @@ export default function CopyTradingPage() {
             <span className="text-[#06811d]">Traders</span>
           </h1>
           <p className="mt-6 max-w-xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-            HagoCapitals&apos;s copy trading lets you automatically replicate the moves of expert
+            CaplinkTrades&apos;s copy trading lets you automatically replicate the moves of expert
             Leaders — so you invest smarter without needing to trade yourself.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">

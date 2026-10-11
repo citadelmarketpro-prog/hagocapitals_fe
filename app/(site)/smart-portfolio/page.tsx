@@ -3,24 +3,24 @@
 export const metadata: Metadata = {
   title: "Smart Portfolio",
   description:
-    "Build a diversified investment portfolio automatically with HagoCapitals Smart Portfolio. Intelligent allocation across top-performing traders and asset classes.",
+    "Build a diversified investment portfolio automatically with CaplinkTrades Smart Portfolio. Intelligent allocation across top-performing traders and asset classes.",
   openGraph: {
-    title: "Smart Portfolio | HagoCapitals",
+    title: "Smart Portfolio | CaplinkTrades",
     description:
       "Build a diversified investment portfolio automatically. Intelligent allocation across top-performing traders and asset classes.",
-    url: "https://HagoCapitals.com/smart-portfolio",
+    url: "https://CaplinkTrades.com/smart-portfolio",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "CaplinkTrades — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Smart Portfolio | HagoCapitals",
+    title: "Smart Portfolio | CaplinkTrades",
     description:
       "Build a diversified investment portfolio automatically. Intelligent allocation across top-performing traders and asset classes.",
     images: ["/opengraph-image.png"],
@@ -80,7 +80,7 @@ export default function SmartPortfolioPage() {
             <span className="text-[#06811d]">Smart Portfolio</span>
           </h1>
           <p className="mt-6 max-w-xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-            Smart Portfolio is HagoCapitals&apos;s intelligent allocation engine — it builds
+            Smart Portfolio is CaplinkTrades&apos;s intelligent allocation engine — it builds
             a diversified, risk-managed portfolio of top Leaders for you automatically.
           </p>
           <div className="mt-10">
@@ -104,7 +104,7 @@ export default function SmartPortfolioPage() {
             <div className="flex flex-col gap-5">
               <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
                 Smart Portfolio is an automated investment tool that selects a curated basket of
-                top-performing HagoCapitals Leaders and allocates your capital across them based
+                top-performing CaplinkTrades Leaders and allocates your capital across them based
                 on their risk-adjusted performance metrics.
               </p>
               <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">

@@ -56,7 +56,7 @@ const navGroups = [
   {
     label: "CONTACT",
     links: [
-      { label: "support@HagoCapitals.com", href: "mailto:support@HagoCapitals.com" },
+      { label: "support@CaplinkTrades.com", href: "mailto:support@CaplinkTrades.com" },
       { label: "+1 (929) 512-0241",       href: "tel:+19295120241" },
     ],
   },
@@ -78,7 +78,7 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center">
               <Image
                 src="/logos/logo_one.png"
-                alt="HagoCapitals"
+                alt="CaplinkTrades"
                 width={376}
                 height={284}
                 className="h-16 w-auto object-contain"
@@ -86,7 +86,7 @@ export default function Footer() {
             </Link>
 
             <p className=" text-[#444444] text-[13px] mt-5">
-              Copytrade with HagoCapitals
+              Copytrade with CaplinkTrades
             </p>
 
             <div className="flex gap-3 flex-col md:flex-row">
@@ -158,17 +158,17 @@ export default function Footer() {
             Disclaimer
           </p>
           <p className="text-[14px] leading-[1.85] text-[#888888] mb-4">
-            HagoCapitals (Europe) Ltd., a Financial Services Company authorised and regulated by the Cyprus Securities Exchange Commission (CySEC) under the license 12718031. Registered in Cyprus under Company No. HE 200595. Registered Office: 4 Profiti Ilia Str., Kanika Business Centre, 7th floor, Germasogeia, 4046, Limassol, Cyprus. HagoCapitals (UK) Ltd, a Financial Services Company authorised and regulated by the Financial Conduct Authority (FCA) under the license 12718031. Registered Office: 24th floor, One Canada Square, Canary Wharf, London E14 5AB. HagoCapitals (USA) Ltd, a financial company authorised and regulated by SEC, SEC Number 0002090792. HagoCapitals Limited is authorised by the Australian Securities and Investments Commission (ASIC) to provide financial services under Australian Financial Services License 12718031. Registered Office: Level 3, 60 Castlereagh Street, Sydney NSW 2000, Australia. HagoCapitals (ME) Limited, is licensed and regulated by the Abu Dhabi Global Market (&ldquo;ADGM&rdquo;)&apos;s Financial Services Regulatory Authority (&ldquo;FSRA&rdquo;) as an Authorised Person to conduct the Regulated Activities of (a) Dealing in Investments as Principal (Matched), (b) Arranging Deals in Investments, (c) Providing Custody, (d) Arranging Custody and (e) Managing Assets (under Financial Services Permission Number 220073) under the Financial Services and Market Regulations 2015 (&ldquo;FSMR&rdquo;). Its registered office and its principal place of business is at Office 207 and 208, 15th Floor Floor, Al Sarab Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates (&ldquo;UAE&rdquo;). Clients who are tax residents of Finland may be subject to Finnish income taxes on income (profits) and assets in accordance with applicable Finnish tax laws.
+            CaplinkTrades (Europe) Ltd., a Financial Services Company authorised and regulated by the Cyprus Securities Exchange Commission (CySEC) under the license 12718031. Registered in Cyprus under Company No. HE 200595. Registered Office: 4 Profiti Ilia Str., Kanika Business Centre, 7th floor, Germasogeia, 4046, Limassol, Cyprus. CaplinkTrades (UK) Ltd, a Financial Services Company authorised and regulated by the Financial Conduct Authority (FCA) under the license 12718031. Registered Office: 24th floor, One Canada Square, Canary Wharf, London E14 5AB. CaplinkTrades (USA) Ltd, a financial company authorised and regulated by SEC, SEC Number 0002090792. CaplinkTrades Limited is authorised by the Australian Securities and Investments Commission (ASIC) to provide financial services under Australian Financial Services License 12718031. Registered Office: Level 3, 60 Castlereagh Street, Sydney NSW 2000, Australia. CaplinkTrades (ME) Limited, is licensed and regulated by the Abu Dhabi Global Market (&ldquo;ADGM&rdquo;)&apos;s Financial Services Regulatory Authority (&ldquo;FSRA&rdquo;) as an Authorised Person to conduct the Regulated Activities of (a) Dealing in Investments as Principal (Matched), (b) Arranging Deals in Investments, (c) Providing Custody, (d) Arranging Custody and (e) Managing Assets (under Financial Services Permission Number 220073) under the Financial Services and Market Regulations 2015 (&ldquo;FSMR&rdquo;). Its registered office and its principal place of business is at Office 207 and 208, 15th Floor Floor, Al Sarab Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates (&ldquo;UAE&rdquo;). Clients who are tax residents of Finland may be subject to Finnish income taxes on income (profits) and assets in accordance with applicable Finnish tax laws.
           </p>
           <p className="text-[14px] leading-[1.85] text-[#888888]">
-            Past performance is not an indication of future results. You should seek advice from an independent and suitably licensed financial advisor and ensure that you have the risk appetite, relevant experience and knowledge before you decide to trade. Under no circumstances shall HagoCapitals have any liability to any person or entity for any direct, indirect, special, consequential or incidental damages whatsoever. Stock and options investments are risky and do not benefit from the protections available to clients receiving MiFID regulated investment services for dispute resolution. Trading with HagoCapitals by following and/or copying or replicating the trades of other traders involves a high level of risks, even when following and/or copying or replicating the top-performing traders. Such risks includes the risk that you may be following/copying the trading decisions of possibly inexperienced/unprofessional traders, or traders whose ultimate purpose or intention, or financial status may differ from yours. Past performance of a HagoCapitals Community Member is not a reliable indicator of his future performance. Content on HagoCapitals&apos;s social trading platform is generated by members of its community and does not contain advice or recommendations by or on behalf of HagoCapitals- Your Social Investment Network.
+            Past performance is not an indication of future results. You should seek advice from an independent and suitably licensed financial advisor and ensure that you have the risk appetite, relevant experience and knowledge before you decide to trade. Under no circumstances shall CaplinkTrades have any liability to any person or entity for any direct, indirect, special, consequential or incidental damages whatsoever. Stock and options investments are risky and do not benefit from the protections available to clients receiving MiFID regulated investment services for dispute resolution. Trading with CaplinkTrades by following and/or copying or replicating the trades of other traders involves a high level of risks, even when following and/or copying or replicating the top-performing traders. Such risks includes the risk that you may be following/copying the trading decisions of possibly inexperienced/unprofessional traders, or traders whose ultimate purpose or intention, or financial status may differ from yours. Past performance of a CaplinkTrades Community Member is not a reliable indicator of his future performance. Content on CaplinkTrades&apos;s social trading platform is generated by members of its community and does not contain advice or recommendations by or on behalf of CaplinkTrades- Your Social Investment Network.
           </p>
         </div>
 
         {/* ── Copyright ── */}
         <div className="px-6 lg:px-[72px] py-5 border-t border-[#e8ead8] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <p className="text-[12px] text-[#888888]">
-            Copyright &copy; 2006-2026 HagoCapitals - Your Social Investment Network, All rights reserved.
+            Copyright &copy; 2006-2026 CaplinkTrades - Your Social Investment Network, All rights reserved.
           </p>
           <p className="text-[12px] text-[#888888]">
             SEC Number: 0002090792

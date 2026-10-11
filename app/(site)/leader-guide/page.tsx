@@ -7,7 +7,7 @@ import ReadyToInvest from "@/components/ReadyToInvest";
 import { FadeUp } from "@/components/ScrollReveal";
 
 const NAV_SECTIONS = [
-  { id: "leaders-guide",        label: "HagoCapitals Leaders" },
+  { id: "leaders-guide",        label: "CaplinkTrades Leaders" },
   { id: "introduction",         label: "Introduction" },
   { id: "account-requirements", label: "Account Requirements" },
   { id: "performance-tracking", label: "Performance Tracking" },
@@ -113,13 +113,13 @@ export default function LeaderGuidePage() {
             <main className="flex-1 min-w-0 flex flex-col gap-16 pb-4">
 
               {/* ═══════════════════════════════════
-                  1. HagoCapitals LEADERS
+                  1. CaplinkTrades LEADERS
               ═══════════════════════════════════ */}
               <section id="leaders-guide" className="flex flex-col gap-5 scroll-mt-34 lg:scroll-mt-28">
         <FadeUp>
-                <SectionHeading>HagoCapitals Leaders</SectionHeading>
+                <SectionHeading>CaplinkTrades Leaders</SectionHeading>
                 <BodyText>
-                  Consolidated monthly statements from HagoCapitals can be a convenient tool for Leaders
+                  Consolidated monthly statements from CaplinkTrades can be a convenient tool for Leaders
                   who hold accounts with different brokers to track their overall performance. A
                   consolidated monthly statement provides a comprehensive overview of all your trading
                   activities across multiple brokers, giving you a clear picture of your overall
@@ -150,7 +150,7 @@ export default function LeaderGuidePage() {
         <FadeUp>
                 <SectionHeading>Account Requirements</SectionHeading>
                 <BodyText>
-                  To become a HagoCapitals Leader, you must maintain a minimum account balance as
+                  To become a CaplinkTrades Leader, you must maintain a minimum account balance as
                   specified in your agreement. Leaders are required to maintain transparency in their
                   trading activities and provide accurate information about their trading strategies.
                 </BodyText>
