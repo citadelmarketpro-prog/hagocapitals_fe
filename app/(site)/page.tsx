@@ -3,7 +3,7 @@
 export const metadata: Metadata = {
   title: "Copy Top Traders Automatically",
   description:
-    "Join CaplinkTrades and automatically copy the trades of expert investors. Start building your portfolio today with real-time trade signals and smart risk management.",
+    "Join HagoCapitals and automatically copy the trades of expert investors. Start building your portfolio today with real-time trade signals and smart risk management.",
   keywords: [
     "copy trading platform",
     "copy top traders",
@@ -12,24 +12,24 @@ export const metadata: Metadata = {
     "social investing",
   ],
   openGraph: {
-    title: "CaplinkTrades — Copy Top Traders Automatically",
+    title: "HagoCapitals — Copy Top Traders Automatically",
     description:
-      "Join CaplinkTrades and automatically copy the trades of expert investors. Real-time signals, smart portfolios, and AutoGuard risk protection.",
-    url: "https://CaplinkTrades.com",
+      "Join HagoCapitals and automatically copy the trades of expert investors. Real-time signals, smart portfolios, and AutoGuard risk protection.",
+    url: "https://hagocapitals.com",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "CaplinkTrades — Copy Trading Platform",
+        alt: "HagoCapitals — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CaplinkTrades — Copy Top Traders Automatically",
+    title: "HagoCapitals — Copy Top Traders Automatically",
     description:
-      "Join CaplinkTrades and automatically copy the trades of expert investors. Real-time signals, smart portfolios, and AutoGuard risk protection.",
+      "Join HagoCapitals and automatically copy the trades of expert investors. Real-time signals, smart portfolios, and AutoGuard risk protection.",
     images: ["/opengraph-image.png"],
   },
 };

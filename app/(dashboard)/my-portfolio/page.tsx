@@ -158,7 +158,7 @@ function ProfileDropdown({
 
  {/* About */}
  <div className="bg-[#f5f5ef] border-b border-[#e5e5e5] px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#eeeee9] transition-colors">
- <span className="text-[13px] font-medium text-[#001011]">About CaplinkTrades</span>
+ <span className="text-[13px] font-medium text-[#001011]">About HagoCapitals</span>
  <ExternalIcon />
  </div>
 

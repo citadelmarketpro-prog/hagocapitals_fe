@@ -3,26 +3,26 @@
 export const metadata: Metadata = {
   title: "Become a Leader Trader",
   description:
-    "Share your trading strategy on CaplinkTrades and earn performance fees. Apply to become a Leader Trader and let others follow your success.",
+    "Share your trading strategy on HagoCapitals and earn performance fees. Apply to become a Leader Trader and let others follow your success.",
   openGraph: {
-    title: "Become a Leader Trader | CaplinkTrades",
+    title: "Become a Leader Trader | HagoCapitals",
     description:
-      "Share your trading strategy and earn performance fees. Apply to become a Leader Trader on CaplinkTrades.",
-    url: "https://CaplinkTrades.com/leader",
+      "Share your trading strategy and earn performance fees. Apply to become a Leader Trader on HagoCapitals.",
+    url: "https://hagocapitals.com/leader",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "CaplinkTrades — Copy Trading Platform",
+        alt: "HagoCapitals — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Become a Leader Trader | CaplinkTrades",
+    title: "Become a Leader Trader | HagoCapitals",
     description:
-      "Share your trading strategy and earn performance fees. Apply to become a Leader Trader on CaplinkTrades.",
+      "Share your trading strategy and earn performance fees. Apply to become a Leader Trader on HagoCapitals.",
     images: ["/opengraph-image.png"],
   },
 };

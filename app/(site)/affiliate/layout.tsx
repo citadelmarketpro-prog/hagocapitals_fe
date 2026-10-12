@@ -3,26 +3,26 @@
 export const metadata: Metadata = {
   title: "Affiliate Programme",
   description:
-    "Earn passive income by referring traders to CaplinkTrades. Join our affiliate programme and receive competitive commissions for every active user you bring.",
+    "Earn passive income by referring traders to HagoCapitals. Join our affiliate programme and receive competitive commissions for every active user you bring.",
   openGraph: {
-    title: "Affiliate Programme | CaplinkTrades",
+    title: "Affiliate Programme | HagoCapitals",
     description:
-      "Earn passive income by referring traders to CaplinkTrades. Competitive commissions for every active user you bring.",
-    url: "https://CaplinkTrades.com/affiliate",
+      "Earn passive income by referring traders to HagoCapitals. Competitive commissions for every active user you bring.",
+    url: "https://hagocapitals.com/affiliate",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "CaplinkTrades — Copy Trading Platform",
+        alt: "HagoCapitals — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Affiliate Programme | CaplinkTrades",
+    title: "Affiliate Programme | HagoCapitals",
     description:
-      "Earn passive income by referring traders to CaplinkTrades. Competitive commissions for every active user you bring.",
+      "Earn passive income by referring traders to HagoCapitals. Competitive commissions for every active user you bring.",
     images: ["/opengraph-image.png"],
   },
 };

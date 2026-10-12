@@ -11,7 +11,7 @@ import { api, ApiError } from "@/lib/api";
  Same logic: list active signals with a per-user purchase flag,
  purchase deducts balance + snapshots the signal, purchased tab
  shows full details (falling back to the snapshot if the signal
- was later deactivated). Restyled to CaplinkTrades' light, sharp-
+ was later deactivated). Restyled to HagoCapitals' light, sharp-
  edged design language (no dark mode here — this app is light-only).
 ══════════════════════════════════════════════════════════════ */
 

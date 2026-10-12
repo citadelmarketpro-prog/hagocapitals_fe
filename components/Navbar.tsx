@@ -44,7 +44,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
         <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/logos/logo_one.png"
-            alt="CaplinkTrades"
+            alt="HagoCapitals"
             width={376}
             height={284}
             priority

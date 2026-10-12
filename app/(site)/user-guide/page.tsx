@@ -109,14 +109,14 @@ export default function UserGuidePage() {
               ═══════════════════════════════════ */}
               <section id="onboarding" className="flex flex-col gap-6 scroll-mt-[136px] lg:scroll-mt-28">
         <FadeUp>
-                <SectionHeading>CaplinkTrades Leaders</SectionHeading>
+                <SectionHeading>HagoCapitals Leaders</SectionHeading>
 
                 {/* A. Login */}
                 <div className="flex flex-col gap-3">
                   <LimeSubHeading>A. Login</LimeSubHeading>
                   <BodyText>
-                    You can login to your account by entering your CaplinkTrades Username or your
-                    CaplinkTrades registered email address, together with your CaplinkTrades password.
+                    You can login to your account by entering your HagoCapitals Username or your
+                    HagoCapitals registered email address, together with your HagoCapitals password.
                   </BodyText>
                 </div>
 
@@ -126,7 +126,7 @@ export default function UserGuidePage() {
                   <BodyText>
                     Upon your registration, a free Demo account will be automatically created for you,
                     with exactly the same functionality as a Live account. This means that you can try
-                    out CaplinkTrades risk-free and experiment with different CopyTrading strategies before
+                    out HagoCapitals risk-free and experiment with different CopyTrading strategies before
                     investing any real funds!
                   </BodyText>
                   <BulletList
@@ -148,11 +148,11 @@ export default function UserGuidePage() {
                       is to enter your personal details, like name, country and phone number. Please
                       note that it is not possible to change your e-mail address later, but we can
                       change it for you with a simple e-mail request to:{" "}
-                      <LimeLink href="mailto:support@CaplinkTrades.com">support@CaplinkTrades.com</LimeLink>
+                      <LimeLink href="mailto:support@hagocapitals.com">support@hagocapitals.com</LimeLink>
                     </BodyText>
                     <BodyText>
                       In order to ensure smooth connectivity please note that your e-mail address at
-                      CaplinkTrades should be the same as in your broker(s).
+                      HagoCapitals should be the same as in your broker(s).
                     </BodyText>
                   </div>
 
@@ -179,14 +179,14 @@ export default function UserGuidePage() {
                     <BodyText>
                       Please note that the required password is the MT4, MT5, ActTrader, XOH Master
                       password, and not the Read-Only (Investor) password. If you provide the Read-Only
-                      (Investor) password, although your CaplinkTrades account will be connected to your
+                      (Investor) password, although your HagoCapitals account will be connected to your
                       Broker account, you will not be able to receive any signals as it will be set to
                       read-only mode.
                     </BodyText>
                     <BodyText>
                       If you do not have the Broker Account Username, Broker Account Password
                       available, then please contact your Broker as they can remind/reset them for you
-                      — unfortunately, CaplinkTrades does not have access to this information and thus
+                      — unfortunately, HagoCapitals does not have access to this information and thus
                       cannot provide it.
                     </BodyText>
 
@@ -194,21 +194,21 @@ export default function UserGuidePage() {
                       Create a new broker account
                     </p>
                     <BodyText>
-                      You can also create a new Trading Account through CaplinkTrades with our supported
+                      You can also create a new Trading Account through HagoCapitals with our supported
                       brokerage firms. In order to do so, please follow the on-screen instructions for
                       each broker account.
                     </BodyText>
                     <BodyText>
                       Keep in mind that for some brokers you will be directed to the broker&apos;s website
-                      to create your trading account. After that you will need to return to CaplinkTrades
+                      to create your trading account. After that you will need to return to HagoCapitals
                       to eventually connect your new trading account. You will be provided with
                       instructions (on-screen or via email) that you need to follow for the specific
                       broker.
                     </BodyText>
                     <NoteBlock>
                       Please remember that if you ever change your Broker Password, connectivity with
-                      your CaplinkTrades account will be lost, so you will need to repeat this process,
-                      and re-connect your Broker account to CaplinkTrades using the updated Broker
+                      your HagoCapitals account will be lost, so you will need to repeat this process,
+                      and re-connect your Broker account to HagoCapitals using the updated Broker
                       Password.
                     </NoteBlock>
                   </div>
@@ -219,7 +219,7 @@ export default function UserGuidePage() {
                   <LimeSubHeading>C. Applicable Fees</LimeSubHeading>
                   <BodyText>
                     In order to be able to CopyTrade with a Live Trading Account you do not need to
-                    pay any subscription fee. The CaplinkTrades Platform is available to all End-Users
+                    pay any subscription fee. The HagoCapitals Platform is available to all End-Users
                     holding a linked trading account with a Co-operating Broker.
                   </BodyText>
                 </div>
@@ -263,7 +263,7 @@ export default function UserGuidePage() {
                     <BodyText>
                       Clicking on any trade will show additional information for the specific
                       trade/order. Here you can also find the Trader Ticket and Broker Ticket, which
-                      are essential IDs if you wish to contact CaplinkTrades over specific trades.
+                      are essential IDs if you wish to contact HagoCapitals over specific trades.
                     </BodyText>
 
                     {/* 1. Update */}
@@ -391,7 +391,7 @@ export default function UserGuidePage() {
                     {
                       n: "1",
                       title: "Navigate to the Leaders\u2019 tab.",
-                      text: "Here you can explore all of the Leader\u2019s that are available for copytrading in CaplinkTrades. You can click/tap on any of the Leaders to open their profiles, where you can view all of the Leader\u2019s trading statistics.",
+                      text: "Here you can explore all of the Leader\u2019s that are available for copytrading in HagoCapitals. You can click/tap on any of the Leaders to open their profiles, where you can view all of the Leader\u2019s trading statistics.",
                     },
                     {
                       n: "2",
@@ -509,8 +509,8 @@ export default function UserGuidePage() {
                 <SectionHeading>Community</SectionHeading>
 
                 <BodyText>
-                  Here you can learn what is happening in the CaplinkTrades community and participate in
-                  discussions about investment topics. This is where CaplinkTrades&apos;s users are sharing
+                  Here you can learn what is happening in the HagoCapitals community and participate in
+                  discussions about investment topics. This is where HagoCapitals&apos;s users are sharing
                   their thoughts about the markets.
                 </BodyText>
 
@@ -609,7 +609,7 @@ export default function UserGuidePage() {
 
                     <NumberedItem n="1" title="Change Password">
                       <BodyText>
-                        You can also change your password for logging into your CaplinkTrades account —
+                        You can also change your password for logging into your HagoCapitals account —
                         in order to do that you will need your Current Password. If you have forgotten
                         your Current Password, you can always reset it by clicking on the Forgot
                         Password.
@@ -642,11 +642,11 @@ export default function UserGuidePage() {
                     <SmallSubHeading>c. Delete Account</SmallSubHeading>
                     <BodyText>
                       In order to process the deletion of your account please send an email to{" "}
-                      <LimeLink href="mailto:support@CaplinkTrades.com">
-                        support@CaplinkTrades.com
+                      <LimeLink href="mailto:support@hagocapitals.com">
+                        support@hagocapitals.com
                       </LimeLink>{" "}
                       with the title &apos;Delete Account&apos;. Kindly note that due to regulatory obligations
-                      CaplinkTrades is legally obliged to maintain data for Live accounts for a period of
+                      HagoCapitals is legally obliged to maintain data for Live accounts for a period of
                       time as per respective licences for EU and Global regions.
                     </BodyText>
                   </div>

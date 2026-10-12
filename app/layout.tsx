@@ -33,11 +33,11 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "CaplinkTrades — Copy Trading Platform",
-    template: "%s | CaplinkTrades",
+    default: "HagoCapitals — Copy Trading Platform",
+    template: "%s | HagoCapitals",
   },
   description:
-    "Copy top traders automatically with CaplinkTrades. Real-time trade copying, smart portfolio management, and AutoGuard risk protection for every investor.",
+    "Copy top traders automatically with HagoCapitals. Real-time trade copying, smart portfolio management, and AutoGuard risk protection for every investor.",
   keywords: [
     "copy trading",
     "social trading",
@@ -47,11 +47,11 @@ export const metadata: Metadata = {
     "stock copy trading",
     "auto trading",
     "investment platform",
-    "CaplinkTrades",
+    "HagoCapitals",
   ],
-  authors: [{ name: "CaplinkTrades", url: "https://CaplinkTrades.com" }],
-  creator: "CaplinkTrades",
-  publisher: "CaplinkTrades",
+  authors: [{ name: "HagoCapitals", url: "https://hagocapitals.com" }],
+  creator: "HagoCapitals",
+  publisher: "HagoCapitals",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -66,27 +66,27 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://CaplinkTrades.com",
-    siteName: "CaplinkTrades",
-    title: "CaplinkTrades — Copy Trading Platform",
+    url: "https://hagocapitals.com",
+    siteName: "HagoCapitals",
+    title: "HagoCapitals — Copy Trading Platform",
     description:
-      "Copy top traders automatically with CaplinkTrades. Real-time trade copying, smart portfolio management, and AutoGuard risk protection.",
+      "Copy top traders automatically with HagoCapitals. Real-time trade copying, smart portfolio management, and AutoGuard risk protection.",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "CaplinkTrades — Copy Trading Platform",
+        alt: "HagoCapitals — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CaplinkTrades — Copy Trading Platform",
+    title: "HagoCapitals — Copy Trading Platform",
     description:
-      "Copy top traders automatically with CaplinkTrades. Real-time trade copying, smart portfolio management, and AutoGuard risk protection.",
+      "Copy top traders automatically with HagoCapitals. Real-time trade copying, smart portfolio management, and AutoGuard risk protection.",
     images: ["/opengraph-image.png"],
-    creator: "@CaplinkTrades",
+    creator: "@HagoCapitals",
   },
   robots: {
     index: true,

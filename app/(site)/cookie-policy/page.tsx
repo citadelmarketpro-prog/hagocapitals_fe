@@ -115,7 +115,7 @@ export default function CookiePolicyPage() {
                 <SectionHeading>Cookies Policy</SectionHeading>
 
                 <BodyText>
-                  When you use our Website, CaplinkTrades will use cookies to distinguish you from
+                  When you use our Website, HagoCapitals will use cookies to distinguish you from
                   other users of our Website. This helps us provide you with a more relevant and
                   effective experience, including presenting the Website according to your needs and
                   preferences.
@@ -258,7 +258,7 @@ export default function CookiePolicyPage() {
                 </BodyText>
                 <BodyText>
                   If you have any questions regarding our privacy or security measures, please email{" "}
-                  <LimeLink href="mailto:support@CaplinkTrades.com">support@CaplinkTrades.com</LimeLink>
+                  <LimeLink href="mailto:support@hagocapitals.com">support@hagocapitals.com</LimeLink>
                 </BodyText>
               </FadeUp>
         </section>

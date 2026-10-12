@@ -3,26 +3,26 @@
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Trading tips, platform updates, market insights, and community stories from the CaplinkTrades team. Stay informed and invest smarter.",
+    "Trading tips, platform updates, market insights, and community stories from the HagoCapitals team. Stay informed and invest smarter.",
   openGraph: {
-    title: "Blog | CaplinkTrades",
+    title: "Blog | HagoCapitals",
     description:
-      "Trading tips, platform updates, market insights, and community stories from the CaplinkTrades team.",
-    url: "https://CaplinkTrades.com/blog",
+      "Trading tips, platform updates, market insights, and community stories from the HagoCapitals team.",
+    url: "https://hagocapitals.com/blog",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "CaplinkTrades — Copy Trading Platform",
+        alt: "HagoCapitals — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | CaplinkTrades",
+    title: "Blog | HagoCapitals",
     description:
-      "Trading tips, platform updates, market insights, and community stories from the CaplinkTrades team.",
+      "Trading tips, platform updates, market insights, and community stories from the HagoCapitals team.",
     images: ["/opengraph-image.png"],
   },
 };
@@ -47,7 +47,7 @@ const POSTS = [
     category: "Platform Updates",
     date: "Mar 8, 2026",
     title: "Introducing Smart Portfolio: Your Automated Copy-Trade Engine",
-    excerpt: "We're excited to launch Smart Portfolio — CaplinkTrades's intelligent allocation tool that builds and rebalances a diversified leader portfolio for you automatically.",
+    excerpt: "We're excited to launch Smart Portfolio — HagoCapitals's intelligent allocation tool that builds and rebalances a diversified leader portfolio for you automatically.",
     readTime: "3 min read",
     image: "/images/stock-image-1.jpg",
   },
@@ -102,7 +102,7 @@ export default function BlogPage() {
         <FadeUp>
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] pt-14 lg:pt-20 pb-10">
           <h1 className="text-[36px] lg:text-[52px] font-bold text-[#001011]">
-            CaplinkTrades Blog
+            HagoCapitals Blog
           </h1>
           <p className="mt-3 text-[15px] text-[#555555] max-w-xl">
             Insights, platform updates, and community stories from the world of social copy trading.

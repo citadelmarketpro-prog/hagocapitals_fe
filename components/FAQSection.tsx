@@ -8,7 +8,7 @@ const faqs = [
   {
     question: "Do I need trading experience?",
     answer:
-      "No, copy trading is designed for all experience levels. You simply select a trader to follow and CaplinkTrades automatically mirrors their trades in your account—no prior market knowledge required.",
+      "No, copy trading is designed for all experience levels. You simply select a trader to follow and HagoCapitals automatically mirrors their trades in your account—no prior market knowledge required.",
   },
   {
     question: "Can I stop copying anytime?",
@@ -18,7 +18,7 @@ const faqs = [
   {
     question: "Is my money safe?",
     answer:
-      "Your funds always remain in your own linked brokerage account. CaplinkTrades never holds or has direct access to your capital—we only execute trade signals on your behalf.",
+      "Your funds always remain in your own linked brokerage account. HagoCapitals never holds or has direct access to your capital—we only execute trade signals on your behalf.",
   },
   {
     question: "What is the minimum investment?",

@@ -146,7 +146,7 @@ export default function ConnectWalletPage() {
  <div className="mb-6">
  <h1 className="text-[18px] font-bold text-[#001011] leading-none">Connect Wallet</h1>
  <p className="text-[13px] text-[#888888] mt-2 max-w-2xl">
- Link your wallet to access premium features. CaplinkTrades offers support for a wide
+ Link your wallet to access premium features. HagoCapitals offers support for a wide
  range of exchanges and wallets — connect by adding your public wallet address below.
  We never ask for a seed phrase or private key.
  </p>

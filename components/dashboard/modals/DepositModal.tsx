@@ -484,8 +484,8 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
  <p className="text-[12px] text-[#888888] mb-6 leading-relaxed">
  Funds will be credited within 30 minutes to 24 hours after verification. If you don&apos;t see them,
  contact us at{" "}
- <a href="mailto:support@CaplinkTrades.com" className="text-[#06811d] hover:underline">
- support@CaplinkTrades.com
+ <a href="mailto:support@hagocapitals.com" className="text-[#06811d] hover:underline">
+ support@hagocapitals.com
  </a>
  </p>
  <button

@@ -7,7 +7,7 @@ import ReadyToInvest from "@/components/ReadyToInvest";
 import { FadeUp } from "@/components/ScrollReveal";
 
 const NAV_SECTIONS = [
-  { id: "affiliates-guide",       label: "CaplinkTrades Affiliates Guide" },
+  { id: "affiliates-guide",       label: "HagoCapitals Affiliates Guide" },
   { id: "creating-account",       label: "Creating an Affiliate account" },
   { id: "account-linkage",        label: "Account Linkage Policy" },
   { id: "advertising-guidelines", label: "Advertising and Promotional Guidelines" },
@@ -109,21 +109,21 @@ export default function AffiliateGuidePage() {
             <main className="flex-1 min-w-0 flex flex-col gap-16 pb-4">
 
               {/* ═══════════════════════════════════
-                  1. CaplinkTrades AFFILIATES GUIDE
+                  1. HagoCapitals AFFILIATES GUIDE
               ═══════════════════════════════════ */}
               <section id="affiliates-guide" className="flex flex-col gap-5 scroll-mt-[136px] lg:scroll-mt-28">
         <FadeUp>
-                <SectionHeading>CaplinkTrades Affiliates Guide</SectionHeading>
+                <SectionHeading>HagoCapitals Affiliates Guide</SectionHeading>
 
                 <LimeBulletList items={["Introduction to Affiliates"]} />
 
                 <div className="flex flex-col gap-4">
                   <BodyText>
                     An Affiliate can be either an Individual user or a corporation that participates in
-                    CaplinkTrades&apos;s Affiliate Program, promoting CaplinkTrades&apos;s service. Affiliates register
+                    HagoCapitals&apos;s Affiliate Program, promoting HagoCapitals&apos;s service. Affiliates register
                     for the program and then they are given a unique and personalised URL, which they use
-                    to advertise and promote CaplinkTrades. By promoting CaplinkTrades, Affiliates introduce
-                    Referral Clients (new users) to CaplinkTrades&apos;s services.
+                    to advertise and promote HagoCapitals. By promoting HagoCapitals, Affiliates introduce
+                    Referral Clients (new users) to HagoCapitals&apos;s services.
                   </BodyText>
                   <BodyText>
                     Affiliates receive a commission for their service for accounts that sign up through the
@@ -131,14 +131,14 @@ export default function AffiliateGuidePage() {
                     per individual unless a written permission is granted from the affiliate department.
                   </BodyText>
                   <BodyText>
-                    To endorse Affiliates&apos; efforts, CaplinkTrades provides its Affiliates with resources,
+                    To endorse Affiliates&apos; efforts, HagoCapitals provides its Affiliates with resources,
                     guidelines, support, and a variety of promotional tools, such as banners. Additionally,
                     it provides widgets (dynamic and non-dynamic ones) which can be easily integrated into
                     personal website pages, in order to enhance Affiliates&apos; advertising strategies.
                   </BodyText>
                   <BodyText>
                     The Affiliate Program offers a lucrative opportunity to supplement monthly earnings.
-                    CaplinkTrades&apos;s Program is flexible; therefore depending on the time and effort Affiliates
+                    HagoCapitals&apos;s Program is flexible; therefore depending on the time and effort Affiliates
                     are willing to commit, they can enjoy equivalent earnings.
                   </BodyText>
                 </div>
@@ -148,7 +148,7 @@ export default function AffiliateGuidePage() {
                 </p>
 
                 <BodyText>
-                  CaplinkTrades does not directly represent, endorse, or hold commercial associations with
+                  HagoCapitals does not directly represent, endorse, or hold commercial associations with
                   Affiliates in any manner.
                 </BodyText>
 
@@ -173,7 +173,7 @@ export default function AffiliateGuidePage() {
                   items={[
                     "How to Open an Account",
                     "Affiliates Supporting Documents",
-                    "Your CaplinkTrades Affiliate URL and How to Use It",
+                    "Your HagoCapitals Affiliate URL and How to Use It",
                     "Tracking",
                     "Affiliate Banners and Logo",
                   ]}
@@ -193,9 +193,9 @@ export default function AffiliateGuidePage() {
                 <ul className="flex flex-col gap-3 pl-5 list-disc">
                   {[
                     "If a User registers for an Investor account through an Affiliate URL, the account will be linked to the respective Affiliate.",
-                    "If a User registers for an Investor account through CaplinkTrades's main website without using an Affiliate URL, but with prior landings from an Affiliate URL in the last 30 days, on registration we will take into account the reference responsible for the initial introduction of the service and the account will be linked to the respective (first) Affiliate.",
-                    "If a User registers for an Investor account through CaplinkTrades's main website without using an Affiliate URL, or without any previous landings on an Affiliate URL, the account will not be linked to any Affiliate. If a User registers for an Investor account through CaplinkTrades's main website without using an Affiliate URL, and without an active Affiliate tracking cookie, however he/she has a previously existing account registered within the last 30 days (with the same email) under an Affiliate, then the new Live account goes to the first/introducing Affiliate.",
-                    "If a User registers for an Investor account through CaplinkTrades's main website without using an Affiliate URL, the account will not be linked to any Affiliate. However if this was unintentional and the User mistakenly registered for an Investor account through the CaplinkTrades main website (without using an Affiliate URL) instead of registering through an intended Affiliate, then the User (as the account owner) may send an email to affiliates@CaplinkTrades.com",
+                    "If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, but with prior landings from an Affiliate URL in the last 30 days, on registration we will take into account the reference responsible for the initial introduction of the service and the account will be linked to the respective (first) Affiliate.",
+                    "If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, or without any previous landings on an Affiliate URL, the account will not be linked to any Affiliate. If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, and without an active Affiliate tracking cookie, however he/she has a previously existing account registered within the last 30 days (with the same email) under an Affiliate, then the new Live account goes to the first/introducing Affiliate.",
+                    "If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, the account will not be linked to any Affiliate. However if this was unintentional and the User mistakenly registered for an Investor account through the HagoCapitals main website (without using an Affiliate URL) instead of registering through an intended Affiliate, then the User (as the account owner) may send an email to affiliates@hagocapitals.com",
                     "from the registered email address within 5 days after activation of the account and request to be placed under the desired Affiliate. The email requesting linkage should also contain the User's account number, email and the Affiliate URL that the User wishes to be linked under.",
                     "Please note: Requests from Affiliates to link referral accounts will not be accepted under any circumstances. The request must be initiated by the actual Account Owner.",
                     "If a User registers for an Investor account through an Affiliate URL other than the intended one, the account cannot be unregistered from the Affiliate or be moved to another Affiliate under any circumstances.",
@@ -217,50 +217,50 @@ export default function AffiliateGuidePage() {
                   {/* Card A */}
                   <ExampleCard letter="A">
                     <BodyText dark>
-                      Client registers for an Investor account through www.CaplinkTrades.com?ref=affiliateA_ID
-                      or registers from www.CaplinkTrades.com with a prior landing from Affiliate URL
-                      www.CaplinkTrades.com?ref=affiliateA_ID
+                      Client registers for an Investor account through www.hagocapitals.com?ref=affiliateA_ID
+                      or registers from www.hagocapitals.com with a prior landing from Affiliate URL
+                      www.hagocapitals.com?ref=affiliateA_ID
                     </BodyText>
                     <CardArrowLine>
                       Account is placed under the Affiliate:{" "}
-                      <LimeLink href="#">www.CaplinkTrades.com?ref=affiliateA_ID</LimeLink>
+                      <LimeLink href="#">www.hagocapitals.com?ref=affiliateA_ID</LimeLink>
                     </CardArrowLine>
                   </ExampleCard>
 
                   {/* Card B */}
                   <ExampleCard letter="B">
                     <BodyText dark>
-                      Client registers a Demo or Live account through www.CaplinkTrades.com without any
+                      Client registers a Demo or Live account through www.hagocapitals.com without any
                       prior landings from an Affiliate URL, however he/she has a previously existing
                       account(s) with the same email under Affiliate A
                     </BodyText>
                     <CardArrowLine>
                       Account is placed under the Affiliate:{" "}
-                      <LimeLink href="#">www.CaplinkTrades.com?ref=affiliateA_ID</LimeLink>
+                      <LimeLink href="#">www.hagocapitals.com?ref=affiliateA_ID</LimeLink>
                     </CardArrowLine>
                   </ExampleCard>
 
                   {/* Card C */}
                   <ExampleCard letter="C">
                     <BodyText dark>
-                      Client registers for an Investor account through www.CaplinkTrades.com without any
+                      Client registers for an Investor account through www.hagocapitals.com without any
                       prior landings from an Affiliate URL, however he/she has a previously existing
                       account(s) under Affiliate A
                     </BodyText>
                     <CardArrowLine>
                       Account is NOT linked under any Affiliate{" "}
-                      <LimeLink href="#">affiliates@CaplinkTrades.com</LimeLink>{" "}
+                      <LimeLink href="#">affiliates@hagocapitals.com</LimeLink>{" "}
                       The client can email the Affiliates Department at
                     </CardArrowLine>
                     <CardArrowLine>
                       The client can email the Affiliates Department at{" "}
-                      <LimeLink href="#">affiliates@CaplinkTrades.com</LimeLink>{" "}
+                      <LimeLink href="#">affiliates@hagocapitals.com</LimeLink>{" "}
                       within 5 days after the activation of the account, to request linkage under
                       Affiliate A.
                     </CardArrowLine>
                     <CardArrowLine>
                       The client can email the Affiliates Department at{" "}
-                      <LimeLink href="#">affiliates@CaplinkTrades.com</LimeLink>{" "}
+                      <LimeLink href="#">affiliates@hagocapitals.com</LimeLink>{" "}
                       within 5 days after the activation of the account, to request linkage under
                       Affiliate A.
                     </CardArrowLine>
@@ -297,11 +297,11 @@ export default function AffiliateGuidePage() {
                 <SectionHeading>Support Assistance</SectionHeading>
 
                 <BodyText>
-                  The CaplinkTrades Customer Support Dept. is here to help you. You can contact us by
+                  The HagoCapitals Customer Support Dept. is here to help you. You can contact us by
                   email at{" "}
-                  <LimeLink href="mailto:support@CaplinkTrades.com">support@CaplinkTrades.com</LimeLink>
+                  <LimeLink href="mailto:support@hagocapitals.com">support@hagocapitals.com</LimeLink>
                   , by telephone or by Live Chat. For further details please visit{" "}
-                  <LimeLink href="#">https://www.CaplinkTrades.com/help-center</LimeLink>.
+                  <LimeLink href="#">https://www.hagocapitals.com/help-center</LimeLink>.
                 </BodyText>
 
                 <BodyText>
@@ -310,10 +310,10 @@ export default function AffiliateGuidePage() {
 
                 <BulletList
                   items={[
-                    "General Questions Regarding CaplinkTrades's Service",
+                    "General Questions Regarding HagoCapitals's Service",
                     "Informing on Change of Name or Contact Details",
                     "Account Sign Up Process",
-                    "Failure to Receive CaplinkTrades Email Containing Username or Password",
+                    "Failure to Receive HagoCapitals Email Containing Username or Password",
                     "Request for Linkage of Accounts",
                     "Account Types (Affiliate, Live Investor, Leader)",
                     "Technical Issues (banners, code errors, display problems, linkage loss, signal errors, etc.)",
@@ -323,15 +323,15 @@ export default function AffiliateGuidePage() {
 
                 <BodyText>
                   For Affiliate specific issues please contact the Affiliates Department at{" "}
-                  <LimeLink href="mailto:affiliates@CaplinkTrades.com">
-                    affiliates@CaplinkTrades.com
+                  <LimeLink href="mailto:affiliates@hagocapitals.com">
+                    affiliates@hagocapitals.com
                   </LimeLink>
                   . Examples of issues handled by the Affiliates Department:
                 </BodyText>
 
                 <BulletList
                   items={[
-                    "Questions Regarding CaplinkTrades's Affiliates Program",
+                    "Questions Regarding HagoCapitals's Affiliates Program",
                     "Inquiries on Correct Usage of Affiliates URL links",
                     "Referral Accounts",
                     "General Information on using Banners & Logos",
@@ -346,8 +346,8 @@ export default function AffiliateGuidePage() {
                 <BodyText>
                   Should you wish to make a suggestion or complaint about any aspect of our service,
                   please feel free to contact the Affiliates Accounts Department at{" "}
-                  <LimeLink href="mailto:affiliates@CaplinkTrades.com">
-                    affiliates@CaplinkTrades.com
+                  <LimeLink href="mailto:affiliates@hagocapitals.com">
+                    affiliates@hagocapitals.com
                   </LimeLink>
                 </BodyText>
               </FadeUp>
@@ -367,9 +367,9 @@ export default function AffiliateGuidePage() {
                 <BulletList
                   items={[
                     "Account Inactivity - an Affiliate account is considered inactive if there has been no successful login into the account for a period of more than 6 months.",
-                    "Failure to specifically acknowledge or abide by formal notifications made to the Affiliate by either email or telephone, during which CaplinkTrades has made every reasonable effort to inform the Affiliate that they are engaging in conduct/ actions that directly or indirectly violates either the Affiliates Program codes or existing Regulatory codes.",
+                    "Failure to specifically acknowledge or abide by formal notifications made to the Affiliate by either email or telephone, during which HagoCapitals has made every reasonable effort to inform the Affiliate that they are engaging in conduct/ actions that directly or indirectly violates either the Affiliates Program codes or existing Regulatory codes.",
                     "Affiliates who perform inappropriate behaviour, for example solicitation of customers in an unethical or illegal manner; such instances will be examined on a case-by-case basis.",
-                    `Failure to abide by all of the advertisement guidelines as stated in Section "Advertising and Promotional Guidelines", may lead to the suspension of one's Affiliate account solely at CaplinkTrades's discretion.`,
+                    `Failure to abide by all of the advertisement guidelines as stated in Section "Advertising and Promotional Guidelines", may lead to the suspension of one's Affiliate account solely at HagoCapitals's discretion.`,
                   ]}
                 />
 

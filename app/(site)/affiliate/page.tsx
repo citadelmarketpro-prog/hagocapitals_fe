@@ -11,8 +11,8 @@ import { FadeUp } from "@/components/ScrollReveal";
 /* ── FAQ data ─────────────────────────────────────────────────────── */
 const FAQ_ITEMS = [
   {
-    q: "What is the CaplinkTrades Affiliate Program?",
-    a: "The CaplinkTrades Affiliate Program allows individuals and corporations to earn commissions by promoting CaplinkTrades's services. You receive a unique referral URL and earn for every new client who registers through it.",
+    q: "What is the HagoCapitals Affiliate Program?",
+    a: "The HagoCapitals Affiliate Program allows individuals and corporations to earn commissions by promoting HagoCapitals's services. You receive a unique referral URL and earn for every new client who registers through it.",
   },
   {
     q: "How do I join the Affiliate Program?",
@@ -27,12 +27,12 @@ const FAQ_ITEMS = [
     a: "Payments are processed on a regular schedule. You can request payments at any time with no limits. We support multiple payment methods to suit your preferences.",
   },
   {
-    q: "Are there any restrictions on how I promote CaplinkTrades?",
+    q: "Are there any restrictions on how I promote HagoCapitals?",
     a: "Yes — affiliates must comply with our Advertising and Promotional Guidelines, which prohibit misleading claims, spam, and targeting of non-eligible audiences. Full details are in the Affiliate Guide.",
   },
   {
     q: "What marketing materials are provided?",
-    a: "CaplinkTrades provides banners, widgets (dynamic and static), logos, and other promotional content that can be integrated into your website or social media channels.",
+    a: "HagoCapitals provides banners, widgets (dynamic and static), logos, and other promotional content that can be integrated into your website or social media channels.",
   },
   {
     q: "Can I have more than one affiliate account?",
@@ -49,17 +49,17 @@ const AFFILIATE_STEPS = [
   {
     num: "01",
     title: "Create Affiliate Account",
-    body: "Register for the CaplinkTrades Affiliate Program and receive your unique personalised referral URL to start promoting.",
+    body: "Register for the HagoCapitals Affiliate Program and receive your unique personalised referral URL to start promoting.",
   },
   {
     num: "02",
     title: "Choose Promotional Content",
-    body: "Select from our library of banners, widgets, and promotional tools to advertise CaplinkTrades across your channels.",
+    body: "Select from our library of banners, widgets, and promotional tools to advertise HagoCapitals across your channels.",
   },
   {
     num: "03",
     title: "Earn",
-    body: "Receive commissions for every new client who registers through your referral link and starts using CaplinkTrades.",
+    body: "Receive commissions for every new client who registers through your referral link and starts using HagoCapitals.",
   },
 ];
 
@@ -77,7 +77,7 @@ const HOW_TO_STEPS = [
   {
     num: "03",
     title: "Start Promoting & Earning",
-    body: "Share your link across your platforms and earn commissions for every qualifying client you refer to CaplinkTrades.",
+    body: "Share your link across your platforms and earn commissions for every qualifying client you refer to HagoCapitals.",
   },
 ];
 
@@ -93,7 +93,7 @@ const REASONS = [
   },
   {
     title: "Licensed and Regulated",
-    body: "Partner with confidence — CaplinkTrades operates under a fully licensed and regulated framework.",
+    body: "Partner with confidence — HagoCapitals operates under a fully licensed and regulated framework.",
   },
   {
     title: "High Conversion Rates",
@@ -105,7 +105,7 @@ const REASONS = [
   },
   {
     title: "Multi-lingual Support",
-    body: "CaplinkTrades serves clients worldwide with multilingual customer support, helping your global audience convert.",
+    body: "HagoCapitals serves clients worldwide with multilingual customer support, helping your global audience convert.",
   },
 ];
 
@@ -156,7 +156,7 @@ export default function AffiliatePage() {
           </h1>
 
           <p className="mt-6 max-w-xl text-[15px] lg:text-[16px] leading-[1.7] text-[#444444]">
-            Partner with CaplinkTrades and earn competitive commissions by referring new clients
+            Partner with HagoCapitals and earn competitive commissions by referring new clients
             to our award-winning copy-trading platform.
           </p>
 
@@ -178,7 +178,7 @@ export default function AffiliatePage() {
         </section>
 
       {/* ══════════════════════════════════════════════════════════════
-          WHAT IS A CaplinkTrades AFFILIATE
+          WHAT IS A HagoCapitals AFFILIATE
       ══════════════════════════════════════════════════════════════ */}
       <section className="w-full bg-[#eaf5f0] border-y border-[#cfe8dd]">
         <FadeUp>
@@ -186,23 +186,23 @@ export default function AffiliatePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
             <div>
               <h2 className="text-[32px] lg:text-[44px] font-bold leading-[1.1] text-[#001011]">
-                What is a CaplinkTrades affiliate?
+                What is a HagoCapitals affiliate?
               </h2>
             </div>
             <div className="flex flex-col gap-5">
               <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
                 An Affiliate can be either an Individual user or a corporation that participates in
-                CaplinkTrades&apos;s Affiliate Program, promoting CaplinkTrades&apos;s services.
+                HagoCapitals&apos;s Affiliate Program, promoting HagoCapitals&apos;s services.
                 Affiliates register for the program and then receive a unique, personalised URL which
-                they use to advertise and promote CaplinkTrades.
+                they use to advertise and promote HagoCapitals.
               </p>
               <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-                By promoting CaplinkTrades, Affiliates introduce Referral Clients (new users) to
-                CaplinkTrades&apos;s services and receive a commission for every account that signs
+                By promoting HagoCapitals, Affiliates introduce Referral Clients (new users) to
+                HagoCapitals&apos;s services and receive a commission for every account that signs
                 up through their referral link.
               </p>
               <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-                CaplinkTrades provides its Affiliates with resources, guidelines, support, and a
+                HagoCapitals provides its Affiliates with resources, guidelines, support, and a
                 variety of promotional tools — including banners and dynamic widgets — to enhance
                 their advertising strategies and maximise their earning potential.
               </p>
@@ -244,7 +244,7 @@ export default function AffiliatePage() {
             </div>
             <div className="flex flex-col gap-5">
               <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-                CaplinkTrades&apos;s Affiliate compensation is based on a transparent, performance-driven
+                HagoCapitals&apos;s Affiliate compensation is based on a transparent, performance-driven
                 competition scheme. The more active clients you refer, the higher your tier and the
                 greater your commissions.
               </p>
@@ -338,7 +338,7 @@ export default function AffiliatePage() {
               Your Questions, answered
             </h2>
             <p className="mt-3 text-[14px] lg:text-[15px] text-[#555555]">
-              Everything you need to know about the CaplinkTrades Affiliate Program
+              Everything you need to know about the HagoCapitals Affiliate Program
             </p>
           </div>
 

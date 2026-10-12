@@ -3,26 +3,26 @@
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Join the CaplinkTrades team. We're hiring engineers, designers, and financial professionals passionate about democratising investing. View open roles.",
+    "Join the HagoCapitals team. We're hiring engineers, designers, and financial professionals passionate about democratising investing. View open roles.",
   openGraph: {
-    title: "Careers | CaplinkTrades",
+    title: "Careers | HagoCapitals",
     description:
-      "Join the CaplinkTrades team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
-    url: "https://CaplinkTrades.com/careers",
+      "Join the HagoCapitals team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
+    url: "https://hagocapitals.com/careers",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "CaplinkTrades — Copy Trading Platform",
+        alt: "HagoCapitals — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Careers | CaplinkTrades",
+    title: "Careers | HagoCapitals",
     description:
-      "Join the CaplinkTrades team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
+      "Join the HagoCapitals team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
     images: ["/opengraph-image.png"],
   },
 };
@@ -33,12 +33,12 @@ import Footer from "@/components/Footer";
 import { FadeUp } from "@/components/ScrollReveal";
 
 const LIFE_PHOTOS = [
-  { src: "/images/team/team_3.jpg",   alt: "CaplinkTrades team member at work" },
-  { src: "/images/business-1.jpg",    alt: "CaplinkTrades team collaborating" },
-  { src: "/images/team/team_4.jpg",   alt: "CaplinkTrades team member" },
-  { src: "/images/team/team_5.jpg",   alt: "CaplinkTrades team member" },
-  { src: "/images/business-2.jpg",    alt: "CaplinkTrades office" },
-  { src: "/images/team/team_6.jpg",   alt: "CaplinkTrades team member" },
+  { src: "/images/team/team_3.jpg",   alt: "HagoCapitals team member at work" },
+  { src: "/images/business-1.jpg",    alt: "HagoCapitals team collaborating" },
+  { src: "/images/team/team_4.jpg",   alt: "HagoCapitals team member" },
+  { src: "/images/team/team_5.jpg",   alt: "HagoCapitals team member" },
+  { src: "/images/business-2.jpg",    alt: "HagoCapitals office" },
+  { src: "/images/team/team_6.jpg",   alt: "HagoCapitals team member" },
 ];
 
 const OPEN_ROLES = [
@@ -85,7 +85,7 @@ export default function CareersPage() {
                 Build the future of social trading with us
               </h1>
               <p className="mt-5 text-[14px] lg:text-[15px] leading-[1.8] text-[#555555]">
-                CaplinkTrades is a fast-growing, globally distributed team passionate about
+                HagoCapitals is a fast-growing, globally distributed team passionate about
                 making investing accessible to everyone. If you want to work on a product
                 used by millions of people worldwide, we&apos;d love to hear from you.
               </p>
@@ -93,7 +93,7 @@ export default function CareersPage() {
             <div className="relative rounded-3xl overflow-hidden aspect-4/3">
               <Image
                 src="/images/happy-business.jpg"
-                alt="The CaplinkTrades team at work"
+                alt="The HagoCapitals team at work"
                 fill
                 className="object-cover"
                 priority
@@ -109,7 +109,7 @@ export default function CareersPage() {
         <FadeUp>
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] py-14 lg:py-20">
           <h2 className="text-[24px] lg:text-[32px] font-bold text-[#001011] mb-10">
-            Why work at CaplinkTrades?
+            Why work at HagoCapitals?
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {PERKS.map((p, i) => (
@@ -123,12 +123,12 @@ export default function CareersPage() {
       </FadeUp>
         </section>
 
-      {/* Life at CaplinkTrades — photo gallery */}
+      {/* Life at HagoCapitals — photo gallery */}
       <section className="w-full bg-white">
         <FadeUp>
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] py-14 lg:py-20">
           <h2 className="text-[24px] lg:text-[32px] font-bold text-[#001011] mb-10">
-            Life at CaplinkTrades
+            Life at HagoCapitals
           </h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
             {LIFE_PHOTOS.map((p, i) => (
@@ -170,8 +170,8 @@ export default function CareersPage() {
 
           <p className="mt-8 text-[13px] text-[#666666]">
             Don&apos;t see a role that fits? Send your CV to{" "}
-            <a href="mailto:careers@CaplinkTrades.com" className="text-[#06811d] hover:underline underline-offset-2">
-              careers@CaplinkTrades.com
+            <a href="mailto:careers@hagocapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
+              careers@hagocapitals.com
             </a>{" "}
             and we&apos;ll keep you in mind for future openings.
           </p>

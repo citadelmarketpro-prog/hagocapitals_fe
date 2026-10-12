@@ -107,31 +107,31 @@ export default function DeclarationOfConsentPage() {
                 <SectionHeading>Declaration of Consent</SectionHeading>
 
                 <BodyText>
-                  I, hereby give my consent to CaplinkTrades, as described in the Terms of Service, to
+                  I, hereby give my consent to HagoCapitals, as described in the Terms of Service, to
                   share my personal information (i.e. Name, Telephone Number and Email Address) in
-                  accordance with CaplinkTrades&apos;s Privacy Policy, solely for the purpose of introducing
-                  me as a client of CaplinkTrades to its business partners for presentation of their
+                  accordance with HagoCapitals&apos;s Privacy Policy, solely for the purpose of introducing
+                  me as a client of HagoCapitals to its business partners for presentation of their
                   products and services.
                 </BodyText>
 
                 <BodyText>
-                  I hereby state that I have read and consent to CaplinkTrades&apos;s Privacy Policy and I
-                  provide my consent to such processing of my personal information by CaplinkTrades.
+                  I hereby state that I have read and consent to HagoCapitals&apos;s Privacy Policy and I
+                  provide my consent to such processing of my personal information by HagoCapitals.
                 </BodyText>
 
                 <BodyText>
                   I understand that, as soon as my personal information is shared with a third-party
-                  business partner, the data is no longer under CaplinkTrades&apos;s control and, in case I
+                  business partner, the data is no longer under HagoCapitals&apos;s control and, in case I
                   want my personal information to be deleted from the third party&apos;s systems, I may
-                  need to separately send a request to such third party(ies) with whom CaplinkTrades
+                  need to separately send a request to such third party(ies) with whom HagoCapitals
                   has shared my personal information.
                 </BodyText>
 
                 <BodyText>
-                  CaplinkTrades confirms that my personal information will not be shared for any other
+                  HagoCapitals confirms that my personal information will not be shared for any other
                   purpose with an executing firm other than the purpose mentioned above, and every
                   processing activity described above will always be in accordance with
-                  CaplinkTrades&apos;s Privacy Policy.
+                  HagoCapitals&apos;s Privacy Policy.
                 </BodyText>
 
                 {/* Withdrawal notice */}
@@ -146,10 +146,10 @@ export default function DeclarationOfConsentPage() {
                   <p className="text-[14px] leading-[1.8] text-[#444444]">
                     You can withdraw this Declaration of Consent at any time by emailing{" "}
                     <a
-                      href="mailto:dpo@CaplinkTrades.com"
+                      href="mailto:dpo@hagocapitals.com"
                       className="text-[#06811d] hover:underline underline-offset-2 transition-opacity hover:opacity-80"
                     >
-                      dpo@CaplinkTrades.com
+                      dpo@hagocapitals.com
                     </a>
                   </p>
                 </div>

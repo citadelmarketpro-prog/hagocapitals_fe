@@ -111,12 +111,12 @@ export default function RiskDisclaimerPage() {
                 <SectionHeading>Risk Disclaimer</SectionHeading>
 
                 <BodyText>
-                  CaplinkTrades is a global financial service provider. CaplinkTrades is a registered
+                  HagoCapitals is a global financial service provider. HagoCapitals is a registered
                   trademark of the group, that operates amongst various entities.
                 </BodyText>
 
                 <BodyText>
-                  The service provided by CaplinkTrades is operated by the CaplinkTrades Group of
+                  The service provided by HagoCapitals is operated by the HagoCapitals Group of
                   Companies and is regulated by SEC, SEC Number 0002090792. CN Global is regulated by FCA in
                   the United Kingdom, Reference Number 573263. CN is regulated by CIRO, reference
                   number 9290. The Company may extend its services to various regions, including the
@@ -173,7 +173,7 @@ export default function RiskDisclaimerPage() {
 
                 <BodyText>
                   We strongly recommend consulting with a licensed financial professional regarding
-                  the risks associated with options trading before participating. CaplinkTrades does
+                  the risks associated with options trading before participating. HagoCapitals does
                   not provide personalized investment advice and makes no assurances regarding
                   profitability or suitability of the strategies displayed.
                 </BodyText>

@@ -98,7 +98,7 @@ export default function DashNav() {
  <Link href="/" className="flex items-center shrink-0">
  <Image
  src="/logos/logo_one.png"
- alt="CaplinkTrades"
+ alt="HagoCapitals"
  width={376}
  height={284}
  priority
@@ -222,7 +222,7 @@ export default function DashNav() {
  <Link href="/" className="flex items-center shrink-0" onClick={() => setMenuOpen(false)}>
  <Image
  src="/logos/logo_one.png"
- alt="CaplinkTrades"
+ alt="HagoCapitals"
  width={376}
  height={284}
  className="h-9 w-auto object-contain"
@@ -475,7 +475,7 @@ function ProfileDropdown({
  <div className="bg-[#f5f5ef] border-b border-[#e5e5e5] px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#eeeee9] transition-colors"
  onClick={onClose}
  >
- <span className="text-[13px] font-medium text-[#001011]">About CaplinkTrades</span>
+ <span className="text-[13px] font-medium text-[#001011]">About HagoCapitals</span>
  <ExternalIcon />
  </div>
 
