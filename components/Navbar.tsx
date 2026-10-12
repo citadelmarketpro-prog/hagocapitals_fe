@@ -2,21 +2,41 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { MotionButton, ICON_BTN_TAP, ICON_BTN_SPRING } from "@/components/ScrollReveal";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-export default function Navbar() {
+interface NavbarProps {
+  /** Mobile/tablet bar (logo + hamburger) starts transparent over a dark
+   *  hero and turns solid white once the page scrolls past it. Desktop
+   *  nav is unaffected — always the normal solid sticky bar. */
+  transparent?: boolean;
+}
+
+export default function Navbar({ transparent = false }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    if (!transparent) return;
+    const onScroll = () => setScrolled(window.scrollY > 32);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [transparent]);
+
+  const isOverlay = transparent && !scrolled && !mobileOpen;
 
   return (
     <m.header
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.35, ease: "easeOut" }}
-      className="sticky top-0 z-50 w-full bg-white border-b border-[#e5e5e5]"
+      className={`fixed lg:sticky top-0 z-50 w-full transition-colors duration-300 lg:bg-white lg:border-b lg:border-[#e5e5e5] ${
+        isOverlay ? "bg-transparent border-transparent" : "bg-white border-b border-[#e5e5e5]"
+      }`}
     >
       <div className="relative max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-[80px] h-[70px] lg:h-[80px] flex items-center justify-between">
 
@@ -28,7 +48,9 @@ export default function Navbar() {
             width={376}
             height={284}
             priority
-            className="h-11 lg:h-13 w-auto object-contain"
+            className={`h-6 lg:h-7 w-auto object-contain transition-all duration-300 ${
+              isOverlay ? "brightness-0 invert lg:brightness-100 lg:invert-0" : ""
+            }`}
           />
         </Link>
 
@@ -78,7 +100,9 @@ export default function Navbar() {
             onClick={() => setMobileOpen(!mobileOpen)}
             whileTap={ICON_BTN_TAP}
             transition={ICON_BTN_SPRING}
-            className="lg:hidden flex items-center justify-center w-9 h-9 text-[#001011]"
+            className={`lg:hidden flex items-center justify-center w-9 h-9 transition-colors duration-300 ${
+              isOverlay ? "text-white" : "text-[#001011]"
+            }`}
             aria-label="Toggle menu"
           >
             <AnimatePresence mode="wait" initial={false}>

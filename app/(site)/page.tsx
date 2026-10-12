@@ -49,7 +49,7 @@ import Footer from "@/components/Footer";
 export default function Home() {
   return (
     <main>
-      <Navbar />
+      <Navbar transparent />
       <Hero />
       <HowItWorks />
       <YouShouldKnow />
