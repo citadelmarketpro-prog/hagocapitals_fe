@@ -248,9 +248,9 @@ export default function Hero() {
       ════════════════════════════════════════════════════════ */}
       <div className="w-full bg-white border-y-2 border-[#e8ead8]">
         <Stagger className="max-w-[1440px] mx-auto grid grid-cols-3 divide-x-2 divide-[#e8ead8]">
-          <StaggerItem><StatItem value="1M+"    label="Registered users" /></StaggerItem>
-          <StaggerItem><StatItem value="50K+"   label="Active traders (monthly)" /></StaggerItem>
-          <StaggerItem><StatItem value="$500M+" label="Trading volume (annual)" /></StaggerItem>
+          <StaggerItem><StatItem value="1.2M+" label="Registered users" /></StaggerItem>
+          <StaggerItem><StatItem value="90K+"  label="Active traders (monthly)" /></StaggerItem>
+          <StaggerItem><StatItem value="150+"  label="Markets available" /></StaggerItem>
         </Stagger>
 
         {/* Globally Regulated */}
