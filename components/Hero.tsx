@@ -104,11 +104,11 @@ export default function Hero() {
             <Stagger
               staggerDelay={0.06}
               delayChildren={0.02}
-              className="flex flex-col items-center text-center lg:items-start lg:text-left lg:flex-1 lg:max-w-[560px] lg:shrink-0"
+              className="flex flex-col items-start text-left lg:flex-1 lg:max-w-[560px] lg:shrink-0"
             >
 
               {/* Integrates-with badge */}
-              <StaggerItem distance={16} className="mb-3 sm:mb-6 lg:mb-8 w-full flex justify-center lg:justify-start px-0">
+              <StaggerItem distance={16} className="mb-3 sm:mb-6 lg:mb-8 w-full flex justify-start px-0">
                 <IntegrationsBadge />
               </StaggerItem>
 
@@ -124,8 +124,18 @@ export default function Hero() {
                     filter: "drop-shadow(0 2px 18px rgba(0,0,0,0.45))",
                   }}
                 >
-                  Mirror Stocks, Options &{" "}
-                  <span className="block sm:inline">Futures with Precision</span>
+                  Today&apos;s opportunities.{" "}
+                  <span
+                    className="block"
+                    style={{
+                      background: "linear-gradient(180deg, #6ee7b7 0%, #34d399 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    A stronger tomorrow.
+                  </span>
                 </h1>
               </StaggerItem>
 
@@ -135,26 +145,26 @@ export default function Hero() {
                   className="mt-2 sm:mt-5 lg:mt-6 w-full max-w-200 lg:max-w-[480px] break-words text-[13px] sm:text-[15px] lg:text-[17px] leading-[1.65] text-gray-200"
                   style={{ textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}
                 >
-                  We empower you to mirror real-time stock and options trades from top-performing traders. Whether you&apos;re following tickers, contracts, or strategic options moves, our platform brings precision, flexibility, and transparency—straight to your fingertips
+                  Mirror professional trading strategies and keep your capital working toward your long-term financial goals.
                 </p>
               </StaggerItem>
 
               {/* CTA buttons */}
               <StaggerItem
                 distance={22}
-                className="mt-4 sm:mt-8 lg:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 w-full max-w-[340px] sm:max-w-[560px] lg:max-w-none mx-auto lg:mx-0"
+                className="mt-4 sm:mt-8 lg:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-4 w-full max-w-[340px] sm:max-w-[560px] lg:max-w-none"
               >
                 <Link
-                  href="/sign-up"
-                  className="btn-fx btn-fx-primary w-full sm:w-auto inline-flex items-center justify-center h-11 sm:h-[52px] px-8 text-[14px] sm:text-[15px] font-bold"
+                  href="#how-it-works"
+                  className="btn-fx btn-fx-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 sm:h-[52px] px-8 text-[14px] sm:text-[15px] font-bold"
                 >
-                  Register
+                  Explore strategies <span aria-hidden>&rarr;</span>
                 </Link>
                 <Link
-                  href="/sign-in"
-                  className="btn-fx btn-fx-ghost w-full sm:w-auto inline-flex items-center justify-center h-11 sm:h-[52px] border px-8 text-[14px] sm:text-[15px] font-medium"
+                  href="/sign-up"
+                  className="btn-fx w-full sm:w-auto inline-flex items-center justify-center h-11 sm:h-[52px] border border-white/25 bg-white/10 backdrop-blur-sm text-white px-8 text-[14px] sm:text-[15px] font-medium hover:bg-white/15"
                 >
-                  Login
+                  Register
                 </Link>
               </StaggerItem>
             </Stagger>
