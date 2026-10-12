@@ -115,7 +115,7 @@ export default function Hero() {
               {/* Headline */}
               <StaggerItem distance={22} className="w-full min-w-0">
                 <h1
-                  className="font-extrabold leading-[1.06] tracking-tight max-w-[860px] lg:max-w-none text-[22px] sm:text-[44px] lg:text-[52px] xl:text-[60px]"
+                  className="font-extrabold leading-[1.08] tracking-tight max-w-[860px] lg:max-w-none text-[36px] sm:text-[48px] lg:text-[56px] xl:text-[64px]"
                   style={{
                     background: "linear-gradient(180deg, #ffffff 0%, #a7f3d0 100%)",
                     WebkitBackgroundClip: "text",
@@ -124,7 +124,8 @@ export default function Hero() {
                     filter: "drop-shadow(0 2px 18px rgba(0,0,0,0.45))",
                   }}
                 >
-                  Today&apos;s opportunities.{" "}
+                  <span className="block">Today&apos;s</span>
+                  <span className="block">opportunities.</span>
                   <span
                     className="block"
                     style={{
@@ -134,7 +135,18 @@ export default function Hero() {
                       backgroundClip: "text",
                     }}
                   >
-                    A stronger tomorrow.
+                    A stronger
+                  </span>
+                  <span
+                    className="block"
+                    style={{
+                      background: "linear-gradient(180deg, #6ee7b7 0%, #34d399 100%)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      backgroundClip: "text",
+                    }}
+                  >
+                    tomorrow.
                   </span>
                 </h1>
               </StaggerItem>

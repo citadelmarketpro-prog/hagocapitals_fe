@@ -48,7 +48,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
             width={376}
             height={284}
             priority
-            className={`h-6 lg:h-7 w-auto object-contain transition-all duration-300 ${
+            className={`h-11 lg:h-13 w-auto object-contain transition-all duration-300 ${
               isOverlay ? "brightness-0 invert lg:brightness-100 lg:invert-0" : ""
             }`}
           />
@@ -57,22 +57,22 @@ export default function Navbar({ transparent = false }: NavbarProps) {
         {/* ── Desktop nav links — absolutely centered ── */}
         <nav className="hidden lg:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
           <Link
-            href="#features"
+            href="/autoguard"
             className="text-[15px] font-medium text-[#444444] hover:text-[#001011] transition-colors whitespace-nowrap"
           >
-            Features
+            AutoGuard&trade;
           </Link>
           <Link
-            href="#how-it-works"
+            href="/company"
             className="text-[15px] font-medium text-[#444444] hover:text-[#001011] transition-colors whitespace-nowrap"
           >
-            How it works
+            Company
           </Link>
           <Link
-            href="#pricing"
+            href="/user-guide"
             className="text-[15px] font-medium text-[#444444] hover:text-[#001011] transition-colors whitespace-nowrap"
           >
-            Pricing
+            User Guide
           </Link>
         </nav>
 
@@ -133,25 +133,25 @@ export default function Navbar({ transparent = false }: NavbarProps) {
           >
             <div className="px-6 py-5 flex flex-col gap-1">
               <Link
-                href="#features"
+                href="/autoguard"
                 onClick={() => setMobileOpen(false)}
                 className="py-3 text-[14px] font-medium text-[#001011] border-b border-[#f0f0f0]"
               >
-                Features
+                AutoGuard&trade;
               </Link>
               <Link
-                href="#how-it-works"
+                href="/company"
                 onClick={() => setMobileOpen(false)}
                 className="py-3 text-[14px] font-medium text-[#001011] border-b border-[#f0f0f0]"
               >
-                How it works
+                Company
               </Link>
               <Link
-                href="#pricing"
+                href="/user-guide"
                 onClick={() => setMobileOpen(false)}
                 className="py-3 text-[14px] font-medium text-[#001011]"
               >
-                Pricing
+                User Guide
               </Link>
 
               <div className="pt-4 flex gap-3">
