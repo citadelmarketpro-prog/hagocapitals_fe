@@ -225,13 +225,6 @@ export default function Hero() {
               />
             </div>
           </FadeUp>
-
-          {/* Risk disclaimer */}
-          <FadeIn delay={0.3} className="w-full mt-8 sm:mt-12 lg:mt-16 pt-5 sm:pt-6 border-t border-white/10">
-            <p className="max-w-[640px] mx-auto text-center text-[9.5px] sm:text-[11px] leading-[1.6] text-gray-500">
-              Trading involves risk, including possible loss of capital. Mirror trading does not guarantee profits. Past performance does not predict future results.
-            </p>
-          </FadeIn>
         </div>
       </section>
 
