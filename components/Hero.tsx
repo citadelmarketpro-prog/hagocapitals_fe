@@ -226,28 +226,8 @@ export default function Hero() {
             </div>
           </FadeUp>
 
-          {/* Supported brokers */}
-          <FadeIn delay={0.25} className="w-full mt-8 sm:mt-12 lg:mt-16 pt-5 sm:pt-6 border-t border-white/10">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6">
-              <span className="text-[10px] sm:text-[11px] font-semibold tracking-[0.12em] text-gray-400 whitespace-nowrap">
-                SUPPORTED BROKERS
-              </span>
-              <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
-                {INTEGRATION_PLATFORMS.map((platform) => (
-                  <span
-                    key={platform}
-                    className="text-[13px] sm:text-[15px] font-bold text-gray-200 whitespace-nowrap"
-                  >
-                    {platform}
-                  </span>
-                ))}
-                <span className="text-[12px] sm:text-[13px] text-gray-500">and more</span>
-              </div>
-            </div>
-          </FadeIn>
-
           {/* Risk disclaimer */}
-          <FadeIn delay={0.3} className="w-full mt-5 sm:mt-6">
+          <FadeIn delay={0.3} className="w-full mt-8 sm:mt-12 lg:mt-16 pt-5 sm:pt-6 border-t border-white/10">
             <p className="max-w-[640px] mx-auto text-center text-[9.5px] sm:text-[11px] leading-[1.6] text-gray-500">
               Trading involves risk, including possible loss of capital. Mirror trading does not guarantee profits. Past performance does not predict future results.
             </p>
@@ -265,15 +245,7 @@ export default function Hero() {
           <StaggerItem><StatItem value="150+"  label="Markets available" /></StaggerItem>
         </Stagger>
 
-        {/* Globally Regulated */}
-        <FadeIn delay={0.1} className="flex items-center justify-center gap-3 pt-5 sm:pt-6 border-t-2 border-[#e8ead8]">
-          <GloballyRegulatedIcon />
-          <span className="text-[16px] sm:text-[20px] lg:text-[22px] font-bold text-[#0a0a0a]">
-            Globally Regulated
-          </span>
-        </FadeIn>
-
-        <div className="text-center py-3 sm:py-4">
+        <div className="text-center py-5 sm:py-6 border-t-2 border-[#e8ead8]">
           <span className="text-[11px] sm:text-[13px] text-[#888888]">
             As of {currentQuarterLabel()} &middot; audited figures
           </span>
@@ -380,20 +352,6 @@ function TrendUpIcon() {
     >
       <polyline points="1,11 5,7 9,9 15,3" />
       <polyline points="11,3 15,3 15,7" />
-    </svg>
-  );
-}
-
-
-function GloballyRegulatedIcon() {
-  return (
-    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" className="w-7 h-7 sm:w-9 sm:h-9 lg:w-10 lg:h-10">
-      <circle cx="14" cy="14" r="11" stroke="#06811d" strokeWidth="1.8" />
-      <ellipse cx="14" cy="14" rx="5.5" ry="11" stroke="#06811d" strokeWidth="1.4" />
-      <line x1="3"  y1="10" x2="25" y2="10" stroke="#06811d" strokeWidth="1.4" />
-      <line x1="3"  y1="18" x2="25" y2="18" stroke="#06811d" strokeWidth="1.4" />
-      <circle cx="20" cy="20" r="5" fill="#06811d" />
-      <path d="M17.5 20l1.5 1.5 3-3" stroke="#ffffff" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
