@@ -197,17 +197,17 @@ export default function Hero() {
           <FadeUp delay={0.2} distance={18} className="w-full mt-7 sm:mt-12 lg:mt-16">
             <div className="grid grid-cols-3 gap-3 sm:gap-8 lg:gap-16 max-w-[340px] sm:max-w-[680px] lg:max-w-[980px] mx-auto">
               <FeatureItem
-                icon={<SwapIcon />}
+                icon={<RepeatIcon />}
                 title="Automatic trade mirroring"
                 description="Same entries and exits as the trader"
               />
               <FeatureItem
-                icon={<ScaleIcon />}
+                icon={<SlidersIcon />}
                 title="Position sizing for your account"
                 description="Trades scale to your account balance"
               />
               <FeatureItem
-                icon={<ClockIcon />}
+                icon={<ShieldCheckIcon />}
                 title="Less day-to-day management"
                 description="Stay invested without watching every move"
               />
@@ -322,26 +322,38 @@ function FeatureItem({
 
 /* ── Icons ──────────────────────────────────────────────────── */
 
-function SwapIcon() {
+function RepeatIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="1.6"
       strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 sm:w-5 sm:h-5">
-      <path d="M17 2l4 4-4 4" />
+      <path d="M17 1l4 4-4 4" />
       <path d="M3 11V9a4 4 0 0 1 4-4h14" />
-      <path d="M7 22l-4-4 4-4" />
+      <path d="M7 23l-4-4 4-4" />
       <path d="M21 13v2a4 4 0 0 1-4 4H3" />
     </svg>
   );
 }
 
-function ScaleIcon() {
+function SlidersIcon() {
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="1.6"
       strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 sm:w-5 sm:h-5">
-      <path d="M12 3v18" />
-      <path d="M7 7h10" />
-      <path d="M4 7l-2 5a3 3 0 0 0 6 0L6 7" />
-      <path d="M20 7l-2 5a3 3 0 0 0 6 0l-2-5" />
+      <line x1="4" y1="6" x2="20" y2="6" />
+      <circle cx="9" cy="6" r="2" fill="#34d399" stroke="none" />
+      <line x1="4" y1="12" x2="20" y2="12" />
+      <circle cx="16" cy="12" r="2" fill="#34d399" stroke="none" />
+      <line x1="4" y1="18" x2="20" y2="18" />
+      <circle cx="12" cy="18" r="2" fill="#34d399" stroke="none" />
+    </svg>
+  );
+}
+
+function ShieldCheckIcon() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="1.6"
+      strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 sm:w-5 sm:h-5">
+      <path d="M12 2l8 3.5v5.5c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V5.5L12 2Z" />
+      <path d="M8.5 12l2.5 2.5 4.5-4.5" />
     </svg>
   );
 }
@@ -360,15 +372,6 @@ function TrendUpIcon() {
   );
 }
 
-function ClockIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="1.6"
-      strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 sm:w-5 sm:h-5">
-      <circle cx="12" cy="12" r="9" />
-      <path d="M12 7v5l3.5 2" />
-    </svg>
-  );
-}
 
 function GloballyRegulatedIcon() {
   return (
