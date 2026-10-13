@@ -54,21 +54,34 @@ export default function Hero() {
           HERO SECTION
       ════════════════════════════════════════════════════════ */}
       <section
-        className="relative w-full overflow-hidden min-h-[640px] sm:min-h-[760px] lg:min-h-0"
+        className="relative w-full overflow-hidden min-h-[640px] sm:min-h-[760px] lg:min-h-[820px]"
         style={{ background: "var(--site-black-gradient)" }}
       >
 
-        {/* ── Mobile / tablet: lifestyle photo as a full-bleed backdrop ── */}
-        <div className="absolute inset-0 lg:hidden">
-          <Image
-            src="/images/hero_image_hago.jpeg"
-            alt="Trader reviewing live charts at sunset"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-            style={{ objectPosition: "68% 38%" }}
-          />
+        {/* ── Lifestyle photo as a full-bleed backdrop — swaps per breakpoint ── */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 lg:hidden">
+            <Image
+              src="/images/hero_image_hago.jpeg"
+              alt="Trader reviewing live charts at sunset"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+              style={{ objectPosition: "68% 38%" }}
+            />
+          </div>
+          <div className="hidden lg:block absolute inset-0">
+            <Image
+              src="/images/hago_desktop_image.png"
+              alt="Trader reviewing live charts at sunset"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+              style={{ objectPosition: "62% 50%" }}
+            />
+          </div>
           {/* Scrim — keeps every line of copy legible over the photo */}
           <div
             className="absolute inset-0 pointer-events-none"
@@ -84,27 +97,15 @@ export default function Hero() {
           />
         </div>
 
-        {/* ── Desktop: faint ambient glow behind the split layout ── */}
-        <div
-          className="hidden lg:block absolute top-1/2 right-[8%] -translate-y-1/2 pointer-events-none"
-          style={{
-            width: "640px",
-            height: "640px",
-            borderRadius: "50%",
-            background: "radial-gradient(ellipse at center, rgba(52,211,153,0.12) 0%, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-        />
-
         {/* ── Hero content ── */}
         <div className="relative z-10 max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 pt-[86px] sm:pt-[98px] lg:pt-24 pb-8 sm:pb-12 lg:pb-20">
-          <div className="flex flex-col lg:flex-row lg:items-center gap-8 lg:gap-16">
+          <div className="flex flex-col">
 
             {/* Text column */}
             <Stagger
               staggerDelay={0.06}
               delayChildren={0.02}
-              className="flex flex-col items-start text-left lg:flex-1 lg:max-w-[560px] lg:shrink-0"
+              className="flex flex-col items-start text-left lg:max-w-[560px]"
             >
 
               {/* Integrates-with badge */}
@@ -180,29 +181,6 @@ export default function Hero() {
                 </Link>
               </StaggerItem>
             </Stagger>
-
-            {/* Desktop: contained, elevated photo card */}
-            <FadeUp
-              delay={0.15}
-              distance={24}
-              className="hidden lg:flex lg:flex-1 lg:justify-end lg:self-stretch lg:items-center"
-            >
-              <div className="relative w-full max-w-[460px] aspect-[3/4] rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-black/60">
-                <Image
-                  src="/images/hero_image_hago.jpeg"
-                  alt="Trader reviewing live charts at sunset"
-                  fill
-                  priority
-                  sizes="460px"
-                  className="object-cover"
-                  style={{ objectPosition: "60% 42%" }}
-                />
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.12) 0%, transparent 30%, rgba(0,0,0,0.25) 100%)" }}
-                />
-              </div>
-            </FadeUp>
           </div>
 
           {/* Feature row */}
@@ -233,8 +211,8 @@ export default function Hero() {
       ════════════════════════════════════════════════════════ */}
       <div className="w-full bg-white">
         <div className="max-w-[1320px] mx-auto px-5 sm:px-8 lg:px-12 py-14 sm:py-20 lg:py-24">
-          <Stagger className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-6">
-            <StaggerItem>
+          <Stagger className="grid grid-cols-3 gap-2 sm:gap-6">
+            <StaggerItem className="min-w-0">
               <StatCard
                 tint="green"
                 icon={<PeopleIcon />}
@@ -244,7 +222,7 @@ export default function Hero() {
                 decoration={<PeopleDecoration />}
               />
             </StaggerItem>
-            <StaggerItem>
+            <StaggerItem className="min-w-0">
               <StatCard
                 tint="blue"
                 icon={<BarChartUpIcon />}
@@ -254,7 +232,7 @@ export default function Hero() {
                 decoration={<BarChartDecoration />}
               />
             </StaggerItem>
-            <StaggerItem>
+            <StaggerItem className="min-w-0">
               <StatCard
                 tint="amber"
                 icon={<GlobeIcon />}
@@ -320,22 +298,22 @@ function StatCard({
   const t = STAT_TINTS[tint];
   return (
     <div
-      className="relative overflow-hidden rounded-2xl p-6 sm:p-7 h-full"
+      className="relative w-full min-w-0 overflow-hidden rounded-lg sm:rounded-2xl p-2 sm:p-7 h-full"
       style={{ background: t.bg, border: `1px solid ${t.border}` }}
     >
       <div className="absolute inset-0 pointer-events-none">{decoration}</div>
       <div className="relative z-10">
         <div
-          className="w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-6 sm:mb-8"
+          className="w-6 h-6 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-1.5 sm:mb-8"
           style={{ background: t.iconBg }}
         >
           {icon}
         </div>
-        <div className="font-extrabold text-[32px] sm:text-[40px] lg:text-[44px] leading-none text-[#0a0a0a]">
+        <div className="font-extrabold text-[15px] sm:text-[40px] lg:text-[44px] leading-none text-[#0a0a0a] whitespace-nowrap">
           {value}
         </div>
-        <div className="mt-2.5 text-[15px] sm:text-[16px] text-[#2a2a2a]">{label}</div>
-        <div className="mt-5 sm:mt-6 text-[10px] sm:text-[11px] tracking-[0.1em] text-[#8f8f8f] font-semibold uppercase leading-snug">
+        <div className="mt-1 sm:mt-2.5 text-[8.5px] sm:text-[16px] leading-tight text-[#2a2a2a]">{label}</div>
+        <div className="hidden sm:block mt-5 sm:mt-6 text-[10px] sm:text-[11px] tracking-[0.1em] text-[#8f8f8f] font-semibold uppercase leading-snug">
           {caption}
         </div>
       </div>
@@ -374,7 +352,7 @@ function FeatureItem({
 
 function PeopleIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="#1f9d4c" className="w-5 h-5 sm:w-6 sm:h-6">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#1f9d4c" className="w-3 h-3 sm:w-6 sm:h-6">
       <circle cx="12" cy="7" r="3.2" />
       <circle cx="5.5" cy="9" r="2.4" opacity="0.55" />
       <circle cx="18.5" cy="9" r="2.4" opacity="0.55" />
@@ -388,7 +366,7 @@ function PeopleIcon() {
 function BarChartUpIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2f6fe0" strokeWidth="2"
-      strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 sm:w-6 sm:h-6">
+      strokeLinecap="round" strokeLinejoin="round" className="w-3 h-3 sm:w-6 sm:h-6">
       <rect x="4" y="13" width="3.2" height="7" fill="#2f6fe0" stroke="none" rx="0.6" />
       <rect x="10.4" y="9" width="3.2" height="11" fill="#2f6fe0" stroke="none" rx="0.6" />
       <rect x="16.8" y="4" width="3.2" height="16" fill="#2f6fe0" stroke="none" rx="0.6" />
@@ -399,7 +377,7 @@ function BarChartUpIcon() {
 function GlobeIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c98a1f" strokeWidth="1.6"
-      className="w-5 h-5 sm:w-6 sm:h-6">
+      className="w-3 h-3 sm:w-6 sm:h-6">
       <circle cx="12" cy="12" r="9" />
       <ellipse cx="12" cy="12" rx="4" ry="9" />
       <line x1="3.2" y1="9" x2="20.8" y2="9" />
