@@ -1,15 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Fragment } from "react";
 import useSWR from "swr";
 import DashNav from "@/components/DashNav";
+import { api, ApiError } from "@/lib/api";
 
 /* ══════════════════════════════════════════════════════════════
  TYPES
 ══════════════════════════════════════════════════════════════ */
 
 type TxType = "Deposit" | "Withdrawal";
-type TxStatus = "Pending" | "Completed" | "Rejected";
+type TxStatus = "Pending" | "Completed" | "Rejected" | "Cancelled";
 
 interface Transaction {
  id: number;
@@ -59,6 +60,7 @@ function typeColor(type: TxType) {
 function statusBadge(status: TxStatus) {
  if (status === "Completed") return "bg-[#14532d]/60 text-[#4ade80] ";
  if (status === "Pending") return "bg-[#78350f]/70 text-[#fbbf24] ";
+ if (status === "Cancelled") return "bg-[#3f3f46]/60 text-[#a1a1aa] ";
  return "bg-[#7f1d1d]/60 text-[#f87171] ";
 }
 
@@ -84,7 +86,7 @@ export default function TransactionsPage() {
  params.set("page", String(page));
  params.set("page_size", String(PAGE_SIZE));
 
- const { data, isLoading: loading, error: fetchError } = useSWR<ApiResponse>(
+ const { data, isLoading: loading, error: fetchError, mutate } = useSWR<ApiResponse>(
  `/api/transactions/?${params.toString()}`
  );
 
@@ -92,6 +94,24 @@ export default function TransactionsPage() {
  const totalPages = data?.total_pages ?? 1;
  const total = data?.total ?? 0;
  const error = fetchError ? "Failed to load transactions. Please try again." : "";
+
+ const [confirmCancelId, setConfirmCancelId] = useState<number | null>(null);
+ const [cancelling, setCancelling] = useState<number | null>(null);
+ const [cancelError, setCancelError] = useState("");
+
+ async function handleCancelWithdrawal(txId: number) {
+ setCancelling(txId);
+ setCancelError("");
+ try {
+ await api.post(`/api/transactions/${txId}/cancel/`);
+ await mutate();
+ } catch (err) {
+ setCancelError(err instanceof ApiError ? err.detail : "Failed to cancel withdrawal. Please try again.");
+ } finally {
+ setCancelling(null);
+ setConfirmCancelId(null);
+ }
+ }
 
  function clearFilters() {
  setTypeFilter("All");
@@ -183,9 +203,9 @@ export default function TransactionsPage() {
  </div>
 
  {/* ── Error ── */}
- {error && (
+ {(error || cancelError) && (
  <div className="mb-4 px-4 py-3 text-[13px] text-[#dc2626] bg-[#fef2f2] border border-[#fecaca]">
- {error}
+ {error || cancelError}
  </div>
  )}
 
@@ -195,7 +215,7 @@ export default function TransactionsPage() {
  <table className="w-full min-w-[780px]">
  <thead>
  <tr className="border-b border-[#f0f0ec]">
- {["Date", "Type", "Asset", "Units", "Amount (USD)", "Status", "Transaction ID"].map((h) => (
+ {["Date", "Type", "Asset", "Units", "Amount (USD)", "Status", "Transaction ID", "Action"].map((h) => (
  <th
  key={h}
  className="text-left px-5 py-4 text-[13px] font-semibold text-[#001011] whitespace-nowrap"
@@ -208,19 +228,20 @@ export default function TransactionsPage() {
  <tbody>
  {loading ? (
  <tr>
- <td colSpan={7} className="px-5 py-10 text-center text-[13px] text-[#888888]">
+ <td colSpan={8} className="px-5 py-10 text-center text-[13px] text-[#888888]">
  Loading…
  </td>
  </tr>
  ) : transactions.length === 0 ? (
  <tr>
- <td colSpan={7} className="px-5 py-10 text-center text-[13px] text-[#888888]">
+ <td colSpan={8} className="px-5 py-10 text-center text-[13px] text-[#888888]">
  No transactions match your filters.
  </td>
  </tr>
  ) : (
  transactions.map((tx) => (
- <tr key={tx.id} className="border-b border-[#f5f5f0] last:border-0 hover:bg-[#fafaf8] transition-colors">
+ <Fragment key={tx.id}>
+ <tr className="border-b border-[#f5f5f0] last:border-0 hover:bg-[#fafaf8] transition-colors">
  {/* Date */}
  <td className="px-5 py-4 text-[13px] text-[#555555] whitespace-nowrap">
  {formatDate(tx.date)}
@@ -254,7 +275,48 @@ export default function TransactionsPage() {
  <td className="px-5 py-4 text-[12px] text-[#888888] font-mono max-w-[180px] truncate">
  {tx.tx_id}
  </td>
+ {/* Action */}
+ <td className="px-5 py-4 whitespace-nowrap">
+ {tx.tx_type === "Withdrawal" && tx.status === "Pending" ? (
+ <button
+ onClick={() => setConfirmCancelId(tx.id)}
+ className="h-8 px-3 rounded-full border border-[#fecaca] text-[12px] font-medium text-[#dc2626] bg-white hover:bg-[#fef2f2] transition-colors"
+ >
+ Cancel
+ </button>
+ ) : (
+ <span className="text-[12px] text-[#cccccc]">—</span>
+ )}
+ </td>
  </tr>
+ {confirmCancelId === tx.id && (
+ <tr className="border-b border-[#f5f5f0]">
+ <td colSpan={8} className="px-5 py-3 bg-[#fef2f2]">
+ <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+ <p className="text-[13px] text-[#7f1d1d]">
+ Cancel this {tx.amount_usd} withdrawal? The amount will be refunded to your account.
+ </p>
+ <div className="flex items-center gap-2 shrink-0">
+ <button
+ onClick={() => handleCancelWithdrawal(tx.id)}
+ disabled={cancelling === tx.id}
+ className="h-8 px-4 rounded-full bg-[#dc2626] text-[12px] font-semibold text-white hover:bg-[#b91c1c] transition-colors disabled:opacity-60"
+ >
+ {cancelling === tx.id ? "Cancelling…" : "Yes, cancel"}
+ </button>
+ <button
+ onClick={() => setConfirmCancelId(null)}
+ disabled={cancelling === tx.id}
+ className="h-8 px-4 rounded-full border border-[#e5e5e5] text-[12px] font-medium text-[#001011] bg-white hover:bg-[#f5f5f5] transition-colors"
+ >
+ Keep it
+ </button>
+ </div>
+ </div>
+ </td>
+ </tr>
+ )}
+ </Fragment>
  ))
  )}
  </tbody>
