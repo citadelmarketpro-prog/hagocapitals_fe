@@ -37,7 +37,7 @@ const STATS = [
   { value: "7+",   label: "Years in operation" },
   { value: "118+", label: "Expert Leaders" },
   { value: "10M+", label: "Trades copied" },
-  { value: "1M+",  label: "Registered users" },
+  { value: "1.2M+",  label: "Registered users" },
 ];
 
 const VALUES = [
