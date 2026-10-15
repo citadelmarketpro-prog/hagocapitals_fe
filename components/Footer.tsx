@@ -57,7 +57,6 @@ const navGroups = [
     label: "CONTACT",
     links: [
       { label: "support@hagocapitals.com", href: "mailto:support@hagocapitals.com" },
-      { label: "+1 (929) 512-0241",       href: "tel:+19295120241" },
     ],
   },
 ];
