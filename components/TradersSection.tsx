@@ -15,25 +15,25 @@ import { m } from "framer-motion";
 import { TrendingUp } from "lucide-react";
 import Image from "next/image";
 
-const traders = [
-  { name: "Ahkari Ekans Bot", role: "Crypto Expert",           profit: "24.96%", copiers: "556",   risk: "Balanced Risk", color: "#16a34a", initials: "AE", image: "/images/traders/trader_ahkari_ekans.jpg" },
-  { name: "Ropmi",            role: "Strategist",               profit: "1,234%", copiers: "3,446", risk: "High Risk",     color: "#d87060", initials: "RO", image: "/images/traders/trader_ropmi.jpg" },
-  { name: "Suphy James",      role: "Multi-strategist",         profit: "101%",   copiers: "2,345", risk: "Low Risk",      color: "#3a6080", initials: "SJ", image: "/images/traders/trader_suphy_james.jpg" },
-  { name: "Jokie",            role: "All rounder strategist",   profit: "43%",    copiers: "5,677", risk: "Balanced Risk", color: "#8a5040", initials: "JO", image: "/images/traders/trader_jokie.jpg" },
-  { name: "LexTrader",        role: "Options Specialist",       profit: "312%",   copiers: "1,890", risk: "Low Risk",      color: "#4a7030", initials: "LT", image: "/images/traders/trader_lextrader.jpg" },
-  { name: "CryptoWulf",       role: "Crypto Analyst",           profit: "89%",    copiers: "982",   risk: "Moderate Risk", color: "#703060", initials: "CW", image: "/images/traders/trader_cryptowulf.jpg" },
-  { name: "MarketMaven",      role: "Equity Trader",            profit: "178%",   copiers: "4,231", risk: "Low Risk",      color: "#305060", initials: "MM", image: "/images/traders/trader_marketmaven.jpg" },
-];
+export type Trader = {
+  name: string;
+  role: string;
+  profit: string;
+  copiers: number;
+  risk: string;
+  color: string;
+  initials: string;
+  avatar_url: string | null;
+};
 
 function riskBadgeClass(risk: string) {
-  if (risk === "High Risk")     return "bg-red-500/15 text-red-400";
-  if (risk === "Moderate Risk") return "bg-amber-500/15 text-amber-400";
-  if (risk === "Low Risk" || risk === "Balanced Risk" || risk === "Safe")
-                                return "bg-emerald-500/15 text-emerald-400";
+  if (risk === "Aggressive")   return "bg-red-500/15 text-red-400";
+  if (risk === "Swing trader") return "bg-amber-500/15 text-amber-400";
+  if (risk === "Conservative") return "bg-emerald-500/15 text-emerald-400";
   return "bg-white/10 text-gray-300";
 }
 
-export default function TradersSection() {
+export default function TradersSection({ traders }: { traders: Trader[] }) {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "start", dragFree: true },
     [Autoplay({ delay: 2800, stopOnInteraction: false, stopOnMouseEnter: true })]
@@ -41,6 +41,8 @@ export default function TradersSection() {
 
   const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
   const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  if (traders.length === 0) return null;
 
   return (
     <section id="traders" className="w-full bg-[#0a0a0a]">
@@ -115,8 +117,6 @@ export default function TradersSection() {
 
 /* ── Trader Card ─────────────────────────────────────────────────── */
 
-type Trader = (typeof traders)[number];
-
 function TraderCard({ trader }: { trader: Trader }) {
   return (
     <m.div
@@ -126,14 +126,21 @@ function TraderCard({ trader }: { trader: Trader }) {
 
       {/* Avatar + name + role */}
       <div className="flex items-center gap-3 px-4 pt-4 pb-3">
-        <div className="relative w-[52px] h-[52px] rounded-full overflow-hidden shrink-0 ring-2 ring-white/10">
-          <Image
-            src={trader.image}
-            alt={trader.name}
-            fill
-            sizes="52px"
-            className="object-cover"
-          />
+        <div
+          className="relative w-[52px] h-[52px] rounded-full overflow-hidden shrink-0 ring-2 ring-white/10 flex items-center justify-center"
+          style={{ background: trader.color }}
+        >
+          {trader.avatar_url ? (
+            <Image
+              src={trader.avatar_url}
+              alt={trader.name}
+              fill
+              sizes="52px"
+              className="object-cover"
+            />
+          ) : (
+            <span className="text-[15px] font-bold text-white">{trader.initials}</span>
+          )}
         </div>
         <div className="min-w-0">
           <p className="text-[15px] font-bold text-white leading-tight truncate">
@@ -159,7 +166,7 @@ function TraderCard({ trader }: { trader: Trader }) {
         <div className="text-right">
           <div className="flex items-center justify-end gap-1.5">
             <span className="text-[19px] font-bold text-white leading-none">
-              {trader.copiers}
+              {trader.copiers.toLocaleString()}
             </span>
             <TrendingUp size={15} color="#34d399" />
           </div>

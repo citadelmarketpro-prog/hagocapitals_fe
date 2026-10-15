@@ -38,7 +38,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import HowItWorks from "@/components/HowItWorks";
 import YouShouldKnow from "@/components/YouShouldKnow";
-import TradersSection from "@/components/TradersSection";
+import TradersSection, { type Trader } from "@/components/TradersSection";
 import WhyChoose from "@/components/WhyChoose";
 import WhatYouCanCopy from "@/components/WhatYouCanCopy";
 import FAQSection from "@/components/FAQSection";
@@ -46,14 +46,29 @@ import TrustSection from "@/components/TrustSection";
 import ReadyToInvest from "@/components/ReadyToInvest";
 import Footer from "@/components/Footer";
 
-export default function Home() {
+const BACKEND_ORIGIN = (process.env.BACKEND_ORIGIN ?? "http://localhost:8000").replace(/\/$/, "");
+
+async function getTopTraders(): Promise<Trader[]> {
+  try {
+    const res = await fetch(`${BACKEND_ORIGIN}/api/traders/public/`, {
+      next: { revalidate: 300 },
+    });
+    if (!res.ok) return [];
+    return await res.json();
+  } catch {
+    return [];
+  }
+}
+
+export default async function Home() {
+  const traders = await getTopTraders();
   return (
     <main>
       <Navbar transparent />
       <Hero />
       <HowItWorks />
       <YouShouldKnow />
-      <TradersSection />
+      <TradersSection traders={traders} />
       <WhyChoose />
       <WhatYouCanCopy />
       <FAQSection />
