@@ -116,8 +116,9 @@ export default function Hero() {
               {/* Headline */}
               <StaggerItem distance={22} className="w-full min-w-0">
                 <h1
-                  className="font-extrabold leading-[1.08] tracking-tight max-w-[860px] lg:max-w-none text-[36px] sm:text-[48px] lg:text-[56px] xl:text-[64px]"
+                  className="font-bold leading-[1.08] tracking-tight max-w-[860px] lg:max-w-none text-[36px] sm:text-[48px] lg:text-[56px] xl:text-[64px]"
                   style={{
+                    fontFamily: "var(--font-serif), Georgia, serif",
                     background: "linear-gradient(180deg, #ffffff 0%, #a7f3d0 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",

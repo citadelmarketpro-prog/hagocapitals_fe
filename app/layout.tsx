@@ -1,6 +1,6 @@
 ﻿import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Poppins } from "next/font/google";
+import { Poppins, Lora } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Preloader from "@/components/Preloader";
 import { AuthProvider } from "@/context/AuthContext";
@@ -13,6 +13,17 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700", "800"],
   display: "swap",
   variable: "--font-sans",
+  preload: true,
+});
+
+// Closest free match to the serif display headline used in the hero
+// (bold, bracketed serifs, single-story "g" — in the GT Super / Canela
+// family). Scoped to --font-serif so it only affects the hero headline.
+const lora = Lora({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
+  variable: "--font-serif",
   preload: true,
 });
 
@@ -108,7 +119,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={poppins.variable}>
+    <html lang="en" suppressHydrationWarning className={`${poppins.variable} ${lora.variable}`}>
       <body className={`${poppins.className} antialiased`}>
         <ThemeProvider
           attribute="class"
