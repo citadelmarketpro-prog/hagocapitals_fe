@@ -3,10 +3,8 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import useSWR from "swr";
 import { motion, AnimatePresence } from "framer-motion";
-import { useRouter } from "next/navigation";
-import { QRCodeSVG } from "qrcode.react";
 import {
- X, ArrowLeft, Copy, Check, Upload, CheckCircle2, Loader2, Info, AlertCircle,
+ X, ArrowLeft, Copy, Check, Upload, CheckCircle2, Loader2, AlertCircle, Clock, Target, Shield,
 } from "lucide-react";
 import { api, ApiError } from "@/lib/api";
 import type { AdminWallet } from "./types";
@@ -16,14 +14,7 @@ interface DepositModalProps {
  onClose: () => void;
 }
 
-type Step = "select" | "amount" | "address" | "success";
-
-const EXCHANGES = [
- { name: "Binance", url: "https://www.binance.com" },
- { name: "Coinbase", url: "https://www.coinbase.com" },
- { name: "Crypto.com", url: "https://crypto.com" },
- { name: "Kraken", url: "https://www.kraken.com" },
-];
+type Step = "select" | "amount" | "details" | "success";
 
 /* ── Small shared icon-circle for a wallet/currency ── */
 function CurrencyBadge({ icon_url, symbol, size = "sm" }: { icon_url: string | null; symbol: string; size?: "sm" | "lg" }) {
@@ -55,17 +46,17 @@ function BackBtn({ onClick }: { onClick: () => void }) {
 }
 
 export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
- const router = useRouter();
  const [step, setStep] = useState<Step>("select");
  const [wallet, setWallet] = useState<AdminWallet | null>(null);
  const [rawAmount, setRawAmount] = useState("");
- const [checked, setChecked] = useState(false);
  const [copied, setCopied] = useState(false);
  const [receipt, setReceipt] = useState<File | null>(null);
  const [isDragging, setIsDragging] = useState(false);
  const [submitting, setSubmitting] = useState(false);
+ const [sendingIntent, setSendingIntent] = useState(false);
  const [error, setError] = useState("");
  const [depositTxId, setDepositTxId] = useState("");
+ const [countdown, setCountdown] = useState(7200);
  const amountRef = useRef<HTMLInputElement>(null);
 
  const { data: wallets = [], isLoading: walletsLoading } = useSWR<AdminWallet[]>(isOpen ? "/api/transactions/wallets/" : null);
@@ -78,6 +69,14 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
  }
  }, [step]);
 
+ // Countdown timer for the details step
+ useEffect(() => {
+ if (step === "details" && countdown > 0) {
+ const timer = setInterval(() => setCountdown((p) => (p > 0 ? p - 1 : 0)), 1000);
+ return () => clearInterval(timer);
+ }
+ }, [step, countdown]);
+
  const amount = parseFloat(rawAmount) || 0;
  const unitPrice = wallet ? (cryptoPrices[wallet.symbol] ?? 0) : 0;
  const unitEstimate = amount > 0 && unitPrice > 0
@@ -86,6 +85,7 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
 
  function handleSelectWallet(w: AdminWallet) {
  setWallet(w);
+ setCopied(false);
  setStep("amount");
  }
 
@@ -97,50 +97,59 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
  setError("");
  }
 
- function handleAmountNext(e: React.FormEvent) {
+ async function handleAmountSubmit(e: React.FormEvent) {
  e.preventDefault();
  if (!rawAmount || amount <= 0 || !wallet) { setError("Please enter a valid amount"); return; }
  setError("");
- setCopied(false);
- setReceipt(null);
- setChecked(false);
- setStep("address");
+ setSendingIntent(true);
 
- // Fire-and-forget: let admin know a user is proceeding past the amount
- // step, so staff can follow up if no confirmed deposit ever comes in.
- // Never blocks or fails the actual deposit flow.
- api.post("/api/transactions/deposit-intent/", {
+ try {
+ await api.post("/api/transactions/deposit-intent/", {
  wallet_id: wallet.id,
  amount_usd: amount,
- }).catch(() => {});
+ });
+ } catch {
+ // Non-blocking: proceed even if the heads-up email fails
+ } finally {
+ setSendingIntent(false);
+ }
+
+ setCountdown(7200);
+ setCopied(false);
+ setReceipt(null);
+ setStep("details");
  }
 
  function handleCopy() {
  if (!wallet) return;
- navigator.clipboard.writeText(wallet.address).then(() => {
- setCopied(true);
- setTimeout(() => setCopied(false), 2500);
- });
+ navigator.clipboard.writeText(wallet.address).then(() => setCopied(true));
  }
 
  const handleDragOver = useCallback((e: React.DragEvent) => { e.preventDefault(); setIsDragging(true); }, []);
  const handleDragLeave = useCallback((e: React.DragEvent) => { e.preventDefault(); setIsDragging(false); }, []);
+
  const handleDrop = useCallback((e: React.DragEvent) => {
- e.preventDefault(); setIsDragging(false);
+ e.preventDefault();
+ setIsDragging(false);
  const file = e.dataTransfer.files?.[0];
  if (!file) return;
- if (file.size > 5 * 1024 * 1024) { setError("File size must be less than 5MB"); return; }
- setReceipt(file); setError("");
+ if (!file.type.startsWith("image/")) { setError("Please upload an image file"); return; }
+ if (file.size > 10 * 1024 * 1024) { setError("File size must be less than 10MB"); return; }
+ setReceipt(file);
+ setError("");
  }, []);
- const handleFileInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+ function handleFileInput(e: React.ChangeEvent<HTMLInputElement>) {
  const file = e.target.files?.[0];
  if (!file) return;
- if (file.size > 5 * 1024 * 1024) { setError("File size must be less than 5MB"); return; }
- setReceipt(file); setError("");
- };
+ if (!file.type.startsWith("image/")) { setError("Please upload an image file"); return; }
+ if (file.size > 10 * 1024 * 1024) { setError("File size must be less than 10MB"); return; }
+ setReceipt(file);
+ setError("");
+ }
 
- async function handleSubmit() {
- if (!wallet || !checked || !receipt || submitting) return;
+ async function handleConfirmDeposit() {
+ if (!wallet || !receipt) { setError("Please upload payment receipt"); return; }
  setSubmitting(true);
  setError("");
  try {
@@ -152,7 +161,7 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
  setDepositTxId(res.tx_id);
  setStep("success");
  } catch (err) {
- setError(err instanceof ApiError ? err.detail : "Something went wrong. Please try again.");
+ setError(err instanceof ApiError ? err.detail : "Failed to submit deposit request");
  } finally {
  setSubmitting(false);
  }
@@ -162,13 +171,19 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
  setStep("select");
  setWallet(null);
  setRawAmount("");
- setChecked(false);
  setCopied(false);
  setReceipt(null);
  setIsDragging(false);
  setError("");
  setDepositTxId("");
  onClose();
+ }
+
+ function formatCountdown(seconds: number): string {
+ const h = Math.floor(seconds / 3600);
+ const m = Math.floor((seconds % 3600) / 60);
+ const s = seconds % 60;
+ return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`;
  }
 
  if (!isOpen) return null;
@@ -248,251 +263,298 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
  {/* ══════════════ AMOUNT ══════════════ */}
  {step === "amount" && wallet && (
  <div className="p-6">
- <div className="flex items-center gap-3 mb-5">
- <BackBtn onClick={() => { setStep("select"); setError(""); }} />
- <h2 className="flex-1 text-[17px] font-bold text-[#001011]">Enter Amount</h2>
+ <div className="flex items-center justify-between mb-6">
+ <div className="flex items-center gap-3">
+ <BackBtn onClick={() => { setStep("select"); setWallet(null); setRawAmount(""); setError(""); }} />
+ <div>
+ <h2 className="text-[17px] font-bold text-[#001011]">
+ Deposit {wallet.symbol}
+ </h2>
+ <p className="text-[11px] text-[#888888]">Enter the amount you want to deposit</p>
+ </div>
+ </div>
  <CloseBtn onClick={handleClose} />
  </div>
 
- {/* Selected currency + rate */}
- <div className="rounded-xl p-3 mb-3 bg-[#eaf5f0] border border-[#06811d]/15">
- <div className="flex items-center gap-2.5">
- <CurrencyBadge icon_url={wallet.icon_url} symbol={wallet.symbol} />
- <div className="min-w-0">
- <p className="text-[13px] font-semibold text-[#06811d] truncate leading-tight">
+ {/* Coin Info */}
+ <div className="flex items-center gap-3 rounded-xl p-3.5 mb-5 bg-[#eaf5f0] border border-[#06811d]/15">
+ <CurrencyBadge icon_url={wallet.icon_url} symbol={wallet.symbol} size="lg" />
+ <div className="flex-1 min-w-0">
+ <p className="text-[14px] font-bold text-[#001011]">
  {wallet.symbol}{wallet.network ? ` (${wallet.network})` : ""}
  </p>
  {unitPrice > 0 && (
- <p className="text-[11px] text-[#888888] leading-tight">Rate: ${unitPrice.toLocaleString()} per unit</p>
+ <p className="text-[11px] text-[#888888] mt-0.5">
+ Rate: <span className="text-[#06811d] font-semibold">${unitPrice.toLocaleString()} per unit</span>
+ </p>
  )}
  </div>
  </div>
- </div>
 
- {/* Don't have crypto? */}
- <div className="rounded-xl p-3 mb-4 bg-[#eaf5f0] border border-[#06811d]/15">
- <div className="flex items-start gap-2">
- <Info className="w-3.5 h-3.5 shrink-0 mt-0.5 text-[#06811d]" />
+ <form onSubmit={handleAmountSubmit} className="space-y-4">
+ {/* USD Amount */}
  <div>
- <p className="text-[11px] text-[#555555] mb-1.5 leading-tight">
- Don&apos;t have cryptocurrency? Purchase from:
- </p>
- <div className="flex flex-wrap gap-1">
- {EXCHANGES.map((ex) => (
- <a
- key={ex.name}
- href={ex.url}
- target="_blank"
- rel="noopener noreferrer"
- className="px-2 py-0.5 rounded-full text-[9.5px] font-medium bg-white text-[#555555] transition-colors hover:text-[#06811d]"
- >
- {ex.name}
- </a>
- ))}
- </div>
- </div>
- </div>
- </div>
-
- {/* Big amount input */}
- <form onSubmit={handleAmountNext}>
- <div className="flex flex-col items-center gap-1 py-2">
+ <label className="block text-[13px] font-medium text-[#555555] mb-1.5">Amount (USD)</label>
+ <div className="relative">
+ <span className="absolute left-3 top-1/2 -translate-y-1/2 text-[#888888] font-medium text-sm">$</span>
  <input
  ref={amountRef}
  type="text"
  inputMode="decimal"
- placeholder="0.00"
  value={rawAmount}
  onChange={handleAmountChange}
- className="text-[46px] font-bold text-[#001011] bg-transparent border-none outline-none text-center w-full placeholder:text-[#d4d4d4]"
+ className="w-full pl-7 pr-4 py-3 bg-[#f8f8f6] border border-[#e5e5e5] rounded-lg text-[#001011] focus:outline-none focus:border-[#06811d] text-sm placeholder-[#d4d4d4]"
+ placeholder="0.00"
  />
- {error && <p className="text-[12px] text-[#dc2626]">{error}</p>}
- <p className="text-[11.5px] text-[#d97706] text-center mt-1">
- All deposits are converted to USD for ease of use
- </p>
+ </div>
  </div>
 
- {/* You will get */}
- <div className="flex items-center justify-between py-3 border-t border-[#f0f0ec]">
- <span className="text-[13px] text-[#888888]">You will get</span>
- <span className="text-[13px] font-bold text-[#001011]">
- {amount > 0 ? `${amount.toFixed(2)} USD` : "0.00 USD"}
- </span>
- </div>
+ {/* Crypto equivalent */}
  {unitEstimate && (
- <div className="flex items-center justify-between pb-3">
- <span className="text-[11px] text-[#888888]">Send approx.</span>
- <span className="text-[11px] font-semibold text-[#06811d]">
- ≈ {unitEstimate} {wallet.symbol}
- </span>
+ <div className="bg-[#06811d]/10 border border-[#06811d]/20 rounded-xl p-3">
+ <p className="text-[11px] text-[#888888] mb-0.5">You will send</p>
+ <p className="text-lg font-bold text-[#06811d]">
+ {unitEstimate} <span className="text-sm font-normal text-[#888888]">{wallet.symbol}</span>
+ </p>
  </div>
  )}
 
+ {error && (
+ <p className="text-[#dc2626] text-xs flex items-center gap-1">
+ <AlertCircle className="w-3.5 h-3.5" />
+ {error}
+ </p>
+ )}
+
+ <div className="flex gap-3 pt-1">
+ <button
+ type="button"
+ onClick={() => { setStep("select"); setWallet(null); setRawAmount(""); setError(""); }}
+ className="flex-1 py-3 bg-[#f0f0ec] hover:bg-[#e5e5e0] text-[#001011] rounded-lg font-semibold transition-colors text-sm"
+ >
+ Back
+ </button>
  <button
  type="submit"
- disabled={!rawAmount || amount <= 0}
- className={`w-full h-11 rounded-full text-[13px] font-bold text-white bg-[#06811d] transition-opacity ${
- rawAmount && amount > 0 ? "hover:opacity-90 cursor-pointer" : "opacity-40 cursor-not-allowed"
- }`}
+ disabled={sendingIntent || !rawAmount || amount <= 0}
+ className="flex-1 py-3 bg-[#06811d] hover:opacity-90 text-white rounded-lg font-semibold transition-opacity disabled:opacity-40 flex items-center justify-center gap-2 text-sm"
  >
- Continue
+ {sendingIntent ? (<><Loader2 className="w-4 h-4 animate-spin" />Processing...</>) : "Continue"}
  </button>
+ </div>
  </form>
  </div>
  )}
 
- {/* ══════════════ ADDRESS + UPLOAD ══════════════ */}
- {step === "address" && wallet && (
- <div className="p-6">
- <div className="flex items-center gap-3 mb-4">
- <BackBtn onClick={() => { setStep("amount"); setReceipt(null); setError(""); setCopied(false); setChecked(false); }} />
- <div className="flex-1" />
+ {/* ══════════════ DETAILS ══════════════ */}
+ {step === "details" && wallet && (
+ <div className="p-6 space-y-5">
+ <div className="flex items-center justify-between pb-4 border-b border-[#f0f0ec]">
+ <h2 className="text-[17px] font-bold text-[#001011]">Complete Your Deposit</h2>
  <CloseBtn onClick={handleClose} />
  </div>
 
- {/* Coin icon */}
- <div className="flex flex-col items-center text-center mb-4">
- <CurrencyBadge icon_url={wallet.icon_url} symbol={wallet.symbol} size="lg" />
- <h3 className="text-[14px] font-bold text-[#001011] mt-2">
- {wallet.symbol}{wallet.network ? ` (${wallet.network})` : ""}
- </h3>
+ {/* Order Banner */}
+ <div className="bg-[#06811d]/10 border border-[#06811d]/20 rounded-xl p-4">
+ <p className="text-[13px] text-[#333333]">
+ Your deposit of <span className="text-[#06811d] font-bold">${rawAmount} USD</span> has been initiated.
+ </p>
+ <p className="text-[11px] text-[#888888] mt-1">
+ Please send <span className="text-[#06811d] font-bold">{unitEstimate} {wallet.symbol}</span> to the address below.
+ </p>
+ <p className="text-[11px] text-[#06811d] font-semibold mt-2">
+ Confirm your deposit by uploading your payment receipt.
+ </p>
+ </div>
 
- {/* Wallet address */}
- <div className="flex items-center gap-2 mt-1 max-w-full">
- <span className="text-[11px] font-mono truncate max-w-[210px] text-[#06811d]">
- {wallet.address}
- </span>
+ {/* Transaction Steps */}
+ <div className="bg-[#f8f8f6] rounded-xl p-4 space-y-4">
+ {/* Step 1 */}
+ <div className="flex items-start gap-3">
+ <div className="w-6 h-6 rounded-full bg-[#06811d] flex items-center justify-center shrink-0 text-white text-xs font-bold">1</div>
+ <div className="flex-1">
+ <p className="text-[11px] text-[#888888] mb-1.5 flex items-center gap-1.5">
+ <Target className="w-3.5 h-3.5" />
+ Check coin ticker
+ </p>
+ <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-md border border-[#e5e5e5]">
+ <CurrencyBadge icon_url={wallet.icon_url} symbol={wallet.symbol} />
+ <span className="text-[13px] text-[#001011] font-semibold">{wallet.symbol}</span>
+ </div>
+ </div>
+ </div>
+
+ {/* Step 2 */}
+ <div className="flex items-start gap-3">
+ <div className="w-6 h-6 rounded-full bg-[#06811d] flex items-center justify-center shrink-0 text-white text-xs font-bold">2</div>
+ <div className="flex-1">
+ <p className="text-[11px] text-[#888888] mb-1.5 flex items-center gap-1.5">
+ <Shield className="w-3.5 h-3.5" />
+ Check the total amount
+ </p>
+ <div className="bg-white px-3 py-2 rounded-md border border-[#e5e5e5]">
+ <p className="text-lg font-bold text-[#06811d]">
+ {unitEstimate} <span className="text-xs text-[#888888]">{wallet.symbol}</span>
+ </p>
+ <p className="text-[13px] text-[#888888]">≈ ${rawAmount} USD</p>
+ </div>
+ </div>
+ </div>
+
+ {/* Step 3 — wallet address with copy */}
+ <div className="flex items-start gap-3">
+ <div className="w-6 h-6 rounded-full bg-[#06811d] flex items-center justify-center shrink-0 text-white text-xs font-bold">3</div>
+ <div className="flex-1">
+ <p className="text-[11px] text-[#888888] mb-1.5">Send to your unique deposit wallet address.</p>
+ <div className="flex gap-2">
+ <input
+ type="text"
+ value={wallet.address}
+ readOnly
+ className="flex-1 px-3 py-2.5 bg-white border border-[#e5e5e5] rounded-md text-[#555555] text-xs font-mono focus:outline-none"
+ />
  <button
  onClick={handleCopy}
- title={copied ? "Copied!" : "Copy address"}
- className={`shrink-0 transition-colors ${copied ? "text-[#06811d]" : "text-[#888888] hover:text-[#001011]"}`}
+ className={`px-3 py-2.5 rounded-md transition-all flex items-center gap-1.5 text-xs font-medium shrink-0 ${
+ copied ? "bg-[#06811d]/10 border border-[#06811d]/30 text-[#06811d]" : "bg-[#f0f0ec] hover:bg-[#e5e5e0] text-[#001011]"
+ }`}
  >
- {copied ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+ {copied ? (<><Check className="w-3.5 h-3.5" />Copied</>) : (<><Copy className="w-3.5 h-3.5" />Copy</>)}
  </button>
  </div>
  </div>
+ </div>
+ </div>
 
- {/* QR code — scan to send */}
- <div className="flex justify-center mb-4">
- <div className="p-2.5 rounded-xl bg-white border border-[#e5e5e5]">
- {wallet.qr_code_url ? (
- // eslint-disable-next-line @next/next/no-img-element
- <img src={wallet.qr_code_url} alt={`${wallet.symbol} deposit QR code`} width={104} height={104} className="w-26 h-26 object-contain" />
- ) : (
- <QRCodeSVG value={wallet.address} size={104} fgColor="#001011" />
+ {/* QR Code — only when admin has uploaded one */}
+ {wallet.qr_code_url && (
+ <div className="flex justify-center">
+ <div className="bg-white p-4 rounded-xl border border-[#e5e5e5] shadow-sm">
+ {/* eslint-disable-next-line @next/next/no-img-element */}
+ <img src={wallet.qr_code_url} alt="QR Code" width={150} height={150} className="rounded" />
+ <p className="text-center text-[11px] text-[#888888] mt-2 font-medium">Scan to Pay</p>
+ </div>
+ </div>
  )}
- <p className="text-center text-[9px] text-[#888888] mt-1 font-medium">Scan to pay</p>
+
+ {/* Countdown */}
+ <div className="bg-[#fee2e2]/60 border border-[#dc2626]/20 rounded-xl p-4 text-center">
+ <p className="text-[11px] text-[#888888] mb-1">Address valid for:</p>
+ <div className="flex items-center justify-center gap-2">
+ <Clock className="w-5 h-5 text-[#dc2626] animate-pulse" />
+ <p className="text-2xl font-bold text-[#dc2626] font-mono">{formatCountdown(countdown)}</p>
  </div>
  </div>
 
- {/* Divider */}
- <div className="h-px mb-4 bg-[#f0f0ec]" />
-
- {/* Checkbox */}
- <div className="flex items-center gap-3 mb-4 cursor-pointer select-none" onClick={() => setChecked((v) => !v)}>
- <div
- className={`w-5 h-5 rounded-md flex items-center justify-center shrink-0 transition-colors ${
- checked ? "bg-[#06811d]" : "border-2 border-[#d4d4d4] bg-white"
- }`}
- >
- {checked && <Check className="w-3 h-3 text-white" strokeWidth={3} />}
+ {/* Warning */}
+ <div className="bg-[#fee2e2]/60 border border-[#dc2626]/20 rounded-xl p-3">
+ <div className="flex items-start gap-2">
+ <AlertCircle className="w-4 h-4 text-[#dc2626] flex-shrink-0 mt-0.5" />
+ <p className="text-[12px] text-[#333333]">
+ <span className="font-semibold">Important:</span> Send exactly <span className="font-bold">{unitEstimate}</span> {wallet.symbol}.
+ </p>
  </div>
- <span className="text-[13px] text-[#555555]">
- I have funded my wallet
- </span>
  </div>
 
- {/* Upload area */}
+ {/* Receipt Upload */}
+ <div>
+ <label className="block text-[13px] font-medium text-[#555555] mb-2">Upload Payment Receipt:</label>
  <div
  onDragOver={handleDragOver}
  onDragLeave={handleDragLeave}
  onDrop={handleDrop}
- className={`rounded-xl p-3 transition-all mb-4 border-[1.5px] border-dashed ${
- isDragging
- ? "border-[#06811d] bg-[#eaf5f0]"
- : "border-[#d4d4d4]"
+ className={`border-2 border-dashed rounded-xl p-5 text-center transition-all ${
+ isDragging ? "border-[#06811d] bg-[#06811d]/10" : "border-[#d4d4d4] bg-[#f8f8f6]"
  }`}
  >
- <input type="file" id="deposit-proof" accept="image/*,.pdf" onChange={handleFileInput} className="hidden" />
+ <input type="file" id="deposit-receipt" accept="image/*" onChange={handleFileInput} className="hidden" />
  {receipt ? (
- <div className="flex items-center gap-3">
- <div className="w-9 h-9 rounded-lg flex items-center justify-center overflow-hidden shrink-0 bg-[#f0f0ec]">
- {receipt.type.startsWith("image/")
- // eslint-disable-next-line @next/next/no-img-element
- ? <img src={URL.createObjectURL(receipt)} alt="preview" className="w-full h-full object-cover" />
- : <Upload className="w-4 h-4 text-[#888888]" />}
- </div>
- <div className="flex-1 min-w-0">
- <p className="text-[12px] text-[#001011] font-medium truncate">{receipt.name}</p>
- <p className="text-[11px] text-[#888888]">{(receipt.size / 1024).toFixed(0)} KB</p>
- </div>
- <button
- onClick={() => setReceipt(null)}
- className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 bg-[#fee2e2]"
- >
- <X className="w-3 h-3 text-[#dc2626]" />
- </button>
+ <div className="space-y-2">
+ <Check className="w-10 h-10 text-[#06811d] mx-auto" />
+ <p className="text-[12px] text-[#333333]">{receipt.name}</p>
+ <button onClick={() => setReceipt(null)} className="text-[12px] text-[#dc2626] hover:underline">Remove</button>
  </div>
  ) : (
- <label htmlFor="deposit-proof" className="flex items-center gap-3 cursor-pointer">
- <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 bg-[#eaf5f0]">
- <Upload className="w-4 h-4 text-[#06811d]" />
- </div>
- <div>
- <p className="text-[12px] font-bold text-[#001011]">Upload payment proof</p>
- <p className="text-[10px] text-[#888888]">PNG, JPG or PDF (max. 5MB)</p>
- </div>
+ <label htmlFor="deposit-receipt" className="cursor-pointer">
+ <Upload className="w-10 h-10 text-[#d4d4d4] mx-auto mb-2" />
+ <p className="text-[13px] text-[#333333] font-medium mb-1">Drop receipt here or click to browse</p>
+ <p className="text-[10px] text-[#888888]">JPG, PNG, GIF (Max 10MB)</p>
  </label>
  )}
  </div>
-
  {error && (
- <div className="flex items-center gap-2 mb-4 rounded-xl p-3 bg-[#fee2e2]/60">
- <AlertCircle className="w-4 h-4 text-[#dc2626] shrink-0" />
- <p className="text-[12px] text-[#dc2626]">{error}</p>
- </div>
+ <p className="text-[#dc2626] text-xs mt-2 flex items-center gap-1">
+ <AlertCircle className="w-3.5 h-3.5" />
+ {error}
+ </p>
  )}
+ </div>
 
- {/* Submit */}
+ {/* Action Buttons */}
+ <div className="flex gap-3 pt-2 border-t border-[#f0f0ec]">
  <button
- onClick={handleSubmit}
- disabled={!checked || !receipt || submitting}
- className={`w-full h-11 rounded-full text-[13px] font-bold text-white bg-[#06811d] transition-opacity flex items-center justify-center gap-2 ${
- checked && receipt && !submitting ? "hover:opacity-90 cursor-pointer" : "opacity-40 cursor-not-allowed"
- }`}
+ onClick={() => { setStep("amount"); setReceipt(null); setError(""); }}
+ disabled={submitting}
+ className="flex-1 py-3 bg-[#f0f0ec] hover:bg-[#e5e5e0] text-[#001011] rounded-lg font-semibold transition-colors disabled:opacity-50 text-sm"
  >
- {submitting ? <><Loader2 className="w-4 h-4 animate-spin" />Submitting…</> : "Top up complete"}
+ Back
  </button>
+ <button
+ onClick={handleConfirmDeposit}
+ disabled={submitting || !receipt}
+ className="flex-1 py-3 bg-[#06811d] hover:opacity-90 text-white rounded-lg font-semibold transition-opacity disabled:opacity-40 flex items-center justify-center gap-2 text-sm"
+ >
+ {submitting ? (<><Loader2 className="w-4 h-4 animate-spin" />Processing...</>) : "Confirm Deposit"}
+ </button>
+ </div>
  </div>
  )}
 
  {/* ══════════════ SUCCESS ══════════════ */}
- {step === "success" && (
- <div className="p-6 flex flex-col items-center text-center">
- <div className="w-16 h-16 rounded-full bg-[#eaf5f0] flex items-center justify-center mb-4">
+ {step === "success" && wallet && (
+ <div className="p-6">
+ <div className="text-center mb-6">
+ <div className="w-16 h-16 rounded-full bg-[#eaf5f0] flex items-center justify-center mx-auto mb-3">
  <CheckCircle2 className="w-8 h-8 text-[#06811d]" strokeWidth={2} />
  </div>
- <h2 className="text-[17px] font-bold text-[#001011] mb-2">Deposit Submitted!</h2>
- <p className="text-[12.5px] text-[#888888] mb-1.5 leading-relaxed">
- Your deposit is pending admin confirmation.
- </p>
- {depositTxId && (
- <p className="text-[11px] font-mono mb-3 text-[#06811d]">
- Ref: {depositTxId.slice(0, 8)}
- </p>
- )}
- <p className="text-[12px] text-[#888888] mb-6 leading-relaxed">
- Funds will be credited within 30 minutes to 24 hours after verification. If you don&apos;t see them,
+ <h2 className="text-[17px] font-bold text-[#001011] mb-1">Deposit Request Submitted!</h2>
+ <p className="text-[13px] text-[#888888]">Your deposit is being processed</p>
+ </div>
+
+ <div className="bg-[#06811d]/10 border border-[#06811d]/20 rounded-xl p-4 mb-4 space-y-2 text-sm">
+ <div className="flex justify-between">
+ <span className="text-[#888888]">Amount:</span>
+ <span className="text-[#001011] font-semibold">${amount.toFixed(2)}</span>
+ </div>
+ <div className="flex justify-between">
+ <span className="text-[#888888]">Currency:</span>
+ <span className="text-[#001011] font-semibold">{unitEstimate} {wallet.symbol}</span>
+ </div>
+ <div className="flex justify-between pt-2 border-t border-[#06811d]/20">
+ <span className="text-[#888888]">Reference:</span>
+ <span className="text-[#06811d] font-semibold font-mono text-xs">{depositTxId.slice(0, 8)}</span>
+ </div>
+ </div>
+
+ <div className="bg-[#06811d]/10 border border-[#06811d]/20 rounded-xl p-4 mb-4">
+ <div className="flex items-start gap-2">
+ <Clock className="w-4 h-4 text-[#06811d] flex-shrink-0 mt-0.5" />
+ <div>
+ <p className="text-[12px] text-[#333333] font-medium">Processing Time</p>
+ <p className="text-[10px] text-[#888888] mt-0.5">
+ Your deposit will be credited within 30 minutes to 24 hours after verification. If you don&apos;t see it,
  contact us at{" "}
- <a href="mailto:support@hagocapitals.com" className="text-[#06811d] hover:underline">
- support@hagocapitals.com
- </a>
+ <a href="mailto:support@hagocapitals.com" className="text-[#06811d] hover:underline">support@hagocapitals.com</a>
  </p>
+ </div>
+ </div>
+ </div>
+
  <button
- onClick={() => { handleClose(); router.push("/transactions"); }}
- className="w-full h-11 rounded-full text-[13px] font-bold text-[#001011] border border-[#e5e5e5] bg-white hover:bg-[#f8f8f8] transition-colors"
+ onClick={handleClose}
+ className="w-full py-3 bg-[#06811d] hover:opacity-90 text-white rounded-lg font-semibold transition-opacity text-sm"
  >
- Done
+ Got It!
  </button>
  </div>
  )}
