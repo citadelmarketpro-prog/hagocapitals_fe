@@ -2,31 +2,32 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import AuthLayout from "@/components/AuthLayout";
 import { useAuth } from "@/context/AuthContext";
 import { ApiError } from "@/lib/api";
 
-const REQUIREMENTS = [
- { label: "At least 8 characters", test: (p: string) => p.length >= 8 },
- { label: "At least one uppercase", test: (p: string) => /[A-Z]/.test(p) },
- { label: "At least one lowercase", test: (p: string) => /[a-z]/.test(p) },
- { label: "At least one number", test: (p: string) => /[0-9]/.test(p) },
- { label: "At least one symbol", test: (p: string) => /[^A-Za-z0-9]/.test(p) },
-];
+const REQUIREMENT_TESTS = [
+ { key: "length", test: (p: string) => p.length >= 8 },
+ { key: "upper",  test: (p: string) => /[A-Z]/.test(p) },
+ { key: "lower",  test: (p: string) => /[a-z]/.test(p) },
+ { key: "number", test: (p: string) => /[0-9]/.test(p) },
+ { key: "symbol", test: (p: string) => /[^A-Za-z0-9]/.test(p) },
+] as const;
 
 export default function SignUpPage() {
  const { register } = useAuth();
+ const t = useTranslations("signUp");
+ const tc = useTranslations("authCommon");
 
- const [username, setUsername] = useState("");
  const [email, setEmail] = useState("");
  const [password, setPassword] = useState("");
  const [showPassword, setShowPassword] = useState(false);
  const [error, setError] = useState("");
  const [submitting, setSubmitting] = useState(false);
 
- const checks = REQUIREMENTS.map((r) => r.test(password));
+ const checks = REQUIREMENT_TESTS.map((r) => r.test(password));
  const allValid =
- username.trim() !== "" &&
  email.trim() !== "" &&
  checks.every(Boolean);
 
@@ -39,10 +40,10 @@ export default function SignUpPage() {
  const refCode = typeof window !== "undefined"
  ? new URLSearchParams(window.location.search).get("ref") ?? undefined
  : undefined;
- await register(username.trim(), email.trim(), password, password, refCode);
+ await register(email.trim(), password, password, refCode);
  // register() handles redirect to /dashboard on success
  } catch (err) {
- setError(err instanceof ApiError ? err.detail : "Something went wrong. Please try again.");
+ setError(err instanceof ApiError ? err.detail : tc("error"));
  } finally {
  setSubmitting(false);
  }
@@ -52,15 +53,15 @@ export default function SignUpPage() {
  <AuthLayout>
  {/* Heading */}
  <h1 className="text-[28px] sm:text-[32px] font-bold text-[#001011] leading-[1.15] mb-2">
- Join the Smart Community
+ {t("joinCommunity")}
  </h1>
  <p className="text-[14px] text-[#666666] mb-8">
- Already a member?{" "}
+ {t("alreadyMember")}{" "}
  <Link
  href="/sign-in"
  className="text-[#06811d] font-medium underline underline-offset-2 hover:opacity-75 transition-opacity"
  >
- Sign In here
+ {t("signInHere")}
  </Link>
  </p>
 
@@ -73,24 +74,10 @@ export default function SignUpPage() {
 
  {/* Form */}
  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
- {/* Username */}
- <div className="flex flex-col gap-1.5">
- <label className="text-[13px] font-medium text-[#001011]">
- Username
- </label>
- <input
- type="text"
- placeholder="yourhandle"
- value={username}
- onChange={(e) => setUsername(e.target.value)}
- className="h-[46px] border border-[#e5e5e5] bg-white px-4 text-[14px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
- />
- </div>
-
  {/* Email */}
  <div className="flex flex-col gap-1.5">
  <label className="text-[13px] font-medium text-[#001011]">
- Email
+ {tc("email")}
  </label>
  <input
  type="email"
@@ -104,7 +91,7 @@ export default function SignUpPage() {
  {/* Password */}
  <div className="flex flex-col gap-1.5">
  <label className="text-[13px] font-medium text-[#001011]">
- Password
+ {tc("password")}
  </label>
  <div className="relative">
  <input
@@ -127,13 +114,13 @@ export default function SignUpPage() {
  {/* Requirements grid */}
  {password.length > 0 && (
  <div className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1.5">
- {REQUIREMENTS.map((req, i) => (
- <div key={req.label} className="flex items-center gap-1.5">
+ {REQUIREMENT_TESTS.map((req, i) => (
+ <div key={req.key} className="flex items-center gap-1.5">
  <span className={checks[i] ? "text-[#16a34a]" : "text-[#aaaaaa]"}>
  {checks[i] ? <CheckIcon /> : <DotIcon />}
  </span>
  <span className={`text-[12px] leading-none ${checks[i] ? "text-[#333333]" : "text-[#999999]"}`}>
- {req.label}
+ {t(`requirements.${req.key}`)}
  </span>
  </div>
  ))}
@@ -152,7 +139,7 @@ export default function SignUpPage() {
  cursor: allValid && !submitting ? "pointer" : "not-allowed",
  }}
  >
- {submitting ? "Creating account…" : "Sign Up"}
+ {submitting ? t("creatingAccount") : t("signUp")}
  </button>
  </form>
 
@@ -160,7 +147,7 @@ export default function SignUpPage() {
  <div className="flex items-center gap-3 my-6">
  <div className="flex-1 h-px bg-[#e5e5e5]" />
  <span className="text-[12px] text-[#aaaaaa] whitespace-nowrap">
- or sign up with
+ {t("orSignUpWith")}
  </span>
  <div className="flex-1 h-px bg-[#e5e5e5]" />
  </div>
@@ -171,7 +158,7 @@ export default function SignUpPage() {
  className="flex items-center justify-center gap-3 h-[46px] w-full rounded-full border border-[#e5e5e5] bg-white text-[14px] font-medium text-[#001011] hover:bg-[#fafafa] transition-colors"
  >
  <GoogleIcon />
- Continue with Google
+ {tc("continueWithGoogle")}
  </button>
  </AuthLayout>
  );

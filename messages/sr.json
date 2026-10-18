@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "O nama",
+    "leader": "Vođa",
+    "userGuide": "Korisnički vodič",
+    "contactUs": "Kontaktirajte nas",
+    "signIn": "Prijava",
+    "getStarted": "Počnite"
+  },
+  "authCommon": {
+    "error": "Nešto je pošlo po zlu. Pokušajte ponovo.",
+    "email": "E-pošta",
+    "password": "Lozinka",
+    "signIn": "Prijava",
+    "continueWithGoogle": "Nastavi sa Google-om",
+    "backToSignIn": "Povratak na prijavu"
+  },
+  "signIn": {
+    "welcome": "Dobrodošli nazad, Amigo!",
+    "newHere": "Novi u ovoj zajednici?",
+    "signUpHere": "Registrujte se ovde",
+    "resetPassword": "Resetuj lozinku",
+    "signingIn": "Prijavljivanje…",
+    "signIn": "Prijava",
+    "orSignInWith": "ili se prijavite putem"
+  },
+  "signUp": {
+    "joinCommunity": "Pridružite se Smart Community",
+    "alreadyMember": "Već ste član?",
+    "signInHere": "Prijavite se ovde",
+    "creatingAccount": "Kreiranje naloga…",
+    "signUp": "Registracija",
+    "orSignUpWith": "ili se registrujte putem",
+    "requirements": {
+      "length": "Najmanje 8 karaktera",
+      "upper": "Najmanje jedno veliko slovo",
+      "lower": "Najmanje jedno malo slovo",
+      "number": "Najmanje jedan broj",
+      "symbol": "Najmanje jedan simbol"
+    }
+  },
+  "forgotPassword": {
+    "title": "Resetujte svoju lozinku",
+    "subtitle": "Unesite e-mail adresu povezanu sa vašim nalogom i poslaćemo vam link za resetovanje lozinke.",
+    "sending": "Slanje…",
+    "sendResetLink": "Pošalji link za resetovanje",
+    "checkInbox": "Provjerite svoje sanduče",
+    "ifRegistered": "je registrovana, uskoro ćete dobiti link za resetovanje. Provjerite folder neželjene pošte ako ga ne vidite.",
+    "ifPrefix": "Ako",
+    "didNotReceive": "Niste ga dobili?",
+    "tryAgain": "Pokušajte ponovo"
+  },
+  "resetPassword": {
+    "linkInvalid": "Link je nevažeći ili je istekao",
+    "linkInvalidDesc": "Ovaj link za resetovanje lozinke više nije važeći. Linkovi ističu nakon 1 sata i mogu se koristiti samo jednom.",
+    "requestNewLink": "Zatražite novi link",
+    "chooseNewPassword": "Izaberite novu lozinku",
+    "subtitle": "Izaberite jaku lozinku koju nikada ranije nisi koristio.",
+    "newPasswordLabel": "Nova lozinka",
+    "confirmPasswordLabel": "Potvrdi lozinku",
+    "passwordsDoNotMatch": "Lozinke se ne podudaraju",
+    "updating": "Ažuriranje…",
+    "setNewPassword": "Postavi novu lozinku",
+    "passwordUpdated": "Lozinka ažurirana",
+    "passwordUpdatedDesc": "Vaša lozinka je uspešno promenjena. Sve prethodne sesije su odjavljene radi vaše bezbednosti.",
+    "strength": {
+      "length": "8+ karaktera",
+      "upper": "Veliko slovo",
+      "lower": "Malo slovo",
+      "number": "Broj",
+      "symbol": "Poseban znak"
+    }
+  },
+  "verify2fa": {
+    "title": "Dvofaktorska autentifikacija",
+    "subtitlePrefix": "Poslali smo 4-cifreni kod za verifikaciju na",
+    "subtitleSuffix": ". Unesite ga ispod da biste dovršili prijavu.",
+    "didNotGetCode": "Niste dobili kod?",
+    "resendCode": "Ponovo pošalji kod",
+    "resendCodeCooldown": "Ponovo pošalji kod ({seconds}s)",
+    "sendingResend": "Slanje…",
+    "verifying": "Verifikacija…",
+    "verifyAndSignIn": "Verifikuj i prijavi se",
+    "backToSignIn": "Povratak na prijavu"
+  },
+  "verifyEmail": {
+    "title": "Potvrdi e-mail",
+    "subtitlePrefix": "Poslali smo 6-cifreni kod za verifikaciju na",
+    "subtitleSuffix": ". Unesite ga ispod da biste potvrdili svoj nalog.",
+    "didNotGetCode": "Niste dobili kod?",
+    "resendCode": "Ponovo pošalji kod",
+    "verifyEmail": "Potvrdi e-mail",
+    "changeEmail": "Promeni e-mail"
+  }
+}

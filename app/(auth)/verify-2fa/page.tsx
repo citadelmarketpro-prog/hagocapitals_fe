@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, Suspense, KeyboardEvent, ClipboardEvent } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import AuthLayout from "@/components/AuthLayout";
 import { useAuth } from "@/context/AuthContext";
 import { api, ApiError } from "@/lib/api";
@@ -23,6 +24,8 @@ function Verify2FAContent() {
   const searchParams = useSearchParams();
   const email = searchParams.get("email") ?? "";
   const { verifyTwoFactor } = useAuth();
+  const t = useTranslations("verify2fa");
+  const tc = useTranslations("authCommon");
 
   const [otp, setOtp] = useState<string[]>(Array(OTP_LENGTH).fill(""));
   const inputs = useRef<(HTMLInputElement | null)[]>([]);
@@ -90,7 +93,7 @@ function Verify2FAContent() {
       await verifyTwoFactor(email, otp.join(""));
       // verifyTwoFactor() handles redirect on success
     } catch (err) {
-      setError(err instanceof ApiError ? err.detail : "Something went wrong. Please try again.");
+      setError(err instanceof ApiError ? err.detail : tc("error"));
     } finally {
       setSubmitting(false);
     }
@@ -104,7 +107,7 @@ function Verify2FAContent() {
       await api.post("/api/auth/2fa/resend/", { email });
       setCooldown(RESEND_COOLDOWN);
     } catch (err) {
-      setError(err instanceof ApiError ? err.detail : "Failed to resend code. Please try again.");
+      setError(err instanceof ApiError ? err.detail : tc("error"));
     } finally {
       setResending(false);
     }
@@ -114,12 +117,12 @@ function Verify2FAContent() {
     <AuthLayout>
       {/* Heading */}
       <h1 className="text-[28px] sm:text-[32px] font-bold text-[#001011] leading-[1.15] mb-2">
-        Two-factor authentication
+        {t("title")}
       </h1>
       <p className="text-[14px] text-[#666666] mb-8 leading-[1.7]">
-        We&apos;ve sent a 4-digit verification code to{" "}
+        {t("subtitlePrefix")}{" "}
         <span className="font-semibold text-[#001011]">&quot;{email}&quot;</span>
-        . Enter it below to complete sign in.
+        {t("subtitleSuffix")}
       </p>
 
       {/* Error banner */}
@@ -156,14 +159,14 @@ function Verify2FAContent() {
 
       {/* Resend */}
       <p className="text-[13px] text-[#666666] mb-6">
-        Didn&apos;t get the code?{" "}
+        {t("didNotGetCode")}{" "}
         <button
           type="button"
           onClick={handleResend}
           disabled={resending || cooldown > 0}
           className="text-[#06811d] font-medium underline underline-offset-2 hover:opacity-75 transition-opacity disabled:opacity-50 disabled:no-underline"
         >
-          {cooldown > 0 ? `Resend code (${cooldown}s)` : resending ? "Sending…" : "Resend code"}
+          {cooldown > 0 ? t("resendCodeCooldown", { seconds: cooldown }) : resending ? t("sendingResend") : t("resendCode")}
         </button>
       </p>
 
@@ -180,14 +183,14 @@ function Verify2FAContent() {
             cursor: isFilled && !submitting ? "pointer" : "not-allowed",
           }}
         >
-          {submitting ? "Verifying…" : "Verify & sign in"}
+          {submitting ? t("verifying") : t("verifyAndSignIn")}
         </button>
 
         <Link
           href="/sign-in"
           className="flex items-center justify-center h-[46px] border border-[#e5e5e5] text-[14px] font-medium text-[#001011] hover:bg-[#fafafa] transition-colors"
         >
-          Back to sign in
+          {t("backToSignIn")}
         </Link>
       </div>
     </AuthLayout>

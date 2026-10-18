@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Chi siamo",
+    "leader": "Leader",
+    "userGuide": "Guida utente",
+    "contactUs": "Contattaci",
+    "signIn": "Accedi",
+    "getStarted": "Inizia"
+  },
+  "authCommon": {
+    "error": "Qualcosa è andato storto. Riprova.",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Accedi",
+    "continueWithGoogle": "Continua con Google",
+    "backToSignIn": "Torna al login"
+  },
+  "signIn": {
+    "welcome": "Bentornato, Amigo!",
+    "newHere": "Nuovo in questa community?",
+    "signUpHere": "Registrati qui",
+    "resetPassword": "Reimposta password",
+    "signingIn": "Accesso in corso…",
+    "signIn": "Accedi",
+    "orSignInWith": "oppure accedi con"
+  },
+  "signUp": {
+    "joinCommunity": "Unisciti alla Smart Community",
+    "alreadyMember": "Sei già membro?",
+    "signInHere": "Accedi qui",
+    "creatingAccount": "Creazione account…",
+    "signUp": "Registrati",
+    "orSignUpWith": "oppure registrati con",
+    "requirements": {
+      "length": "Almeno 8 caratteri",
+      "upper": "Almeno una lettera maiuscola",
+      "lower": "Almeno una lettera minuscola",
+      "number": "Almeno un numero",
+      "symbol": "Almeno un simbolo"
+    }
+  },
+  "forgotPassword": {
+    "title": "Reimposta la tua password",
+    "subtitle": "Inserisci l'indirizzo email associato al tuo account e ti invieremo un link per reimpostare la password.",
+    "sending": "Invio in corso…",
+    "sendResetLink": "Invia link di reimpostazione",
+    "checkInbox": "Controlla la tua casella di posta",
+    "ifRegistered": "è registrato, riceverai a breve un link di reimpostazione. Controlla la cartella spam se non lo vedi.",
+    "ifPrefix": "Se",
+    "didNotReceive": "Non l'hai ricevuto?",
+    "tryAgain": "Riprova"
+  },
+  "resetPassword": {
+    "linkInvalid": "Link non valido o scaduto",
+    "linkInvalidDesc": "Questo link per la reimpostazione della password non è più valido. I link scadono dopo 1 ora e possono essere usati una sola volta.",
+    "requestNewLink": "Richiedi un nuovo link",
+    "chooseNewPassword": "Scegli una nuova password",
+    "subtitle": "Scegli una password sicura che non hai mai usato.",
+    "newPasswordLabel": "Nuova password",
+    "confirmPasswordLabel": "Conferma password",
+    "passwordsDoNotMatch": "Le password non corrispondono",
+    "updating": "Aggiornamento…",
+    "setNewPassword": "Imposta nuova password",
+    "passwordUpdated": "Password aggiornata",
+    "passwordUpdatedDesc": "La tua password è stata modificata con successo. Tutte le sessioni precedenti sono state disconnesse per la tua sicurezza.",
+    "strength": {
+      "length": "8+ caratteri",
+      "upper": "Lettera maiuscola",
+      "lower": "Lettera minuscola",
+      "number": "Numero",
+      "symbol": "Carattere speciale"
+    }
+  },
+  "verify2fa": {
+    "title": "Autenticazione a due fattori",
+    "subtitlePrefix": "Abbiamo inviato un codice di verifica a 4 cifre a",
+    "subtitleSuffix": ". Inseriscilo qui sotto per completare l'accesso.",
+    "didNotGetCode": "Non hai ricevuto il codice?",
+    "resendCode": "Invia di nuovo il codice",
+    "resendCodeCooldown": "Invia di nuovo il codice ({seconds}s)",
+    "sendingResend": "Invio in corso…",
+    "verifying": "Verifica in corso…",
+    "verifyAndSignIn": "Verifica e accedi",
+    "backToSignIn": "Torna al login"
+  },
+  "verifyEmail": {
+    "title": "Verifica email",
+    "subtitlePrefix": "Abbiamo inviato un codice di verifica a 6 cifre a",
+    "subtitleSuffix": ". Inseriscilo qui sotto per confermare il tuo account.",
+    "didNotGetCode": "Non hai ricevuto il codice?",
+    "resendCode": "Invia di nuovo il codice",
+    "verifyEmail": "Verifica email",
+    "changeEmail": "Cambia email"
+  }
+}

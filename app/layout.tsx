@@ -5,6 +5,8 @@ import { ThemeProvider } from "@/components/theme-provider";
 import Preloader from "@/components/Preloader";
 import { AuthProvider } from "@/context/AuthContext";
 import { Toaster } from "sonner";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 
 import Script from "next/script";
 
@@ -113,25 +115,30 @@ export const metadata: Metadata = {
   category: "finance",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en" suppressHydrationWarning className={`${poppins.variable} ${lora.variable}`}>
+    <html lang={locale} suppressHydrationWarning className={`${poppins.variable} ${lora.variable}`}>
       <body className={`${poppins.className} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          forcedTheme="light"
-          disableTransitionOnChange
-        >
-          <AuthProvider>
-            <Preloader />
-            {children}
-            <Toaster richColors position="top-center" />
-          </AuthProvider>
-        </ThemeProvider>
+        <NextIntlClientProvider messages={messages}>
+          <ThemeProvider
+            attribute="class"
+            forcedTheme="light"
+            disableTransitionOnChange
+          >
+            <AuthProvider>
+              <Preloader />
+              {children}
+              <Toaster richColors position="top-center" />
+            </AuthProvider>
+          </ThemeProvider>
+        </NextIntlClientProvider>
 
         
         {/* LiveChat - Jivo */}

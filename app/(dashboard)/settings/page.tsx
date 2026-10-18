@@ -8,14 +8,13 @@ import { api, ApiError } from "@/lib/api";
 import type { SavedPaymentMethod } from "@/components/dashboard/modals/types";
 
 type Tab = "profile" | "security" | "payment";
-type EditType = "name" | "username" | "bio" | "password" | "payment" | "disable2fa" | null;
+type EditType = "name" | "bio" | "password" | "payment" | "disable2fa" | null;
 
 const VALID_TABS: Tab[] = ["profile", "security", "payment"];
 
 interface Settings {
  first_name: string;
  last_name: string;
- username: string;
  email: string;
  bio: string;
  kyc_status: string;
@@ -58,7 +57,7 @@ function SettingsContent() {
  const [togglingTwoFactor, setTogglingTwoFactor] = useState(false);
 
  const [form, setForm] = useState({
- firstName: "", lastName: "", username: "", bio: "",
+ firstName: "", lastName: "", bio: "",
  oldPassword: "", newPassword: "", confirmPassword: "",
  paymentAddress: "", disable2faPassword: "",
  });
@@ -112,7 +111,6 @@ function SettingsContent() {
  function openEdit(type: EditType, wallet?: SavedPaymentMethod) {
  if (!settings) return;
  if (type === "name") setForm((f) => ({ ...f, firstName: settings.first_name, lastName: settings.last_name }));
- if (type === "username") setForm((f) => ({ ...f, username: settings.username }));
  if (type === "bio") setForm((f) => ({ ...f, bio: settings.bio }));
  if (type === "password") setForm((f) => ({ ...f, oldPassword: "", newPassword: "", confirmPassword: "" }));
  if (type === "disable2fa") setForm((f) => ({ ...f, disable2faPassword: "" }));
@@ -194,7 +192,6 @@ function SettingsContent() {
  } else {
  const body =
  editType === "name" ? { first_name: form.firstName, last_name: form.lastName } :
- editType === "username" ? { username: form.username } :
  { bio: form.bio };
  const updated = await api.patch<Settings>("/api/auth/me/", body);
  setSettings(updated);
@@ -287,7 +284,6 @@ function SettingsContent() {
  {activeTab === "profile" && (
  <div className="flex flex-col gap-3">
  <SettingsRow label="Full Name" value={`${settings.first_name} ${settings.last_name}`.trim() || "Not set"} onEdit={() => openEdit("name")} />
- <SettingsRow label="Username" value={`@${settings.username}`} onEdit={() => openEdit("username")} />
  <SettingsRow label="Bio" value={settings.bio || "Not set"} onEdit={() => openEdit("bio")} />
  <SettingsRow label="Email" value={settings.email} />
  </div>
@@ -427,7 +423,6 @@ function SettingsContent() {
  <div className="flex items-center justify-between mb-4">
  <h3 className="text-[16px] font-bold text-[#001011]">
  {editType === "name" && "Edit Name"}
- {editType === "username" && "Edit Username"}
  {editType === "bio" && "Edit Bio"}
  {editType === "password" && "Change Password"}
  {editType === "disable2fa" && "Disable Two-Factor Authentication"}
@@ -455,9 +450,6 @@ function SettingsContent() {
  <Field label="First Name" value={form.firstName} onChange={(v) => setForm((f) => ({ ...f, firstName: v }))} />
  <Field label="Last Name" value={form.lastName} onChange={(v) => setForm((f) => ({ ...f, lastName: v }))} />
  </>
- )}
- {editType === "username" && (
- <Field label="Username" value={form.username} onChange={(v) => setForm((f) => ({ ...f, username: v }))} />
  )}
  {editType === "bio" && (
  <div>

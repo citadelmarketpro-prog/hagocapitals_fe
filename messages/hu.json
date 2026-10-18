@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Rólunk",
+    "leader": "Vezető",
+    "userGuide": "Felhasználói útmutató",
+    "contactUs": "Kapcsolat",
+    "signIn": "Bejelentkezés",
+    "getStarted": "Kezdjük el"
+  },
+  "authCommon": {
+    "error": "Valami hiba történt. Kérjük, próbálja újra.",
+    "email": "E-mail",
+    "password": "Jelszó",
+    "signIn": "Bejelentkezés",
+    "continueWithGoogle": "Folytatás Google-lal",
+    "backToSignIn": "Vissza a bejelentkezéshez"
+  },
+  "signIn": {
+    "welcome": "Üdvözöljük újra, Amigo!",
+    "newHere": "Új ebben a közösségben?",
+    "signUpHere": "Regisztráljon itt",
+    "resetPassword": "Jelszó visszaállítása",
+    "signingIn": "Bejelentkezés…",
+    "signIn": "Bejelentkezés",
+    "orSignInWith": "vagy jelentkezzen be ezzel"
+  },
+  "signUp": {
+    "joinCommunity": "Csatlakozzon a Smart Community-hez",
+    "alreadyMember": "Már tag?",
+    "signInHere": "Jelentkezzen be itt",
+    "creatingAccount": "Fiók létrehozása…",
+    "signUp": "Regisztráció",
+    "orSignUpWith": "vagy regisztráljon ezzel",
+    "requirements": {
+      "length": "Legalább 8 karakter",
+      "upper": "Legalább egy nagybetű",
+      "lower": "Legalább egy kisbetű",
+      "number": "Legalább egy szám",
+      "symbol": "Legalább egy szimbólum"
+    }
+  },
+  "forgotPassword": {
+    "title": "Állítsa vissza jelszavát",
+    "subtitle": "Adja meg a fiókjához tartozó e-mail címet, és küldünk egy linket a jelszó visszaállításához.",
+    "sending": "Küldés…",
+    "sendResetLink": "Visszaállítási link küldése",
+    "checkInbox": "Ellenőrizze beérkező leveleit",
+    "ifRegistered": "regisztrálva van, hamarosan megkapja a visszaállítási linket. Ha nem látja, ellenőrizze a spam mappát.",
+    "ifPrefix": "Ha",
+    "didNotReceive": "Nem kapta meg?",
+    "tryAgain": "Próbálja újra"
+  },
+  "resetPassword": {
+    "linkInvalid": "A link érvénytelen vagy lejárt",
+    "linkInvalidDesc": "Ez a jelszó-visszaállító link már nem érvényes. A linkek 1 óra után lejárnak, és csak egyszer használhatók.",
+    "requestNewLink": "Új link kérése",
+    "chooseNewPassword": "Válasszon új jelszót",
+    "subtitle": "Válasszon egy erős jelszót, amelyet korábban még nem használt.",
+    "newPasswordLabel": "Új jelszó",
+    "confirmPasswordLabel": "Jelszó megerősítése",
+    "passwordsDoNotMatch": "A jelszavak nem egyeznek",
+    "updating": "Frissítés…",
+    "setNewPassword": "Új jelszó beállítása",
+    "passwordUpdated": "Jelszó frissítve",
+    "passwordUpdatedDesc": "Jelszava sikeresen megváltozott. Biztonsága érdekében minden korábbi sessiont kijelentkeztettünk.",
+    "strength": {
+      "length": "8+ karakter",
+      "upper": "Nagybetű",
+      "lower": "Kisbetű",
+      "number": "Szám",
+      "symbol": "Speciális karakter"
+    }
+  },
+  "verify2fa": {
+    "title": "Kétfaktoros hitelesítés",
+    "subtitlePrefix": "4 számjegyű ellenőrző kódot küldtünk a következő címre:",
+    "subtitleSuffix": ". Írja be alább a bejelentkezés befejezéséhez.",
+    "didNotGetCode": "Nem kapta meg a kódot?",
+    "resendCode": "Kód újraküldése",
+    "resendCodeCooldown": "Kód újraküldése ({seconds}s)",
+    "sendingResend": "Küldés…",
+    "verifying": "Ellenőrzés…",
+    "verifyAndSignIn": "Ellenőrzés és bejelentkezés",
+    "backToSignIn": "Vissza a bejelentkezéshez"
+  },
+  "verifyEmail": {
+    "title": "E-mail megerősítése",
+    "subtitlePrefix": "6 számjegyű ellenőrző kódot küldtünk a következő címre:",
+    "subtitleSuffix": ". Írja be alább a fiók megerősítéséhez.",
+    "didNotGetCode": "Nem kapta meg a kódot?",
+    "resendCode": "Kód újraküldése",
+    "verifyEmail": "E-mail megerősítése",
+    "changeEmail": "E-mail módosítása"
+  }
+}

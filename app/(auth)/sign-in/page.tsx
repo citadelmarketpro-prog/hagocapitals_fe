@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import AuthLayout from "@/components/AuthLayout";
 import { useAuth } from "@/context/AuthContext";
 import { ApiError } from "@/lib/api";
@@ -10,6 +11,8 @@ import { ApiError } from "@/lib/api";
 export default function SignInPage() {
  const { login } = useAuth();
  const router = useRouter();
+ const t = useTranslations("signIn");
+ const tc = useTranslations("authCommon");
 
  const [email, setEmail] = useState("");
  const [password, setPassword] = useState("");
@@ -32,7 +35,7 @@ export default function SignInPage() {
  }
  // login() handles redirect to /dashboard on success
  } catch (err) {
- setError(err instanceof ApiError ? err.detail : "Something went wrong. Please try again.");
+ setError(err instanceof ApiError ? err.detail : tc("error"));
  } finally {
  setSubmitting(false);
  }
@@ -42,15 +45,15 @@ export default function SignInPage() {
  <AuthLayout>
  {/* Heading */}
  <h1 className="text-[28px] sm:text-[32px] font-bold text-[#001011] leading-[1.15] mb-2">
- Welcome back, Amigo!
+ {t("welcome")}
  </h1>
  <p className="text-[14px] text-[#666666] mb-8">
- New to this community?{" "}
+ {t("newHere")}{" "}
  <Link
  href="/sign-up"
  className="text-[#06811d] font-medium underline underline-offset-2 hover:opacity-75 transition-opacity"
  >
- Sign up here
+ {t("signUpHere")}
  </Link>
  </p>
 
@@ -66,7 +69,7 @@ export default function SignInPage() {
  {/* Email */}
  <div className="flex flex-col gap-1.5">
  <label className="text-[13px] font-medium text-[#001011]">
- Email
+ {tc("email")}
  </label>
  <input
  type="email"
@@ -81,13 +84,13 @@ export default function SignInPage() {
  <div className="flex flex-col gap-1.5">
  <div className="flex items-center justify-between">
  <label className="text-[13px] font-medium text-[#001011]">
- Password
+ {tc("password")}
  </label>
  <Link
  href="/forgot-password"
  className="text-[13px] text-[#06811d] hover:opacity-75 transition-opacity"
  >
- Reset password
+ {t("resetPassword")}
  </Link>
  </div>
  <div className="relative">
@@ -120,7 +123,7 @@ export default function SignInPage() {
  cursor: isValid && !submitting ? "pointer" : "not-allowed",
  }}
  >
- {submitting ? "Signing in…" : "Sign In"}
+ {submitting ? t("signingIn") : t("signIn")}
  </button>
  </form>
 
@@ -128,7 +131,7 @@ export default function SignInPage() {
  <div className="flex items-center gap-3 my-6">
  <div className="flex-1 h-px bg-[#e5e5e5]" />
  <span className="text-[12px] text-[#aaaaaa] whitespace-nowrap">
- or sign in with
+ {t("orSignInWith")}
  </span>
  <div className="flex-1 h-px bg-[#e5e5e5]" />
  </div>
@@ -139,7 +142,7 @@ export default function SignInPage() {
  className="flex items-center justify-center gap-3 h-[46px] w-full rounded-full border border-[#e5e5e5] bg-white text-[14px] font-medium text-[#001011] hover:bg-[#fafafa] transition-colors"
  >
  <GoogleIcon />
- Continue with Google
+ {tc("continueWithGoogle")}
  </button>
  </AuthLayout>
  );

@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Hakkımızda",
+    "leader": "Lider",
+    "userGuide": "Kullanım Kılavuzu",
+    "contactUs": "Bize Ulaşın",
+    "signIn": "Giriş Yap",
+    "getStarted": "Başlayın"
+  },
+  "authCommon": {
+    "error": "Bir şeyler ters gitti. Lütfen tekrar deneyin.",
+    "email": "E-posta",
+    "password": "Şifre",
+    "signIn": "Giriş Yap",
+    "continueWithGoogle": "Google ile devam et",
+    "backToSignIn": "Girişe geri dön"
+  },
+  "signIn": {
+    "welcome": "Tekrar hoş geldin, Amigo!",
+    "newHere": "Bu topluluğa yeni misiniz?",
+    "signUpHere": "Buradan kaydolun",
+    "resetPassword": "Şifreyi sıfırla",
+    "signingIn": "Giriş yapılıyor…",
+    "signIn": "Giriş Yap",
+    "orSignInWith": "veya şununla giriş yap"
+  },
+  "signUp": {
+    "joinCommunity": "Smart Community'ye katılın",
+    "alreadyMember": "Zaten üye misiniz?",
+    "signInHere": "Buradan giriş yapın",
+    "creatingAccount": "Hesap oluşturuluyor…",
+    "signUp": "Kaydol",
+    "orSignUpWith": "veya şununla kaydol",
+    "requirements": {
+      "length": "En az 8 karakter",
+      "upper": "En az bir büyük harf",
+      "lower": "En az bir küçük harf",
+      "number": "En az bir sayı",
+      "symbol": "En az bir sembol"
+    }
+  },
+  "forgotPassword": {
+    "title": "Şifrenizi sıfırlayın",
+    "subtitle": "Hesabınızla ilişkili e-posta adresini girin, size şifrenizi sıfırlamanız için bir bağlantı göndereceğiz.",
+    "sending": "Gönderiliyor…",
+    "sendResetLink": "Sıfırlama bağlantısı gönder",
+    "checkInbox": "Gelen kutunuzu kontrol edin",
+    "ifRegistered": "kayıtlıysa, kısa süre içinde bir sıfırlama bağlantısı alacaksınız. Görmüyorsanız spam klasörünüzü kontrol edin.",
+    "ifPrefix": "Eğer",
+    "didNotReceive": "Almadınız mı?",
+    "tryAgain": "Tekrar deneyin"
+  },
+  "resetPassword": {
+    "linkInvalid": "Bağlantı geçersiz veya süresi dolmuş",
+    "linkInvalidDesc": "Bu şifre sıfırlama bağlantısı artık geçerli değil. Bağlantılar 1 saat sonra sona erer ve yalnızca bir kez kullanılabilir.",
+    "requestNewLink": "Yeni bağlantı iste",
+    "chooseNewPassword": "Yeni bir şifre seçin",
+    "subtitle": "Daha önce kullanmadığınız güçlü bir şifre seçin.",
+    "newPasswordLabel": "Yeni şifre",
+    "confirmPasswordLabel": "Şifreyi onayla",
+    "passwordsDoNotMatch": "Şifreler eşleşmiyor",
+    "updating": "Güncelleniyor…",
+    "setNewPassword": "Yeni şifre belirle",
+    "passwordUpdated": "Şifre güncellendi",
+    "passwordUpdatedDesc": "Şifreniz başarıyla değiştirildi. Güvenliğiniz için tüm önceki oturumlar kapatıldı.",
+    "strength": {
+      "length": "8+ karakter",
+      "upper": "Büyük harf",
+      "lower": "Küçük harf",
+      "number": "Sayı",
+      "symbol": "Özel karakter"
+    }
+  },
+  "verify2fa": {
+    "title": "İki faktörlü kimlik doğrulama",
+    "subtitlePrefix": "Şu adrese 4 haneli bir doğrulama kodu gönderdik:",
+    "subtitleSuffix": ". Girişi tamamlamak için aşağıya girin.",
+    "didNotGetCode": "Kodu almadınız mı?",
+    "resendCode": "Kodu yeniden gönder",
+    "resendCodeCooldown": "Kodu yeniden gönder ({seconds}s)",
+    "sendingResend": "Gönderiliyor…",
+    "verifying": "Doğrulanıyor…",
+    "verifyAndSignIn": "Doğrula ve giriş yap",
+    "backToSignIn": "Girişe geri dön"
+  },
+  "verifyEmail": {
+    "title": "E-postayı doğrula",
+    "subtitlePrefix": "Şu adrese 6 haneli bir doğrulama kodu gönderdik:",
+    "subtitleSuffix": ". Hesabınızı onaylamak için aşağıya girin.",
+    "didNotGetCode": "Kodu almadınız mı?",
+    "resendCode": "Kodu yeniden gönder",
+    "verifyEmail": "E-postayı doğrula",
+    "changeEmail": "E-postayı değiştir"
+  }
+}

@@ -2,11 +2,13 @@
 
 import { useState, useRef, KeyboardEvent, ClipboardEvent } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import AuthLayout from "@/components/AuthLayout";
 
 const OTP_LENGTH = 6;
 
 export default function VerifyEmailPage() {
+ const t = useTranslations("verifyEmail");
  // In a real app, email would come from router state / query params
  const email = "user@example.com";
 
@@ -61,14 +63,14 @@ export default function VerifyEmailPage() {
  <AuthLayout>
  {/* Heading */}
  <h1 className="text-[28px] sm:text-[32px] font-bold text-[#001011] leading-[1.15] mb-2">
- Verify email
+ {t("title")}
  </h1>
  <p className="text-[14px] text-[#666666] mb-8 leading-[1.7]">
- We&apos;ve sent a 6-digit verification code to{" "}
+ {t("subtitlePrefix")}{" "}
  <span className="font-semibold text-[#001011]">
  &quot;{email}&quot;
  </span>
- . Enter it below to confirm your account.
+ {t("subtitleSuffix")}
  </p>
 
  {/* OTP boxes */}
@@ -98,12 +100,12 @@ export default function VerifyEmailPage() {
 
  {/* Resend */}
  <p className="text-[13px] text-[#666666] mb-6">
- Didn&apos;t get the code?{" "}
+ {t("didNotGetCode")}{" "}
  <button
  type="button"
  className="text-[#06811d] font-medium underline underline-offset-2 hover:opacity-75 transition-opacity"
  >
- Resend code
+ {t("resendCode")}
  </button>
  </p>
 
@@ -119,14 +121,14 @@ export default function VerifyEmailPage() {
  cursor: isFilled ? "pointer" : "not-allowed",
  }}
  >
- Verify email
+ {t("verifyEmail")}
  </button>
 
  <Link
  href="/sign-up"
  className="flex items-center justify-center h-[46px] border border-[#e5e5e5] text-[14px] font-medium text-[#001011] hover:bg-[#fafafa] transition-colors"
  >
- Change email
+ {t("changeEmail")}
  </Link>
  </div>
  </AuthLayout>

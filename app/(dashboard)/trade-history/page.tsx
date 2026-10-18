@@ -580,7 +580,7 @@ export default function TradeHistoryPage() {
  <div>
  <p className="text-[11px] text-[#888888] mb-1">Account</p>
  <p className="text-[12.5px] font-semibold text-[#001011]">
- Individual ({user?.username ?? "member"})
+ Individual ({user?.email?.split("@")[0] ?? "member"})
  </p>
  </div>
  <div>

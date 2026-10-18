@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Sobre nosotros",
+    "leader": "Líder",
+    "userGuide": "Guía de usuario",
+    "contactUs": "Contáctanos",
+    "signIn": "Iniciar sesión",
+    "getStarted": "Empezar"
+  },
+  "authCommon": {
+    "error": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "signIn": "Iniciar sesión",
+    "continueWithGoogle": "Continuar con Google",
+    "backToSignIn": "Volver a iniciar sesión"
+  },
+  "signIn": {
+    "welcome": "¡Bienvenido de nuevo, Amigo!",
+    "newHere": "¿Nuevo en esta comunidad?",
+    "signUpHere": "Regístrate aquí",
+    "resetPassword": "Restablecer contraseña",
+    "signingIn": "Iniciando sesión…",
+    "signIn": "Iniciar sesión",
+    "orSignInWith": "o inicia sesión con"
+  },
+  "signUp": {
+    "joinCommunity": "Únete a la Smart Community",
+    "alreadyMember": "¿Ya eres miembro?",
+    "signInHere": "Inicia sesión aquí",
+    "creatingAccount": "Creando cuenta…",
+    "signUp": "Registrarse",
+    "orSignUpWith": "o regístrate con",
+    "requirements": {
+      "length": "Al menos 8 caracteres",
+      "upper": "Al menos una mayúscula",
+      "lower": "Al menos una minúscula",
+      "number": "Al menos un número",
+      "symbol": "Al menos un símbolo"
+    }
+  },
+  "forgotPassword": {
+    "title": "Restablece tu contraseña",
+    "subtitle": "Introduce la dirección de correo asociada a tu cuenta y te enviaremos un enlace para restablecer tu contraseña.",
+    "sending": "Enviando…",
+    "sendResetLink": "Enviar enlace de restablecimiento",
+    "checkInbox": "Revisa tu bandeja de entrada",
+    "ifRegistered": "está registrado, recibirás un enlace de restablecimiento en breve. Revisa tu carpeta de spam si no lo ves.",
+    "ifPrefix": "Si",
+    "didNotReceive": "¿No lo recibiste?",
+    "tryAgain": "Intentar de nuevo"
+  },
+  "resetPassword": {
+    "linkInvalid": "Enlace inválido o expirado",
+    "linkInvalidDesc": "Este enlace para restablecer la contraseña ya no es válido. Los enlaces caducan después de 1 hora y solo se pueden usar una vez.",
+    "requestNewLink": "Solicitar un nuevo enlace",
+    "chooseNewPassword": "Elige una nueva contraseña",
+    "subtitle": "Elige una contraseña fuerte que no hayas usado antes.",
+    "newPasswordLabel": "Nueva contraseña",
+    "confirmPasswordLabel": "Confirmar contraseña",
+    "passwordsDoNotMatch": "Las contraseñas no coinciden",
+    "updating": "Actualizando…",
+    "setNewPassword": "Establecer nueva contraseña",
+    "passwordUpdated": "Contraseña actualizada",
+    "passwordUpdatedDesc": "Tu contraseña se ha cambiado correctamente. Se ha cerrado la sesión en todos los dispositivos anteriores por tu seguridad.",
+    "strength": {
+      "length": "8+ caracteres",
+      "upper": "Letra mayúscula",
+      "lower": "Letra minúscula",
+      "number": "Número",
+      "symbol": "Carácter especial"
+    }
+  },
+  "verify2fa": {
+    "title": "Autenticación de dos factores",
+    "subtitlePrefix": "Hemos enviado un código de verificación de 4 dígitos a",
+    "subtitleSuffix": ". Introdúcelo abajo para completar el inicio de sesión.",
+    "didNotGetCode": "¿No recibiste el código?",
+    "resendCode": "Reenviar código",
+    "resendCodeCooldown": "Reenviar código ({seconds}s)",
+    "sendingResend": "Enviando…",
+    "verifying": "Verificando…",
+    "verifyAndSignIn": "Verificar e iniciar sesión",
+    "backToSignIn": "Volver a iniciar sesión"
+  },
+  "verifyEmail": {
+    "title": "Verificar correo",
+    "subtitlePrefix": "Hemos enviado un código de verificación de 6 dígitos a",
+    "subtitleSuffix": ". Introdúcelo abajo para confirmar tu cuenta.",
+    "didNotGetCode": "¿No recibiste el código?",
+    "resendCode": "Reenviar código",
+    "verifyEmail": "Verificar correo",
+    "changeEmail": "Cambiar correo"
+  }
+}

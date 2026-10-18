@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "À propos",
+    "leader": "Leader",
+    "userGuide": "Guide utilisateur",
+    "contactUs": "Contactez-nous",
+    "signIn": "Connexion",
+    "getStarted": "Commencer"
+  },
+  "authCommon": {
+    "error": "Une erreur s'est produite. Veuillez réessayer.",
+    "email": "Email",
+    "password": "Mot de passe",
+    "signIn": "Connexion",
+    "continueWithGoogle": "Continuer avec Google",
+    "backToSignIn": "Retour à la connexion"
+  },
+  "signIn": {
+    "welcome": "Bon retour, Amigo !",
+    "newHere": "Nouveau dans cette communauté ?",
+    "signUpHere": "Inscrivez-vous ici",
+    "resetPassword": "Réinitialiser le mot de passe",
+    "signingIn": "Connexion en cours…",
+    "signIn": "Connexion",
+    "orSignInWith": "ou connectez-vous avec"
+  },
+  "signUp": {
+    "joinCommunity": "Rejoignez la Smart Community",
+    "alreadyMember": "Déjà membre ?",
+    "signInHere": "Connectez-vous ici",
+    "creatingAccount": "Création du compte…",
+    "signUp": "S'inscrire",
+    "orSignUpWith": "ou inscrivez-vous avec",
+    "requirements": {
+      "length": "Au moins 8 caractères",
+      "upper": "Au moins une majuscule",
+      "lower": "Au moins une minuscule",
+      "number": "Au moins un chiffre",
+      "symbol": "Au moins un symbole"
+    }
+  },
+  "forgotPassword": {
+    "title": "Réinitialisez votre mot de passe",
+    "subtitle": "Entrez l'adresse email associée à votre compte et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+    "sending": "Envoi en cours…",
+    "sendResetLink": "Envoyer le lien de réinitialisation",
+    "checkInbox": "Vérifiez votre boîte de réception",
+    "ifRegistered": "est enregistré, vous recevrez bientôt un lien de réinitialisation. Vérifiez votre dossier spam si vous ne le voyez pas.",
+    "ifPrefix": "Si",
+    "didNotReceive": "Vous ne l'avez pas reçu ?",
+    "tryAgain": "Réessayer"
+  },
+  "resetPassword": {
+    "linkInvalid": "Lien invalide ou expiré",
+    "linkInvalidDesc": "Ce lien de réinitialisation n'est plus valide. Les liens expirent après 1 heure et ne peuvent être utilisés qu'une seule fois.",
+    "requestNewLink": "Demander un nouveau lien",
+    "chooseNewPassword": "Choisissez un nouveau mot de passe",
+    "subtitle": "Choisissez un mot de passe fort que vous n'avez jamais utilisé.",
+    "newPasswordLabel": "Nouveau mot de passe",
+    "confirmPasswordLabel": "Confirmer le mot de passe",
+    "passwordsDoNotMatch": "Les mots de passe ne correspondent pas",
+    "updating": "Mise à jour…",
+    "setNewPassword": "Définir le nouveau mot de passe",
+    "passwordUpdated": "Mot de passe mis à jour",
+    "passwordUpdatedDesc": "Votre mot de passe a été modifié avec succès. Toutes les sessions précédentes ont été déconnectées pour votre sécurité.",
+    "strength": {
+      "length": "8+ caractères",
+      "upper": "Lettre majuscule",
+      "lower": "Lettre minuscule",
+      "number": "Chiffre",
+      "symbol": "Caractère spécial"
+    }
+  },
+  "verify2fa": {
+    "title": "Authentification à deux facteurs",
+    "subtitlePrefix": "Nous avons envoyé un code de vérification à 4 chiffres à",
+    "subtitleSuffix": ". Saisissez-le ci-dessous pour terminer la connexion.",
+    "didNotGetCode": "Vous n'avez pas reçu le code ?",
+    "resendCode": "Renvoyer le code",
+    "resendCodeCooldown": "Renvoyer le code ({seconds}s)",
+    "sendingResend": "Envoi en cours…",
+    "verifying": "Vérification…",
+    "verifyAndSignIn": "Vérifier et se connecter",
+    "backToSignIn": "Retour à la connexion"
+  },
+  "verifyEmail": {
+    "title": "Vérifier l'email",
+    "subtitlePrefix": "Nous avons envoyé un code de vérification à 6 chiffres à",
+    "subtitleSuffix": ". Saisissez-le ci-dessous pour confirmer votre compte.",
+    "didNotGetCode": "Vous n'avez pas reçu le code ?",
+    "resendCode": "Renvoyer le code",
+    "verifyEmail": "Vérifier l'email",
+    "changeEmail": "Changer l'email"
+  }
+}

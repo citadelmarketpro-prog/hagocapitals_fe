@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Om oss",
+    "leader": "Ledare",
+    "userGuide": "Användarguide",
+    "contactUs": "Kontakta oss",
+    "signIn": "Logga in",
+    "getStarted": "Kom igång"
+  },
+  "authCommon": {
+    "error": "Något gick fel. Försök igen.",
+    "email": "E-post",
+    "password": "Lösenord",
+    "signIn": "Logga in",
+    "continueWithGoogle": "Fortsätt med Google",
+    "backToSignIn": "Tillbaka till inloggning"
+  },
+  "signIn": {
+    "welcome": "Välkommen tillbaka, Amigo!",
+    "newHere": "Ny i den här gemenskapen?",
+    "signUpHere": "Registrera dig här",
+    "resetPassword": "Återställ lösenord",
+    "signingIn": "Loggar in…",
+    "signIn": "Logga in",
+    "orSignInWith": "eller logga in med"
+  },
+  "signUp": {
+    "joinCommunity": "Gå med i Smart Community",
+    "alreadyMember": "Redan medlem?",
+    "signInHere": "Logga in här",
+    "creatingAccount": "Skapar konto…",
+    "signUp": "Registrera",
+    "orSignUpWith": "eller registrera med",
+    "requirements": {
+      "length": "Minst 8 tecken",
+      "upper": "Minst en versal",
+      "lower": "Minst en gemen",
+      "number": "Minst en siffra",
+      "symbol": "Minst en symbol"
+    }
+  },
+  "forgotPassword": {
+    "title": "Återställ ditt lösenord",
+    "subtitle": "Ange e-postadressen som är kopplad till ditt konto och vi skickar en länk för att återställa ditt lösenord.",
+    "sending": "Skickar…",
+    "sendResetLink": "Skicka återställningslänk",
+    "checkInbox": "Kontrollera din inkorg",
+    "ifRegistered": "är registrerad kommer du snart att få en återställningslänk. Kontrollera din skräppostmapp om du inte ser den.",
+    "ifPrefix": "Om",
+    "didNotReceive": "Fick du den inte?",
+    "tryAgain": "Försök igen"
+  },
+  "resetPassword": {
+    "linkInvalid": "Länken är ogiltig eller har gått ut",
+    "linkInvalidDesc": "Den här återställningslänken är inte längre giltig. Länkar går ut efter 1 timme och kan bara användas en gång.",
+    "requestNewLink": "Begär en ny länk",
+    "chooseNewPassword": "Välj ett nytt lösenord",
+    "subtitle": "Välj ett starkt lösenord som du inte har använt tidigare.",
+    "newPasswordLabel": "Nytt lösenord",
+    "confirmPasswordLabel": "Bekräfta lösenord",
+    "passwordsDoNotMatch": "Lösenorden matchar inte",
+    "updating": "Uppdaterar…",
+    "setNewPassword": "Ange nytt lösenord",
+    "passwordUpdated": "Lösenord uppdaterat",
+    "passwordUpdatedDesc": "Ditt lösenord har ändrats. Alla tidigare sessioner har loggats ut för din säkerhet.",
+    "strength": {
+      "length": "8+ tecken",
+      "upper": "Versal",
+      "lower": "Gemen",
+      "number": "Siffra",
+      "symbol": "Specialtecken"
+    }
+  },
+  "verify2fa": {
+    "title": "Tvåfaktorsautentisering",
+    "subtitlePrefix": "Vi har skickat en 4-siffrig verifieringskod till",
+    "subtitleSuffix": ". Ange den nedan för att slutföra inloggningen.",
+    "didNotGetCode": "Fick du inte koden?",
+    "resendCode": "Skicka koden igen",
+    "resendCodeCooldown": "Skicka koden igen ({seconds}s)",
+    "sendingResend": "Skickar…",
+    "verifying": "Verifierar…",
+    "verifyAndSignIn": "Verifiera och logga in",
+    "backToSignIn": "Tillbaka till inloggning"
+  },
+  "verifyEmail": {
+    "title": "Verifiera e-post",
+    "subtitlePrefix": "Vi har skickat en 6-siffrig verifieringskod till",
+    "subtitleSuffix": ". Ange den nedan för att bekräfta ditt konto.",
+    "didNotGetCode": "Fick du inte koden?",
+    "resendCode": "Skicka koden igen",
+    "verifyEmail": "Verifiera e-post",
+    "changeEmail": "Ändra e-post"
+  }
+}

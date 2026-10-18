@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Om os",
+    "leader": "Leder",
+    "userGuide": "Brugervejledning",
+    "contactUs": "Kontakt os",
+    "signIn": "Log ind",
+    "getStarted": "Kom godt i gang"
+  },
+  "authCommon": {
+    "error": "Noget gik galt. Prøv igen.",
+    "email": "E-mail",
+    "password": "Adgangskode",
+    "signIn": "Log ind",
+    "continueWithGoogle": "Fortsæt med Google",
+    "backToSignIn": "Tilbage til login"
+  },
+  "signIn": {
+    "welcome": "Velkommen tilbage, Amigo!",
+    "newHere": "Ny i dette fællesskab?",
+    "signUpHere": "Opret dig her",
+    "resetPassword": "Nulstil adgangskode",
+    "signingIn": "Logger ind…",
+    "signIn": "Log ind",
+    "orSignInWith": "eller log ind med"
+  },
+  "signUp": {
+    "joinCommunity": "Bliv en del af Smart Community",
+    "alreadyMember": "Allerede medlem?",
+    "signInHere": "Log ind her",
+    "creatingAccount": "Opretter konto…",
+    "signUp": "Opret konto",
+    "orSignUpWith": "eller opret med",
+    "requirements": {
+      "length": "Mindst 8 tegn",
+      "upper": "Mindst et stort bogstav",
+      "lower": "Mindst et lille bogstav",
+      "number": "Mindst et tal",
+      "symbol": "Mindst et symbol"
+    }
+  },
+  "forgotPassword": {
+    "title": "Nulstil din adgangskode",
+    "subtitle": "Indtast den e-mailadresse, der er knyttet til din konto, og vi sender dig et link til at nulstille din adgangskode.",
+    "sending": "Sender…",
+    "sendResetLink": "Send nulstillingslink",
+    "checkInbox": "Tjek din indbakke",
+    "ifRegistered": "er registreret, får du snart et nulstillingslink. Tjek din spammappe, hvis du ikke ser det.",
+    "ifPrefix": "Hvis",
+    "didNotReceive": "Fik du det ikke?",
+    "tryAgain": "Prøv igen"
+  },
+  "resetPassword": {
+    "linkInvalid": "Linket er ugyldigt eller udløbet",
+    "linkInvalidDesc": "Dette link til nulstilling af adgangskode er ikke længere gyldigt. Links udløber efter 1 time og kan kun bruges én gang.",
+    "requestNewLink": "Anmod om et nyt link",
+    "chooseNewPassword": "Vælg en ny adgangskode",
+    "subtitle": "Vælg en stærk adgangskode, du ikke har brugt før.",
+    "newPasswordLabel": "Ny adgangskode",
+    "confirmPasswordLabel": "Bekræft adgangskode",
+    "passwordsDoNotMatch": "Adgangskoderne matcher ikke",
+    "updating": "Opdaterer…",
+    "setNewPassword": "Sæt ny adgangskode",
+    "passwordUpdated": "Adgangskode opdateret",
+    "passwordUpdatedDesc": "Din adgangskode er ændret. Alle tidligere sessioner er blevet logget ud for din sikkerhed.",
+    "strength": {
+      "length": "8+ tegn",
+      "upper": "Stort bogstav",
+      "lower": "Lille bogstav",
+      "number": "Tal",
+      "symbol": "Specialtegn"
+    }
+  },
+  "verify2fa": {
+    "title": "Tofaktorgodkendelse",
+    "subtitlePrefix": "Vi har sendt en 4-cifret bekræftelseskode til",
+    "subtitleSuffix": ". Indtast den nedenfor for at gennemføre login.",
+    "didNotGetCode": "Fik du ikke koden?",
+    "resendCode": "Send koden igen",
+    "resendCodeCooldown": "Send koden igen ({seconds}s)",
+    "sendingResend": "Sender…",
+    "verifying": "Bekræfter…",
+    "verifyAndSignIn": "Bekræft og log ind",
+    "backToSignIn": "Tilbage til login"
+  },
+  "verifyEmail": {
+    "title": "Bekræft e-mail",
+    "subtitlePrefix": "Vi har sendt en 6-cifret bekræftelseskode til",
+    "subtitleSuffix": ". Indtast den nedenfor for at bekræfte din konto.",
+    "didNotGetCode": "Fik du ikke koden?",
+    "resendCode": "Send koden igen",
+    "verifyEmail": "Bekræft e-mail",
+    "changeEmail": "Skift e-mail"
+  }
+}

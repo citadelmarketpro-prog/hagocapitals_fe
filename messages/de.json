@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Über uns",
+    "leader": "Leader",
+    "userGuide": "Benutzerhandbuch",
+    "contactUs": "Kontakt",
+    "signIn": "Anmelden",
+    "getStarted": "Loslegen"
+  },
+  "authCommon": {
+    "error": "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "signIn": "Anmelden",
+    "continueWithGoogle": "Mit Google fortfahren",
+    "backToSignIn": "Zurück zur Anmeldung"
+  },
+  "signIn": {
+    "welcome": "Willkommen zurück, Amigo!",
+    "newHere": "Neu in dieser Community?",
+    "signUpHere": "Hier registrieren",
+    "resetPassword": "Passwort zurücksetzen",
+    "signingIn": "Anmeldung läuft…",
+    "signIn": "Anmelden",
+    "orSignInWith": "oder anmelden mit"
+  },
+  "signUp": {
+    "joinCommunity": "Treten Sie der Smart Community bei",
+    "alreadyMember": "Bereits Mitglied?",
+    "signInHere": "Hier anmelden",
+    "creatingAccount": "Konto wird erstellt…",
+    "signUp": "Registrieren",
+    "orSignUpWith": "oder registrieren mit",
+    "requirements": {
+      "length": "Mindestens 8 Zeichen",
+      "upper": "Mindestens ein Großbuchstabe",
+      "lower": "Mindestens ein Kleinbuchstabe",
+      "number": "Mindestens eine Zahl",
+      "symbol": "Mindestens ein Sonderzeichen"
+    }
+  },
+  "forgotPassword": {
+    "title": "Setzen Sie Ihr Passwort zurück",
+    "subtitle": "Geben Sie die mit Ihrem Konto verknüpfte E-Mail-Adresse ein und wir senden Ihnen einen Link zum Zurücksetzen Ihres Passworts.",
+    "sending": "Wird gesendet…",
+    "sendResetLink": "Link zum Zurücksetzen senden",
+    "checkInbox": "Prüfen Sie Ihren Posteingang",
+    "ifRegistered": "registriert ist, erhalten Sie in Kürze einen Reset-Link. Prüfen Sie Ihren Spam-Ordner, falls Sie ihn nicht sehen.",
+    "ifPrefix": "Falls",
+    "didNotReceive": "Nicht erhalten?",
+    "tryAgain": "Erneut versuchen"
+  },
+  "resetPassword": {
+    "linkInvalid": "Link ungültig oder abgelaufen",
+    "linkInvalidDesc": "Dieser Link zum Zurücksetzen des Passworts ist nicht mehr gültig. Links laufen nach 1 Stunde ab und können nur einmal verwendet werden.",
+    "requestNewLink": "Neuen Link anfordern",
+    "chooseNewPassword": "Wählen Sie ein neues Passwort",
+    "subtitle": "Wählen Sie ein starkes Passwort, das Sie noch nicht verwendet haben.",
+    "newPasswordLabel": "Neues Passwort",
+    "confirmPasswordLabel": "Passwort bestätigen",
+    "passwordsDoNotMatch": "Passwörter stimmen nicht überein",
+    "updating": "Wird aktualisiert…",
+    "setNewPassword": "Neues Passwort festlegen",
+    "passwordUpdated": "Passwort aktualisiert",
+    "passwordUpdatedDesc": "Ihr Passwort wurde erfolgreich geändert. Alle vorherigen Sitzungen wurden zu Ihrer Sicherheit abgemeldet.",
+    "strength": {
+      "length": "8+ Zeichen",
+      "upper": "Großbuchstabe",
+      "lower": "Kleinbuchstabe",
+      "number": "Zahl",
+      "symbol": "Sonderzeichen"
+    }
+  },
+  "verify2fa": {
+    "title": "Zwei-Faktor-Authentifizierung",
+    "subtitlePrefix": "Wir haben einen 4-stelligen Bestätigungscode gesendet an",
+    "subtitleSuffix": ". Geben Sie ihn unten ein, um die Anmeldung abzuschließen.",
+    "didNotGetCode": "Keinen Code erhalten?",
+    "resendCode": "Code erneut senden",
+    "resendCodeCooldown": "Code erneut senden ({seconds}s)",
+    "sendingResend": "Wird gesendet…",
+    "verifying": "Wird überprüft…",
+    "verifyAndSignIn": "Bestätigen & anmelden",
+    "backToSignIn": "Zurück zur Anmeldung"
+  },
+  "verifyEmail": {
+    "title": "E-Mail bestätigen",
+    "subtitlePrefix": "Wir haben einen 6-stelligen Bestätigungscode gesendet an",
+    "subtitleSuffix": ". Geben Sie ihn unten ein, um Ihr Konto zu bestätigen.",
+    "didNotGetCode": "Keinen Code erhalten?",
+    "resendCode": "Code erneut senden",
+    "verifyEmail": "E-Mail bestätigen",
+    "changeEmail": "E-Mail ändern"
+  }
+}

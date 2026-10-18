@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Sobre nós",
+    "leader": "Líder",
+    "userGuide": "Guia do usuário",
+    "contactUs": "Contate-nos",
+    "signIn": "Entrar",
+    "getStarted": "Começar"
+  },
+  "authCommon": {
+    "error": "Algo deu errado. Por favor, tente novamente.",
+    "email": "Email",
+    "password": "Senha",
+    "signIn": "Entrar",
+    "continueWithGoogle": "Continuar com o Google",
+    "backToSignIn": "Voltar ao login"
+  },
+  "signIn": {
+    "welcome": "Bem-vindo de volta, Amigo!",
+    "newHere": "Novo nesta comunidade?",
+    "signUpHere": "Cadastre-se aqui",
+    "resetPassword": "Redefinir senha",
+    "signingIn": "Entrando…",
+    "signIn": "Entrar",
+    "orSignInWith": "ou entre com"
+  },
+  "signUp": {
+    "joinCommunity": "Junte-se à Smart Community",
+    "alreadyMember": "Já é membro?",
+    "signInHere": "Entre aqui",
+    "creatingAccount": "Criando conta…",
+    "signUp": "Cadastrar",
+    "orSignUpWith": "ou cadastre-se com",
+    "requirements": {
+      "length": "Pelo menos 8 caracteres",
+      "upper": "Pelo menos uma letra maiúscula",
+      "lower": "Pelo menos uma letra minúscula",
+      "number": "Pelo menos um número",
+      "symbol": "Pelo menos um símbolo"
+    }
+  },
+  "forgotPassword": {
+    "title": "Redefina sua senha",
+    "subtitle": "Digite o endereço de email associado à sua conta e enviaremos um link para redefinir sua senha.",
+    "sending": "Enviando…",
+    "sendResetLink": "Enviar link de redefinição",
+    "checkInbox": "Verifique sua caixa de entrada",
+    "ifRegistered": "estiver registrado, você receberá um link de redefinição em breve. Verifique sua pasta de spam se não o encontrar.",
+    "ifPrefix": "Se",
+    "didNotReceive": "Não recebeu?",
+    "tryAgain": "Tentar novamente"
+  },
+  "resetPassword": {
+    "linkInvalid": "Link inválido ou expirado",
+    "linkInvalidDesc": "Este link de redefinição de senha não é mais válido. Os links expiram após 1 hora e só podem ser usados uma vez.",
+    "requestNewLink": "Solicitar novo link",
+    "chooseNewPassword": "Escolha uma nova senha",
+    "subtitle": "Escolha uma senha forte que você nunca usou antes.",
+    "newPasswordLabel": "Nova senha",
+    "confirmPasswordLabel": "Confirmar senha",
+    "passwordsDoNotMatch": "As senhas não coincidem",
+    "updating": "Atualizando…",
+    "setNewPassword": "Definir nova senha",
+    "passwordUpdated": "Senha atualizada",
+    "passwordUpdatedDesc": "Sua senha foi alterada com sucesso. Todas as sessões anteriores foram encerradas por segurança.",
+    "strength": {
+      "length": "8+ caracteres",
+      "upper": "Letra maiúscula",
+      "lower": "Letra minúscula",
+      "number": "Número",
+      "symbol": "Caractere especial"
+    }
+  },
+  "verify2fa": {
+    "title": "Autenticação de dois fatores",
+    "subtitlePrefix": "Enviamos um código de verificação de 4 dígitos para",
+    "subtitleSuffix": ". Digite-o abaixo para concluir o login.",
+    "didNotGetCode": "Não recebeu o código?",
+    "resendCode": "Reenviar código",
+    "resendCodeCooldown": "Reenviar código ({seconds}s)",
+    "sendingResend": "Enviando…",
+    "verifying": "Verificando…",
+    "verifyAndSignIn": "Verificar e entrar",
+    "backToSignIn": "Voltar ao login"
+  },
+  "verifyEmail": {
+    "title": "Verificar email",
+    "subtitlePrefix": "Enviamos um código de verificação de 6 dígitos para",
+    "subtitleSuffix": ". Digite-o abaixo para confirmar sua conta.",
+    "didNotGetCode": "Não recebeu o código?",
+    "resendCode": "Reenviar código",
+    "verifyEmail": "Verificar email",
+    "changeEmail": "Alterar email"
+  }
+}

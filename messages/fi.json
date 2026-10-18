@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Tietoa meistä",
+    "leader": "Johtaja",
+    "userGuide": "Käyttöopas",
+    "contactUs": "Ota yhteyttä",
+    "signIn": "Kirjaudu sisään",
+    "getStarted": "Aloita"
+  },
+  "authCommon": {
+    "error": "Jokin menee pieleen. Yritä uudelleen.",
+    "email": "Sähköposti",
+    "password": "Salasana",
+    "signIn": "Kirjaudu sisään",
+    "continueWithGoogle": "Jatka Googlella",
+    "backToSignIn": "Takaisin kirjautumiseen"
+  },
+  "signIn": {
+    "welcome": "Tervetuloa takaisin, Amigo!",
+    "newHere": "Uusi tässä yhteisössä?",
+    "signUpHere": "Rekisteröidy tästä",
+    "resetPassword": "Nollaa salasana",
+    "signingIn": "Kirjaudutaan…",
+    "signIn": "Kirjaudu sisään",
+    "orSignInWith": "tai kirjaudu sisään"
+  },
+  "signUp": {
+    "joinCommunity": "Liity Smart Communityyn",
+    "alreadyMember": "Oletko jo jäsen?",
+    "signInHere": "Kirjaudu tästä",
+    "creatingAccount": "Luodaan tiliä…",
+    "signUp": "Rekisteröidy",
+    "orSignUpWith": "tai rekisteröidy",
+    "requirements": {
+      "length": "Vähintään 8 merkkiä",
+      "upper": "Vähintään yksi isokirjain",
+      "lower": "Vähintään yksi pienikirjain",
+      "number": "Vähintään yksi numero",
+      "symbol": "Vähintään yksi erikoismerkki"
+    }
+  },
+  "forgotPassword": {
+    "title": "Nollaa salasanasi",
+    "subtitle": "Anna tiliisi liitetty sähköpostiosoite, ja lähetämme sinulle linkin salasanan nollaamiseksi.",
+    "sending": "Lähetetään…",
+    "sendResetLink": "Lähetä nollauslinkki",
+    "checkInbox": "Tarkista postilaatikkosi",
+    "ifRegistered": "on rekisteröity, saat pian nollauslinkin. Tarkista roskapostikansio, jos et näe sitä.",
+    "ifPrefix": "Jos",
+    "didNotReceive": "Etkö saanut sitä?",
+    "tryAgain": "Yritä uudelleen"
+  },
+  "resetPassword": {
+    "linkInvalid": "Linkki on virheellinen tai vanhentunut",
+    "linkInvalidDesc": "Tämä salasanan nollauslinkki ei ole enää voimassa. Linkit vanhenevat 1 tunnin kuluttua, ja niitä voi käyttää vain kerran.",
+    "requestNewLink": "Pyydä uusi linkki",
+    "chooseNewPassword": "Valitse uusi salasana",
+    "subtitle": "Valitse vahva salasana, jota et ole käyttänyt aiemmin.",
+    "newPasswordLabel": "Uusi salasana",
+    "confirmPasswordLabel": "Vahvista salasana",
+    "passwordsDoNotMatch": "Salasanat eivät täsmää",
+    "updating": "Päivitetään…",
+    "setNewPassword": "Aseta uusi salasana",
+    "passwordUpdated": "Salasana päivitetty",
+    "passwordUpdatedDesc": "Salasanasi on vaihdettu onnistuneesti. Kaikki aiemmat istunnot on kirjattu ulos turvallisuutesi vuoksi.",
+    "strength": {
+      "length": "8+ merkkiä",
+      "upper": "Isokirjain",
+      "lower": "Pienikirjain",
+      "number": "Numero",
+      "symbol": "Erikoismerkki"
+    }
+  },
+  "verify2fa": {
+    "title": "Kaksivaiheinen tunnistus",
+    "subtitlePrefix": "Olemme lähettäneet 4-numeroisen vahvistuskoodin numeroon",
+    "subtitleSuffix": ". Anna se alla suorittaaksesi kirjautumisen loppuun.",
+    "didNotGetCode": "Etkö saanut koodia?",
+    "resendCode": "Lähetä koodi uudelleen",
+    "resendCodeCooldown": "Lähetä koodi uudelleen ({seconds}s)",
+    "sendingResend": "Lähetetään…",
+    "verifying": "Vahvistetaan…",
+    "verifyAndSignIn": "Vahvista ja kirjaudu sisään",
+    "backToSignIn": "Takaisin kirjautumiseen"
+  },
+  "verifyEmail": {
+    "title": "Vahvista sähköposti",
+    "subtitlePrefix": "Olemme lähettäneet 6-numeroisen vahvistuskoodin osoitteeseen",
+    "subtitleSuffix": ". Anna se alla vahvistaaksesi tilisi.",
+    "didNotGetCode": "Etkö saanut koodia?",
+    "resendCode": "Lähetä koodi uudelleen",
+    "verifyEmail": "Vahvista sähköposti",
+    "changeEmail": "Vaihda sähköposti"
+  }
+}

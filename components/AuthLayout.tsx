@@ -1,5 +1,6 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
+import LangSwitcher from "@/components/LangSwitcher";
 
 export default function AuthLayout({
  children,
@@ -25,6 +26,11 @@ export default function AuthLayout({
  {/* Slot for page-specific form */}
  <div className="flex-1 flex flex-col justify-center max-w-[420px] w-full mx-auto">
  {children}
+ </div>
+
+ {/* Language switcher */}
+ <div className="flex justify-center pt-6 shrink-0">
+ <LangSwitcher />
  </div>
  </div>
 

@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "За нас",
+    "leader": "Лидер",
+    "userGuide": "Ръководство за потребителя",
+    "contactUs": "Свържете се с нас",
+    "signIn": "Вход",
+    "getStarted": "Започнете"
+  },
+  "authCommon": {
+    "error": "Нещо се обърка. Моля, опитайте отново.",
+    "email": "Имейл",
+    "password": "Парола",
+    "signIn": "Вход",
+    "continueWithGoogle": "Продължи с Google",
+    "backToSignIn": "Назад към входа"
+  },
+  "signIn": {
+    "welcome": "Добре дошли отново, Amigo!",
+    "newHere": "Нов в тази общност?",
+    "signUpHere": "Регистрирайте се тук",
+    "resetPassword": "Нулиране на парола",
+    "signingIn": "Влизане…",
+    "signIn": "Вход",
+    "orSignInWith": "или влезте с"
+  },
+  "signUp": {
+    "joinCommunity": "Присъединете се към Smart Community",
+    "alreadyMember": "Вече имате акаунт?",
+    "signInHere": "Влезте тук",
+    "creatingAccount": "Създаване на акаунт…",
+    "signUp": "Регистрация",
+    "orSignUpWith": "или се регистрирайте с",
+    "requirements": {
+      "length": "Минимум 8 символа",
+      "upper": "Поне една главна буква",
+      "lower": "Поне една малка буква",
+      "number": "Поне една цифра",
+      "symbol": "Поне един символ"
+    }
+  },
+  "forgotPassword": {
+    "title": "Нулирайте паролата си",
+    "subtitle": "Въведете имейл адреса, свързан с вашия акаунт, и ще ви изпратим линк за нулиране на паролата.",
+    "sending": "Изпращане…",
+    "sendResetLink": "Изпрати линк за нулиране",
+    "checkInbox": "Проверете входящата си кутия",
+    "ifRegistered": "е регистриран, скоро ще получите линк за нулиране. Проверете папката за спам, ако не го виждате.",
+    "ifPrefix": "Ако",
+    "didNotReceive": "Не го получихте?",
+    "tryAgain": "Опитайте отново"
+  },
+  "resetPassword": {
+    "linkInvalid": "Линкът е невалиден или изтекъл",
+    "linkInvalidDesc": "Този линк за нулиране на паролата вече не е валиден. Линковете изтичат след 1 час и могат да се използват само веднъж.",
+    "requestNewLink": "Заявете нов линк",
+    "chooseNewPassword": "Изберете нова парола",
+    "subtitle": "Изберете силна парола, която не сте използвали преди.",
+    "newPasswordLabel": "Нова парола",
+    "confirmPasswordLabel": "Потвърдете паролата",
+    "passwordsDoNotMatch": "Паролите не съвпадат",
+    "updating": "Актуализиране…",
+    "setNewPassword": "Задайте нова парола",
+    "passwordUpdated": "Паролата е актуализирана",
+    "passwordUpdatedDesc": "Паролата ви беше успешно променена. Всички предишни сесии бяха излезени за вашата сигурност.",
+    "strength": {
+      "length": "8+ символа",
+      "upper": "Главна буква",
+      "lower": "Малка буква",
+      "number": "Цифра",
+      "symbol": "Специален символ"
+    }
+  },
+  "verify2fa": {
+    "title": "Двуфакторна автентикация",
+    "subtitlePrefix": "Изпратихме 4-цифрен код за потвърждение на",
+    "subtitleSuffix": ". Въведете го по-долу, за да завършите входа.",
+    "didNotGetCode": "Не получихте кода?",
+    "resendCode": "Изпрати кода отново",
+    "resendCodeCooldown": "Изпрати кода отново ({seconds}s)",
+    "sendingResend": "Изпращане…",
+    "verifying": "Проверка…",
+    "verifyAndSignIn": "Потвърди и влез",
+    "backToSignIn": "Назад към входа"
+  },
+  "verifyEmail": {
+    "title": "Потвърдете имейл",
+    "subtitlePrefix": "Изпратихме 6-цифрен код за потвърждение на",
+    "subtitleSuffix": ". Въведете го по-долу, за да потвърдите акаунта си.",
+    "didNotGetCode": "Не получихте кода?",
+    "resendCode": "Изпрати кода отново",
+    "verifyEmail": "Потвърдете имейл",
+    "changeEmail": "Промени имейл"
+  }
+}

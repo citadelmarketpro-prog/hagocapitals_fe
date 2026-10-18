@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "O nás",
+    "leader": "Vedúci",
+    "userGuide": "Používateľská príručka",
+    "contactUs": "Kontaktujte nás",
+    "signIn": "Prihlásiť sa",
+    "getStarted": "Začať"
+  },
+  "authCommon": {
+    "error": "Niečo sa pokazilo. Skúste to znova.",
+    "email": "E-mail",
+    "password": "Heslo",
+    "signIn": "Prihlásiť sa",
+    "continueWithGoogle": "Pokračovať s Google",
+    "backToSignIn": "Späť na prihlásenie"
+  },
+  "signIn": {
+    "welcome": "Vitajte späť, Amigo!",
+    "newHere": "Ste v tejto komunite nový?",
+    "signUpHere": "Zaregistrujte sa tu",
+    "resetPassword": "Obnoviť heslo",
+    "signingIn": "Prihlasovanie…",
+    "signIn": "Prihlásiť sa",
+    "orSignInWith": "alebo sa prihláste pomocou"
+  },
+  "signUp": {
+    "joinCommunity": "Pripojte sa k Smart Community",
+    "alreadyMember": "Už ste členom?",
+    "signInHere": "Prihláste sa tu",
+    "creatingAccount": "Vytváranie účtu…",
+    "signUp": "Registrovať sa",
+    "orSignUpWith": "alebo sa zaregistrujte pomocou",
+    "requirements": {
+      "length": "Minimálne 8 znakov",
+      "upper": "Aspoň jedno veľké písmeno",
+      "lower": "Aspoň jedno malé písmeno",
+      "number": "Aspoň jedna číslica",
+      "symbol": "Aspoň jeden symbol"
+    }
+  },
+  "forgotPassword": {
+    "title": "Obnovte svoje heslo",
+    "subtitle": "Zadajte e-mailovú adresu spojenú s vaším účtom a zašleme vám odkaz na obnovenie hesla.",
+    "sending": "Odosielanie…",
+    "sendResetLink": "Odoslať odkaz na obnovenie",
+    "checkInbox": "Skontrolujte svoju schránku",
+    "ifRegistered": "je zaregistrovaná, čoskoro dostanete odkaz na obnovenie. Skontrolujte priečinok so spamom, ak ho nevidíte.",
+    "ifPrefix": "Ak",
+    "didNotReceive": "Nedostali ste ho?",
+    "tryAgain": "Skúsiť znova"
+  },
+  "resetPassword": {
+    "linkInvalid": "Odkaz je neplatný alebo vypršal",
+    "linkInvalidDesc": "Tento odkaz na obnovenie hesla už nie je platný. Odkazy vypršia po 1 hodine a môžu sa použiť len raz.",
+    "requestNewLink": "Vyžiadať nový odkaz",
+    "chooseNewPassword": "Vyberte nové heslo",
+    "subtitle": "Vyberte silné heslo, ktoré ste ešte nepoužili.",
+    "newPasswordLabel": "Nové heslo",
+    "confirmPasswordLabel": "Potvrdiť heslo",
+    "passwordsDoNotMatch": "Heslá sa nezhodujú",
+    "updating": "Aktualizácia…",
+    "setNewPassword": "Nastaviť nové heslo",
+    "passwordUpdated": "Heslo aktualizované",
+    "passwordUpdatedDesc": "Vaše heslo bolo úspešne zmenené. Všetky predchádzajúce relácie boli pre vašu bezpečnosť odhlásené.",
+    "strength": {
+      "length": "8+ znakov",
+      "upper": "Veľké písmeno",
+      "lower": "Malé písmeno",
+      "number": "Číslica",
+      "symbol": "Špeciálny znak"
+    }
+  },
+  "verify2fa": {
+    "title": "Dvojfaktorová autentifikácia",
+    "subtitlePrefix": "Odoslali sme 4-miestny overovací kód na",
+    "subtitleSuffix": ". Zadajte ho nižšie a dokončite prihlásenie.",
+    "didNotGetCode": "Nedostali ste kód?",
+    "resendCode": "Odoslať kód znova",
+    "resendCodeCooldown": "Odoslať kód znova ({seconds}s)",
+    "sendingResend": "Odosielanie…",
+    "verifying": "Overovanie…",
+    "verifyAndSignIn": "Overiť a prihlásiť sa",
+    "backToSignIn": "Späť na prihlásenie"
+  },
+  "verifyEmail": {
+    "title": "Overiť e-mail",
+    "subtitlePrefix": "Odoslali sme 6-miestny overovací kód na",
+    "subtitleSuffix": ". Zadajte ho nižšie a potvrďte svoj účet.",
+    "didNotGetCode": "Nedostali ste kód?",
+    "resendCode": "Odoslať kód znova",
+    "verifyEmail": "Overiť e-mail",
+    "changeEmail": "Zmeniť e-mail"
+  }
+}

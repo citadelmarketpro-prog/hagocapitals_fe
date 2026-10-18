@@ -3,6 +3,7 @@
 import { useState, useEffect, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import AuthLayout from "@/components/AuthLayout";
 import { api, ApiError } from "@/lib/api";
 
@@ -17,6 +18,8 @@ export default function ResetPasswordPage() {
 function ResetPasswordContent() {
  const searchParams = useSearchParams();
  const router = useRouter();
+ const t = useTranslations("resetPassword");
+ const tc = useTranslations("authCommon");
 
  const uid = searchParams.get("uid") ?? "";
  const token = searchParams.get("token") ?? "";
@@ -66,7 +69,7 @@ function ResetPasswordContent() {
  }
  setError(err.detail);
  } else {
- setError("Something went wrong. Please try again.");
+ setError(tc("error"));
  }
  } finally {
  setSubmitting(false);
@@ -82,25 +85,24 @@ function ResetPasswordContent() {
  <AlertIcon />
  </div>
  <h1 className="text-[28px] sm:text-[32px] font-bold text-[#001011] leading-[1.15]">
- Link invalid or expired
+ {t("linkInvalid")}
  </h1>
  <p className="text-[14px] text-[#666666] leading-[1.7]">
- This password reset link is no longer valid. Reset links expire after
- 1 hour and can only be used once.
+ {t("linkInvalidDesc")}
  </p>
  <Link
  href="/forgot-password"
  className="mt-2 flex items-center justify-center h-[46px] text-[14px] font-bold text-white transition-opacity hover:opacity-90"
  style={{ backgroundColor: "#06811d" }}
  >
- Request a new link
+ {t("requestNewLink")}
  </Link>
  <Link
  href="/sign-in"
  className="flex items-center justify-center gap-1.5 text-[13px] text-[#666666] hover:text-[#001011] transition-colors"
  >
  <ArrowLeftIcon />
- Back to Sign In
+ {tc("backToSignIn")}
  </Link>
  </div>
  </AuthLayout>
@@ -116,18 +118,17 @@ function ResetPasswordContent() {
  <CheckIcon />
  </div>
  <h1 className="text-[28px] sm:text-[32px] font-bold text-[#001011] leading-[1.15]">
- Password updated
+ {t("passwordUpdated")}
  </h1>
  <p className="text-[14px] text-[#666666] leading-[1.7]">
- Your password has been successfully changed. All previous sessions
- have been signed out for your security.
+ {t("passwordUpdatedDesc")}
  </p>
  <button
  onClick={() => router.push("/sign-in")}
  className="mt-2 h-[46px] rounded-full text-[14px] font-bold text-white transition-opacity hover:opacity-90"
  style={{ backgroundColor: "#06811d" }}
  >
- Sign In
+ {tc("signIn")}
  </button>
  </div>
  </AuthLayout>
@@ -138,10 +139,10 @@ function ResetPasswordContent() {
  return (
  <AuthLayout>
  <h1 className="text-[28px] sm:text-[32px] font-bold text-[#001011] leading-[1.15] mb-2">
- Choose a new password
+ {t("chooseNewPassword")}
  </h1>
  <p className="text-[14px] text-[#666666] mb-8 leading-[1.7]">
- Pick a strong password you haven&apos;t used before.
+ {t("subtitle")}
  </p>
 
  {error && (
@@ -155,7 +156,7 @@ function ResetPasswordContent() {
  {/* New password */}
  <div className="flex flex-col gap-1.5">
  <label className="text-[13px] font-medium text-[#001011]">
- New password
+ {t("newPasswordLabel")}
  </label>
  <div className="relative">
  <input
@@ -177,23 +178,17 @@ function ResetPasswordContent() {
  {/* Strength checklist */}
  {password.length > 0 && (
  <div className="grid grid-cols-2 gap-x-4 gap-y-1 mt-1">
- {[
- { key: "length", label: "8+ characters" },
- { key: "upper", label: "Uppercase letter" },
- { key: "lower", label: "Lowercase letter" },
- { key: "number", label: "Number" },
- { key: "symbol", label: "Special character" },
- ].map(({ key, label }) => (
+ {(["length", "upper", "lower", "number", "symbol"] as const).map((key) => (
  <span
  key={key}
  className={[
  "flex items-center gap-1.5 text-[12px]",
- checks[key as keyof typeof checks]
+ checks[key]
  ? "text-[#16a34a]"
  : "text-[#aaaaaa]",
  ].join(" ")}
  >
- {checks[key as keyof typeof checks] ? "✓" : "○"} {label}
+ {checks[key] ? "✓" : "○"} {t(`strength.${key}`)}
  </span>
  ))}
  </div>
@@ -203,7 +198,7 @@ function ResetPasswordContent() {
  {/* Confirm password */}
  <div className="flex flex-col gap-1.5">
  <label className="text-[13px] font-medium text-[#001011]">
- Confirm password
+ {t("confirmPasswordLabel")}
  </label>
  <div className="relative">
  <input
@@ -228,7 +223,7 @@ function ResetPasswordContent() {
  </div>
  {password2.length > 0 && !passwordsMatch && (
  <p className="text-[12px] text-[#dc2626]">
- Passwords do not match
+ {t("passwordsDoNotMatch")}
  </p>
  )}
  </div>
@@ -243,7 +238,7 @@ function ResetPasswordContent() {
  cursor: isValid && !submitting ? "pointer" : "not-allowed",
  }}
  >
- {submitting ? "Updating…" : "Set new password"}
+ {submitting ? t("updating") : t("setNewPassword")}
  </button>
  </form>
 
@@ -252,7 +247,7 @@ function ResetPasswordContent() {
  className="mt-4 flex items-center justify-center gap-1.5 text-[13px] text-[#666666] hover:text-[#001011] transition-colors"
  >
  <ArrowLeftIcon />
- Back to Sign In
+ {tc("backToSignIn")}
  </Link>
  </AuthLayout>
  );

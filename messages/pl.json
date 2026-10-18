@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "O nas",
+    "leader": "Lider",
+    "userGuide": "Przewodnik użytkownika",
+    "contactUs": "Kontakt",
+    "signIn": "Zaloguj się",
+    "getStarted": "Zacznij"
+  },
+  "authCommon": {
+    "error": "Coś poszło nie tak. Spróbuj ponownie.",
+    "email": "E-mail",
+    "password": "Hasło",
+    "signIn": "Zaloguj się",
+    "continueWithGoogle": "Kontynuuj z Google",
+    "backToSignIn": "Powrót do logowania"
+  },
+  "signIn": {
+    "welcome": "Witamy ponownie, Amigo!",
+    "newHere": "Nowy w tej społeczności?",
+    "signUpHere": "Zarejestruj się tutaj",
+    "resetPassword": "Zresetuj hasło",
+    "signingIn": "Logowanie…",
+    "signIn": "Zaloguj się",
+    "orSignInWith": "lub zaloguj się przez"
+  },
+  "signUp": {
+    "joinCommunity": "Przyłącz się do Smart Community",
+    "alreadyMember": "Masz już konto?",
+    "signInHere": "Zaloguj się tutaj",
+    "creatingAccount": "Tworzenie konta…",
+    "signUp": "Zarejestruj się",
+    "orSignUpWith": "lub zarejestruj się przez",
+    "requirements": {
+      "length": "Minimum 8 znaków",
+      "upper": "Przynajmniej jedna wielka litera",
+      "lower": "Przynajmniej jedna mała litera",
+      "number": "Przynajmniej jedna cyfra",
+      "symbol": "Przynajmniej jeden symbol"
+    }
+  },
+  "forgotPassword": {
+    "title": "Zresetuj swoje hasło",
+    "subtitle": "Wprowadź adres e-mail powiązany z Twoim kontem, a wyślemy Ci link do zresetowania hasła.",
+    "sending": "Wysyłanie…",
+    "sendResetLink": "Wyślij link resetujący",
+    "checkInbox": "Sprawdź swoją skrzynkę odbiorczą",
+    "ifRegistered": "jest zarejestrowany, wkrótce otrzymasz link resetujący. Sprawdź folder spam, jeśli go nie widzisz.",
+    "ifPrefix": "Jeśli",
+    "didNotReceive": "Nie otrzymałeś?",
+    "tryAgain": "Spróbuj ponownie"
+  },
+  "resetPassword": {
+    "linkInvalid": "Link nieprawidłowy lub wygasł",
+    "linkInvalidDesc": "Ten link do resetowania hasła jest już nieaktualny. Linki wygasają po 1 godzinie i mogą być użyte tylko raz.",
+    "requestNewLink": "Poproś o nowy link",
+    "chooseNewPassword": "Wybierz nowe hasło",
+    "subtitle": "Wybierz silne hasło, którego nie używałeś wcześniej.",
+    "newPasswordLabel": "Nowe hasło",
+    "confirmPasswordLabel": "Potwierdź hasło",
+    "passwordsDoNotMatch": "Hasła nie są zgodne",
+    "updating": "Aktualizowanie…",
+    "setNewPassword": "Ustaw nowe hasło",
+    "passwordUpdated": "Hasło zaktualizowane",
+    "passwordUpdatedDesc": "Twoje hasło zostało pomyślnie zmienione. Wszystkie wcześniejsze sesje zostały wylogowane dla Twojego bezpieczeństwa.",
+    "strength": {
+      "length": "8+ znaków",
+      "upper": "Wielka litera",
+      "lower": "Mała litera",
+      "number": "Cyfra",
+      "symbol": "Znak specjalny"
+    }
+  },
+  "verify2fa": {
+    "title": "Weryfikacja dwuetapowa",
+    "subtitlePrefix": "Wysłaliśmy 4-cyfrowy kod weryfikacyjny na",
+    "subtitleSuffix": ". Wprowadź go poniżej, aby zakończyć logowanie.",
+    "didNotGetCode": "Nie otrzymałeś kodu?",
+    "resendCode": "Wyślij kod ponownie",
+    "resendCodeCooldown": "Wyślij kod ponownie ({seconds}s)",
+    "sendingResend": "Wysyłanie…",
+    "verifying": "Weryfikacja…",
+    "verifyAndSignIn": "Zweryfikuj i zaloguj się",
+    "backToSignIn": "Powrót do logowania"
+  },
+  "verifyEmail": {
+    "title": "Zweryfikuj e-mail",
+    "subtitlePrefix": "Wysłaliśmy 6-cyfrowy kod weryfikacyjny na",
+    "subtitleSuffix": ". Wprowadź go poniżej, aby potwierdzić swoje konto.",
+    "didNotGetCode": "Nie otrzymałeś kodu?",
+    "resendCode": "Wyślij kod ponownie",
+    "verifyEmail": "Zweryfikuj e-mail",
+    "changeEmail": "Zmień e-mail"
+  }
+}

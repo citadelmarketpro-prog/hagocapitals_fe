@@ -64,7 +64,7 @@ export default function DashNav() {
 
  // Derive display name and initials from auth user
  const displayName = user
- ? (user.first_name ? `${user.first_name} ${user.last_name}`.trim() : user.username)
+ ? (user.first_name ? `${user.first_name} ${user.last_name}`.trim() : user.email.split("@")[0])
  : "…";
  const initials = displayName
  .split(" ")
@@ -174,7 +174,7 @@ export default function DashNav() {
  </div>
  )}
  <span className="hidden sm:inline text-[13px] font-medium text-[#001011] whitespace-nowrap">
- Hey, {user?.first_name || user?.username || "…"}
+ Hey, {user?.first_name || user?.email?.split("@")[0] || "…"}
  </span>
  <span className="hidden sm:inline text-[#888888]"><ChevronDownIcon /></span>
  </button>
@@ -409,7 +409,7 @@ function ProfileDropdown({
  onLogout: () => void;
 }) {
  const displayName = user
- ? (user.first_name ? `${user.first_name} ${user.last_name}`.trim() : user.username)
+ ? (user.first_name ? `${user.first_name} ${user.last_name}`.trim() : user.email.split("@")[0])
  : "…";
 
  return (
@@ -509,7 +509,6 @@ function EditProfileModal({
 
  const [firstName, setFirstName] = useState(user?.first_name ?? "");
  const [lastName, setLastName] = useState(user?.last_name ?? "");
- const [username, setUsername] = useState(user?.username ?? "");
  const [avatarFile, setAvatarFile] = useState<File | null>(null);
  const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
  const [removeAvatar, setRemoveAvatar] = useState(false);
@@ -543,20 +542,17 @@ function EditProfileModal({
  form.append("remove_avatar", "1");
  form.append("first_name", firstName.trim());
  form.append("last_name", lastName.trim());
- form.append("username", username.trim());
  await api.patchForm("/api/auth/me/", form);
  } else if (avatarFile) {
  const form = new FormData();
  form.append("avatar", avatarFile);
  form.append("first_name", firstName.trim());
  form.append("last_name", lastName.trim());
- form.append("username", username.trim());
  await api.patchForm("/api/auth/me/", form);
  } else {
  await api.patch("/api/auth/me/", {
  first_name: firstName.trim(),
  last_name: lastName.trim(),
- username: username.trim(),
  });
  }
  await refreshUser();
@@ -675,20 +671,6 @@ function EditProfileModal({
  onChange={(e) => setLastName(e.target.value)}
  className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
  />
- </div>
- </div>
-
- <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">Username</label>
- <div className="relative">
- <input
- value={username}
- onChange={(e) => setUsername(e.target.value)}
- className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
- />
- <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#22c55e]">
- <GreenCheckCircleIcon />
- </div>
  </div>
  </div>
 

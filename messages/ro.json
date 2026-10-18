@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Despre noi",
+    "leader": "Lider",
+    "userGuide": "Ghid utilizator",
+    "contactUs": "Contactează-ne",
+    "signIn": "Conectare",
+    "getStarted": "Începe"
+  },
+  "authCommon": {
+    "error": "Ceva nu a funcționat. Încearcă din nou.",
+    "email": "E-mail",
+    "password": "Parolă",
+    "signIn": "Conectare",
+    "continueWithGoogle": "Continuă cu Google",
+    "backToSignIn": "Înapoi la conectare"
+  },
+  "signIn": {
+    "welcome": "Bine ai revenit, Amigo!",
+    "newHere": "Nou în această comunitate?",
+    "signUpHere": "Înregistrează-te aici",
+    "resetPassword": "Resetează parola",
+    "signingIn": "Se conectează…",
+    "signIn": "Conectare",
+    "orSignInWith": "sau conectează-te cu"
+  },
+  "signUp": {
+    "joinCommunity": "Alătură-te comunității Smart Community",
+    "alreadyMember": "Ești deja membru?",
+    "signInHere": "Conectează-te aici",
+    "creatingAccount": "Se creează contul…",
+    "signUp": "Înregistrare",
+    "orSignUpWith": "sau înregistrează-te cu",
+    "requirements": {
+      "length": "Minimum 8 caractere",
+      "upper": "Cel puțin o literă majusculă",
+      "lower": "Cel puțin o literă minusculă",
+      "number": "Cel puțin o cifră",
+      "symbol": "Cel puțin un simbol"
+    }
+  },
+  "forgotPassword": {
+    "title": "Resetează-ți parola",
+    "subtitle": "Introdu adresa de e-mail asociată contului tău și îți vom trimite un link pentru resetarea parolei.",
+    "sending": "Se trimite…",
+    "sendResetLink": "Trimite linkul de resetare",
+    "checkInbox": "Verifică-ți inboxul",
+    "ifRegistered": "este înregistrată, vei primi în scurt timp un link de resetare. Verifică folderul de spam dacă nu îl vezi.",
+    "ifPrefix": "Dacă",
+    "didNotReceive": "Nu l-ai primit?",
+    "tryAgain": "Încearcă din nou"
+  },
+  "resetPassword": {
+    "linkInvalid": "Link invalid sau expirat",
+    "linkInvalidDesc": "Acest link de resetare a parolei nu mai este valid. Linkurile expiră după 1 oră și pot fi folosite o singură dată.",
+    "requestNewLink": "Solicită un link nou",
+    "chooseNewPassword": "Alege o parolă nouă",
+    "subtitle": "Alege o parolă puternică pe care nu ai mai folosit-o înainte.",
+    "newPasswordLabel": "Parolă nouă",
+    "confirmPasswordLabel": "Confirmă parola",
+    "passwordsDoNotMatch": "Parolele nu coincid",
+    "updating": "Se actualizează…",
+    "setNewPassword": "Stabilește parola nouă",
+    "passwordUpdated": "Parolă actualizată",
+    "passwordUpdatedDesc": "Parola ta a fost schimbată cu succes. Toate sesiunile anterioare au fost deconectate pentru siguranța ta.",
+    "strength": {
+      "length": "8+ caractere",
+      "upper": "Literă majusculă",
+      "lower": "Literă minusculă",
+      "number": "Cifră",
+      "symbol": "Caracter special"
+    }
+  },
+  "verify2fa": {
+    "title": "Autentificare în doi factori",
+    "subtitlePrefix": "Am trimis un cod de verificare din 4 cifre la",
+    "subtitleSuffix": ". Introduce-l mai jos pentru a finaliza conectarea.",
+    "didNotGetCode": "Nu ai primit codul?",
+    "resendCode": "Retrimite codul",
+    "resendCodeCooldown": "Retrimite codul ({seconds}s)",
+    "sendingResend": "Se trimite…",
+    "verifying": "Se verifică…",
+    "verifyAndSignIn": "Verifică și conectează-te",
+    "backToSignIn": "Înapoi la conectare"
+  },
+  "verifyEmail": {
+    "title": "Verifică e-mailul",
+    "subtitlePrefix": "Am trimis un cod de verificare din 6 cifre la",
+    "subtitleSuffix": ". Introduce-l mai jos pentru a confirma contul.",
+    "didNotGetCode": "Nu ai primit codul?",
+    "resendCode": "Retrimite codul",
+    "verifyEmail": "Verifică e-mailul",
+    "changeEmail": "Schimbă e-mailul"
+  }
+}

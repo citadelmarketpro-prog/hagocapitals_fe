@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Over ons",
+    "leader": "Leider",
+    "userGuide": "Gebruikersgids",
+    "contactUs": "Contact",
+    "signIn": "Inloggen",
+    "getStarted": "Aan de slag"
+  },
+  "authCommon": {
+    "error": "Er is iets misgegaan. Probeer het opnieuw.",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "signIn": "Inloggen",
+    "continueWithGoogle": "Doorgaan met Google",
+    "backToSignIn": "Terug naar inloggen"
+  },
+  "signIn": {
+    "welcome": "Welkom terug, Amigo!",
+    "newHere": "Nieuw in deze community?",
+    "signUpHere": "Registreer hier",
+    "resetPassword": "Wachtwoord resetten",
+    "signingIn": "Inloggen…",
+    "signIn": "Inloggen",
+    "orSignInWith": "of log in met"
+  },
+  "signUp": {
+    "joinCommunity": "Word lid van de Smart Community",
+    "alreadyMember": "Al lid?",
+    "signInHere": "Log hier in",
+    "creatingAccount": "Account aanmaken…",
+    "signUp": "Registreren",
+    "orSignUpWith": "of registreer met",
+    "requirements": {
+      "length": "Minimaal 8 tekens",
+      "upper": "Minimaal één hoofdletter",
+      "lower": "Minimaal één kleine letter",
+      "number": "Minimaal één cijfer",
+      "symbol": "Minimaal één symbool"
+    }
+  },
+  "forgotPassword": {
+    "title": "Wachtwoord resetten",
+    "subtitle": "Voer het e-mailadres van uw account in en we sturen u een link om uw wachtwoord te resetten.",
+    "sending": "Bezig met verzenden…",
+    "sendResetLink": "Resetlink verzenden",
+    "checkInbox": "Controleer uw inbox",
+    "ifRegistered": "geregistreerd is, ontvangt u binnenkort een resetlink. Controleer uw spammap als u deze niet ziet.",
+    "ifPrefix": "Als",
+    "didNotReceive": "Niet ontvangen?",
+    "tryAgain": "Opnieuw proberen"
+  },
+  "resetPassword": {
+    "linkInvalid": "Link ongeldig of verlopen",
+    "linkInvalidDesc": "Deze link om het wachtwoord te resetten is niet meer geldig. Links verlopen na 1 uur en kunnen slechts één keer worden gebruikt.",
+    "requestNewLink": "Nieuwe link aanvragen",
+    "chooseNewPassword": "Kies een nieuw wachtwoord",
+    "subtitle": "Kies een sterk wachtwoord dat u nog niet eerder heeft gebruikt.",
+    "newPasswordLabel": "Nieuw wachtwoord",
+    "confirmPasswordLabel": "Bevestig wachtwoord",
+    "passwordsDoNotMatch": "Wachtwoorden komen niet overeen",
+    "updating": "Bijwerken…",
+    "setNewPassword": "Nieuw wachtwoord instellen",
+    "passwordUpdated": "Wachtwoord bijgewerkt",
+    "passwordUpdatedDesc": "Uw wachtwoord is succesvol gewijzigd. Alle eerdere sessies zijn voor uw veiligheid uitgelogd.",
+    "strength": {
+      "length": "8+ tekens",
+      "upper": "Hoofdletter",
+      "lower": "Kleine letter",
+      "number": "Cijfer",
+      "symbol": "Speciaal teken"
+    }
+  },
+  "verify2fa": {
+    "title": "Tweefactorauthenticatie",
+    "subtitlePrefix": "We hebben een 4-cijferige verificatiecode gestuurd naar",
+    "subtitleSuffix": ". Voer deze hieronder in om het inloggen te voltooien.",
+    "didNotGetCode": "Geen code ontvangen?",
+    "resendCode": "Code opnieuw verzenden",
+    "resendCodeCooldown": "Code opnieuw verzenden ({seconds}s)",
+    "sendingResend": "Bezig met verzenden…",
+    "verifying": "Verifiëren…",
+    "verifyAndSignIn": "Verifiëren & inloggen",
+    "backToSignIn": "Terug naar inloggen"
+  },
+  "verifyEmail": {
+    "title": "E-mail verifiëren",
+    "subtitlePrefix": "We hebben een 6-cijferige verificatiecode gestuurd naar",
+    "subtitleSuffix": ". Voer deze hieronder in om uw account te bevestigen.",
+    "didNotGetCode": "Geen code ontvangen?",
+    "resendCode": "Code opnieuw verzenden",
+    "verifyEmail": "E-mail verifiëren",
+    "changeEmail": "E-mail wijzigen"
+  }
+}

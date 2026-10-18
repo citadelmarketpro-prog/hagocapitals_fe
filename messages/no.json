@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "Om oss",
+    "leader": "Leder",
+    "userGuide": "Brukerveiledning",
+    "contactUs": "Kontakt oss",
+    "signIn": "Logg inn",
+    "getStarted": "Kom i gang"
+  },
+  "authCommon": {
+    "error": "Noe gikk galt. Vennligst prøv igjen.",
+    "email": "E-post",
+    "password": "Passord",
+    "signIn": "Logg inn",
+    "continueWithGoogle": "Fortsett med Google",
+    "backToSignIn": "Tilbake til innlogging"
+  },
+  "signIn": {
+    "welcome": "Velkommen tilbake, Amigo!",
+    "newHere": "Ny i dette fellesskapet?",
+    "signUpHere": "Registrer deg her",
+    "resetPassword": "Tilbakestill passord",
+    "signingIn": "Logger inn…",
+    "signIn": "Logg inn",
+    "orSignInWith": "eller logg inn med"
+  },
+  "signUp": {
+    "joinCommunity": "Bli med i Smart Community",
+    "alreadyMember": "Allerede medlem?",
+    "signInHere": "Logg inn her",
+    "creatingAccount": "Oppretter konto…",
+    "signUp": "Registrer",
+    "orSignUpWith": "eller registrer med",
+    "requirements": {
+      "length": "Minst 8 tegn",
+      "upper": "Minst én stor bokstav",
+      "lower": "Minst én liten bokstav",
+      "number": "Minst ett tall",
+      "symbol": "Minst ett symbol"
+    }
+  },
+  "forgotPassword": {
+    "title": "Tilbakestill passordet ditt",
+    "subtitle": "Skriv inn e-postadressen knyttet til kontoen din, og vi sender deg en lenke for å tilbakestille passordet.",
+    "sending": "Sender…",
+    "sendResetLink": "Send tilbakestillingslenke",
+    "checkInbox": "Sjekk innboksen din",
+    "ifRegistered": "er registrert, får du snart en tilbakestillingslenke. Sjekk spam-mappen hvis du ikke ser den.",
+    "ifPrefix": "Hvis",
+    "didNotReceive": "Fikk du den ikke?",
+    "tryAgain": "Prøv igjen"
+  },
+  "resetPassword": {
+    "linkInvalid": "Lenken er ugyldig eller utløpt",
+    "linkInvalidDesc": "Denne lenken for tilbakestilling av passord er ikke lenger gyldig. Lenker utløper etter 1 time og kan bare brukes én gang.",
+    "requestNewLink": "Be om en ny lenke",
+    "chooseNewPassword": "Velg et nytt passord",
+    "subtitle": "Velg et sterkt passord du ikke har brukt før.",
+    "newPasswordLabel": "Nytt passord",
+    "confirmPasswordLabel": "Bekreft passord",
+    "passwordsDoNotMatch": "Passordene stemmer ikke",
+    "updating": "Oppdaterer…",
+    "setNewPassword": "Sett nytt passord",
+    "passwordUpdated": "Passord oppdatert",
+    "passwordUpdatedDesc": "Passordet ditt er endret. Alle tidligere sesjoner er logget ut for din sikkerhet.",
+    "strength": {
+      "length": "8+ tegn",
+      "upper": "Stor bokstav",
+      "lower": "Liten bokstav",
+      "number": "Tall",
+      "symbol": "Spesialtegn"
+    }
+  },
+  "verify2fa": {
+    "title": "Tofaktorautentisering",
+    "subtitlePrefix": "Vi har sendt en 4-sifret bekreftelseskode til",
+    "subtitleSuffix": ". Skriv den inn nedenfor for å fullføre innloggingen.",
+    "didNotGetCode": "Fikk du ikke koden?",
+    "resendCode": "Send koden på nytt",
+    "resendCodeCooldown": "Send koden på nytt ({seconds}s)",
+    "sendingResend": "Sender…",
+    "verifying": "Bekrefter…",
+    "verifyAndSignIn": "Bekreft og logg inn",
+    "backToSignIn": "Tilbake til innlogging"
+  },
+  "verifyEmail": {
+    "title": "Bekreft e-post",
+    "subtitlePrefix": "Vi har sendt en 6-sifret bekreftelseskode til",
+    "subtitleSuffix": ". Skriv den inn nedenfor for å bekrefte kontoen din.",
+    "didNotGetCode": "Fikk du ikke koden?",
+    "resendCode": "Send koden på nytt",
+    "verifyEmail": "Bekreft e-post",
+    "changeEmail": "Endre e-post"
+  }
+}

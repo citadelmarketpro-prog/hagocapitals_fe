@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import {
  User,
  Mail,
- AtSign,
  Calendar,
  Wallet,
  TrendingUp,
@@ -18,7 +17,6 @@ import { api } from "@/lib/api";
 
 interface Profile {
  id: number;
- username: string;
  email: string;
  first_name: string;
  last_name: string;
@@ -55,7 +53,7 @@ export default function ProfilePage() {
  }, []);
 
  const initials = profile
- ? `${profile.first_name?.[0] ?? profile.username[0]}${profile.last_name?.[0] ?? ""}`.toUpperCase()
+ ? `${profile.first_name?.[0] ?? profile.email[0]}${profile.last_name?.[0] ?? ""}`.toUpperCase()
  : "";
 
  return (
@@ -95,14 +93,13 @@ export default function ProfilePage() {
  <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 flex items-center justify-center bg-[#eaf5f0] text-[24px] font-bold text-[#06811d]">
  {profile.avatar_url
  // eslint-disable-next-line @next/next/no-img-element
- ? <img src={profile.avatar_url} alt={profile.username} className="w-full h-full object-cover" />
+ ? <img src={profile.avatar_url} alt={profile.first_name || profile.email} className="w-full h-full object-cover" />
  : initials}
  </div>
  <div className="flex-1 min-w-0">
  <p className="text-[18px] font-bold text-[#001011]">
  {profile.first_name} {profile.last_name}
  </p>
- <p className="text-[13px] text-[#888888]">@{profile.username}</p>
  {profile.bio && (
  <p className="text-[13px] text-[#555555] mt-2 max-w-[480px]">{profile.bio}</p>
  )}
@@ -154,7 +151,6 @@ export default function ProfilePage() {
  <h2 className="text-[15px] font-bold text-[#001011] mb-4">Personal Information</h2>
  <div className="flex flex-col gap-4">
  <InfoRow icon={<User className="w-4 h-4" />} label="Full Name" value={`${profile.first_name} ${profile.last_name}`.trim() || "—"} />
- <InfoRow icon={<AtSign className="w-4 h-4" />} label="Username" value={profile.username} />
  <InfoRow icon={<Mail className="w-4 h-4" />} label="Email Address" value={profile.email} />
  </div>
  </div>

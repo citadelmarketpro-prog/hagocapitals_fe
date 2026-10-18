@@ -3,8 +3,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { m, AnimatePresence } from "framer-motion";
 import { MotionButton, ICON_BTN_TAP, ICON_BTN_SPRING } from "@/components/ScrollReveal";
+import LangSwitcher from "@/components/LangSwitcher";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -16,6 +18,7 @@ interface NavbarProps {
 }
 
 export default function Navbar({ transparent = false }: NavbarProps) {
+  const t = useTranslations("nav");
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -60,37 +63,42 @@ export default function Navbar({ transparent = false }: NavbarProps) {
             href="/company"
             className="text-[15px] font-medium text-[#444444] hover:text-[#001011] transition-colors whitespace-nowrap"
           >
-            About us
+            {t("aboutUs")}
           </Link>
           <Link
             href="/leader"
             className="text-[15px] font-medium text-[#444444] hover:text-[#001011] transition-colors whitespace-nowrap"
           >
-            Leader
+            {t("leader")}
           </Link>
           <Link
             href="/user-guide"
             className="text-[15px] font-medium text-[#444444] hover:text-[#001011] transition-colors whitespace-nowrap"
           >
-            User Guide
+            {t("userGuide")}
           </Link>
           <Link
             href="/contact-us"
             className="text-[15px] font-medium text-[#444444] hover:text-[#001011] transition-colors whitespace-nowrap"
           >
-            Contact us
+            {t("contactUs")}
           </Link>
         </nav>
 
         {/* ── Right side actions ── */}
         <div className="flex items-center gap-2.5 shrink-0">
 
+          {/* Language switcher — visible md+ only, hamburger drawer has its own on mobile */}
+          <div className="hidden md:block">
+            <LangSwitcher dark={isOverlay} />
+          </div>
+
           {/* Sign In — visible md+ only */}
           <Link
             href="/sign-in"
             className="btn-fx btn-fx-ghost hidden md:inline-flex items-center justify-center h-[44px] px-4 text-[14px] font-bold border"
           >
-            Sign In
+            {t("signIn")}
           </Link>
 
           {/* Get Started */}
@@ -98,7 +106,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
             href="/sign-up"
             className="btn-fx btn-fx-primary inline-flex items-center justify-center h-8 lg:h-11 px-3.5 lg:px-6 text-[12px] lg:text-[14px] font-bold"
           >
-            Get Started
+            {t("getStarted")}
           </Link>
 
           {/* Hamburger — visible below lg */}
@@ -143,42 +151,46 @@ export default function Navbar({ transparent = false }: NavbarProps) {
                 onClick={() => setMobileOpen(false)}
                 className="py-3 text-[14px] font-medium text-[#001011] border-b border-[#f0f0f0]"
               >
-                About us
+                {t("aboutUs")}
               </Link>
               <Link
                 href="/leader"
                 onClick={() => setMobileOpen(false)}
                 className="py-3 text-[14px] font-medium text-[#001011] border-b border-[#f0f0f0]"
               >
-                Leader
+                {t("leader")}
               </Link>
               <Link
                 href="/user-guide"
                 onClick={() => setMobileOpen(false)}
                 className="py-3 text-[14px] font-medium text-[#001011] border-b border-[#f0f0f0]"
               >
-                User Guide
+                {t("userGuide")}
               </Link>
               <Link
                 href="/contact-us"
                 onClick={() => setMobileOpen(false)}
-                className="py-3 text-[14px] font-medium text-[#001011]"
+                className="py-3 text-[14px] font-medium text-[#001011] border-b border-[#f0f0f0]"
               >
-                Contact us
+                {t("contactUs")}
               </Link>
 
-              <div className="pt-4 flex gap-3">
+              <div className="pt-3 pb-1">
+                <LangSwitcher />
+              </div>
+
+              <div className="pt-1 flex gap-3">
                 <Link
                   href="/sign-in"
                   className="btn-fx btn-fx-ghost flex-1 inline-flex items-center justify-center h-[44px] text-[14px] font-bold border"
                 >
-                  Sign In
+                  {t("signIn")}
                 </Link>
                 <Link
                   href="/sign-up"
                   className="btn-fx btn-fx-primary flex-1 inline-flex items-center justify-center h-[44px] text-[14px] font-bold"
                 >
-                  Get Started
+                  {t("getStarted")}
                 </Link>
               </div>
             </div>

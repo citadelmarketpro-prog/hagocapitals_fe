@@ -2,10 +2,14 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import AuthLayout from "@/components/AuthLayout";
 import { api, ApiError } from "@/lib/api";
 
 export default function ForgotPasswordPage() {
+ const t = useTranslations("forgotPassword");
+ const tc = useTranslations("authCommon");
+
  const [email, setEmail] = useState("");
  const [sent, setSent] = useState(false);
  const [error, setError] = useState("");
@@ -22,7 +26,7 @@ export default function ForgotPasswordPage() {
  await api.post("/api/auth/password/forgot/", { email: email.trim() });
  setSent(true);
  } catch (err) {
- setError(err instanceof ApiError ? err.detail : "Something went wrong. Please try again.");
+ setError(err instanceof ApiError ? err.detail : tc("error"));
  } finally {
  setSubmitting(false);
  }
@@ -36,28 +40,28 @@ export default function ForgotPasswordPage() {
  <MailCheckIcon />
  </div>
  <h1 className="text-[28px] sm:text-[32px] font-bold text-[#001011] leading-[1.15]">
- Check your inbox
+ {t("checkInbox")}
  </h1>
  <p className="text-[14px] text-[#666666] leading-[1.7]">
- If{" "}
+ {t("ifPrefix")}{" "}
  <span className="font-semibold text-[#001011]">{email}</span>
- {" "}is registered, you&apos;ll receive a reset link shortly. Check your spam folder if you don&apos;t see it.
+ {" "}{t("ifRegistered")}
  </p>
  <p className="text-[13px] text-[#666666]">
- Didn&apos;t receive it?{" "}
+ {t("didNotReceive")}{" "}
  <button
  type="button"
  onClick={() => setSent(false)}
  className="text-[#06811d] font-medium underline underline-offset-2 hover:opacity-75 transition-opacity"
  >
- Try again
+ {t("tryAgain")}
  </button>
  </p>
  <Link
  href="/sign-in"
  className="mt-2 flex items-center justify-center h-[46px] border border-[#e5e5e5] text-[14px] font-medium text-[#001011] hover:bg-[#fafafa] transition-colors"
  >
- Back to Sign In
+ {tc("backToSignIn")}
  </Link>
  </div>
  </AuthLayout>
@@ -67,11 +71,10 @@ export default function ForgotPasswordPage() {
  return (
  <AuthLayout>
  <h1 className="text-[28px] sm:text-[32px] font-bold text-[#001011] leading-[1.15] mb-2">
- Reset your password
+ {t("title")}
  </h1>
  <p className="text-[14px] text-[#666666] mb-8 leading-[1.7]">
- Enter the email address associated with your account and we&apos;ll send
- you a link to reset your password.
+ {t("subtitle")}
  </p>
 
  {error && (
@@ -83,7 +86,7 @@ export default function ForgotPasswordPage() {
  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
  <div className="flex flex-col gap-1.5">
  <label className="text-[13px] font-medium text-[#001011]">
- Email
+ {tc("email")}
  </label>
  <input
  type="email"
@@ -104,7 +107,7 @@ export default function ForgotPasswordPage() {
  cursor: isValid && !submitting ? "pointer" : "not-allowed",
  }}
  >
- {submitting ? "Sending…" : "Send reset link"}
+ {submitting ? t("sending") : t("sendResetLink")}
  </button>
  </form>
 
@@ -113,7 +116,7 @@ export default function ForgotPasswordPage() {
  className="mt-4 flex items-center justify-center gap-1.5 text-[13px] text-[#666666] hover:text-[#001011] transition-colors"
  >
  <ArrowLeftIcon />
- Back to Sign In
+ {tc("backToSignIn")}
  </Link>
  </AuthLayout>
  );

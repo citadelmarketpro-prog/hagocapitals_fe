@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "About us",
+    "leader": "Leader",
+    "userGuide": "User Guide",
+    "contactUs": "Contact us",
+    "signIn": "Sign In",
+    "getStarted": "Get Started"
+  },
+  "authCommon": {
+    "error": "Something went wrong. Please try again.",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign In",
+    "continueWithGoogle": "Continue with Google",
+    "backToSignIn": "Back to Sign In"
+  },
+  "signIn": {
+    "welcome": "Welcome back, Amigo!",
+    "newHere": "New to this community?",
+    "signUpHere": "Sign up here",
+    "resetPassword": "Reset password",
+    "signingIn": "Signing in…",
+    "signIn": "Sign In",
+    "orSignInWith": "or sign in with"
+  },
+  "signUp": {
+    "joinCommunity": "Join the Smart Community",
+    "alreadyMember": "Already a member?",
+    "signInHere": "Sign In here",
+    "creatingAccount": "Creating account…",
+    "signUp": "Sign Up",
+    "orSignUpWith": "or sign up with",
+    "requirements": {
+      "length": "At least 8 characters",
+      "upper": "At least one uppercase",
+      "lower": "At least one lowercase",
+      "number": "At least one number",
+      "symbol": "At least one symbol"
+    }
+  },
+  "forgotPassword": {
+    "title": "Reset your password",
+    "subtitle": "Enter the email address associated with your account and we'll send you a link to reset your password.",
+    "sending": "Sending…",
+    "sendResetLink": "Send reset link",
+    "checkInbox": "Check your inbox",
+    "ifRegistered": "is registered, you'll receive a reset link shortly. Check your spam folder if you don't see it.",
+    "ifPrefix": "If",
+    "didNotReceive": "Didn't receive it?",
+    "tryAgain": "Try again"
+  },
+  "resetPassword": {
+    "linkInvalid": "Link invalid or expired",
+    "linkInvalidDesc": "This password reset link is no longer valid. Reset links expire after 1 hour and can only be used once.",
+    "requestNewLink": "Request a new link",
+    "chooseNewPassword": "Choose a new password",
+    "subtitle": "Pick a strong password you haven't used before.",
+    "newPasswordLabel": "New password",
+    "confirmPasswordLabel": "Confirm password",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "updating": "Updating…",
+    "setNewPassword": "Set new password",
+    "passwordUpdated": "Password updated",
+    "passwordUpdatedDesc": "Your password has been successfully changed. All previous sessions have been signed out for your security.",
+    "strength": {
+      "length": "8+ characters",
+      "upper": "Uppercase letter",
+      "lower": "Lowercase letter",
+      "number": "Number",
+      "symbol": "Special character"
+    }
+  },
+  "verify2fa": {
+    "title": "Two-factor authentication",
+    "subtitlePrefix": "We've sent a 4-digit verification code to",
+    "subtitleSuffix": ". Enter it below to complete sign in.",
+    "didNotGetCode": "Didn't get the code?",
+    "resendCode": "Resend code",
+    "resendCodeCooldown": "Resend code ({seconds}s)",
+    "sendingResend": "Sending…",
+    "verifying": "Verifying…",
+    "verifyAndSignIn": "Verify & sign in",
+    "backToSignIn": "Back to sign in"
+  },
+  "verifyEmail": {
+    "title": "Verify email",
+    "subtitlePrefix": "We've sent a 6-digit verification code to",
+    "subtitleSuffix": ". Enter it below to confirm your account.",
+    "didNotGetCode": "Didn't get the code?",
+    "resendCode": "Resend code",
+    "verifyEmail": "Verify email",
+    "changeEmail": "Change email"
+  }
+}

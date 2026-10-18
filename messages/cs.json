@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "aboutUs": "O nás",
+    "leader": "Vedoucí",
+    "userGuide": "Uživatelská příručka",
+    "contactUs": "Kontaktujte nás",
+    "signIn": "Přihlásit se",
+    "getStarted": "Začít"
+  },
+  "authCommon": {
+    "error": "Něco se pokazilo. Zkuste to znovu.",
+    "email": "E-mail",
+    "password": "Heslo",
+    "signIn": "Přihlásit se",
+    "continueWithGoogle": "Pokračovat s Google",
+    "backToSignIn": "Zpět na přihlášení"
+  },
+  "signIn": {
+    "welcome": "Vítejte zpět, Amigo!",
+    "newHere": "Jste v této komunitě nový?",
+    "signUpHere": "Zaregistrujte se zde",
+    "resetPassword": "Obnovit heslo",
+    "signingIn": "Přihlašování…",
+    "signIn": "Přihlásit se",
+    "orSignInWith": "nebo se přihlaste pomocí"
+  },
+  "signUp": {
+    "joinCommunity": "Připojte se ke Smart Community",
+    "alreadyMember": "Už jste členem?",
+    "signInHere": "Přihlaste se zde",
+    "creatingAccount": "Vytváření účtu…",
+    "signUp": "Registrovat se",
+    "orSignUpWith": "nebo se registrujte pomocí",
+    "requirements": {
+      "length": "Minimálně 8 znaků",
+      "upper": "Alespoň jedno velké písmeno",
+      "lower": "Alespoň jedno malé písmeno",
+      "number": "Alespoň jedna číslice",
+      "symbol": "Alespoň jeden symbol"
+    }
+  },
+  "forgotPassword": {
+    "title": "Obnovte své heslo",
+    "subtitle": "Zadejte e-mailovou adresu spojenou s vaším účtem a my vám zašleme odkaz k obnovení hesla.",
+    "sending": "Odesílání…",
+    "sendResetLink": "Odeslat odkaz k obnovení",
+    "checkInbox": "Zkontrolujte svou e-mailovou schránku",
+    "ifRegistered": "je registrován, brzy obdržíte odkaz k obnovení. Pokud ho nevidíte, zkontrolujte složku se spamem.",
+    "ifPrefix": "Pokud",
+    "didNotReceive": "Nedostali jste ho?",
+    "tryAgain": "Zkusit znovu"
+  },
+  "resetPassword": {
+    "linkInvalid": "Odkaz je neplatný nebo vypršel",
+    "linkInvalidDesc": "Tento odkaz pro obnovení hesla již není platný. Odkazy vyprší po 1 hodině a lze je použít pouze jednou.",
+    "requestNewLink": "Vyžádat nový odkaz",
+    "chooseNewPassword": "Zvolte nové heslo",
+    "subtitle": "Zvolte silné heslo, které jste ještě nepoužili.",
+    "newPasswordLabel": "Nové heslo",
+    "confirmPasswordLabel": "Potvrdit heslo",
+    "passwordsDoNotMatch": "Hesla se neshodují",
+    "updating": "Aktualizace…",
+    "setNewPassword": "Nastavit nové heslo",
+    "passwordUpdated": "Heslo aktualizováno",
+    "passwordUpdatedDesc": "Vaše heslo bylo úspěšně změněno. Všechna předchozí sezení byla pro vaši bezpečnost odhlášena.",
+    "strength": {
+      "length": "8+ znaků",
+      "upper": "Velké písmeno",
+      "lower": "Malé písmeno",
+      "number": "Číslice",
+      "symbol": "Speciální znak"
+    }
+  },
+  "verify2fa": {
+    "title": "Dvoufaktorové ověření",
+    "subtitlePrefix": "Odeslali jsme 4místný ověřovací kód na",
+    "subtitleSuffix": ". Zadejte ho níže a dokončete přihlášení.",
+    "didNotGetCode": "Nedostali jste kód?",
+    "resendCode": "Odeslat kód znovu",
+    "resendCodeCooldown": "Odeslat kód znovu ({seconds}s)",
+    "sendingResend": "Odesílání…",
+    "verifying": "Ověřování…",
+    "verifyAndSignIn": "Ověřit a přihlásit se",
+    "backToSignIn": "Zpět na přihlášení"
+  },
+  "verifyEmail": {
+    "title": "Ověřit e-mail",
+    "subtitlePrefix": "Odeslali jsme 6místný ověřovací kód na",
+    "subtitleSuffix": ". Zadejte ho níže a potvrďte svůj účet.",
+    "didNotGetCode": "Nedostali jste kód?",
+    "resendCode": "Odeslat kód znovu",
+    "verifyEmail": "Ověřit e-mail",
+    "changeEmail": "Změnit e-mail"
+  }
+}
