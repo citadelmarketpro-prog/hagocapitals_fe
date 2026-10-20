@@ -59,12 +59,12 @@ export default function LoyaltyProgramModal({
  return (
  <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center p-0 sm:p-4 bg-black/50" onClick={onClose}>
  <div
- className="relative w-full sm:max-w-[480px] max-h-[90vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl bg-white border border-[#e5e5e5] shadow-2xl"
+ className="relative w-full sm:max-w-[480px] max-h-[90vh] overflow-y-auto rounded-t-3xl sm:rounded-3xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-2xl"
  onClick={(e) => e.stopPropagation()}
  >
- <div className="sticky top-0 bg-white flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#f0f0ec]">
- <h2 className="text-[17px] font-bold text-[#001011]">Loyalty Program</h2>
- <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors">
+ <div className="sticky top-0 bg-white dark:bg-[#0a0a0a] flex items-center justify-between px-6 pt-6 pb-4 border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
+ <h2 className="text-[17px] font-bold text-[#001011] dark:text-white">Loyalty Program</h2>
+ <button onClick={onClose} className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors">
  <X className="w-4 h-4" />
  </button>
  </div>
@@ -77,21 +77,21 @@ export default function LoyaltyProgramModal({
  ) : (
  <>
  {/* Your progress */}
- <div className="rounded-2xl p-4 mb-5 bg-[#eaf5f0] border border-[#16a34a]/15">
+ <div className="rounded-2xl p-4 mb-5 bg-[#eaf5f0] dark:bg-[#06811d]/10 border border-[#16a34a]/15">
  <div className="flex items-center justify-between mb-2">
- <span className="text-[12px] font-semibold text-[#001011] capitalize">Your tier: {data.current_tier}</span>
+ <span className="text-[12px] font-semibold text-[#001011] dark:text-white capitalize">Your tier: {data.current_tier}</span>
  <span className="text-[12px] font-semibold text-[#16a34a]">
  ${data.total_deposits.toLocaleString(undefined, { maximumFractionDigits: 0 })}
  {!isMax && ` / $${data.next_amount_to_upgrade.toLocaleString(undefined, { maximumFractionDigits: 0 })}`}
  </span>
  </div>
- <div className="h-2 rounded-full bg-white overflow-hidden">
+ <div className="h-2 rounded-full bg-white dark:bg-[#0a0a0a] overflow-hidden">
  <div
  className="h-full rounded-full bg-gradient-to-r from-[#16a34a] to-[#22c55e] transition-all duration-500"
  style={{ width: `${pct}%` }}
  />
  </div>
- <p className="text-[11px] text-[#555555] mt-2">
+ <p className="text-[11px] text-[#555555] dark:text-white/80 mt-2">
  {isMax
  ? "You've reached the highest tier — thank you for being a top member!"
  : <>Deposit <span className="font-semibold text-[#16a34a]">${Math.max(0, data.next_amount_to_upgrade - data.total_deposits).toLocaleString(undefined, { maximumFractionDigits: 0 })}</span> more to reach <span className="capitalize font-semibold">{data.next_tier}</span>.</>}
@@ -108,7 +108,7 @@ export default function LoyaltyProgramModal({
  <div
  key={tier.key}
  className={`relative rounded-2xl border p-3.5 transition-opacity ${
- isCurrent ? "border-[#16a34a] bg-[#eaf5f0]" : "border-[#e5e5e5] bg-white"
+ isCurrent ? "border-[#16a34a] bg-[#eaf5f0] dark:bg-[#06811d]/10" : "border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a]"
  } ${!isUnlocked ? "opacity-60" : ""}`}
  >
  {isCurrent && (
@@ -122,18 +122,18 @@ export default function LoyaltyProgramModal({
  </div>
  <div className="flex-1 min-w-0">
  <div className="flex items-center gap-2">
- <span className="text-[13.5px] font-bold text-[#001011]">{tier.name}</span>
+ <span className="text-[13.5px] font-bold text-[#001011] dark:text-white">{tier.name}</span>
  {isUnlocked && !isCurrent && (
- <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#eaf5f0] text-[#16a34a] font-medium">Unlocked</span>
+ <span className="text-[9px] px-1.5 py-0.5 rounded bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#16a34a] font-medium">Unlocked</span>
  )}
  </div>
- <div className="flex items-center gap-3 mt-1 text-[10.5px] text-[#888888]">
- <span>Min. Deposit: <span className="font-semibold text-[#555555]">${tier.min_deposit.toLocaleString()}</span></span>
- <span>Referral: <span className="font-semibold text-[#555555]">{tier.referral_bonus}%</span></span>
- <span>Rank Bonus: <span className="font-semibold text-[#555555]">${tier.rank_bonus.toLocaleString()}</span></span>
+ <div className="flex items-center gap-3 mt-1 text-[10.5px] text-[#888888] dark:text-white/55">
+ <span>Min. Deposit: <span className="font-semibold text-[#555555] dark:text-white/80">${tier.min_deposit.toLocaleString()}</span></span>
+ <span>Referral: <span className="font-semibold text-[#555555] dark:text-white/80">{tier.referral_bonus}%</span></span>
+ <span>Rank Bonus: <span className="font-semibold text-[#555555] dark:text-white/80">${tier.rank_bonus.toLocaleString()}</span></span>
  </div>
  </div>
- {!isUnlocked && <ChevronRight className="w-4 h-4 text-[#d4d4d4] shrink-0" />}
+ {!isUnlocked && <ChevronRight className="w-4 h-4 text-[#d4d4d4] dark:text-white/35 shrink-0" />}
  </div>
  </div>
  );

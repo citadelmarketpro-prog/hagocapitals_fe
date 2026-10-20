@@ -24,7 +24,7 @@ interface Settings {
 export default function SettingsPage() {
  return (
  <Suspense fallback={
- <div className="min-h-screen flex items-center justify-center bg-[#f5f5f0]">
+ <div className="min-h-screen flex items-center justify-center bg-[#f5f5f0] dark:bg-black">
  <Loader2 className="w-7 h-7 text-[#06811d] animate-spin" />
  </div>
  }>
@@ -207,7 +207,7 @@ function SettingsContent() {
 
  if (loading) {
  return (
- <div className="min-h-screen flex items-center justify-center bg-[#f5f5f0]">
+ <div className="min-h-screen flex items-center justify-center bg-[#f5f5f0] dark:bg-black">
  <Loader2 className="w-7 h-7 text-[#06811d] animate-spin" />
  </div>
  );
@@ -215,8 +215,8 @@ function SettingsContent() {
 
  if (!settings) {
  return (
- <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-[#f5f5f0]">
- <p className="text-[13px] text-[#888888]">{error ?? "Failed to load settings"}</p>
+ <div className="min-h-screen flex flex-col items-center justify-center gap-4 bg-[#f5f5f0] dark:bg-black">
+ <p className="text-[13px] text-[#888888] dark:text-white/55">{error ?? "Failed to load settings"}</p>
  <button onClick={fetchSettings} className="h-10 px-5 rounded-full text-[13px] font-bold text-white bg-[#06811d] hover:opacity-90 transition-opacity">
  Retry
  </button>
@@ -225,21 +225,21 @@ function SettingsContent() {
  }
 
  return (
- <div className="min-h-screen bg-[#f5f5f0]">
+ <div className="min-h-screen bg-[#f5f5f0] dark:bg-black">
  <DashNav />
 
  <div className="max-w-[880px] mx-auto px-4 sm:px-6 py-8">
  {/* Header */}
  <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
  <div>
- <h1 className="text-[20px] sm:text-[22px] font-bold text-[#001011]">Account Settings</h1>
- <p className="text-[13px] text-[#666666] mt-0.5">
+ <h1 className="text-[20px] sm:text-[22px] font-bold text-[#001011] dark:text-white">Account Settings</h1>
+ <p className="text-[13px] text-[#666666] dark:text-white/80 mt-0.5">
  Manage your profile and account security
  </p>
  </div>
  <button
  onClick={() => router.push("/profile")}
- className="flex items-center gap-2 h-10 px-5 rounded-full text-[13px] font-bold text-[#001011] border border-[#e5e5e5] bg-white hover:bg-[#f8f8f8] transition-colors"
+ className="flex items-center gap-2 h-10 px-5 rounded-full text-[13px] font-bold text-[#001011] dark:text-white border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] hover:bg-[#f8f8f8] dark:hover:bg-white/5 transition-colors"
  >
  <Eye className="w-4 h-4" />
  View Profile
@@ -248,12 +248,12 @@ function SettingsContent() {
 
  {/* Global message */}
  {successMessage && editType === null && (
- <div className="mb-4 px-4 py-3 rounded-xl text-[13px] bg-[#eaf5f0] text-[#06811d]">
+ <div className="mb-4 px-4 py-3 rounded-xl text-[13px] bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#06811d]">
  {successMessage}
  </div>
  )}
  {error && editType === null && (
- <div className="mb-4 px-4 py-3 rounded-xl text-[13px] bg-[#fee2e2]/60 text-[#dc2626]">
+ <div className="mb-4 px-4 py-3 rounded-xl text-[13px] bg-[#fee2e2]/60 dark:bg-red-500/10 text-[#dc2626]">
  {error}
  </div>
  )}
@@ -271,7 +271,7 @@ function SettingsContent() {
  className={`flex items-center gap-2 h-10 px-5 rounded-full text-[13px] font-semibold transition-colors ${
  activeTab === tab
  ? "text-white bg-[#06811d]"
- : "text-[#555555] bg-white border border-[#e5e5e5] hover:bg-[#f8f8f8]"
+ : "text-[#555555] dark:text-white/80 bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark hover:bg-[#f8f8f8] dark:hover:bg-white/5"
  }`}
  >
  <Icon className="w-4 h-4" />
@@ -295,14 +295,14 @@ function SettingsContent() {
  <SettingsRow label="Login Email" value={settings.email} />
  <SettingsRow label="Password" value="••••••••" editLabel="Change" onEdit={() => openEdit("password")} />
 
- <div className="rounded-2xl bg-white border border-[#e5e5e5] p-5">
+ <div className="rounded-2xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-5">
  <div className="flex items-start gap-3">
- <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#eaf5f0] text-[#06811d]">
+ <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#06811d]">
  <ShieldCheck className="w-4.5 h-4.5" />
  </div>
  <div className="flex-1 min-w-0">
- <p className="text-[13.5px] font-semibold text-[#001011] mb-1">Two-Factor Authentication</p>
- <p className="text-[12.5px] text-[#666666] leading-relaxed">
+ <p className="text-[13.5px] font-semibold text-[#001011] dark:text-white mb-1">Two-Factor Authentication</p>
+ <p className="text-[12.5px] text-[#666666] dark:text-white/80 leading-relaxed">
  {settings.two_factor_enabled
  ? "Enabled. We'll email you a code to confirm every sign-in."
  : "Add an extra layer of security — we'll email you a code to confirm each sign-in."}
@@ -319,14 +319,14 @@ function SettingsContent() {
  </div>
  </div>
 
- <div className="rounded-2xl bg-white border border-[#e5e5e5] p-5">
+ <div className="rounded-2xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-5">
  <div className="flex items-start gap-3 mb-3">
- <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#eaf5f0] text-[#06811d]">
+ <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#06811d]">
  <ShieldCheck className="w-4.5 h-4.5" />
  </div>
  <div className="flex-1">
- <p className="text-[13.5px] font-semibold text-[#001011] mb-1">Identity Verification</p>
- <p className="text-[12.5px] text-[#666666] leading-relaxed">
+ <p className="text-[13.5px] font-semibold text-[#001011] dark:text-white mb-1">Identity Verification</p>
+ <p className="text-[12.5px] text-[#666666] dark:text-white/80 leading-relaxed">
  {settings.kyc_status === "approved"
  ? "Your identity has been verified."
  : settings.kyc_status === "submitted" || settings.kyc_status === "under_review"
@@ -354,7 +354,7 @@ function SettingsContent() {
  {/* Payment tab */}
  {activeTab === "payment" && (
  <div className="flex flex-col gap-3">
- <p className="text-[12.5px] text-[#666666] -mt-1 mb-1">
+ <p className="text-[12.5px] text-[#666666] dark:text-white/80 -mt-1 mb-1">
  Save a withdrawal address for each currency so it auto-fills the next time you withdraw.
  </p>
 
@@ -363,27 +363,27 @@ function SettingsContent() {
  <Loader2 className="w-6 h-6 text-[#06811d] animate-spin" />
  </div>
  ) : !paymentMethods || paymentMethods.length === 0 ? (
- <div className="rounded-2xl bg-white border border-[#e5e5e5] p-6 text-center">
- <p className="text-[13px] text-[#888888]">No wallets available yet.</p>
+ <div className="rounded-2xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-6 text-center">
+ <p className="text-[13px] text-[#888888] dark:text-white/55">No wallets available yet.</p>
  </div>
  ) : (
  paymentMethods.map((m) => (
  <div
  key={m.wallet_id}
- className="rounded-2xl bg-white border border-[#e5e5e5] p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
+ className="rounded-2xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3"
  >
  <div className="flex items-center gap-3 min-w-0">
- <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-[#eaf5f0] text-[11px] font-bold text-[#06811d]">
+ <div className="w-9 h-9 rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[11px] font-bold text-[#06811d]">
  {m.icon_url
  // eslint-disable-next-line @next/next/no-img-element
  ? <img src={m.icon_url} alt={m.symbol} className="w-full h-full object-cover" />
  : m.symbol.slice(0, 3)}
  </div>
  <div className="min-w-0">
- <p className="text-[13.5px] font-semibold text-[#001011]">
+ <p className="text-[13.5px] font-semibold text-[#001011] dark:text-white">
  {m.symbol}{m.network ? ` (${m.network})` : ""}
  </p>
- <p className="text-[12px] text-[#888888] truncate">
+ <p className="text-[12px] text-[#888888] dark:text-white/55 truncate">
  {m.has_method ? m.address : "No address saved"}
  </p>
  </div>
@@ -393,7 +393,7 @@ function SettingsContent() {
  <button
  onClick={() => removePaymentMethod(m.wallet_id)}
  disabled={removingWalletId === m.wallet_id}
- className="w-9 h-9 rounded-full flex items-center justify-center text-[#888888] hover:text-[#dc2626] hover:bg-[#fee2e2]/50 transition-colors disabled:opacity-50"
+ className="w-9 h-9 rounded-full flex items-center justify-center text-[#888888] dark:text-white/55 hover:text-[#dc2626] hover:bg-[#fee2e2]/50 dark:hover:bg-red-500/10 transition-colors disabled:opacity-50"
  title="Remove address"
  >
  {removingWalletId === m.wallet_id ? <Loader2 className="w-4 h-4 animate-spin" /> : <Trash2 className="w-4 h-4" />}
@@ -417,29 +417,29 @@ function SettingsContent() {
  {editType && (
  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={closeEdit}>
  <div
- className="w-full max-w-[400px] rounded-3xl bg-white border border-[#e5e5e5] shadow-2xl p-6"
+ className="w-full max-w-[400px] rounded-3xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-2xl p-6"
  onClick={(e) => e.stopPropagation()}
  >
  <div className="flex items-center justify-between mb-4">
- <h3 className="text-[16px] font-bold text-[#001011]">
+ <h3 className="text-[16px] font-bold text-[#001011] dark:text-white">
  {editType === "name" && "Edit Name"}
  {editType === "bio" && "Edit Bio"}
  {editType === "password" && "Change Password"}
  {editType === "disable2fa" && "Disable Two-Factor Authentication"}
  {editType === "payment" && `${editingWallet?.symbol ?? ""} Address`}
  </h3>
- <button onClick={closeEdit} className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors">
+ <button onClick={closeEdit} className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors">
  <X className="w-4 h-4" />
  </button>
  </div>
 
  {successMessage && (
- <div className="mb-4 px-3 py-2.5 rounded-lg text-[12.5px] bg-[#eaf5f0] text-[#06811d]">
+ <div className="mb-4 px-3 py-2.5 rounded-lg text-[12.5px] bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#06811d]">
  {successMessage}
  </div>
  )}
  {error && (
- <div className="mb-4 px-3 py-2.5 rounded-lg text-[12.5px] bg-[#fee2e2]/60 text-[#dc2626]">
+ <div className="mb-4 px-3 py-2.5 rounded-lg text-[12.5px] bg-[#fee2e2]/60 dark:bg-red-500/10 text-[#dc2626]">
  {error}
  </div>
  )}
@@ -453,12 +453,12 @@ function SettingsContent() {
  )}
  {editType === "bio" && (
  <div>
- <label className="block text-[12px] font-medium text-[#001011] mb-1.5">Bio</label>
+ <label className="block text-[12px] font-medium text-[#001011] dark:text-white mb-1.5">Bio</label>
  <textarea
  rows={3}
  value={form.bio}
  onChange={(e) => setForm((f) => ({ ...f, bio: e.target.value }))}
- className="w-full px-4 py-2.5 rounded-xl text-[13px] resize-none bg-[#f5f5ef] border border-[#e5e5e5] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full px-4 py-2.5 rounded-xl text-[13px] resize-none bg-[#f5f5ef] dark:bg-white/5 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[#001011] dark:text-white outline-none focus:border-[#06811d] transition-colors"
  />
  </div>
  )}
@@ -478,7 +478,7 @@ function SettingsContent() {
  )}
  {editType === "disable2fa" && (
  <>
- <p className="text-[12.5px] text-[#666666] -mt-1">
+ <p className="text-[12.5px] text-[#666666] dark:text-white/80 -mt-1">
  Enter your password to confirm turning off two-factor authentication.
  </p>
  <Field
@@ -502,7 +502,7 @@ function SettingsContent() {
  <button
  onClick={closeEdit}
  disabled={updating}
- className="flex-1 h-11 rounded-full text-[13px] font-bold text-[#001011] border border-[#e5e5e5] bg-white hover:bg-[#f8f8f8] transition-colors disabled:opacity-50"
+ className="flex-1 h-11 rounded-full text-[13px] font-bold text-[#001011] dark:text-white border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] hover:bg-[#f8f8f8] dark:hover:bg-white/5 transition-colors disabled:opacity-50"
  >
  Cancel
  </button>
@@ -516,10 +516,10 @@ function SettingsContent() {
 
 function SettingsRow({ label, value, editLabel = "Edit", onEdit }: { label: string; value: string; editLabel?: string; onEdit?: () => void }) {
  return (
- <div className="rounded-2xl bg-white border border-[#e5e5e5] p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+ <div className="rounded-2xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
  <div className="flex-1 min-w-0">
- <p className="text-[11.5px] text-[#888888] mb-1">{label}</p>
- <p className="text-[13.5px] font-semibold text-[#001011] truncate">{value}</p>
+ <p className="text-[11.5px] text-[#888888] dark:text-white/55 mb-1">{label}</p>
+ <p className="text-[13.5px] font-semibold text-[#001011] dark:text-white truncate">{value}</p>
  </div>
  {onEdit && (
  <button
@@ -542,11 +542,11 @@ function ToggleSwitch({ checked, onChange, disabled }: { checked: boolean; onCha
  disabled={disabled}
  onClick={() => onChange(!checked)}
  className={`relative shrink-0 w-11 h-6 rounded-full transition-colors disabled:opacity-50 disabled:cursor-not-allowed ${
- checked ? "bg-[#06811d]" : "bg-[#e5e5e5]"
+ checked ? "bg-[#06811d]" : "bg-[#e5e5e5] dark:bg-white/10"
  }`}
  >
  <span
- className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform ${
+ className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white dark:bg-[#0a0a0a] shadow transition-transform ${
  checked ? "translate-x-5" : "translate-x-0"
  }`}
  />
@@ -560,20 +560,20 @@ function Field({ label, value, onChange, type = "text" }: { label: string; value
 
  return (
  <div>
- <label className="block text-[12px] font-medium text-[#001011] mb-1.5">{label}</label>
+ <label className="block text-[12px] font-medium text-[#001011] dark:text-white mb-1.5">{label}</label>
  <div className="relative">
  <input
  type={isPassword && visible ? "text" : type}
  value={value}
  onChange={(e) => onChange(e.target.value)}
- className={`w-full px-4 py-2.5 rounded-xl text-[13px] bg-[#f5f5ef] border border-[#e5e5e5] text-[#001011] outline-none focus:border-[#06811d] transition-colors ${isPassword ? "pr-11" : ""}`}
+ className={`w-full px-4 py-2.5 rounded-xl text-[13px] bg-[#f5f5ef] dark:bg-white/5 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[#001011] dark:text-white outline-none focus:border-[#06811d] transition-colors ${isPassword ? "pr-11" : ""}`}
  />
  {isPassword && (
  <button
  type="button"
  onClick={() => setVisible((v) => !v)}
  tabIndex={-1}
- className="absolute right-3 top-1/2 -translate-y-1/2 text-[#888888] hover:text-[#001011] transition-colors"
+ className="absolute right-3 top-1/2 -translate-y-1/2 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors"
  aria-label={visible ? "Hide password" : "Show password"}
  >
  {visible ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}

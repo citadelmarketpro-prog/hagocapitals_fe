@@ -4,7 +4,7 @@ import { Poppins, Lora } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import Preloader from "@/components/Preloader";
 import { AuthProvider } from "@/context/AuthContext";
-import { Toaster } from "sonner";
+import ThemeAwareToaster from "@/components/ThemeAwareToaster";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
@@ -135,7 +135,7 @@ export default async function RootLayout({
             <AuthProvider>
               <Preloader />
               {children}
-              <Toaster richColors position="top-center" />
+              <ThemeAwareToaster />
             </AuthProvider>
           </ThemeProvider>
         </NextIntlClientProvider>

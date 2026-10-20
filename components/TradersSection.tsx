@@ -14,6 +14,7 @@ import {
 import { m } from "framer-motion";
 import { TrendingUp } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 export type Trader = {
   name: string;
@@ -34,6 +35,7 @@ function riskBadgeClass(risk: string) {
 }
 
 export default function TradersSection({ traders }: { traders: Trader[] }) {
+  const t = useTranslations("tradersSection");
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, align: "start", dragFree: true },
     [Autoplay({ delay: 2800, stopOnInteraction: false, stopOnMouseEnter: true })]
@@ -50,11 +52,10 @@ export default function TradersSection({ traders }: { traders: Trader[] }) {
       {/* ── Header — centered ── */}
       <FadeUp className="max-w-[1440px] mx-auto text-center px-6 pt-14 pb-12 sm:pt-16 sm:pb-14 lg:pt-20 lg:pb-16">
         <h2 className="text-[26px] sm:text-[38px] lg:text-[52px] font-extrabold text-white leading-tight">
-          Copy from the best traders
+          {t("heading")}
         </h2>
         <p className="mt-4 text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.7] text-gray-400 max-w-[560px] mx-auto">
-          Our top-performing traders have consistently delivered exceptional
-          results. Choose from a diverse range of trading strategies and risk profiles.
+          {t("subtitle")}
         </p>
       </FadeUp>
 
@@ -81,7 +82,7 @@ export default function TradersSection({ traders }: { traders: Trader[] }) {
             whileTap={ICON_BTN_TAP}
             transition={ICON_BTN_SPRING}
             className="hidden lg:flex absolute left-10 top-1/2 -translate-y-1/2 w-9 h-9 items-center justify-center bg-white shadow-md text-[#555555] hover:text-[#001011] transition-colors z-10"
-            aria-label="Previous"
+            aria-label={t("previous")}
           >
             <ChevronLeftIcon />
           </m.button>
@@ -93,7 +94,7 @@ export default function TradersSection({ traders }: { traders: Trader[] }) {
             whileTap={ICON_BTN_TAP}
             transition={ICON_BTN_SPRING}
             className="hidden lg:flex absolute right-10 top-1/2 -translate-y-1/2 w-9 h-9 items-center justify-center bg-white shadow-md text-[#555555] hover:text-[#001011] transition-colors z-10"
-            aria-label="Next"
+            aria-label={t("next")}
           >
             <ChevronRightIcon />
           </m.button>
@@ -106,7 +107,7 @@ export default function TradersSection({ traders }: { traders: Trader[] }) {
           href="/sign-up"
           className="btn-fx btn-fx-ghost inline-flex items-center gap-2 h-12 px-8 text-[14px] font-bold"
         >
-          View all expert traders
+          {t("viewAll")}
           <ArrowRightIcon />
         </Link>
       </FadeUp>
@@ -118,6 +119,7 @@ export default function TradersSection({ traders }: { traders: Trader[] }) {
 /* ── Trader Card ─────────────────────────────────────────────────── */
 
 function TraderCard({ trader }: { trader: Trader }) {
+  const t = useTranslations("tradersSection");
   return (
     <m.div
       whileHover={CARD_HOVER}
@@ -161,7 +163,7 @@ function TraderCard({ trader }: { trader: Trader }) {
             </span>
             <TrendingUp size={15} color="#34d399" />
           </div>
-          <span className="text-[12px] text-gray-400 mt-1 block">Profit (1M)</span>
+          <span className="text-[12px] text-gray-400 mt-1 block">{t("profit1M")}</span>
         </div>
         <div className="text-right">
           <div className="flex items-center justify-end gap-1.5">
@@ -170,13 +172,13 @@ function TraderCard({ trader }: { trader: Trader }) {
             </span>
             <TrendingUp size={15} color="#34d399" />
           </div>
-          <span className="text-[12px] text-gray-400 mt-1 block">Copiers</span>
+          <span className="text-[12px] text-gray-400 mt-1 block">{t("copiers")}</span>
         </div>
       </div>
 
       {/* Risk level */}
       <div className="flex items-center justify-between px-4 mb-3">
-        <span className="text-[13px] font-medium text-white">Risk level:</span>
+        <span className="text-[13px] font-medium text-white">{t("riskLevel")}</span>
         <span className={`text-[12px] font-semibold px-3 py-1 rounded-full ${riskBadgeClass(trader.risk)}`}>
           {trader.risk}
         </span>
@@ -188,7 +190,7 @@ function TraderCard({ trader }: { trader: Trader }) {
           href="/sign-up"
           className="btn-fx btn-fx-ghost w-full h-10 text-[13px] font-bold inline-flex items-center justify-center"
         >
-          Copy trader
+          {t("copyTrader")}
         </Link>
       </div>
 

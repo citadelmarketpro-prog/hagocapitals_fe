@@ -1,48 +1,29 @@
 ﻿"use client";
 
 import { m } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { FadeUp } from "@/components/ScrollReveal";
 
-const features = [
-  {
-    title: "Transparent Options Copying",
-    description:
-      "See exactly what you're mirroring—ticker, strategy, side (call/put), strike, expiry, entry/exit premium, size, and timestamps—plus a clear history of each leader's performance and drawdowns. No hidden fees, no black-box trades.",
-    icon: "/icons/clipboard-export.svg",
-  },
-  {
-    title: "Advanced Tools for Contracts",
-    description:
-      "Dial in risk before you copy: per-trade caps, %-of-equity allocation, max contracts, slippage guard (max premium), chain filters (min OI/volume, max bid-ask spread), and auto-hedge toggles for volatile names.",
-    icon: "/icons/note-2.svg",
-  },
-  {
-    title: "Innovative Execution for Multi-Legs",
-    description:
-      "Copy simple contracts or complex structures as a unit: verticals, calendars, iron condors, butterflies. We sync legs, preserve ratios, and apply best-effort routing to help reduce mis-fills and legging risk when leaders trade.",
-    icon: "/icons/gemini.svg",
-  },
-  {
-    title: "Trader-Centric Support",
-    description:
-      "Human help when it matters—real people on chat, phone, and email for account linking, order settings, and contract-specific questions (assignments, exercise, expirations).",
-    icon: "/icons/24-support.svg",
-  },
-  {
-    title: "Learn While You Copy",
-    description:
-      "Leaders can attach notes, rationale, and risk context (IV, Greeks, catalysts) to each trade. Use strategy tags (breakout, earnings, theta, trend) and post-trade debriefs to sharpen your own playbook while you mirror.",
-    icon: "/icons/clipboard.svg",
-  },
-  {
-    title: "Unique Options Features",
-    description:
-      "AutoGuard™: optional auto-TP/SL by premium, % move, or delta.",
-    icon: "/icons/lock-guard.png",
-  },
+const ICONS = [
+  "/icons/clipboard-export.svg",
+  "/icons/note-2.svg",
+  "/icons/gemini.svg",
+  "/icons/24-support.svg",
+  "/icons/clipboard.svg",
+  "/icons/lock-guard.png",
 ];
 
 export default function WhyChoose() {
+  const t = useTranslations("whyChoose");
+  const features = [
+    { title: t("feature1Title"), description: t("feature1Desc"), icon: ICONS[0] },
+    { title: t("feature2Title"), description: t("feature2Desc"), icon: ICONS[1] },
+    { title: t("feature3Title"), description: t("feature3Desc"), icon: ICONS[2] },
+    { title: t("feature4Title"), description: t("feature4Desc"), icon: ICONS[3] },
+    { title: t("feature5Title"), description: t("feature5Desc"), icon: ICONS[4] },
+    { title: t("feature6Title"), description: t("feature6Desc"), icon: ICONS[5] },
+  ];
+
   return (
     <section className="w-full bg-white">
       <div className="max-w-[1440px] mx-auto">
@@ -50,11 +31,10 @@ export default function WhyChoose() {
         {/* ── Header — centered ── */}
         <FadeUp className="text-center px-6 pt-14 pb-12 sm:pt-16 sm:pb-14 lg:pt-20 lg:pb-16">
           <h2 className="text-[26px] sm:text-[38px] lg:text-[52px] font-extrabold text-[#001011] leading-tight">
-            Why choose HagoCapitals
+            {t("heading")}
           </h2>
           <p className="mt-4 text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.7] text-[#666666] max-w-[540px] mx-auto">
-            We provide the most advanced copy trading platform with enterprise-grade
-            security and lightning-fast execution.
+            {t("subtitle")}
           </p>
         </FadeUp>
 

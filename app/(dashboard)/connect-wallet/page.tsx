@@ -140,12 +140,12 @@ export default function ConnectWalletPage() {
  <>
  <DashNav />
 
- <main className="min-h-screen bg-[#f5f4ed] pb-20">
+ <main className="min-h-screen bg-[#f5f4ed] dark:bg-black pb-20">
  <div className="max-w-[1100px] mx-auto px-4 pt-6">
 
  <div className="mb-6">
- <h1 className="text-[18px] font-bold text-[#001011] leading-none">Connect Wallet</h1>
- <p className="text-[13px] text-[#888888] mt-2 max-w-2xl">
+ <h1 className="text-[18px] font-bold text-[#001011] dark:text-white leading-none">Connect Wallet</h1>
+ <p className="text-[13px] text-[#888888] dark:text-white/55 mt-2 max-w-2xl">
  Link your wallet to access premium features. HagoCapitals offers support for a wide
  range of exchanges and wallets — connect by adding your public wallet address below.
  We never ask for a seed phrase or private key.
@@ -153,12 +153,12 @@ export default function ConnectWalletPage() {
  </div>
 
  {success && (
- <div className="mb-5 bg-[#eaf5f0] border border-[#cfe8dd] rounded-lg p-3.5">
+ <div className="mb-5 bg-[#eaf5f0] dark:bg-[#06811d]/10 border border-[#cfe8dd] dark:border-[#06811d]/30 rounded-lg p-3.5">
  <p className="text-[13px] text-[#06811d] font-medium">{success}</p>
  </div>
  )}
  {error && !isDialogOpen && (
- <div className="mb-5 bg-[#fef2f2] border border-[#fecaca] rounded-lg p-3.5">
+ <div className="mb-5 bg-[#fef2f2] dark:bg-red-500/10 border border-[#fecaca] dark:border-red-500/30 rounded-lg p-3.5">
  <p className="text-[13px] text-[#dc2626] font-medium">{error}</p>
  </div>
  )}
@@ -174,11 +174,11 @@ export default function ConnectWalletPage() {
  return (
  <div
  key={wallet.id}
- className="flex items-center justify-between p-4 rounded-xl bg-white border border-[#e5e5e5] hover:border-[#06811d] transition-colors"
+ className="flex items-center justify-between p-4 rounded-xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark hover:border-[#06811d] transition-colors"
  >
  <div className="flex items-center gap-3 min-w-0">
  <WalletIcon type={wallet.id} className="w-10 h-10" />
- <span className="font-semibold text-[#001011] text-[13px] truncate">
+ <span className="font-semibold text-[#001011] dark:text-white text-[13px] truncate">
  {wallet.name}
  </span>
  </div>
@@ -187,11 +187,11 @@ export default function ConnectWalletPage() {
  onClick={() => handleToggle(wallet, isConnected)}
  disabled={isLoading}
  className={`relative inline-flex h-6 w-11 shrink-0 items-center rounded-full transition-colors disabled:opacity-50 ${
- isConnected ? "bg-[#06811d]" : "bg-[#e5e5e5]"
+ isConnected ? "bg-[#06811d]" : "bg-[#e5e5e5] dark:bg-white/10"
  }`}
  >
  <span
- className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
+ className={`inline-block h-4 w-4 transform rounded-full bg-white dark:bg-[#0a0a0a] transition-transform ${
  isConnected ? "translate-x-6" : "translate-x-1"
  }`}
  />
@@ -224,31 +224,31 @@ export default function ConnectWalletPage() {
  onClick={handleCloseDialog}
  >
  <div
- className="relative bg-white rounded-2xl max-w-lg w-full p-6"
+ className="relative bg-white dark:bg-[#0a0a0a] rounded-2xl max-w-lg w-full p-6"
  onClick={(e) => e.stopPropagation()}
  >
  <button
  onClick={handleCloseDialog}
- className="absolute top-4 right-4 w-9 h-9 bg-[#f0f0ec] hover:bg-[#e5e5e0] rounded-full flex items-center justify-center transition-colors"
+ className="absolute top-4 right-4 w-9 h-9 bg-[#f0f0ec] dark:bg-white/5 hover:bg-[#e5e5e0] dark:hover:bg-white/5 rounded-full flex items-center justify-center transition-colors"
  >
- <X className="w-4.5 h-4.5 text-[#555555]" />
+ <X className="w-4.5 h-4.5 text-[#555555] dark:text-white/80" />
  </button>
 
- <h2 className="text-[17px] font-bold text-[#001011] mb-1.5">Connect Wallet</h2>
- <p className="text-[13px] text-[#888888] mb-6">
+ <h2 className="text-[17px] font-bold text-[#001011] dark:text-white mb-1.5">Connect Wallet</h2>
+ <p className="text-[13px] text-[#888888] dark:text-white/55 mb-6">
  Connect to wallet by adding your secret or recovery phrase to your {selectedWallet.name} to link it to your account.
  </p>
 
  <div className="space-y-4">
  <div>
- <label className="text-[12px] font-semibold text-[#001011]">Wallet</label>
- <div className="mt-1.5 p-3 rounded-lg bg-[#f5f5f0] border border-[#e5e5e5]">
- <span className="text-[13px] text-[#001011] font-medium">{selectedWallet.name}</span>
+ <label className="text-[12px] font-semibold text-[#001011] dark:text-white">Wallet</label>
+ <div className="mt-1.5 p-3 rounded-lg bg-[#f5f5f0] dark:bg-white/5 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark">
+ <span className="text-[13px] text-[#001011] dark:text-white font-medium">{selectedWallet.name}</span>
  </div>
  </div>
 
  <div>
- <label htmlFor="wallet-address" className="text-[12px] font-semibold text-[#001011]">
+ <label htmlFor="wallet-address" className="text-[12px] font-semibold text-[#001011] dark:text-white">
  Secret/Recovery Phrase
  </label>
  <textarea
@@ -257,13 +257,13 @@ export default function ConnectWalletPage() {
  placeholder={`Enter your ${selectedWallet.name} secret/recovery phrase`}
  value={walletAddress}
  onChange={(e) => setWalletAddress(e.target.value)}
- className="mt-1.5 w-full px-3 py-2.5 bg-white border border-[#e5e5e5] rounded-lg text-[13px] text-[#001011] placeholder:text-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors resize-none"
+ className="mt-1.5 w-full px-3 py-2.5 bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-lg text-[13px] text-[#001011] dark:text-white placeholder:text-[#aaaaaa] dark:placeholder:text-white/55 outline-none focus:border-[#06811d] transition-colors resize-none"
  disabled={isLoading}
  />
  </div>
 
  {error && (
- <div className="bg-[#fef2f2] border border-[#fecaca] rounded-lg p-3">
+ <div className="bg-[#fef2f2] dark:bg-red-500/10 border border-[#fecaca] dark:border-red-500/30 rounded-lg p-3">
  <p className="text-[12px] text-[#dc2626]">{error}</p>
  </div>
  )}
@@ -280,7 +280,7 @@ export default function ConnectWalletPage() {
  <button
  onClick={handleCloseDialog}
  disabled={isLoading}
- className="flex-1 h-11 rounded-full text-[13px] font-bold text-[#001011] bg-[#f0f0ec] hover:bg-[#e5e5e0] transition-colors"
+ className="flex-1 h-11 rounded-full text-[13px] font-bold text-[#001011] dark:text-white bg-[#f0f0ec] dark:bg-white/5 hover:bg-[#e5e5e0] dark:hover:bg-white/5 transition-colors"
  >
  Cancel
  </button>

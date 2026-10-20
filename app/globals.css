@@ -1,5 +1,17 @@
 @import "tailwindcss";
 
+/* ─── Dashboard-scoped dark mode ──────────────────────────────────────
+   Activated only via a `dark` class on the dashboard's own wrapper div
+   (see context/DashboardThemeContext.tsx) — never on <html>/<body> —
+   so the public marketing pages (forced light) are never affected. ── */
+@custom-variant dark (&:is(.dark *));
+
+/* Subtle elevation for dark-mode cards, in place of a visible border —
+   a faint hairline + soft shadow reads as depth rather than an outline. */
+@utility shadow-card-dark {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 2px 14px rgba(0, 0, 0, 0.45);
+}
+
 /* ─── Progress bar gloss sweep ─────────────────────────────────────── */
 @keyframes gloss {
   0%   { transform: translateX(-100%); }

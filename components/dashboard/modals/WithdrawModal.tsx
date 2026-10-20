@@ -36,7 +36,7 @@ const WITHDRAW_FROM_OPTIONS = [
 
 function CurrencyBadge({ icon_url, symbol }: { icon_url: string | null; symbol: string }) {
  return (
- <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-[#eaf5f0] text-[9px] font-bold text-[#06811d]">
+ <div className="w-6 h-6 rounded-full flex items-center justify-center shrink-0 overflow-hidden bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[9px] font-bold text-[#06811d]">
  {icon_url
  // eslint-disable-next-line @next/next/no-img-element
  ? <img src={icon_url} alt={symbol} className="w-full h-full object-cover" />
@@ -46,9 +46,9 @@ function CurrencyBadge({ icon_url, symbol }: { icon_url: string | null; symbol: 
 }
 
 function statusTone(status: string) {
- if (status === "Completed") return "bg-[#eaf5f0] text-[#06811d]";
- if (status === "Rejected") return "bg-[#fee2e2]/60 text-[#dc2626]";
- return "bg-[#fef3c7]/60 text-[#b45309]";
+ if (status === "Completed") return "bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#06811d]";
+ if (status === "Rejected") return "bg-[#fee2e2]/60 dark:bg-red-500/10 text-[#dc2626]";
+ return "bg-[#fef3c7]/60 dark:bg-amber-500/10 text-[#b45309]";
 }
 
 export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
@@ -163,14 +163,14 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
  exit={{ opacity: 0, scale: 0.96, y: 16 }}
  transition={{ duration: 0.2, ease: "easeOut" }}
  onClick={(e) => e.stopPropagation()}
- className="relative w-full max-w-[420px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white border border-[#e5e5e5] shadow-2xl"
+ className="relative w-full max-w-[420px] max-h-[90vh] overflow-y-auto rounded-3xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-2xl"
  >
  {/* ══════════════ FORM ══════════════ */}
  {step === "form" && (
  <div className="p-6">
  <div className="flex items-center justify-between mb-5">
- <h2 className="text-[17px] font-bold text-[#001011]">Withdrawal</h2>
- <button onClick={handleClose} className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors">
+ <h2 className="text-[17px] font-bold text-[#001011] dark:text-white">Withdrawal</h2>
+ <button onClick={handleClose} className="w-8 h-8 rounded-full flex items-center justify-center shrink-0 bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors">
  <X className="w-4 h-4" />
  </button>
  </div>
@@ -184,51 +184,51 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
  {/* Balance / Profit */}
  <div className="flex items-center gap-4">
  <div className="flex-1">
- <p className="text-[11.5px] text-[#888888] mb-1">Deposited</p>
- <p className="text-[19px] font-bold text-[#001011]">
+ <p className="text-[11.5px] text-[#888888] dark:text-white/55 mb-1">Deposited</p>
+ <p className="text-[19px] font-bold text-[#001011] dark:text-white">
  ${(fundsInfo?.balance ?? 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
  </p>
  </div>
- <div className="w-px self-stretch bg-[#f0f0ec]" />
+ <div className="w-px self-stretch bg-[#f0f0ec] dark:bg-white/5" />
  <div className="flex-1">
- <p className="text-[11.5px] text-[#888888] mb-1">Profit</p>
+ <p className="text-[11.5px] text-[#888888] dark:text-white/55 mb-1">Profit</p>
  <p className="text-[19px] font-bold text-[#06811d]">
  ${(fundsInfo?.profit ?? 0).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
  </p>
  </div>
  </div>
 
- <div className="h-px bg-[#f0f0ec]" />
+ <div className="h-px bg-[#f0f0ec] dark:bg-white/5" />
 
  {/* Withdraw From */}
  <div className="relative">
- <label className="block text-[12px] font-medium text-[#001011] mb-1.5">Withdraw From</label>
+ <label className="block text-[12px] font-medium text-[#001011] dark:text-white mb-1.5">Withdraw From</label>
  <button
  type="button"
  onClick={() => setFromOpen((v) => !v)}
- className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl bg-[#f5f5ef] border transition-colors ${
- fromOpen ? "border-[#06811d]" : "border-[#e5e5e5]"
+ className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl bg-[#f5f5ef] dark:bg-white/5 border transition-colors ${
+ fromOpen ? "border-[#06811d]" : "border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark"
  }`}
  >
- <span className="text-[13px] font-medium text-[#001011]">{withdrawFrom.label}</span>
- <ChevronDown className={`w-4 h-4 shrink-0 text-[#888888] transition-transform ${fromOpen ? "rotate-180" : ""}`} />
+ <span className="text-[13px] font-medium text-[#001011] dark:text-white">{withdrawFrom.label}</span>
+ <ChevronDown className={`w-4 h-4 shrink-0 text-[#888888] dark:text-white/55 transition-transform ${fromOpen ? "rotate-180" : ""}`} />
  </button>
  {fromOpen && (
  <>
  <div className="fixed inset-0 z-[1]" onClick={() => setFromOpen(false)} />
- <div className="absolute top-full left-0 right-0 mt-1.5 z-[2] rounded-2xl bg-white border border-[#e5e5e5] shadow-xl overflow-hidden">
+ <div className="absolute top-full left-0 right-0 mt-1.5 z-[2] rounded-2xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-xl overflow-hidden">
  {WITHDRAW_FROM_OPTIONS.map((opt) => (
  <button
  key={opt.value}
  onClick={() => { setWithdrawFrom(opt); setFromOpen(false); setError(""); setAmount(""); }}
  className={`w-full flex items-center justify-between px-4 py-3 text-[13px] transition-colors ${
  withdrawFrom.value === opt.value
- ? "bg-[#eaf5f0] font-semibold text-[#001011]"
- : "text-[#555555] hover:bg-[#f5f5ef]"
+ ? "bg-[#eaf5f0] dark:bg-[#06811d]/10 font-semibold text-[#001011] dark:text-white"
+ : "text-[#555555] dark:text-white/80 hover:bg-[#f5f5ef] dark:hover:bg-white/5"
  }`}
  >
  <span>{opt.label}</span>
- <span className="text-[11px] text-[#888888]">
+ <span className="text-[11px] text-[#888888] dark:text-white/55">
  ${(opt.value === "roi" ? fundsInfo?.profit ?? 0 : fundsInfo?.balance ?? 0).toLocaleString(undefined, { maximumFractionDigits: 0 })}
  </span>
  </button>
@@ -240,32 +240,32 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
 
  {/* Withdrawal Method */}
  <div className="relative">
- <label className="block text-[12px] font-medium text-[#001011] mb-1.5">Withdrawal Method</label>
+ <label className="block text-[12px] font-medium text-[#001011] dark:text-white mb-1.5">Withdrawal Method</label>
  <button
  type="button"
  onClick={() => setMethodOpen((v) => !v)}
- className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-2xl bg-[#f5f5ef] border transition-colors ${
- methodOpen ? "border-[#06811d]" : "border-[#e5e5e5]"
+ className={`w-full flex items-center justify-between gap-3 px-4 py-3 rounded-2xl bg-[#f5f5ef] dark:bg-white/5 border transition-colors ${
+ methodOpen ? "border-[#06811d]" : "border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark"
  }`}
  >
  {selectedMethod ? (
  <div className="flex items-center gap-2.5">
  <CurrencyBadge icon_url={selectedMethod.icon_url} symbol={selectedMethod.symbol} />
- <span className="text-[13px] font-medium text-[#001011]">
+ <span className="text-[13px] font-medium text-[#001011] dark:text-white">
  {selectedMethod.symbol}{selectedMethod.network ? ` (${selectedMethod.network})` : ""}
  </span>
  </div>
  ) : (
- <span className="text-[13px] text-[#aaaaaa]">Select method</span>
+ <span className="text-[13px] text-[#aaaaaa] dark:text-white/55">Select method</span>
  )}
- <ChevronDown className={`w-4 h-4 shrink-0 text-[#888888] transition-transform ${methodOpen ? "rotate-180" : ""}`} />
+ <ChevronDown className={`w-4 h-4 shrink-0 text-[#888888] dark:text-white/55 transition-transform ${methodOpen ? "rotate-180" : ""}`} />
  </button>
  {methodOpen && (
  <>
  <div className="fixed inset-0 z-[1]" onClick={() => setMethodOpen(false)} />
- <div className="absolute top-full left-0 right-0 mt-1.5 z-[2] rounded-2xl bg-white border border-[#e5e5e5] shadow-xl max-h-[200px] overflow-y-auto">
+ <div className="absolute top-full left-0 right-0 mt-1.5 z-[2] rounded-2xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-xl max-h-[200px] overflow-y-auto">
  {methods.length === 0 ? (
- <div className="px-4 py-3 text-[12px] text-[#888888]">
+ <div className="px-4 py-3 text-[12px] text-[#888888] dark:text-white/55">
  No withdrawal methods saved yet.
  </div>
  ) : (
@@ -274,11 +274,11 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
  key={m.wallet_id}
  onClick={() => handleMethodSelect(m)}
  className={`w-full flex items-center gap-2.5 px-4 py-3 text-left transition-colors first:rounded-t-2xl last:rounded-b-2xl ${
- selectedMethod?.wallet_id === m.wallet_id ? "bg-[#eaf5f0]" : "hover:bg-[#f5f5ef]"
+ selectedMethod?.wallet_id === m.wallet_id ? "bg-[#eaf5f0] dark:bg-[#06811d]/10" : "hover:bg-[#f5f5ef] dark:hover:bg-white/5"
  }`}
  >
  <CurrencyBadge icon_url={m.icon_url} symbol={m.symbol} />
- <span className="text-[13px] text-[#001011]">
+ <span className="text-[13px] text-[#001011] dark:text-white">
  {m.symbol}{m.network ? ` (${m.network})` : ""}
  </span>
  </button>
@@ -289,7 +289,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
  )}
 
  {methods.length === 0 && (
- <div className="mt-2 p-3 rounded-xl bg-[#fef3c7]/50">
+ <div className="mt-2 p-3 rounded-xl bg-[#fef3c7]/50 dark:bg-amber-500/10">
  <div className="flex items-start gap-2">
  <AlertCircle className="w-4 h-4 text-[#b45309] shrink-0 mt-0.5" />
  <p className="text-[11.5px] text-[#b45309] leading-relaxed">
@@ -308,7 +308,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
 
  {/* Amount */}
  <div>
- <label className="block text-[12px] font-medium text-[#001011] mb-1.5">Amount (USD)</label>
+ <label className="block text-[12px] font-medium text-[#001011] dark:text-white mb-1.5">Amount (USD)</label>
  <input
  type="text"
  inputMode="decimal"
@@ -318,7 +318,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
  const v = e.target.value;
  if (v === "" || /^\d*\.?\d{0,2}$/.test(v)) { setAmount(v); setError(""); }
  }}
- className="w-full px-4 py-3 rounded-2xl text-[13px] bg-[#f5f5ef] border border-[#e5e5e5] text-[#001011] placeholder:text-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full px-4 py-3 rounded-2xl text-[13px] bg-[#f5f5ef] dark:bg-white/5 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[#001011] dark:text-white placeholder:text-[#aaaaaa] dark:placeholder:text-white/55 outline-none focus:border-[#06811d] transition-colors"
  />
  {insufficient && (
  <p className="mt-1.5 text-[11.5px] text-[#dc2626]">
@@ -330,14 +330,14 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
  {/* Withdrawal Address (read only) */}
  {selectedMethod && (
  <div>
- <label className="block text-[12px] font-medium text-[#001011] mb-1.5">Withdrawal Address</label>
+ <label className="block text-[12px] font-medium text-[#001011] dark:text-white mb-1.5">Withdrawal Address</label>
  <input
  type="text"
  value={selectedMethod.address}
  readOnly
- className="w-full px-4 py-3 rounded-2xl text-[12.5px] font-mono bg-[#f0f0ec] border border-[#e5e5e5] text-[#888888] outline-none cursor-not-allowed"
+ className="w-full px-4 py-3 rounded-2xl text-[12.5px] font-mono bg-[#f0f0ec] dark:bg-white/5 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[#888888] dark:text-white/55 outline-none cursor-not-allowed"
  />
- <p className="mt-1.5 text-[10.5px] text-[#aaaaaa]">
+ <p className="mt-1.5 text-[10.5px] text-[#aaaaaa] dark:text-white/55">
  Saved address for {selectedMethod.symbol}. Update it in Settings.
  </p>
  </div>
@@ -345,7 +345,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
 
  {/* Error */}
  {error && (
- <div className="flex items-center gap-2 rounded-xl p-3 bg-[#fee2e2]/60">
+ <div className="flex items-center gap-2 rounded-xl p-3 bg-[#fee2e2]/60 dark:bg-red-500/10">
  <AlertCircle className="w-4 h-4 text-[#dc2626] shrink-0" />
  <p className="text-[12px] text-[#dc2626]">{error}</p>
  </div>
@@ -356,7 +356,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
  <button
  onClick={handleClose}
  disabled={submitting}
- className="flex-1 h-11 rounded-full text-[13px] font-bold text-[#001011] border border-[#e5e5e5] bg-white hover:bg-[#f8f8f8] transition-colors disabled:opacity-50"
+ className="flex-1 h-11 rounded-full text-[13px] font-bold text-[#001011] dark:text-white border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] hover:bg-[#f8f8f8] dark:hover:bg-white/5 transition-colors disabled:opacity-50"
  >
  Cancel
  </button>
@@ -372,7 +372,7 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
  </div>
 
  {/* Note */}
- <div className="p-3 rounded-xl bg-[#eaf5f0]">
+ <div className="p-3 rounded-xl bg-[#eaf5f0] dark:bg-[#06811d]/10">
  <p className="text-[10.5px] text-[#06811d] leading-relaxed">
  <strong>Note:</strong> Withdrawals are processed within 24–48 hours. You will be notified once approved.
  </p>
@@ -381,18 +381,18 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
  {/* Recent Withdrawals */}
  {recent && recent.results.length > 0 && (
  <div>
- <h4 className="text-[12.5px] font-semibold text-[#001011] mb-2">Recent Withdrawals</h4>
+ <h4 className="text-[12.5px] font-semibold text-[#001011] dark:text-white mb-2">Recent Withdrawals</h4>
  <div className="flex flex-col gap-2">
  {recent.results.map((tx) => (
- <div key={tx.id} className="rounded-xl p-3 bg-[#f5f5ef]">
+ <div key={tx.id} className="rounded-xl p-3 bg-[#f5f5ef] dark:bg-white/5">
  <div className="flex justify-between items-start mb-1">
- <p className="text-[11px] font-mono text-[#555555] truncate max-w-[160px]">{tx.tx_id.slice(0, 8)}</p>
+ <p className="text-[11px] font-mono text-[#555555] dark:text-white/80 truncate max-w-[160px]">{tx.tx_id.slice(0, 8)}</p>
  <span className={`px-2 py-0.5 rounded-full text-[10px] font-medium shrink-0 ${statusTone(tx.status)}`}>
  {tx.status}
  </span>
  </div>
  <div className="flex justify-between items-center">
- <p className="text-[10.5px] text-[#888888]">
+ <p className="text-[10.5px] text-[#888888] dark:text-white/55">
  {new Date(tx.date).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
  </p>
  <p className="text-[13px] font-bold text-[#dc2626]">-{tx.amount_usd}</p>
@@ -411,40 +411,40 @@ export default function WithdrawModal({ isOpen, onClose }: WithdrawModalProps) {
  {step === "success" && (
  <div className="p-6">
  <div className="text-center mb-4">
- <div className="w-14 h-14 rounded-full bg-[#eaf5f0] flex items-center justify-center mx-auto mb-3">
+ <div className="w-14 h-14 rounded-full bg-[#eaf5f0] dark:bg-[#06811d]/10 flex items-center justify-center mx-auto mb-3">
  <CheckCircle2 className="w-7 h-7 text-[#06811d]" strokeWidth={2} />
  </div>
- <h3 className="text-[17px] font-bold text-[#001011] mb-1">Withdrawal Submitted!</h3>
- <p className="text-[12.5px] text-[#888888]">Your withdrawal is being processed</p>
+ <h3 className="text-[17px] font-bold text-[#001011] dark:text-white mb-1">Withdrawal Submitted!</h3>
+ <p className="text-[12.5px] text-[#888888] dark:text-white/55">Your withdrawal is being processed</p>
  </div>
 
- <div className="rounded-2xl p-4 mb-3 flex flex-col gap-2 text-[13px] bg-[#eaf5f0]">
+ <div className="rounded-2xl p-4 mb-3 flex flex-col gap-2 text-[13px] bg-[#eaf5f0] dark:bg-[#06811d]/10">
  <div className="flex justify-between">
- <span className="text-[#888888]">Amount</span>
- <span className="font-semibold text-[#001011]">${parseFloat(withdrawAmount || "0").toFixed(2)}</span>
+ <span className="text-[#888888] dark:text-white/55">Amount</span>
+ <span className="font-semibold text-[#001011] dark:text-white">${parseFloat(withdrawAmount || "0").toFixed(2)}</span>
  </div>
  <div className="flex justify-between">
- <span className="text-[#888888]">Source</span>
- <span className="font-semibold text-[#001011]">{withdrawFrom.label}</span>
+ <span className="text-[#888888] dark:text-white/55">Source</span>
+ <span className="font-semibold text-[#001011] dark:text-white">{withdrawFrom.label}</span>
  </div>
  <div className="flex justify-between">
- <span className="text-[#888888]">Method</span>
- <span className="font-semibold text-[#001011]">
+ <span className="text-[#888888] dark:text-white/55">Method</span>
+ <span className="font-semibold text-[#001011] dark:text-white">
  {selectedMethod ? `${selectedMethod.symbol}${selectedMethod.network ? ` (${selectedMethod.network})` : ""}` : "—"}
  </span>
  </div>
  <div className="flex justify-between pt-2 border-t border-[#06811d]/15">
- <span className="text-[#888888]">Reference</span>
+ <span className="text-[#888888] dark:text-white/55">Reference</span>
  <span className="font-mono text-[11.5px] font-semibold text-[#06811d]">{withdrawTxId.slice(0, 8)}</span>
  </div>
  </div>
 
- <div className="rounded-2xl p-3.5 mb-4 bg-[#eaf5f0]">
+ <div className="rounded-2xl p-3.5 mb-4 bg-[#eaf5f0] dark:bg-[#06811d]/10">
  <div className="flex items-start gap-2">
  <Clock className="w-4 h-4 text-[#06811d] shrink-0 mt-0.5" />
  <div>
- <p className="text-[12px] font-medium text-[#001011]">Processing Time</p>
- <p className="text-[10.5px] text-[#888888] mt-0.5">
+ <p className="text-[12px] font-medium text-[#001011] dark:text-white">Processing Time</p>
+ <p className="text-[10.5px] text-[#888888] dark:text-white/55 mt-0.5">
  Withdrawals are processed within 24–48 hours after approval.
  </p>
  </div>

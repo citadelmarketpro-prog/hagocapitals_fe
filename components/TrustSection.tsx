@@ -1,27 +1,9 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { FadeUp, FadeIn, CARD_HOVER } from "@/components/ScrollReveal";
 
-const stats = [
-  {
-    title: "Social",
-    description: "More than 35 million users globally",
-    icon: "/icons/people.svg",
-  },
-  {
-    title: "Reliable",
-    description: "A leader in the fintech space since 2007",
-    icon: "/icons/security-user.svg",
-  },
-  {
-    title: "Secured",
-    description: "Utilising best security practices for client money and assets safety",
-    icon: "/icons/lock-guard.png",
-  },
-  {
-    title: "Global",
-    description: "Providing services around the world",
-    icon: "/icons/global.svg",
-  },
-];
+const ICONS = ["/icons/people.svg", "/icons/security-user.svg", "/icons/lock-guard.png", "/icons/global.svg"];
 
 const logos = [
   { src: "/images/institutes/institution-1.png", alt: "J.P.Morgan" },
@@ -32,6 +14,14 @@ const logos = [
 ];
 
 export default function TrustSection() {
+  const t = useTranslations("trustSection");
+  const stats = [
+    { title: t("stat1Title"), description: t("stat1Desc"), icon: ICONS[0] },
+    { title: t("stat2Title"), description: t("stat2Desc"), icon: ICONS[1] },
+    { title: t("stat3Title"), description: t("stat3Desc"), icon: ICONS[2] },
+    { title: t("stat4Title"), description: t("stat4Desc"), icon: ICONS[3] },
+  ];
+
   return (
     <section className="w-full bg-[#eaf5f0]">
       <div className="max-w-[1440px] mx-auto">
@@ -39,7 +29,7 @@ export default function TrustSection() {
         {/* ── Centered heading ── */}
         <FadeUp className="text-center px-6 pt-14 pb-10 sm:pt-16 sm:pb-12 lg:pt-20 lg:pb-14 border-t border-[#cfe8dd]">
           <h2 className="text-[26px] sm:text-[38px] lg:text-[52px] font-extrabold text-[#0a0a0a] leading-tight">
-            Your funds are held in top-tier institutions
+            {t("heading")}
           </h2>
         </FadeUp>
 

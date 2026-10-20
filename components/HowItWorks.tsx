@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import { FadeUp } from "@/components/ScrollReveal";
 import Image from "next/image";
 
 /* ── Card 1: Choose Your Expert Trader ─────────────────────────── */
 function Card1() {
+  const t = useTranslations("howItWorks");
   return (
     <div className="w-full rounded-xl overflow-hidden bg-[#f0f0ec] border border-[#e5e5e0] flex flex-col items-center justify-center gap-2.5 px-4 py-4">
       {/* James Cole — top center */}
@@ -15,7 +17,7 @@ function Card1() {
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-[11px] font-bold text-[#001011] leading-none">James Cole</p>
-          <p className="text-[9.5px] text-[#888888] leading-none mt-0.5">Crypto Expert</p>
+          <p className="text-[9.5px] text-[#888888] leading-none mt-0.5">{t("cryptoExpert")}</p>
         </div>
         <TrendArrow />
       </div>
@@ -27,7 +29,7 @@ function Card1() {
           </div>
           <div className="min-w-0">
             <p className="text-[9.5px] font-bold text-[#001011] leading-none truncate">Romy Lane</p>
-            <p className="text-[8px] text-[#888888] leading-none mt-0.5">Strategist</p>
+            <p className="text-[8px] text-[#888888] leading-none mt-0.5">{t("strategist")}</p>
           </div>
           <TrendArrow />
         </div>
@@ -37,7 +39,7 @@ function Card1() {
           </div>
           <div className="min-w-0">
             <p className="text-[9.5px] font-bold text-[#001011] leading-none truncate">Speki K.</p>
-            <p className="text-[8px] text-[#888888] leading-none mt-0.5">Value investor</p>
+            <p className="text-[8px] text-[#888888] leading-none mt-0.5">{t("valueInvestor")}</p>
           </div>
           <TrendArrow />
         </div>
@@ -92,28 +94,30 @@ function RiskSlider({
 
 /* ── Card 2: Set Your Investment Level (interactive) ────────────── */
 function Card2() {
+  const t = useTranslations("howItWorks");
   const [highRisk, setHighRisk] = useState(42);
   const [lowRisk, setLowRisk] = useState(56);
 
   return (
     <div className="w-full rounded-xl overflow-hidden bg-[#f0f0ec] border border-[#e5e5e0] px-4 py-4 flex flex-col justify-center gap-3">
-      <RiskSlider label="High risk" value={highRisk} onChange={setHighRisk} />
+      <RiskSlider label={t("highRisk")} value={highRisk} onChange={setHighRisk} />
 
       {/* Cursor hint */}
       <div className="flex items-center gap-1.5">
         <svg width="14" height="16" viewBox="0 0 14 16" fill="none">
           <path d="M1 1l5 13 2.5-4.5L13 7.5 1 1z" fill="#001011" />
         </svg>
-        <span className="text-[9px] font-medium text-[#888888] border border-[#d8d8d2] px-2 py-0.5 rounded-sm bg-white">Drag to adjust</span>
+        <span className="text-[9px] font-medium text-[#888888] border border-[#d8d8d2] px-2 py-0.5 rounded-sm bg-white">{t("dragToAdjust")}</span>
       </div>
 
-      <RiskSlider label="Low risk" value={lowRisk} onChange={setLowRisk} />
+      <RiskSlider label={t("lowRisk")} value={lowRisk} onChange={setLowRisk} />
     </div>
   );
 }
 
 /* ── Card 3: Copy Trades Automatically ──────────────────────────── */
 function Card3() {
+  const t = useTranslations("howItWorks");
   return (
     <div className="w-full rounded-xl overflow-hidden bg-[#f0f0ec] border border-[#e5e5e0] px-4 py-4 flex flex-col gap-2.5">
       {/* Trader avatar — centered */}
@@ -129,24 +133,24 @@ function Card3() {
             <span className="text-[18px] font-bold text-[#001011] leading-none">24.96%</span>
             <TrendArrow />
           </div>
-          <span className="text-[9px] text-[#888888] mt-0.5 block">Profit (1M)</span>
+          <span className="text-[9px] text-[#888888] mt-0.5 block">{t("profit1M")}</span>
         </div>
         <div className="text-right">
           <div className="flex items-center justify-end gap-1">
             <span className="text-[18px] font-bold text-[#001011] leading-none">556</span>
             <TrendArrow />
           </div>
-          <span className="text-[9px] text-[#888888] mt-0.5 block">Copiers</span>
+          <span className="text-[9px] text-[#888888] mt-0.5 block">{t("copiers")}</span>
         </div>
       </div>
       {/* Risk level */}
       <div className="flex items-center justify-between">
-        <span className="text-[10px] font-medium text-[#001011]">Risk level:</span>
-        <span className="text-[9px] font-semibold px-2.5 py-1 rounded-full bg-[#fee2e2] text-[#dc2626]">Balanced Risk</span>
+        <span className="text-[10px] font-medium text-[#001011]">{t("riskLevel")}</span>
+        <span className="text-[9px] font-semibold px-2.5 py-1 rounded-full bg-[#fee2e2] text-[#dc2626]">{t("balancedRisk")}</span>
       </div>
       {/* Copy trader button */}
       <button className="w-full h-8 border border-[#e0e0da] bg-white text-[10px] font-bold text-[#001011] rounded-full">
-        Copy trader
+        {t("copyTrader")}
       </button>
     </div>
   );
@@ -154,24 +158,25 @@ function Card3() {
 
 /* ── Card 4: Track & Adjust Your Portfolio ───────────────────────── */
 function Card4() {
+  const t = useTranslations("howItWorks");
   return (
     <div className="w-full rounded-xl overflow-hidden bg-[#f0f0ec] border border-[#e5e5e0] px-4 py-4 flex flex-col gap-2.5">
       {/* Top stats row — faded */}
       <div className="flex items-start justify-between opacity-50">
         <div>
           <p className="text-[13px] font-bold text-[#001011] leading-none">120</p>
-          <p className="text-[8.5px] text-[#888888] mt-0.5">Available balance</p>
+          <p className="text-[8.5px] text-[#888888] mt-0.5">{t("availableBalance")}</p>
         </div>
         <div className="text-right">
           <p className="text-[13px] font-bold text-[#001011] leading-none">0.00</p>
-          <p className="text-[8.5px] text-[#888888] mt-0.5">Margin balance</p>
+          <p className="text-[8.5px] text-[#888888] mt-0.5">{t("marginBalance")}</p>
         </div>
       </div>
       {/* Inner white card */}
       <div className="bg-white rounded-lg border border-[#e5e5e0] px-3 py-2.5 flex items-center justify-between">
         <div>
           <p className="text-[15px] font-bold text-[#001011] leading-none">120.00</p>
-          <p className="text-[8.5px] text-[#888888] mt-0.5">Total equity (USDT)</p>
+          <p className="text-[8.5px] text-[#888888] mt-0.5">{t("totalEquity")}</p>
         </div>
         {/* Donut chart */}
         <svg width="36" height="36" viewBox="0 0 36 36">
@@ -203,31 +208,15 @@ function TrendArrow() {
   );
 }
 
-/* ── Main section ───────────────────────────────────────────────── */
-const steps = [
-  {
-    illustration: <Card1 />,
-    title: "Create Your Account",
-    description: "Browse a curated list of top traders with verified performance metrics.",
-  },
-  {
-    illustration: <Card2 />,
-    title: "Set Your Investment Amount",
-    description: "Choose how much you want to invest and set your risk management preferences.",
-  },
-  {
-    illustration: <Card3 />,
-    title: "Choose Strategy",
-    description: "Every trade your expert makes is mirrored in your account, in real time.",
-  },
-  {
-    illustration: <Card4 />,
-    title: "Track & Grow Your Profits",
-    description: "Monitor your investments in real-time and watch your portfolio grow automatically.",
-  },
-];
-
 export default function HowItWorks() {
+  const t = useTranslations("howItWorks");
+  const steps = [
+    { illustration: <Card1 />, title: t("step1Title"), description: t("step1Desc") },
+    { illustration: <Card2 />, title: t("step2Title"), description: t("step2Desc") },
+    { illustration: <Card3 />, title: t("step3Title"), description: t("step3Desc") },
+    { illustration: <Card4 />, title: t("step4Title"), description: t("step4Desc") },
+  ];
+
   return (
     <section id="how-it-works" className="w-full bg-[#eaf5f0]">
       <div className="max-w-[1440px] mx-auto">
@@ -235,11 +224,10 @@ export default function HowItWorks() {
         {/* ── Header — centered ── */}
         <FadeUp className="text-center px-6 pt-14 pb-12 sm:pt-16 sm:pb-14 lg:pt-20 lg:pb-16">
           <h2 className="text-[26px] sm:text-[38px] lg:text-[52px] font-extrabold text-[#001011] leading-tight">
-            How it works
+            {t("heading")}
           </h2>
           <p className="mt-4 text-[15px] sm:text-[16px] lg:text-[17px] leading-[1.7] text-[#666666] max-w-[580px] mx-auto">
-            Getting started with copy trading is simple. Follow these four easy steps
-            to begin your investment journey today.
+            {t("subtitle")}
           </p>
         </FadeUp>
 

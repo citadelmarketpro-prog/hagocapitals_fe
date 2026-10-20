@@ -51,11 +51,11 @@ function TypeIcon({ type }: { type: string }) {
 }
 
 const TYPE_BG: Record<string, string> = {
- trade: "bg-[#eaf5f0] text-[#06811d]",
- wallet: "bg-[#eaf5f0] text-[#06811d]",
- news: "bg-[#eef4fb] text-[#2563eb]",
- kyc: "bg-[#fef3c7] text-[#d97706]",
- system: "bg-[#f0f0ec] text-[#555555]",
+ trade: "bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#06811d]",
+ wallet: "bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#06811d]",
+ news: "bg-[#eef4fb] dark:bg-blue-500/10 text-[#2563eb]",
+ kyc: "bg-[#fef3c7] dark:bg-amber-500/10 text-[#d97706]",
+ system: "bg-[#f0f0ec] dark:bg-white/5 text-[#555555] dark:text-white/80",
 };
 
 export default function NotificationsPage() {
@@ -85,23 +85,23 @@ export default function NotificationsPage() {
  <>
  <DashNav />
 
- <main className="min-h-screen bg-[#f5f4ed] pb-20">
+ <main className="min-h-screen bg-[#f5f4ed] dark:bg-black pb-20">
  <div className="max-w-[720px] mx-auto px-4 pt-6">
 
  {/* Header */}
  <div className="flex items-center gap-3 mb-6">
  <button
  onClick={() => router.back()}
- className="w-8 h-8 rounded-full flex items-center justify-center bg-white border border-[#e5e5e5] hover:bg-[#f5f5f5] transition-colors"
+ className="w-8 h-8 rounded-full flex items-center justify-center bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark hover:bg-[#f5f5f5] dark:hover:bg-white/5 transition-colors"
  >
  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8"
- strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 text-[#555555]">
+ strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5 text-[#555555] dark:text-white/80">
  <path d="M9 2L4 7l5 5" />
  </svg>
  </button>
  <div className="flex-1">
- <h1 className="text-[18px] font-bold text-[#001011] leading-none">Notifications</h1>
- <p className="text-[12px] text-[#888888] mt-0.5">
+ <h1 className="text-[18px] font-bold text-[#001011] dark:text-white leading-none">Notifications</h1>
+ <p className="text-[12px] text-[#888888] dark:text-white/55 mt-0.5">
  {loading ? "Loading…" : `${unreadCount} unread`}
  </p>
  </div>
@@ -122,7 +122,7 @@ export default function NotificationsPage() {
  key={t}
  onClick={() => setTab(t)}
  className={`h-8 px-3.5 rounded-full text-[12.5px] font-semibold transition-colors ${
- tab === t ? "bg-[#06811d] text-white" : "bg-white border border-[#e5e5e5] text-[#555555] hover:bg-[#f5f5f5]"
+ tab === t ? "bg-[#06811d] text-white" : "bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[#555555] dark:text-white/80 hover:bg-[#f5f5f5] dark:hover:bg-white/5"
  }`}
  >
  {t === "all" ? "All" : "Unread"}
@@ -135,27 +135,27 @@ export default function NotificationsPage() {
  {loading ? (
  <div className="space-y-2.5">
  {[1, 2, 3, 4, 5].map((i) => (
- <div key={i} className="bg-white border border-[#e5e5e5] rounded-xl p-4 flex gap-3 animate-pulse">
- <div className="w-9 h-9 rounded-full bg-[#e5e3d5] shrink-0" />
+ <div key={i} className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl p-4 flex gap-3 animate-pulse">
+ <div className="w-9 h-9 rounded-full bg-[#e5e3d5] dark:bg-white/5 shrink-0" />
  <div className="flex-1 space-y-2">
- <div className="h-3.5 w-40 bg-[#e5e3d5] rounded" />
- <div className="h-3 w-64 bg-[#e5e3d5] rounded" />
+ <div className="h-3.5 w-40 bg-[#e5e3d5] dark:bg-white/5 rounded" />
+ <div className="h-3 w-64 bg-[#e5e3d5] dark:bg-white/5 rounded" />
  </div>
  </div>
  ))}
  </div>
  ) : visible.length === 0 ? (
- <div className="bg-white border border-[#e5e5e5] rounded-xl flex flex-col items-center justify-center py-16 text-center">
- <div className="w-14 h-14 rounded-full bg-[#f0f0ec] flex items-center justify-center mb-4 text-[#888888]">
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl flex flex-col items-center justify-center py-16 text-center">
+ <div className="w-14 h-14 rounded-full bg-[#f0f0ec] dark:bg-white/5 flex items-center justify-center mb-4 text-[#888888] dark:text-white/55">
  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
  <path d="M13.73 21a2 2 0 0 1-3.46 0" />
  </svg>
  </div>
- <p className="text-[15px] font-bold text-[#001011] mb-1">
+ <p className="text-[15px] font-bold text-[#001011] dark:text-white mb-1">
  {tab === "unread" ? "You're all caught up" : "No notifications yet"}
  </p>
- <p className="text-[13px] text-[#888888]">
+ <p className="text-[13px] text-[#888888] dark:text-white/55">
  {tab === "unread" ? "New notifications will show up here" : "We'll let you know when something happens"}
  </p>
  </div>
@@ -165,20 +165,20 @@ export default function NotificationsPage() {
  <div
  key={n.id}
  onClick={() => { if (!n.is_read) markOneRead(n.id); }}
- className={`flex gap-3 p-4 bg-white border rounded-xl transition-colors ${
- n.is_read ? "border-[#e5e5e5]" : "border-[#cfe8dd] bg-[#fbfef9]"
- } ${!n.is_read ? "cursor-pointer hover:bg-[#f7fbf5]" : ""}`}
+ className={`flex gap-3 p-4 bg-white dark:bg-[#0a0a0a] border rounded-xl transition-colors ${
+ n.is_read ? "border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark" : "border-[#cfe8dd] dark:border-[#06811d]/30 bg-[#fbfef9] dark:bg-white/5"
+ } ${!n.is_read ? "cursor-pointer hover:bg-[#f7fbf5] dark:hover:bg-white/5" : ""}`}
  >
  <div className={`w-9 h-9 rounded-full flex items-center justify-center shrink-0 ${TYPE_BG[n.notif_type] ?? TYPE_BG.system}`}>
  <TypeIcon type={n.notif_type} />
  </div>
  <div className="flex-1 min-w-0">
  <div className="flex items-start justify-between gap-3">
- <p className="text-[13.5px] font-bold text-[#001011] leading-snug">{n.title}</p>
+ <p className="text-[13.5px] font-bold text-[#001011] dark:text-white leading-snug">{n.title}</p>
  {!n.is_read && <span className="w-2 h-2 rounded-full bg-[#06811d] shrink-0 mt-1.5" />}
  </div>
- {n.body && <p className="text-[12.5px] text-[#666666] leading-snug mt-0.5">{n.body}</p>}
- <p className="text-[11px] text-[#aaaaaa] mt-1.5">{timeAgo(n.created_at)}</p>
+ {n.body && <p className="text-[12.5px] text-[#666666] dark:text-white/80 leading-snug mt-0.5">{n.body}</p>}
+ <p className="text-[11px] text-[#aaaaaa] dark:text-white/55 mt-1.5">{timeAgo(n.created_at)}</p>
  </div>
  </div>
  ))}

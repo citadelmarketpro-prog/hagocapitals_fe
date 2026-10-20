@@ -79,11 +79,11 @@ const notifFetcher = (url: string) => api.get<NotifResponse>(url);
 ════════════════════════════════════════════════════════════════ */
 
 function riskBadgeClass(risk: string) {
- if (risk === "High Risk") return "bg-[#fee2e2] text-[#dc2626]";
- if (risk === "Moderate Risk") return "bg-[#fef3c7] text-[#d97706]";
+ if (risk === "High Risk") return "bg-[#fee2e2] dark:bg-red-500/10 text-[#dc2626]";
+ if (risk === "Moderate Risk") return "bg-[#fef3c7] dark:bg-amber-500/10 text-[#d97706]";
  if (["Low Risk", "Balanced Risk", "Safe"].includes(risk))
- return "bg-[#dcfce7] text-[#16a34a]";
- return "bg-[#f0f0ec] text-[#555555]";
+ return "bg-[#dcfce7] dark:bg-green-500/10 text-[#16a34a]";
+ return "bg-[#f0f0ec] dark:bg-white/5 text-[#555555] dark:text-white/80";
 }
 
 function TraderAvatar({ trader, size = "sm" }: { trader: Trader; size?: "sm" | "md" | "lg" }) {
@@ -141,7 +141,7 @@ export default function TradersPage() {
  : mostCopied.filter((t) => t.market_category === CATEGORY_TO_KEY[activeCategory]);
 
  return (
- <div className="min-h-screen bg-white">
+ <div className="min-h-screen bg-white dark:bg-black">
  <DashNav />
 
  {/* Hero only shown when not searching */}
@@ -152,7 +152,7 @@ export default function TradersPage() {
  {/* Search bar */}
  <div className="py-5">
  <div className="relative">
- <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#aaaaaa] pointer-events-none">
+ <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#aaaaaa] dark:text-white/55 pointer-events-none">
  <SearchIcon />
  </div>
  <input
@@ -160,12 +160,12 @@ export default function TradersPage() {
  placeholder="Type to search traders..."
  value={search}
  onChange={(e) => setSearch(e.target.value)}
- className="w-full h-11 pl-10 pr-4 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-11 pl-10 pr-4 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white placeholder-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
  />
  {search && (
  <button
  onClick={() => setSearch("")}
- className="absolute right-3 top-1/2 -translate-y-1/2 text-[#aaaaaa] hover:text-[#001011] transition-colors"
+ className="absolute right-3 top-1/2 -translate-y-1/2 text-[#aaaaaa] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors"
  >
  <CloseIcon />
  </button>
@@ -174,7 +174,7 @@ export default function TradersPage() {
  </div>
 
  {/* ── Tabs ── */}
- <div className="flex gap-7 border-b border-[#e5e5e5] mb-6">
+ <div className="flex gap-7 border-b border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark mb-6">
  {([
  { key: "experts", label: "Top Experts" },
  { key: "howItWorks", label: "How It Works" },
@@ -183,7 +183,7 @@ export default function TradersPage() {
  key={key}
  onClick={() => setActiveTab(key)}
  className={`relative pb-3 text-[13px] font-semibold transition-colors ${
- activeTab === key ? "text-[#001011]" : "text-[#aaaaaa] hover:text-[#555555]"
+ activeTab === key ? "text-[#001011] dark:text-white" : "text-[#aaaaaa] dark:text-white/55 hover:text-[#555555] dark:hover:text-white/80"
  }`}
  >
  {label}
@@ -198,27 +198,27 @@ export default function TradersPage() {
  /* ── How It Works — FAQ ── */
  <div className="max-w-[720px] mx-auto pb-16">
  <div className="text-center mb-8">
- <h2 className="text-[20px] font-bold text-[#001011] mb-1.5">Frequently Asked Questions</h2>
- <p className="text-[13px] text-[#888888]">Everything you need to know about copy trading</p>
+ <h2 className="text-[20px] font-bold text-[#001011] dark:text-white mb-1.5">Frequently Asked Questions</h2>
+ <p className="text-[13px] text-[#888888] dark:text-white/55">Everything you need to know about copy trading</p>
  </div>
  <div className="space-y-2.5">
  {FAQS.map((faq, i) => (
- <div key={i} className="bg-white border border-[#e5e5e5] rounded-xl overflow-hidden">
+ <div key={i} className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl overflow-hidden">
  <button
  onClick={() => setOpenFaq(openFaq === i ? null : i)}
- className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-[#fafaf7] transition-colors"
+ className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left hover:bg-[#fafaf7] dark:hover:bg-white/5 transition-colors"
  >
- <span className="text-[13.5px] font-bold text-[#001011]">{faq.question}</span>
+ <span className="text-[13.5px] font-bold text-[#001011] dark:text-white">{faq.question}</span>
  <svg
  width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8"
  strokeLinecap="round" strokeLinejoin="round"
- className={`shrink-0 text-[#888888] transition-transform ${openFaq === i ? "rotate-180" : ""}`}
+ className={`shrink-0 text-[#888888] dark:text-white/55 transition-transform ${openFaq === i ? "rotate-180" : ""}`}
  >
  <polyline points="4,6 8,10 12,6" />
  </svg>
  </button>
  {openFaq === i && (
- <div className="px-5 pb-4 text-[13px] text-[#666666] leading-relaxed">
+ <div className="px-5 pb-4 text-[13px] text-[#666666] dark:text-white/80 leading-relaxed">
  {faq.answer}
  </div>
  )}
@@ -231,16 +231,16 @@ export default function TradersPage() {
  {/* ── Search results ── */}
  {isSearching && (
  <div className="pb-12">
- <h2 className="text-[18px] font-bold text-[#001011] mb-1">
+ <h2 className="text-[18px] font-bold text-[#001011] dark:text-white mb-1">
  Search results
  </h2>
- <p className="text-[12px] text-[#666666] mb-5">
+ <p className="text-[12px] text-[#666666] dark:text-white/80 mb-5">
  {searchResults === null
  ? "Searching…"
  : `${searchResults.length} trader${searchResults.length !== 1 ? "s" : ""} found for "${debouncedSearch}"`}
  </p>
  {searchResults !== null && searchResults.length === 0 && (
- <p className="text-[14px] text-[#888888] py-12 text-center">
+ <p className="text-[14px] text-[#888888] dark:text-white/55 py-12 text-center">
  No traders match your search.
  </p>
  )}
@@ -306,26 +306,26 @@ export default function TradersPage() {
 
 function SkeletonCard({ width = "min-w-[280px] max-w-[280px]" }: { width?: string }) {
  return (
- <div className={`${width} shrink-0 bg-white border border-[#e5e5e5] rounded-xl overflow-hidden animate-pulse`}>
+ <div className={`${width} shrink-0 bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl overflow-hidden animate-pulse`}>
  <div className="p-4 flex items-center gap-3">
- <div className="w-10 h-10 rounded-full bg-[#e5e5e5] shrink-0" />
+ <div className="w-10 h-10 rounded-full bg-[#e5e5e5] dark:bg-white/10 shrink-0" />
  <div className="flex-1 space-y-2">
- <div className="h-3.5 bg-[#e5e5e5] rounded w-3/4" />
- <div className="h-3 bg-[#e5e5e5] rounded w-1/2" />
+ <div className="h-3.5 bg-[#e5e5e5] dark:bg-white/10 rounded w-3/4" />
+ <div className="h-3 bg-[#e5e5e5] dark:bg-white/10 rounded w-1/2" />
  </div>
  </div>
- <div className="mx-4 mb-3 bg-[#f5f5ef] px-4 py-3 flex items-center justify-between">
+ <div className="mx-4 mb-3 bg-[#f5f5ef] dark:bg-white/5 px-4 py-3 flex items-center justify-between">
  <div className="space-y-1.5">
- <div className="h-4 bg-[#e5e5e5] rounded w-16" />
- <div className="h-3 bg-[#e5e5e5] rounded w-12" />
+ <div className="h-4 bg-[#e5e5e5] dark:bg-white/10 rounded w-16" />
+ <div className="h-3 bg-[#e5e5e5] dark:bg-white/10 rounded w-12" />
  </div>
  <div className="space-y-1.5">
- <div className="h-4 bg-[#e5e5e5] rounded w-12" />
- <div className="h-3 bg-[#e5e5e5] rounded w-10" />
+ <div className="h-4 bg-[#e5e5e5] dark:bg-white/10 rounded w-12" />
+ <div className="h-3 bg-[#e5e5e5] dark:bg-white/10 rounded w-10" />
  </div>
  </div>
  <div className="px-4 pb-4">
- <div className="h-10 bg-[#e5e5e5] rounded" />
+ <div className="h-10 bg-[#e5e5e5] dark:bg-white/10 rounded" />
  </div>
  </div>
  );
@@ -336,8 +336,8 @@ function SkeletonSection({ title }: { title: string }) {
  <section className="py-6">
  <div className="flex items-start justify-between gap-4 mb-4">
  <div className="space-y-2 animate-pulse">
- <div className="h-5 bg-[#e5e5e5] rounded w-48" />
- <div className="h-3 bg-[#e5e5e5] rounded w-72" />
+ <div className="h-5 bg-[#e5e5e5] dark:bg-white/10 rounded w-48" />
+ <div className="h-3 bg-[#e5e5e5] dark:bg-white/10 rounded w-72" />
  </div>
  </div>
  <div className="relative -mx-4 lg:-mx-6">
@@ -356,25 +356,25 @@ function TradersSkeleton() {
  <SkeletonSection title="Rising Stars" />
  <section className="py-6 animate-pulse">
  <div className="space-y-2 mb-5">
- <div className="h-5 bg-[#e5e5e5] rounded w-56" />
- <div className="h-3 bg-[#e5e5e5] rounded w-80" />
+ <div className="h-5 bg-[#e5e5e5] dark:bg-white/10 rounded w-56" />
+ <div className="h-3 bg-[#e5e5e5] dark:bg-white/10 rounded w-80" />
  </div>
  <div className="flex gap-2 mb-5">
  {[1, 2, 3, 4, 5].map((i) => (
- <div key={i} className="h-8 w-20 bg-[#e5e5e5] rounded-full shrink-0" />
+ <div key={i} className="h-8 w-20 bg-[#e5e5e5] dark:bg-white/10 rounded-full shrink-0" />
  ))}
  </div>
  <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8">
  {[1, 2, 3, 4, 5, 6].map((i) => (
- <div key={i} className="flex items-center gap-3 py-3 border-b border-[#f0f0ec]">
- <div className="w-16 h-12 bg-[#e5e5e5] rounded shrink-0" />
+ <div key={i} className="flex items-center gap-3 py-3 border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
+ <div className="w-16 h-12 bg-[#e5e5e5] dark:bg-white/10 rounded shrink-0" />
  <div className="flex-1 space-y-1.5">
- <div className="h-3.5 bg-[#e5e5e5] rounded w-3/4" />
- <div className="h-3 bg-[#e5e5e5] rounded w-1/2" />
+ <div className="h-3.5 bg-[#e5e5e5] dark:bg-white/10 rounded w-3/4" />
+ <div className="h-3 bg-[#e5e5e5] dark:bg-white/10 rounded w-1/2" />
  </div>
  <div className="space-y-1.5 shrink-0">
- <div className="h-3.5 bg-[#e5e5e5] rounded w-16" />
- <div className="h-3 bg-[#e5e5e5] rounded w-12" />
+ <div className="h-3.5 bg-[#e5e5e5] dark:bg-white/10 rounded w-16" />
+ <div className="h-3 bg-[#e5e5e5] dark:bg-white/10 rounded w-12" />
  </div>
  </div>
  ))}
@@ -442,12 +442,12 @@ function HeroBanner() {
 function SearchResultCard({ trader }: { trader: Trader }) {
  return (
  <Link href={`/traders/${trader.id}`}>
- <div className="bg-white border border-[#e5e5e5] rounded-xl p-4 flex flex-col gap-3 hover:border-[#06811d] transition-colors cursor-pointer h-full">
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl p-4 flex flex-col gap-3 hover:border-[#06811d] transition-colors cursor-pointer h-full">
  <div className="flex items-center gap-3">
  <TraderAvatar trader={trader} size="md" />
  <div className="min-w-0">
- <p className="text-[14px] font-bold text-[#001011] truncate">{trader.name}</p>
- <p className="text-[12px] text-[#888888] truncate">{trader.role}</p>
+ <p className="text-[14px] font-bold text-[#001011] dark:text-white truncate">{trader.name}</p>
+ <p className="text-[12px] text-[#888888] dark:text-white/55 truncate">{trader.role}</p>
  </div>
  </div>
  {trader.risk && (
@@ -457,18 +457,18 @@ function SearchResultCard({ trader }: { trader: Trader }) {
  )}
  <div className="flex items-center justify-between">
  <div>
- <p className="text-[15px] font-bold text-[#001011]">{trader.profit}</p>
- <p className="text-[11px] text-[#888888]">Profit (1M)</p>
+ <p className="text-[15px] font-bold text-[#001011] dark:text-white">{trader.profit}</p>
+ <p className="text-[11px] text-[#888888] dark:text-white/55">Profit (1M)</p>
  </div>
  <div className="text-right">
- <p className="text-[15px] font-bold text-[#001011]">{trader.copiers}</p>
- <p className="text-[11px] text-[#888888]">Copiers</p>
+ <p className="text-[15px] font-bold text-[#001011] dark:text-white">{trader.copiers}</p>
+ <p className="text-[11px] text-[#888888] dark:text-white/55">Copiers</p>
  </div>
  </div>
  {trader.tags.length > 0 && (
  <div className="flex flex-wrap gap-1.5">
  {trader.tags.slice(0, 3).map((tag) => (
- <span key={tag} className="px-2 py-0.5 text-[10px] font-medium border border-[#e5e5e5] text-[#555555]">
+ <span key={tag} className="px-2 py-0.5 text-[10px] font-medium border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[#555555] dark:text-white/80">
  {tag}
  </span>
  ))}
@@ -491,10 +491,10 @@ function CarouselSection({ title, subtitle, children }: { title: string; subtitl
  <section className="py-6">
  <div className="flex items-start justify-between gap-4 mb-4">
  <div>
- <h2 className="text-[20px] font-bold text-[#001011] leading-tight">{title}</h2>
- <p className="text-[12px] text-[#666666] mt-0.5">{subtitle}</p>
+ <h2 className="text-[20px] font-bold text-[#001011] dark:text-white leading-tight">{title}</h2>
+ <p className="text-[12px] text-[#666666] dark:text-white/80 mt-0.5">{subtitle}</p>
  </div>
- <Link href="#" className="flex items-center gap-1 text-[13px] text-[#555555] hover:text-[#001011] transition-colors whitespace-nowrap mt-0.5 shrink-0">
+ <Link href="#" className="flex items-center gap-1 text-[13px] text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors whitespace-nowrap mt-0.5 shrink-0">
  View all <ArrowRightIcon />
  </Link>
  </div>
@@ -503,10 +503,10 @@ function CarouselSection({ title, subtitle, children }: { title: string; subtitl
  <div ref={scrollRef} className="flex gap-4 overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden px-4 lg:px-6 pb-1">
  {children}
  </div>
- <button onClick={() => scroll(-1)} className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center rounded-full bg-white border border-[#e5e5e5] shadow text-[#555555] hover:text-[#001011] transition-colors z-10">
+ <button onClick={() => scroll(-1)} className="hidden lg:flex absolute left-0 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center rounded-full bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors z-10">
  <ChevronLeftIcon />
  </button>
- <button onClick={() => scroll(1)} className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center rounded-full bg-white border border-[#e5e5e5] shadow text-[#555555] hover:text-[#001011] transition-colors z-10">
+ <button onClick={() => scroll(1)} className="hidden lg:flex absolute right-0 top-1/2 -translate-y-1/2 w-8 h-8 items-center justify-center rounded-full bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors z-10">
  <ChevronRightIcon />
  </button>
  </div>
@@ -554,20 +554,20 @@ function TrendingCard({ trader }: { trader: Trader }) {
  ))}
  </div>
 
- <div className="relative z-10 mx-4 mb-4 bg-white flex items-center justify-between px-4 py-3">
+ <div className="relative z-10 mx-4 mb-4 bg-white dark:bg-[#0a0a0a] flex items-center justify-between px-4 py-3">
  <div>
  <div className="flex items-center gap-1">
- <span className="text-[16px] font-bold text-[#001011] leading-none">{trader.profit}</span>
+ <span className="text-[16px] font-bold text-[#001011] dark:text-white leading-none">{trader.profit}</span>
  <TrendingUp size={15} color="#22c55e" />
  </div>
- <span className="text-[11px] text-[#888888]">Profit (1M)</span>
+ <span className="text-[11px] text-[#888888] dark:text-white/55">Profit (1M)</span>
  </div>
  <div className="text-right">
  <div className="flex items-center justify-end gap-1">
- <span className="text-[16px] font-bold text-[#001011] leading-none">{trader.copiers}</span>
+ <span className="text-[16px] font-bold text-[#001011] dark:text-white leading-none">{trader.copiers}</span>
  <TrendingUp size={15} color="#22c55e" />
  </div>
- <span className="text-[11px] text-[#888888]">Copiers</span>
+ <span className="text-[11px] text-[#888888] dark:text-white/55">Copiers</span>
  </div>
  </div>
  </div>
@@ -582,37 +582,37 @@ function TrendingCard({ trader }: { trader: Trader }) {
 function RisingStarCard({ trader }: { trader: Trader }) {
  return (
  <Link href={`/traders/${trader.id}`} className="block">
- <div className="min-w-[300px] max-w-[300px] bg-white border border-[#e5e5e5] rounded-xl flex flex-col shrink-0 overflow-hidden hover:border-[#06811d] transition-colors">
+ <div className="min-w-[300px] max-w-[300px] bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl flex flex-col shrink-0 overflow-hidden hover:border-[#06811d] transition-colors">
 
  <div className="flex items-center gap-3 px-4 pt-4 pb-3">
- <div className="w-[52px] h-[52px] rounded-full bg-[#f0f0ec] flex items-center justify-center shrink-0">
+ <div className="w-[52px] h-[52px] rounded-full bg-[#f0f0ec] dark:bg-white/5 flex items-center justify-center shrink-0">
  <TraderAvatar trader={trader} size="sm" />
  </div>
  <div className="min-w-0">
- <p className="text-[15px] font-bold text-[#001011] leading-tight">{trader.name}</p>
- <p className="text-[12px] text-[#888888] leading-tight mt-0.5">{trader.role}</p>
+ <p className="text-[15px] font-bold text-[#001011] dark:text-white leading-tight">{trader.name}</p>
+ <p className="text-[12px] text-[#888888] dark:text-white/55 leading-tight mt-0.5">{trader.role}</p>
  </div>
  </div>
 
- <div className="mx-4 mb-3 bg-[#f5f5ef] px-4 py-3 flex items-center justify-between">
+ <div className="mx-4 mb-3 bg-[#f5f5ef] dark:bg-white/5 px-4 py-3 flex items-center justify-between">
  <div>
  <div className="flex items-center gap-1.5">
- <span className="text-[16px] font-bold text-[#001011] leading-none">{trader.profit}</span>
+ <span className="text-[16px] font-bold text-[#001011] dark:text-white leading-none">{trader.profit}</span>
  <TrendingUp size={18} color="#22c55e" />
  </div>
- <span className="text-[12px] text-[#888888] mt-1 block">Profit (500k)</span>
+ <span className="text-[12px] text-[#888888] dark:text-white/55 mt-1 block">Profit (500k)</span>
  </div>
  <div className="text-right">
  <div className="flex items-center justify-end gap-1.5">
- <span className="text-[16px] font-bold text-[#001011] leading-none">{trader.copiers}</span>
+ <span className="text-[16px] font-bold text-[#001011] dark:text-white leading-none">{trader.copiers}</span>
  <TrendingUp size={18} color="#22c55e" />
  </div>
- <span className="text-[12px] text-[#888888] mt-1 block">Copiers</span>
+ <span className="text-[12px] text-[#888888] dark:text-white/55 mt-1 block">Copiers</span>
  </div>
  </div>
 
  <div className="flex items-center justify-between px-4 mb-3">
- <span className="text-[13px] font-medium text-[#001011]">Risk level:</span>
+ <span className="text-[13px] font-medium text-[#001011] dark:text-white">Risk level:</span>
  {trader.risk && (
  <span className={`text-[12px] font-semibold px-3 py-1 rounded-full ${riskBadgeClass(trader.risk)}`}>
  {trader.risk}
@@ -621,7 +621,7 @@ function RisingStarCard({ trader }: { trader: Trader }) {
  </div>
 
  <div className="px-4 pb-4">
- <button className="w-full h-10 rounded-full border border-[#e5e5e5] text-[13px] font-bold text-[#001011] hover:bg-[#f8f8f5] transition-colors">
+ <button className="w-full h-10 rounded-full border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[13px] font-bold text-[#001011] dark:text-white hover:bg-[#f8f8f5] dark:hover:bg-white/5 transition-colors">
  Copy trader
  </button>
  </div>
@@ -646,10 +646,10 @@ function TopByCategory({ traders, active, onSelect }: {
  <section className="py-6">
  <div className="flex items-start justify-between gap-4 mb-1">
  <div>
- <h2 className="text-[20px] font-bold text-[#001011] leading-tight">Most copied by categories</h2>
- <p className="text-[12px] text-[#666666] mt-0.5">Explore traders that are copied the most based on our categories</p>
+ <h2 className="text-[20px] font-bold text-[#001011] dark:text-white leading-tight">Most copied by categories</h2>
+ <p className="text-[12px] text-[#666666] dark:text-white/80 mt-0.5">Explore traders that are copied the most based on our categories</p>
  </div>
- {/* <a href="/traders" className="shrink-0 flex items-center gap-1 text-[13px] font-medium text-[#001011] hover:opacity-70 transition-opacity mt-1 whitespace-nowrap">
+ {/* <a href="/traders" className="shrink-0 flex items-center gap-1 text-[13px] font-medium text-[#001011] dark:text-white hover:opacity-70 transition-opacity mt-1 whitespace-nowrap">
  View all
  <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><path d="M2.5 10.5L10.5 2.5M10.5 2.5H4.5M10.5 2.5V8.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
  </a> */}
@@ -661,7 +661,7 @@ function TopByCategory({ traders, active, onSelect }: {
  className={`h-8 px-4 text-[12px] font-medium whitespace-nowrap rounded-full transition-colors shrink-0 ${
  cat === active
  ? "bg-[#06811d] text-white"
- : "border border-[#e5e5e5] text-[#555555] hover:bg-[#f5f5f5]"
+ : "border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[#555555] dark:text-white/80 hover:bg-[#f5f5f5] dark:hover:bg-white/5"
  }`}
  >
  {cat} 
@@ -670,7 +670,7 @@ function TopByCategory({ traders, active, onSelect }: {
  </div>
 
  {traders.length === 0 ? (
- <p className="text-[13px] text-[#888888] text-center py-8">
+ <p className="text-[13px] text-[#888888] dark:text-white/55 text-center py-8">
  No traders in this category yet.
  </p>
  ) : (
@@ -686,19 +686,19 @@ function TopByCategory({ traders, active, onSelect }: {
 function TopTraderRow({ trader, rank }: { trader: Trader; rank: number }) {
  return (
  <Link href={`/traders/${trader.id}`} className="block">
- <div className="flex items-center gap-2 py-3 border-b border-[#f0f0ec] last:border-0 hover:bg-[#fafaf8] transition-colors">
+ <div className="flex items-center gap-2 py-3 border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark last:border-0 hover:bg-[#fafaf8] dark:hover:bg-white/5 transition-colors">
  <div className="relative shrink-0 flex items-center" style={{ width: 72, height: 52 }}>
- <span className="absolute left-0 bottom-0 text-[56px] font-black text-[#001011] leading-none select-none" style={{ lineHeight: 1 }}>
+ <span className="absolute left-0 bottom-0 text-[56px] font-black text-[#001011] dark:text-white leading-none select-none" style={{ lineHeight: 1 }}>
  {rank}
  </span>
- <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[38px] h-[38px] rounded-full p-[3px] bg-[#d0d0c8]">
+ <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[38px] h-[38px] rounded-full p-[3px] bg-[#d0d0c8] dark:bg-white/5">
  <TraderAvatar trader={trader} size="sm" />
  </div>
  </div>
 
  <div className="flex-1 min-w-0 ml-1">
- <p className="text-[13px] font-semibold text-[#001011] leading-tight truncate">{trader.name}</p>
- <p className="text-[11px] text-[#888888] truncate">{trader.role}</p>
+ <p className="text-[13px] font-semibold text-[#001011] dark:text-white leading-tight truncate">{trader.name}</p>
+ <p className="text-[11px] text-[#888888] dark:text-white/55 truncate">{trader.role}</p>
  </div>
 
  <div className="flex items-center gap-4 shrink-0">
@@ -707,14 +707,14 @@ function TopTraderRow({ trader, rank }: { trader: Trader; rank: number }) {
  <span className="text-[13px] font-semibold">{trader.profit}</span>
  <TrendingUp size={13} strokeWidth={2.2} />
  </div>
- <span className="text-[10px] text-[#aaaaaa]">Profit (1M)</span>
+ <span className="text-[10px] text-[#aaaaaa] dark:text-white/55">Profit (1M)</span>
  </div>
  <div className="text-right">
  <div className="flex items-center justify-end gap-0.5 text-[#16a34a]">
  <span className="text-[13px] font-semibold">{trader.copiers}</span>
  <TrendingUp size={13} strokeWidth={2.2} />
  </div>
- <span className="text-[10px] text-[#aaaaaa]">Copiers</span>
+ <span className="text-[10px] text-[#aaaaaa] dark:text-white/55">Copiers</span>
  </div>
  </div>
  </div>
@@ -752,35 +752,35 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  }
 
  return (
- <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[340px] bg-white border-b sm:border border-[#e5e5e5] shadow-xl z-50 max-h-[calc(100vh-56px)] sm:max-h-[480px] overflow-y-auto">
- <div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-white border-b border-[#f0f0ec]">
- <span className="text-[15px] font-bold text-[#001011]">Notifications</span>
+ <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[340px] bg-white dark:bg-[#0a0a0a] border-b sm:border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-xl z-50 max-h-[calc(100vh-56px)] sm:max-h-[480px] overflow-y-auto">
+ <div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-white dark:bg-[#0a0a0a] border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
+ <span className="text-[15px] font-bold text-[#001011] dark:text-white">Notifications</span>
  {unread > 0 && (
  <span className="w-5 h-5 rounded-full bg-[#22c55e] flex items-center justify-center text-[10px] font-bold text-white shrink-0">{unread}</span>
  )}
  {unread > 0 && (
- <button onClick={markAllRead} className="ml-auto text-[12px] text-[#555555] hover:text-[#001011] transition-colors whitespace-nowrap">
+ <button onClick={markAllRead} className="ml-auto text-[12px] text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors whitespace-nowrap">
  Mark all as read
  </button>
  )}
- <button onClick={onClose} className="w-6 h-6 rounded-full flex items-center justify-center bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors ml-auto shrink-0">
+ <button onClick={onClose} className="w-6 h-6 rounded-full flex items-center justify-center bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors ml-auto shrink-0">
  <CloseIcon />
  </button>
  </div>
  {loading ? (
- <div className="px-4 py-8 text-center text-[13px] text-[#aaaaaa]">Loading…</div>
+ <div className="px-4 py-8 text-center text-[13px] text-[#aaaaaa] dark:text-white/55">Loading…</div>
  ) : notifs.length === 0 ? (
- <div className="px-4 py-10 text-center text-[13px] text-[#aaaaaa]">No notifications yet</div>
+ <div className="px-4 py-10 text-center text-[13px] text-[#aaaaaa] dark:text-white/55">No notifications yet</div>
  ) : notifs.map((n) => (
  <div key={n.id} onClick={() => { if (!n.is_read) markOneRead(n.id); }}
- className="flex gap-3 px-4 py-3.5 border-b border-[#f5f5f0] hover:bg-[#fafaf7] transition-colors cursor-pointer">
- <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#22c55e]" : "bg-[#ebebea]"}`}>
+ className="flex gap-3 px-4 py-3.5 border-b border-[#f5f5f0] dark:border-transparent dark:shadow-card-dark hover:bg-[#fafaf7] dark:hover:bg-white/5 transition-colors cursor-pointer">
+ <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#22c55e]" : "bg-[#ebebea] dark:bg-white/5"}`}>
  <SyncIcon color={!n.is_read ? "white" : "#999999"} />
  </div>
  <div className="flex-1 min-w-0">
- <p className="text-[13px] font-semibold text-[#001011] leading-snug mb-0.5">{n.title}</p>
- {n.body && <p className="text-[12px] text-[#666666] leading-snug mb-1">{n.body}</p>}
- <p className="text-[11px] text-[#aaaaaa] text-right">{timeAgo(n.created_at)}</p>
+ <p className="text-[13px] font-semibold text-[#001011] dark:text-white leading-snug mb-0.5">{n.title}</p>
+ {n.body && <p className="text-[12px] text-[#666666] dark:text-white/80 leading-snug mb-1">{n.body}</p>}
+ <p className="text-[11px] text-[#aaaaaa] dark:text-white/55 text-right">{timeAgo(n.created_at)}</p>
  </div>
  {!n.is_read && <span className="w-2 h-2 rounded-full bg-[#22c55e] shrink-0 mt-1.5" />}
  </div>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { Stagger, StaggerItem, FadeUp, FadeIn } from "@/components/ScrollReveal";
 
 /* ─────────────────────────────────────────────────────────────────
@@ -13,6 +14,7 @@ import { Stagger, StaggerItem, FadeUp, FadeIn } from "@/components/ScrollReveal"
 const INTEGRATION_PLATFORMS = ["E-Trade", "WEBULL", "Think or Swim", "Schwab"];
 
 function IntegrationsBadge() {
+  const t = useTranslations("hero");
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
@@ -30,7 +32,7 @@ function IntegrationsBadge() {
   return (
     <div className="hero-badge inline-flex max-w-full items-center gap-2 px-3 py-1.5 sm:px-5 sm:h-[50px] rounded-full text-[10px] sm:text-[13px] font-medium text-white whitespace-nowrap overflow-hidden">
       <TrendUpIcon />
-      <span className="whitespace-nowrap">Integrates with:</span>
+      <span className="whitespace-nowrap">{t("integratesWith")}</span>
       <span
         className={`inline-block font-semibold transition-all duration-400 ${
           animating ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"
@@ -48,6 +50,7 @@ function IntegrationsBadge() {
    black rhythm; Stats bar right after it is the "white" beat.
 ──────────────────────────────────────────────────────────────────── */
 export default function Hero() {
+  const t = useTranslations("hero");
   return (
     <>
       {/* ════════════════════════════════════════════════════════
@@ -126,8 +129,8 @@ export default function Hero() {
                     filter: "drop-shadow(0 2px 18px rgba(0,0,0,0.45))",
                   }}
                 >
-                  <span className="block">Today&apos;s</span>
-                  <span className="block">opportunities.</span>
+                  <span className="block">{t("headlineLine1")}</span>
+                  <span className="block">{t("headlineLine2")}</span>
                   <span
                     className="block"
                     style={{
@@ -137,7 +140,7 @@ export default function Hero() {
                       backgroundClip: "text",
                     }}
                   >
-                    A stronger
+                    {t("headlineLine3")}
                   </span>
                   <span
                     className="block"
@@ -148,7 +151,7 @@ export default function Hero() {
                       backgroundClip: "text",
                     }}
                   >
-                    tomorrow.
+                    {t("headlineLine4")}
                   </span>
                 </h1>
               </StaggerItem>
@@ -159,7 +162,7 @@ export default function Hero() {
                   className="mt-2 sm:mt-5 lg:mt-6 w-full max-w-200 lg:max-w-[480px] break-words text-[13px] sm:text-[15px] lg:text-[17px] leading-[1.65] text-gray-200"
                   style={{ textShadow: "0 1px 12px rgba(0,0,0,0.55)" }}
                 >
-                  Mirror professional trading strategies and keep your capital working toward your long-term financial goals.
+                  {t("subtitle")}
                 </p>
               </StaggerItem>
 
@@ -172,13 +175,13 @@ export default function Hero() {
                   href="#how-it-works"
                   className="btn-fx btn-fx-primary w-full sm:w-auto inline-flex items-center justify-center gap-2 h-11 sm:h-[52px] px-8 text-[14px] sm:text-[15px] font-bold"
                 >
-                  Explore strategies <span aria-hidden>&rarr;</span>
+                  {t("ctaExplore")} <span aria-hidden>&rarr;</span>
                 </Link>
                 <Link
                   href="/sign-up"
                   className="btn-fx w-full sm:w-auto inline-flex items-center justify-center h-11 sm:h-[52px] border border-white/25 bg-white/10 backdrop-blur-sm text-white px-8 text-[14px] sm:text-[15px] font-medium hover:bg-white/15"
                 >
-                  Register
+                  {t("ctaRegister")}
                 </Link>
               </StaggerItem>
             </Stagger>
@@ -189,18 +192,18 @@ export default function Hero() {
             <div className="grid grid-cols-3 gap-3 sm:gap-8 lg:gap-16 max-w-[340px] sm:max-w-[680px] lg:max-w-[980px] mx-auto">
               <FeatureItem
                 icon={<RepeatIcon />}
-                title="Automatic trade mirroring"
-                description="Same entries and exits as the trader"
+                title={t("feature1Title")}
+                description={t("feature1Desc")}
               />
               <FeatureItem
                 icon={<SlidersIcon />}
-                title="Position sizing for your account"
-                description="Trades scale to your account balance"
+                title={t("feature2Title")}
+                description={t("feature2Desc")}
               />
               <FeatureItem
                 icon={<ShieldCheckIcon />}
-                title="Less day-to-day management"
-                description="Stay invested without watching every move"
+                title={t("feature3Title")}
+                description={t("feature3Desc")}
               />
             </div>
           </FadeUp>
@@ -218,8 +221,8 @@ export default function Hero() {
                 tint="green"
                 icon={<PeopleIcon />}
                 value="1.2M+"
-                label="Registered users"
-                caption="Trusted by investors worldwide"
+                label={t("statUsersLabel")}
+                caption={t("statUsersCaption")}
                 decoration={<PeopleDecoration />}
               />
             </StaggerItem>
@@ -228,8 +231,8 @@ export default function Hero() {
                 tint="blue"
                 icon={<BarChartUpIcon />}
                 value="90K+"
-                label="Active traders (monthly)"
-                caption="A growing trading community"
+                label={t("statTradersLabel")}
+                caption={t("statTradersCaption")}
                 decoration={<BarChartDecoration />}
               />
             </StaggerItem>
@@ -238,8 +241,8 @@ export default function Hero() {
                 tint="amber"
                 icon={<GlobeIcon />}
                 value="150+"
-                label="Markets available"
-                caption="Stocks, indices, commodities & more"
+                label={t("statMarketsLabel")}
+                caption={t("statMarketsCaption")}
                 decoration={<GlobeDecoration />}
               />
             </StaggerItem>
@@ -248,7 +251,7 @@ export default function Hero() {
           <FadeIn delay={0.15} className="flex items-center justify-center gap-4 sm:gap-6 mt-10 sm:mt-14">
             <span className="h-px w-10 sm:w-16 bg-[#e3e3e3]" />
             <span className="text-[10.5px] sm:text-[12px] tracking-[0.18em] text-[#999999] font-semibold uppercase whitespace-nowrap">
-              As of {new Date().getFullYear()} &middot; Verified broker data
+              {t("asOf", { year: new Date().getFullYear() })}
             </span>
             <span className="h-px w-10 sm:w-16 bg-[#e3e3e3]" />
           </FadeIn>

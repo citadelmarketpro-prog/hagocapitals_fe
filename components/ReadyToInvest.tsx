@@ -1,27 +1,18 @@
+"use client";
+
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { FadeUp, CARD_HOVER } from "@/components/ScrollReveal";
 
-const steps = [
-  {
-    title: "Create Your Account.",
-    description: "Join now to unlock options-focused copy trading.",
-    icon: "/icons/man.svg",
-  },
-  {
-    title: "Find Your Match",
-    description:
-      "Explore leaders known for success in options—contracts, spreads, tickers—you name it.",
-    icon: "/icons/crown.svg",
-  },
-  {
-    title: "Copy and grow",
-    description:
-      "Replicate trades, refine strategies, and learn—all while staying in control.",
-    icon: "/icons/chart.svg",
-  },
-];
-
 export default function ReadyToInvest() {
+  const t = useTranslations("readyToInvest");
+
+  const steps = [
+    { title: t("step1Title"), description: t("step1Desc"), icon: "/icons/man.svg" },
+    { title: t("step2Title"), description: t("step2Desc"), icon: "/icons/crown.svg" },
+    { title: t("step3Title"), description: t("step3Desc"), icon: "/icons/chart.svg" },
+  ];
+
   return (
     <section className="w-full bg-[#0a0a0a]">
       <div className="max-w-[1440px] mx-auto">
@@ -29,7 +20,7 @@ export default function ReadyToInvest() {
         {/* ── Centered heading ── */}
         <FadeUp className="text-center px-6 pt-14 pb-12 sm:pt-16 sm:pb-14 lg:pt-20 lg:pb-16 border-t border-white/10">
           <h2 className="text-[26px] sm:text-[38px] lg:text-[52px] font-extrabold text-white leading-tight">
-            Ready to Invest Smarter?
+            {t("heading")}
           </h2>
         </FadeUp>
 
@@ -63,7 +54,7 @@ export default function ReadyToInvest() {
             href="/sign-up"
             className="btn-fx btn-fx-primary inline-flex items-center gap-2 h-12 px-8 text-[14px] font-bold"
           >
-            Get started now →
+            {t("cta")}
           </Link>
         </FadeUp>
 

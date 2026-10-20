@@ -1,17 +1,18 @@
 ﻿"use client";
 
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReadyToInvest from "@/components/ReadyToInvest";
 import { FadeUp } from "@/components/ScrollReveal";
 
-const NAV_SECTIONS = [
-  { id: "risk-disclaimer", label: "Risk Disclaimer" },
-  { id: "full-disclaimer", label: "Full Disclaimer" },
-];
-
 export default function RiskDisclaimerPage() {
+  const t = useTranslations("riskDisclaimerPage");
+  const NAV_SECTIONS = [
+    { id: "risk-disclaimer", label: t("navRiskDisclaimer") },
+    { id: "full-disclaimer", label: t("navFullDisclaimer") },
+  ];
   const [activeId, setActiveId] = useState("risk-disclaimer");
   const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
@@ -108,25 +109,18 @@ export default function RiskDisclaimerPage() {
               ═══════════════════════════════════ */}
               <section id="risk-disclaimer" className="flex flex-col gap-5 scroll-mt-34 lg:scroll-mt-28">
         <FadeUp>
-                <SectionHeading>Risk Disclaimer</SectionHeading>
+                <SectionHeading>{t("riskHeading")}</SectionHeading>
 
                 <BodyText>
-                  HagoCapitals is a global financial service provider. HagoCapitals is a registered
-                  trademark of the group, that operates amongst various entities.
+                  {t("riskPara1")}
                 </BodyText>
 
                 <BodyText>
-                  The service provided by HagoCapitals is operated by the HagoCapitals Group of
-                  Companies and is regulated by SEC, SEC Number 0002090792. CN Global is regulated by FCA in
-                  the United Kingdom, Reference Number 573263. CN is regulated by CIRO, reference
-                  number 9290. The Company may extend its services to various regions, including the
-                  European Economic Area (&quot;EEA&quot;) countries.
+                  {t("riskPara2")}
                 </BodyText>
 
                 <WarningBox>
-                  Trading in financial instruments involves substantial risk and there is always the
-                  potential for loss. Your trading results may vary. Past performance is not
-                  indicative of future results.
+                  {t("riskWarning")}
                 </WarningBox>
               </FadeUp>
         </section>
@@ -136,46 +130,26 @@ export default function RiskDisclaimerPage() {
               ═══════════════════════════════════ */}
               <section id="full-disclaimer" className="flex flex-col gap-5 scroll-mt-34 lg:scroll-mt-28">
         <FadeUp>
-                <SectionHeading>Full Disclaimer</SectionHeading>
+                <SectionHeading>{t("fullHeading")}</SectionHeading>
 
                 <BodyText>
-                  Past performance displayed by Traders (Signal Providers) is not necessarily
-                  indicative of future outcomes. There is no guarantee that an account copying a
-                  Trader&apos;s options contracts will achieve profits or experience losses similar to the
-                  Trader&apos;s account.
+                  {t("fullPara1")}
                 </BodyText>
 
                 <BodyText>
-                  Options trading involves leverage, time decay, and volatility factors that can
-                  amplify both gains and losses. Even when copying trades, individual account
-                  performance may differ substantially from a Trader&apos;s results due to differences in
-                  execution speed, brokerage fees, market conditions, and account size.
+                  {t("fullPara2")}
                 </BodyText>
 
                 <BodyText>
-                  Performance results shown on this website may include historical or hypothetical
-                  data. Hypothetical results have inherent limitations and do not represent actual
-                  trading in live accounts. In particular, hypothetical performance does not account
-                  for factors such as slippage, margin requirements, assignment risk, or commissions,
-                  which can materially affect outcomes. Customers who choose to copy multiple Traders
-                  simultaneously may not be able to follow all signals due to insufficient funds or
-                  risk constraints. Accordingly, the performance of customer accounts may vary
-                  significantly.
+                  {t("fullPara3")}
                 </BodyText>
 
                 <BodyText>
-                  Copying options trades is not suitable for all investors. Options contracts carry a
-                  high level of risk and may not be appropriate for individuals who do not fully
-                  understand the nature of these instruments. You should carefully consider your
-                  investment objectives, level of experience, and risk tolerance before deciding to
-                  copy trades.
+                  {t("fullPara4")}
                 </BodyText>
 
                 <BodyText>
-                  We strongly recommend consulting with a licensed financial professional regarding
-                  the risks associated with options trading before participating. HagoCapitals does
-                  not provide personalized investment advice and makes no assurances regarding
-                  profitability or suitability of the strategies displayed.
+                  {t("fullPara5")}
                 </BodyText>
               </FadeUp>
         </section>

@@ -29,45 +29,27 @@ export const metadata: Metadata = {
 
 import Link from "next/link";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReadyToInvest from "@/components/ReadyToInvest";
 import { FadeUp } from "@/components/ScrollReveal";
 
-const FEATURES = [
-  {
-    title: "Follow Expert Traders",
-    body: "Browse verified Leaders ranked by performance, risk score, and trading style. Follow anyone whose strategy aligns with your goals.",
-  },
-  {
-    title: "Auto-Copy in Real Time",
-    body: "Every trade a Leader makes is instantly mirrored in your account, proportional to your investment — no manual intervention needed.",
-  },
-  {
-    title: "Full Control",
-    body: "Set stop-loss limits, adjust copy amounts, and pause or stop copying at any time. You stay in control of your capital.",
-  },
-  {
-    title: "Transparent Performance",
-    body: "Access full historical stats, drawdown data, win rates, and portfolio breakdowns for every Leader before you commit.",
-  },
-  {
-    title: "Diversify Across Leaders",
-    body: "Copy multiple Leaders simultaneously and spread risk across different instruments, markets, and trading styles.",
-  },
-  {
-    title: "No Trading Experience Needed",
-    body: "Copy trading lets anyone access the financial markets by leveraging the expertise of experienced, proven traders.",
-  },
-];
-
-const HOW_IT_WORKS = [
-  { num: "01", title: "Create Your Account", body: "Sign up in minutes, complete verification, and fund your account to get started." },
-  { num: "02", title: "Choose a Leader to Copy", body: "Filter Leaders by returns, risk level, assets traded, and more — then click Copy." },
-  { num: "03", title: "Sit Back & Grow", body: "Your portfolio mirrors the Leader's trades automatically. Track performance in real time." },
-];
-
-export default function CopyTradingPage() {
+export default async function CopyTradingPage() {
+  const t = await getTranslations("copyTradingPage");
+  const FEATURES = [
+    { title: t("feature1Title"), body: t("feature1Body") },
+    { title: t("feature2Title"), body: t("feature2Body") },
+    { title: t("feature3Title"), body: t("feature3Body") },
+    { title: t("feature4Title"), body: t("feature4Body") },
+    { title: t("feature5Title"), body: t("feature5Body") },
+    { title: t("feature6Title"), body: t("feature6Body") },
+  ];
+  const HOW_IT_WORKS = [
+    { num: "01", title: t("step1Title"), body: t("step1Body") },
+    { num: "02", title: t("step2Title"), body: t("step2Body") },
+    { num: "03", title: t("step3Title"), body: t("step3Body") },
+  ];
   return (
     <>
       <Navbar />
@@ -81,21 +63,20 @@ export default function CopyTradingPage() {
         </div>
         <div className="relative z-10 flex flex-col items-center text-center px-6 pt-20 lg:pt-[120px] pb-20 lg:pb-[120px]">
           <h1 className="font-bold leading-[1.08] text-[#001011] text-[42px] sm:text-[58px] lg:text-[76px] max-w-4xl">
-            Copy the World&apos;s Best
+            {t("heroTitleLine1")}
             <br />
-            <span className="text-[#06811d]">Traders</span>
+            <span className="text-[#06811d]">{t("heroTitleLine2")}</span>
           </h1>
           <p className="mt-6 max-w-xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-            HagoCapitals&apos;s copy trading lets you automatically replicate the moves of expert
-            Leaders — so you invest smarter without needing to trade yourself.
+            {t("heroSubtitle")}
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <Link href="/sign-up" className="inline-flex items-center gap-2 h-[50px] px-10 rounded-full text-[14px] font-bold hover:opacity-90 transition-opacity" style={{ backgroundColor: "#06811d", color: "#ffffff" }}>
-              Start copying
+              {t("heroCtaPrimary")}
               <Arrow />
             </Link>
             <Link href="/sign-up" className="inline-flex items-center gap-2 h-[50px] px-8 rounded-full text-[14px] font-semibold border border-[#d0d0d0] text-[#001011] hover:opacity-80 transition-opacity">
-              Browse Leaders
+              {t("heroCtaSecondary")}
             </Link>
           </div>
         </div>
@@ -107,7 +88,7 @@ export default function CopyTradingPage() {
         <FadeUp>
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] py-16 lg:py-24">
           <h2 className="text-center text-[28px] lg:text-[40px] font-bold text-[#001011] mb-14">
-            How Copy Trading Works
+            {t("howItWorksHeading")}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {HOW_IT_WORKS.map((s) => (
@@ -130,7 +111,7 @@ export default function CopyTradingPage() {
         <FadeUp>
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] py-16 lg:py-24">
           <h2 className="text-[28px] lg:text-[40px] font-bold text-[#001011] mb-12">
-            Everything you need to copy with confidence
+            {t("featuresHeading")}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 divide-y divide-x-0 sm:divide-x divide-[#e5e5e5] border border-[#e5e5e5] rounded-2xl overflow-hidden">
             {FEATURES.map((f, i) => (

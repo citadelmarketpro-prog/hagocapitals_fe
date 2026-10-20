@@ -29,12 +29,14 @@ export const metadata: Metadata = {
 
 import Link from "next/link";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReadyToInvest from "@/components/ReadyToInvest";
 import { FadeUp } from "@/components/ScrollReveal";
 
-export default function AutoGuardPage() {
+export default async function AutoGuardPage() {
+  const t = await getTranslations("autoguardPage");
   return (
     <>
       <Navbar />
@@ -76,9 +78,9 @@ export default function AutoGuardPage() {
         {/* Hero content */}
         <div className="relative z-10 flex flex-col items-center text-center px-6 pt-16 lg:pt-[100px] pb-16 lg:pb-[100px]">
           <h1 className="font-bold leading-[1.08] text-[#001011] text-[40px] sm:text-[56px] lg:text-[68px]">
-            Autoprotect your
+            {t("heroTitleLine1")}
             <br />
-            <span className="text-[#06811d]">account</span>
+            <span className="text-[#06811d]">{t("heroTitleLine2")}</span>
           </h1>
 
           <div className="mt-8 lg:mt-10">
@@ -87,7 +89,7 @@ export default function AutoGuardPage() {
               className="inline-flex items-center justify-center gap-2 h-[44px] px-8 rounded-full text-[14px] font-bold transition-opacity hover:opacity-90"
               style={{ backgroundColor: "#06811d", color: "#ffffff" }}
             >
-              Create account
+              {t("heroCta")}
               <ArrowRightIcon />
             </Link>
           </div>
@@ -110,19 +112,13 @@ export default function AutoGuardPage() {
               </div>
               <div className="flex flex-col gap-4">
                 <h2 className="text-[22px] lg:text-[26px] font-bold text-[#001011] leading-snug">
-                  Meet AutoGuard
+                  {t("meetTitle")}
                 </h2>
                 <p className="text-[14px] leading-[1.8] text-[#555555]">
-                  AutoGuard™ is an account protection feature that monitors each
-                  Trader&apos;s behavior and automatically removes a Trader when
-                  detecting a trading strategy has deviated from its expected
-                  loss profile.
+                  {t("meetPara1")}
                 </p>
                 <p className="text-[14px] leading-[1.8] text-[#555555]">
-                  AutoGuard™ Capital Protection is available for all investors,
-                  and it is mandatory for the users residing in the EU using the
-                  EU HagoCapitals platform as it creates a protection shield for
-                  your investment capital.
+                  {t("meetPara2")}
                 </p>
               </div>
             </div>
@@ -134,22 +130,18 @@ export default function AutoGuardPage() {
               </div>
               <div className="flex flex-col gap-4">
                 <h2 className="text-[22px] lg:text-[26px] font-bold text-[#001011] leading-snug">
-                  How does it work?
+                  {t("howTitle")}
                 </h2>
                 <p className="text-[14px] leading-[1.8] text-[#555555]">
-                  The AutoGuard™ automatically calculates a trading exit value
-                  for the trades opened in your account based on your specified
-                  capital protection amount. When your threshold is hit,
-                  AutoGuard™ will step in, it will close all open positions and
-                  disable the Leader instantly.
+                  {t("howPara1")}
                 </p>
                 <p className="text-[14px] leading-[1.8] text-[#555555]">
-                  For detailed information about AutoGuard, please consult the{" "}
+                  {t("howPara2Prefix")}{" "}
                   <a
                     href="#"
                     className="underline underline-offset-2 text-[#033F2D] hover:opacity-75 transition-opacity"
                   >
-                    autoguard guide
+                    {t("howPara2Link")}
                   </a>
                 </p>
               </div>

@@ -16,7 +16,7 @@ const notifFetcher = (url: string) => api.get<NotifResponse>(url);
 
 export default function MyPortfolioPage() {
  return (
- <div className="min-h-screen bg-[#eaeadf] flex flex-col">
+ <div className="min-h-screen bg-[#eaeadf] dark:bg-black flex flex-col">
  <DashNav />
  <main className="flex-1 flex flex-col">
 
@@ -24,7 +24,7 @@ export default function MyPortfolioPage() {
  <div className="px-4 lg:px-6 py-4">
  <Link
  href="/dashboard"
- className="inline-flex items-center gap-1.5 h-8 px-3 border border-[#c8c8bc] text-[13px] text-[#444444] hover:bg-[#d8d8cc] transition-colors"
+ className="inline-flex items-center gap-1.5 h-8 px-3 border border-[#c8c8bc] dark:border-transparent dark:shadow-card-dark text-[13px] text-[#444444] dark:text-white/80 hover:bg-[#d8d8cc] dark:hover:bg-white/5 transition-colors"
  >
  <BackArrowIcon />
  Back
@@ -35,17 +35,17 @@ export default function MyPortfolioPage() {
  <div className="flex-1 flex flex-col items-center justify-center px-4 pb-16">
 
  {/* Icon box */}
- <div className="w-[76px] h-[76px] flex items-center justify-center border-[1.5px] border-[#34d399] bg-white/60 mb-6" style={{ borderRadius: "14px" }}>
+ <div className="w-[76px] h-[76px] flex items-center justify-center border-[1.5px] border-[#34d399] bg-white/60 dark:bg-white/5 mb-6" style={{ borderRadius: "14px" }}>
  <LiveTradingChartIcon />
  </div>
 
  {/* Title */}
- <h1 className="text-[26px] sm:text-[28px] font-extrabold tracking-wide text-[#001011] mb-4 text-center">
+ <h1 className="text-[26px] sm:text-[28px] font-extrabold tracking-wide text-[#001011] dark:text-white mb-4 text-center">
  LIVE TRADING
  </h1>
 
  {/* Description */}
- <p className="text-[13px] text-[#555555] text-center leading-relaxed max-w-[400px]">
+ <p className="text-[13px] text-[#555555] dark:text-white/80 text-center leading-relaxed max-w-[400px]">
  Hello, live trading interface becomes available once your capital meets the required threshold. After approval,
  you&apos;ll be able to access live sessions to learn proper risk management and gain control over your assets.
  For details on the specific requirements, please reach out directly to the trader whose account you&apos;re copying.
@@ -87,35 +87,35 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  }
 
  return (
- <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[340px] bg-white border-b sm:border border-[#e5e5e5] shadow-xl z-50 max-h-[calc(100vh-56px)] sm:max-h-[480px] overflow-y-auto">
- <div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-white border-b border-[#f0f0ec]">
- <span className="text-[15px] font-bold text-[#001011]">Notifications</span>
+ <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[340px] bg-white dark:bg-[#0a0a0a] border-b sm:border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-xl z-50 max-h-[calc(100vh-56px)] sm:max-h-[480px] overflow-y-auto">
+ <div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-white dark:bg-[#0a0a0a] border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
+ <span className="text-[15px] font-bold text-[#001011] dark:text-white">Notifications</span>
  {unread > 0 && (
  <span className="w-5 h-5 rounded-full bg-[#22c55e] flex items-center justify-center text-[10px] font-bold text-white shrink-0">{unread}</span>
  )}
  {unread > 0 && (
- <button onClick={markAllRead} className="ml-auto text-[12px] text-[#555555] hover:text-[#001011] transition-colors whitespace-nowrap">
+ <button onClick={markAllRead} className="ml-auto text-[12px] text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors whitespace-nowrap">
  Mark all as read
  </button>
  )}
- <button onClick={onClose} className="w-6 h-6 rounded-full flex items-center justify-center bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors ml-auto shrink-0">
+ <button onClick={onClose} className="w-6 h-6 rounded-full flex items-center justify-center bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors ml-auto shrink-0">
  <CloseIcon />
  </button>
  </div>
  {loading ? (
- <div className="px-4 py-8 text-center text-[13px] text-[#aaaaaa]">Loading…</div>
+ <div className="px-4 py-8 text-center text-[13px] text-[#aaaaaa] dark:text-white/55">Loading…</div>
  ) : notifs.length === 0 ? (
- <div className="px-4 py-10 text-center text-[13px] text-[#aaaaaa]">No notifications yet</div>
+ <div className="px-4 py-10 text-center text-[13px] text-[#aaaaaa] dark:text-white/55">No notifications yet</div>
  ) : notifs.map((n) => (
  <div key={n.id} onClick={() => { if (!n.is_read) markOneRead(n.id); }}
- className="flex gap-3 px-4 py-3.5 border-b border-[#f5f5f0] hover:bg-[#fafaf7] transition-colors cursor-pointer">
- <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#22c55e]" : "bg-[#ebebea]"}`}>
+ className="flex gap-3 px-4 py-3.5 border-b border-[#f5f5f0] dark:border-transparent dark:shadow-card-dark hover:bg-[#fafaf7] dark:hover:bg-white/5 transition-colors cursor-pointer">
+ <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#22c55e]" : "bg-[#ebebea] dark:bg-white/5"}`}>
  <SyncIcon color={!n.is_read ? "white" : "#999999"} />
  </div>
  <div className="flex-1 min-w-0">
- <p className="text-[13px] font-semibold text-[#001011] leading-snug mb-0.5">{n.title}</p>
- {n.body && <p className="text-[12px] text-[#666666] leading-snug mb-1">{n.body}</p>}
- <p className="text-[11px] text-[#aaaaaa] text-right">{timeAgo(n.created_at)}</p>
+ <p className="text-[13px] font-semibold text-[#001011] dark:text-white leading-snug mb-0.5">{n.title}</p>
+ {n.body && <p className="text-[12px] text-[#666666] dark:text-white/80 leading-snug mb-1">{n.body}</p>}
+ <p className="text-[11px] text-[#aaaaaa] dark:text-white/55 text-right">{timeAgo(n.created_at)}</p>
  </div>
  {!n.is_read && <span className="w-2 h-2 rounded-full bg-[#22c55e] shrink-0 mt-1.5" />}
  </div>
@@ -136,20 +136,20 @@ function ProfileDropdown({
  onEditProfile: () => void;
 }) {
  return (
- <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[290px] bg-white border-b sm:border border-[#e5e5e5] shadow-xl z-50">
+ <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[290px] bg-white dark:bg-[#0a0a0a] border-b sm:border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-xl z-50">
 
  {/* User info row */}
- <div className="flex items-center gap-3 px-4 py-4 border-b border-[#f0f0ec]">
+ <div className="flex items-center gap-3 px-4 py-4 border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
  <div className="w-11 h-11 bg-[#c07858] flex items-center justify-center text-[14px] font-bold text-white shrink-0">
  AJ
  </div>
  <div className="flex-1 min-w-0">
- <p className="text-[14px] font-bold text-[#001011] leading-tight">Adisko James</p>
- <p className="text-[12px] text-[#888888] truncate">adiskojames@gmail.com</p>
+ <p className="text-[14px] font-bold text-[#001011] dark:text-white leading-tight">Adisko James</p>
+ <p className="text-[12px] text-[#888888] dark:text-white/55 truncate">adiskojames@gmail.com</p>
  </div>
  <button
  onClick={onEditProfile}
- className="flex items-center gap-1 text-[12px] text-[#555555] hover:text-[#001011] transition-colors shrink-0"
+ className="flex items-center gap-1 text-[12px] text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors shrink-0"
  >
  <PencilIcon />
  Edit profile
@@ -157,13 +157,13 @@ function ProfileDropdown({
  </div>
 
  {/* About */}
- <div className="bg-[#f5f5ef] border-b border-[#e5e5e5] px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#eeeee9] transition-colors">
- <span className="text-[13px] font-medium text-[#001011]">About HagoCapitals</span>
+ <div className="bg-[#f5f5ef] dark:bg-white/5 border-b border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#eeeee9] dark:hover:bg-white/5 transition-colors">
+ <span className="text-[13px] font-medium text-[#001011] dark:text-white">About HagoCapitals</span>
  <ExternalIcon />
  </div>
 
  {/* Logout */}
- <div className="px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#fafaf7] transition-colors">
+ <div className="px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#fafaf7] dark:hover:bg-white/5 transition-colors">
  <button className="text-[13px] font-medium text-[#ef4444]">Logout</button>
  <LogoutIcon />
  </div>
@@ -187,15 +187,15 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  onClick={onClose}
  >
  <div
- className="bg-white w-full max-w-[420px]"
+ className="bg-white dark:bg-[#0a0a0a] w-full max-w-[420px]"
  onClick={(e) => e.stopPropagation()}
  >
  <div className="px-6 py-7">
  <div className="flex items-center justify-between mb-6">
- <h2 className="text-[16px] font-bold text-[#001011]">Edit profile</h2>
+ <h2 className="text-[16px] font-bold text-[#001011] dark:text-white">Edit profile</h2>
  <button
  onClick={onClose}
- className="w-7 h-7 rounded-full flex items-center justify-center bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors"
+ className="w-7 h-7 rounded-full flex items-center justify-center bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors"
  >
  <CloseIcon />
  </button>
@@ -206,10 +206,10 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  AJ
  </div>
  <div className="flex items-center gap-2">
- <button className="h-8 px-4 rounded-full border border-[#ef4444] text-[12px] font-medium text-[#ef4444] hover:bg-[#fff5f5] transition-colors">
+ <button className="h-8 px-4 rounded-full border border-[#ef4444] text-[12px] font-medium text-[#ef4444] hover:bg-[#fff5f5] dark:hover:bg-red-500/10 transition-colors">
  Remove
  </button>
- <button className="h-8 px-4 rounded-full border border-[#d4d4d4] text-[12px] font-medium text-[#555555] hover:bg-[#f5f5f5] transition-colors">
+ <button className="h-8 px-4 rounded-full border border-[#d4d4d4] dark:border-transparent dark:shadow-card-dark text-[12px] font-medium text-[#555555] dark:text-white/80 hover:bg-[#f5f5f5] dark:hover:bg-white/5 transition-colors">
  Change
  </button>
  </div>
@@ -218,30 +218,30 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  <div className="flex flex-col gap-4">
  <div className="grid grid-cols-2 gap-3">
  <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">First name</label>
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">First name</label>
  <input
  value={firstName}
  onChange={(e) => setFirstName(e.target.value)}
- className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 px-3 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#06811d] transition-colors"
  />
  </div>
  <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">Last name</label>
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">Last name</label>
  <input
  value={lastName}
  onChange={(e) => setLastName(e.target.value)}
- className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 px-3 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#06811d] transition-colors"
  />
  </div>
  </div>
 
  <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">Choose username</label>
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">Choose username</label>
  <div className="relative">
  <input
  value={username}
  onChange={(e) => setUsername(e.target.value)}
- className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#06811d] transition-colors"
  />
  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#22c55e]">
  <GreenCheckCircleIcon />
@@ -250,12 +250,12 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  </div>
 
  <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">Email</label>
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">Email</label>
  <div className="relative">
  <input
  value={email}
  onChange={(e) => setEmail(e.target.value)}
- className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#06811d] transition-colors"
  />
  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#22c55e]">
  <GreenCheckCircleIcon />

@@ -54,13 +54,13 @@ function formatDate(iso: string) {
 function typeColor(type: TxType) {
  if (type === "Deposit") return "text-[#22c55e]";
  if (type === "Withdrawal") return "text-[#f87171]";
- return "text-[#a3a3a3]";
+ return "text-[#a3a3a3] dark:text-white/55";
 }
 
 function statusBadge(status: TxStatus) {
  if (status === "Completed") return "bg-[#14532d]/60 text-[#4ade80] ";
  if (status === "Pending") return "bg-[#78350f]/70 text-[#fbbf24] ";
- if (status === "Cancelled") return "bg-[#3f3f46]/60 text-[#a1a1aa] ";
+ if (status === "Cancelled") return "bg-[#3f3f46]/60 text-[#a1a1aa] dark:text-white/55 ";
  return "bg-[#7f1d1d]/60 text-[#f87171] ";
 }
 
@@ -122,37 +122,37 @@ export default function TransactionsPage() {
  }
 
  return (
- <div className="min-h-screen bg-[#f5f6f0]">
+ <div className="min-h-screen bg-[#f5f6f0] dark:bg-black">
  <DashNav />
 
  <div className="max-w-[1280px] mx-auto px-4 lg:px-6 py-8">
 
  {/* Page heading */}
- <h1 className="text-[26px] sm:text-[30px] font-bold text-[#001011] leading-tight mb-1">
+ <h1 className="text-[26px] sm:text-[30px] font-bold text-[#001011] dark:text-white leading-tight mb-1">
  Transactions
  </h1>
- <p className="text-[13px] text-[#666666] mb-6">
+ <p className="text-[13px] text-[#666666] dark:text-white/80 mb-6">
  View and manage your transaction history
  </p>
 
  {/* ── Filter bar ── */}
- <div className="bg-white border border-[#e5e5e5] p-5 mb-4">
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-5 mb-4">
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr_auto] gap-4 items-end">
 
  {/* Type */}
  <div className="flex flex-col gap-1.5">
- <label className="text-[12px] font-medium text-[#001011]">Type</label>
+ <label className="text-[12px] font-medium text-[#001011] dark:text-white">Type</label>
  <div className="relative">
  <select
  value={typeFilter}
  onChange={(e) => setTypeFilter(e.target.value)}
- className="w-full h-[42px] appearance-none border border-[#e5e5e5] bg-white pl-3 pr-8 text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors cursor-pointer"
+ className="w-full h-[42px] appearance-none border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] pl-3 pr-8 text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#06811d] transition-colors cursor-pointer"
  >
  {TYPE_OPTIONS.map((o) => (
  <option key={o.value} value={o.value}>{o.label}</option>
  ))}
  </select>
- <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#888888]">
+ <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#888888] dark:text-white/55">
  <ChevronDownIcon />
  </div>
  </div>
@@ -160,42 +160,42 @@ export default function TransactionsPage() {
 
  {/* Asset */}
  <div className="flex flex-col gap-1.5">
- <label className="text-[12px] font-medium text-[#001011]">Asset</label>
+ <label className="text-[12px] font-medium text-[#001011] dark:text-white">Asset</label>
  <input
  type="text"
  placeholder="e.g., BTC, ETH"
  value={assetFilter}
  onChange={(e) => setAssetFilter(e.target.value)}
- className="h-[42px] border border-[#e5e5e5] bg-white px-3 text-[13px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
+ className="h-[42px] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] px-3 text-[13px] text-[#001011] dark:text-white placeholder-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
  />
  </div>
 
  {/* Start Date */}
  <div className="flex flex-col gap-1.5">
- <label className="text-[12px] font-medium text-[#001011]">Start Date</label>
+ <label className="text-[12px] font-medium text-[#001011] dark:text-white">Start Date</label>
  <input
  type="date"
  value={startDate}
  onChange={(e) => setStartDate(e.target.value)}
- className="h-[42px] border border-[#e5e5e5] bg-white px-3 text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="h-[42px] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] px-3 text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#06811d] transition-colors"
  />
  </div>
 
  {/* End Date */}
  <div className="flex flex-col gap-1.5">
- <label className="text-[12px] font-medium text-[#001011]">End Date</label>
+ <label className="text-[12px] font-medium text-[#001011] dark:text-white">End Date</label>
  <input
  type="date"
  value={endDate}
  onChange={(e) => setEndDate(e.target.value)}
- className="h-[42px] border border-[#e5e5e5] bg-white px-3 text-[13px] text-[#001011] outline-none focus:border-[#06811d] transition-colors"
+ className="h-[42px] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] px-3 text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#06811d] transition-colors"
  />
  </div>
 
  {/* Clear Filters */}
  <button
  onClick={clearFilters}
- className="h-[42px] px-5 rounded-full border border-[#e5e5e5] text-[13px] font-medium text-[#001011] bg-white hover:bg-[#f5f5f5] transition-colors whitespace-nowrap"
+ className="h-[42px] px-5 rounded-full border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[13px] font-medium text-[#001011] dark:text-white bg-white dark:bg-[#0a0a0a] hover:bg-[#f5f5f5] dark:hover:bg-white/5 transition-colors whitespace-nowrap"
  >
  Clear Filters
  </button>
@@ -204,21 +204,21 @@ export default function TransactionsPage() {
 
  {/* ── Error ── */}
  {(error || cancelError) && (
- <div className="mb-4 px-4 py-3 text-[13px] text-[#dc2626] bg-[#fef2f2] border border-[#fecaca]">
+ <div className="mb-4 px-4 py-3 text-[13px] text-[#dc2626] bg-[#fef2f2] dark:bg-red-500/10 border border-[#fecaca] dark:border-red-500/30">
  {error || cancelError}
  </div>
  )}
 
  {/* ── Table card ── */}
- <div className="bg-white border border-[#e5e5e5]">
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark">
  <div className="overflow-x-auto">
  <table className="w-full min-w-[780px]">
  <thead>
- <tr className="border-b border-[#f0f0ec]">
+ <tr className="border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
  {["Date", "Type", "Asset", "Units", "Amount (USD)", "Status", "Transaction ID", "Action"].map((h) => (
  <th
  key={h}
- className="text-left px-5 py-4 text-[13px] font-semibold text-[#001011] whitespace-nowrap"
+ className="text-left px-5 py-4 text-[13px] font-semibold text-[#001011] dark:text-white whitespace-nowrap"
  >
  {h}
  </th>
@@ -228,22 +228,22 @@ export default function TransactionsPage() {
  <tbody>
  {loading ? (
  <tr>
- <td colSpan={8} className="px-5 py-10 text-center text-[13px] text-[#888888]">
+ <td colSpan={8} className="px-5 py-10 text-center text-[13px] text-[#888888] dark:text-white/55">
  Loading…
  </td>
  </tr>
  ) : transactions.length === 0 ? (
  <tr>
- <td colSpan={8} className="px-5 py-10 text-center text-[13px] text-[#888888]">
+ <td colSpan={8} className="px-5 py-10 text-center text-[13px] text-[#888888] dark:text-white/55">
  No transactions match your filters.
  </td>
  </tr>
  ) : (
  transactions.map((tx) => (
  <Fragment key={tx.id}>
- <tr className="border-b border-[#f5f5f0] last:border-0 hover:bg-[#fafaf8] transition-colors">
+ <tr className="border-b border-[#f5f5f0] dark:border-transparent dark:shadow-card-dark last:border-0 hover:bg-[#fafaf8] dark:hover:bg-white/5 transition-colors">
  {/* Date */}
- <td className="px-5 py-4 text-[13px] text-[#555555] whitespace-nowrap">
+ <td className="px-5 py-4 text-[13px] text-[#555555] dark:text-white/80 whitespace-nowrap">
  {formatDate(tx.date)}
  </td>
  {/* Type */}
@@ -254,15 +254,15 @@ export default function TransactionsPage() {
  <td className="px-5 py-4">
  <div className="flex items-center gap-2">
  <AssetIcon asset={tx.asset} />
- <span className="text-[13px] font-semibold text-[#001011]">{tx.asset}</span>
+ <span className="text-[13px] font-semibold text-[#001011] dark:text-white">{tx.asset}</span>
  </div>
  </td>
  {/* Units */}
- <td className="px-5 py-4 text-[13px] text-[#001011] font-mono whitespace-nowrap">
+ <td className="px-5 py-4 text-[13px] text-[#001011] dark:text-white font-mono whitespace-nowrap">
  {tx.units}
  </td>
  {/* Amount USD */}
- <td className="px-5 py-4 text-[13px] text-[#001011] whitespace-nowrap">
+ <td className="px-5 py-4 text-[13px] text-[#001011] dark:text-white whitespace-nowrap">
  {tx.amount_usd}
  </td>
  {/* Status */}
@@ -272,7 +272,7 @@ export default function TransactionsPage() {
  </span>
  </td>
  {/* Transaction ID */}
- <td className="px-5 py-4 text-[12px] text-[#888888] font-mono max-w-[180px] truncate">
+ <td className="px-5 py-4 text-[12px] text-[#888888] dark:text-white/55 font-mono max-w-[180px] truncate">
  {tx.tx_id}
  </td>
  {/* Action */}
@@ -280,18 +280,18 @@ export default function TransactionsPage() {
  {tx.tx_type === "Withdrawal" && tx.status === "Pending" ? (
  <button
  onClick={() => setConfirmCancelId(tx.id)}
- className="h-8 px-3 rounded-full border border-[#fecaca] text-[12px] font-medium text-[#dc2626] bg-white hover:bg-[#fef2f2] transition-colors"
+ className="h-8 px-3 rounded-full border border-[#fecaca] dark:border-red-500/30 text-[12px] font-medium text-[#dc2626] bg-white dark:bg-[#0a0a0a] hover:bg-[#fef2f2] dark:hover:bg-red-500/10 transition-colors"
  >
  Cancel
  </button>
  ) : (
- <span className="text-[12px] text-[#cccccc]">—</span>
+ <span className="text-[12px] text-[#cccccc] dark:text-white/35">—</span>
  )}
  </td>
  </tr>
  {confirmCancelId === tx.id && (
- <tr className="border-b border-[#f5f5f0]">
- <td colSpan={8} className="px-5 py-3 bg-[#fef2f2]">
+ <tr className="border-b border-[#f5f5f0] dark:border-transparent dark:shadow-card-dark">
+ <td colSpan={8} className="px-5 py-3 bg-[#fef2f2] dark:bg-red-500/10">
  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
  <p className="text-[13px] text-[#7f1d1d]">
  Cancel this {tx.amount_usd} withdrawal? The amount will be refunded to your account.
@@ -307,7 +307,7 @@ export default function TransactionsPage() {
  <button
  onClick={() => setConfirmCancelId(null)}
  disabled={cancelling === tx.id}
- className="h-8 px-4 rounded-full border border-[#e5e5e5] text-[12px] font-medium text-[#001011] bg-white hover:bg-[#f5f5f5] transition-colors"
+ className="h-8 px-4 rounded-full border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[12px] font-medium text-[#001011] dark:text-white bg-white dark:bg-[#0a0a0a] hover:bg-[#f5f5f5] dark:hover:bg-white/5 transition-colors"
  >
  Keep it
  </button>
@@ -324,26 +324,26 @@ export default function TransactionsPage() {
  </div>
 
  {/* Pagination */}
- <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-5 py-4 border-t border-[#f0f0ec]">
- <span className="text-[12px] text-[#888888]">
+ <div className="flex flex-col sm:flex-row items-center justify-between gap-3 px-5 py-4 border-t border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
+ <span className="text-[12px] text-[#888888] dark:text-white/55">
  {total} transaction{total !== 1 ? "s" : ""}
  </span>
  <div className="flex items-center gap-2">
  <button
  onClick={() => setPage((p) => Math.max(1, p - 1))}
  disabled={page === 1 || loading}
- className="flex items-center gap-1.5 h-9 px-3 sm:px-4 rounded-full border border-[#e5e5e5] text-[13px] text-[#001011] bg-white hover:bg-[#f5f5f5] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+ className="flex items-center gap-1.5 h-9 px-3 sm:px-4 rounded-full border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[13px] text-[#001011] dark:text-white bg-white dark:bg-[#0a0a0a] hover:bg-[#f5f5f5] dark:hover:bg-white/5 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
  >
  <ChevronLeftIcon />
  <span className="hidden sm:inline">Previous</span>
  </button>
- <span className="text-[12px] sm:text-[13px] text-[#555555] px-1 whitespace-nowrap">
+ <span className="text-[12px] sm:text-[13px] text-[#555555] dark:text-white/80 px-1 whitespace-nowrap">
  {page} / {totalPages}
  </span>
  <button
  onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
  disabled={page === totalPages || loading}
- className="flex items-center gap-1.5 h-9 px-3 sm:px-4 rounded-full border border-[#e5e5e5] text-[13px] text-[#001011] bg-white hover:bg-[#f5f5f5] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+ className="flex items-center gap-1.5 h-9 px-3 sm:px-4 rounded-full border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[13px] text-[#001011] dark:text-white bg-white dark:bg-[#0a0a0a] hover:bg-[#f5f5f5] dark:hover:bg-white/5 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
  >
  <span className="hidden sm:inline">Next</span>
  <ChevronRightIcon />

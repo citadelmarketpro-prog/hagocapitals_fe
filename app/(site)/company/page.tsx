@@ -28,26 +28,26 @@ export const metadata: Metadata = {
 };
 
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReadyToInvest from "@/components/ReadyToInvest";
 import { FadeUp } from "@/components/ScrollReveal";
 
-const STATS = [
-  { value: "7+",   label: "Years in operation" },
-  { value: "118+", label: "Expert Leaders" },
-  { value: "10M+", label: "Trades copied" },
-  { value: "1.2M+",  label: "Registered users" },
-];
-
-const VALUES = [
-  { title: "Transparency",  body: "We believe every investor deserves full visibility into the strategies they follow. Our platform surfaces every trade, stat, and risk metric openly." },
-  { title: "Trust",         body: "We are licensed and regulated in multiple jurisdictions. Compliance and security are at the heart of everything we build." },
-  { title: "Innovation",    body: "From AutoGuard™ to Smart Portfolio, we constantly invest in tools that give our users a genuine edge in the markets." },
-  { title: "Community",     body: "HagoCapitals is built on the idea that the crowd, when properly curated, is smarter than any single investor. We foster a global community of collaborative trading." },
-];
-
-export default function CompanyPage() {
+export default async function CompanyPage() {
+  const t = await getTranslations("companyPage");
+  const STATS = [
+    { value: "7+", label: t("stat1Label") },
+    { value: "118+", label: t("stat2Label") },
+    { value: "10M+", label: t("stat3Label") },
+    { value: "1.2M+", label: t("stat4Label") },
+  ];
+  const VALUES = [
+    { title: t("value1Title"), body: t("value1Body") },
+    { title: t("value2Title"), body: t("value2Body") },
+    { title: t("value3Title"), body: t("value3Body") },
+    { title: t("value4Title"), body: t("value4Body") },
+  ];
   return (
     <>
       <Navbar />
@@ -61,13 +61,12 @@ export default function CompanyPage() {
         </div>
         <div className="relative z-10 flex flex-col items-center text-center px-6 pt-20 lg:pt-[120px] pb-20 lg:pb-[120px]">
           <h1 className="font-bold leading-[1.08] text-[#001011] text-[42px] sm:text-[58px] lg:text-[76px] max-w-4xl">
-            About
+            {t("heroTitleLine1")}
             <br />
-            <span className="text-[#06811d]">HagoCapitals</span>
+            <span className="text-[#06811d]">{t("heroTitleLine2")}</span>
           </h1>
           <p className="mt-6 max-w-2xl text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-            HagoCapitals is a leading social copy-trading platform built to make professional
-            investing accessible to everyone — regardless of experience or background.
+            {t("heroSubtitle")}
           </p>
         </div>
       </FadeUp>
@@ -95,24 +94,17 @@ export default function CompanyPage() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] py-16 lg:py-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
             <h2 className="text-[32px] lg:text-[44px] font-bold leading-[1.1] text-[#001011]">
-              Our Mission
+              {t("missionTitle")}
             </h2>
             <div className="flex flex-col gap-5">
               <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-                Founded with the vision of democratising access to the financial markets,
-                HagoCapitals has grown into one of the world&apos;s most trusted social trading
-                platforms. We developed our copy-trading technology from the ground up, so we
-                know everything about building and optimising social trading networks.
+                {t("missionPara1")}
               </p>
               <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-                Our mission is simple: give every person on the planet the ability to invest
-                alongside the best traders in the world, with full transparency and appropriate
-                risk controls in place.
+                {t("missionPara2")}
               </p>
               <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#444444]">
-                We are authorised and regulated in Cyprus, the United Kingdom, the United States,
-                Australia, and the UAE — and we continue to expand our regulatory footprint to
-                serve more users globally.
+                {t("missionPara3")}
               </p>
             </div>
           </div>
@@ -156,7 +148,7 @@ export default function CompanyPage() {
       <section className="w-full bg-[#eaf5f0] border-y border-[#cfe8dd]">
         <FadeUp>
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] py-16 lg:py-24">
-          <h2 className="text-[28px] lg:text-[40px] font-bold text-[#001011] mb-12">Our Values</h2>
+          <h2 className="text-[28px] lg:text-[40px] font-bold text-[#001011] mb-12">{t("valuesHeading")}</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 divide-y divide-[#cfe8dd] border border-[#cfe8dd] rounded-2xl overflow-hidden">
             {VALUES.map((v, i) => (
               <div key={i} className={`p-8 lg:p-10 flex flex-col gap-3 bg-white ${i % 2 === 0 ? "sm:border-r border-[#cfe8dd]" : ""}`}>

@@ -2,32 +2,17 @@
 
 import { useState } from "react";
 import { m, AnimatePresence } from "framer-motion";
+import { useTranslations } from "next-intl";
 import { FadeUp } from "@/components/ScrollReveal";
 
-const faqs = [
-  {
-    question: "Do I need trading experience?",
-    answer:
-      "No, copy trading is designed for all experience levels. You simply select a trader to follow and HagoCapitals automatically mirrors their trades in your account—no prior market knowledge required.",
-  },
-  {
-    question: "Can I stop copying anytime?",
-    answer:
-      "Yes. You can pause or stop copying any trader instantly from your dashboard. Any open positions can be kept, modified, or closed at your own discretion.",
-  },
-  {
-    question: "Is my money safe?",
-    answer:
-      "Your funds always remain in your own linked brokerage account. HagoCapitals never holds or has direct access to your capital—we only execute trade signals on your behalf.",
-  },
-  {
-    question: "What is the minimum investment?",
-    answer:
-      "You can start with as little as $100, though we recommend $500+ for better diversification across multiple traders and strategies.",
-  },
-];
-
 export default function FAQSection() {
+  const t = useTranslations("faqSection");
+  const faqs = [
+    { question: t("q1Question"), answer: t("q1Answer") },
+    { question: t("q2Question"), answer: t("q2Answer") },
+    { question: t("q3Question"), answer: t("q3Answer") },
+    { question: t("q4Question"), answer: t("q4Answer") },
+  ];
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (i: number) =>
@@ -40,11 +25,10 @@ export default function FAQSection() {
         {/* ── Centered header ── */}
         <FadeUp className="text-center px-6 pt-14 pb-12 sm:pt-16 sm:pb-14 lg:pt-20 lg:pb-16 border-t border-[#e8ead8]">
           <h2 className="text-[26px] sm:text-[38px] lg:text-[52px] font-extrabold text-[#0a0a0a] leading-tight mb-4">
-            Your Questions, answered
+            {t("heading")}
           </h2>
           <p className="text-[14px] sm:text-[15px] lg:text-[16px] text-[#888888] leading-[1.7] max-w-[480px] mx-auto">
-            Got questions about how copy trading works? We&apos;ve compiled answers to
-            the most frequently asked questions.
+            {t("subtitle")}
           </p>
         </FadeUp>
 

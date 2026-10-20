@@ -2,7 +2,9 @@ import { getRequestConfig } from "next-intl/server";
 import { cookies } from "next/headers";
 import { defaultLocale, locales, type Locale } from "./routing";
 
-type Messages = Record<string, Record<string, string | Record<string, string>>>;
+type MessageValue = string | { [key: string]: MessageValue };
+type Namespace = { [key: string]: MessageValue };
+type Messages = Record<string, Namespace>;
 
 function mergeMessages(base: Messages, override: Messages): Messages {
   const result: Messages = { ...base };

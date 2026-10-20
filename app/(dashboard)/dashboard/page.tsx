@@ -56,7 +56,7 @@ const notifFetcher = (url: string) => api.get<NotifResponse>(url);
 
 function Sk({ className }: { className?: string }) {
  return (
- <div className={`animate-pulse rounded bg-[#e0dfd4] ${className ?? ""}`} />
+ <div className={`animate-pulse rounded bg-[#e0dfd4] dark:bg-white/5 ${className ?? ""}`} />
  );
 }
 
@@ -88,8 +88,7 @@ export default function DashboardPage() {
 
  return (
  <div
- className="min-h-screen flex flex-col"
- style={{ background: "radial-gradient(circle at 30% 0%, #eef6f1 0%, #e4edf3 45%, #dfe7ef 100%)" }}
+ className="min-h-screen flex flex-col bg-[radial-gradient(circle_at_30%_0%,_#eef6f1_0%,_#e4edf3_45%,_#dfe7ef_100%)] dark:bg-none dark:bg-black"
  >
  <DashNav />
  <main className="flex-1 px-4 py-4 lg:px-6 lg:py-5">
@@ -97,10 +96,10 @@ export default function DashboardPage() {
 
  {/* ── Greeting ── */}
  <div>
- <h1 className="text-[20px] font-bold text-[#001011] leading-tight">
+ <h1 className="text-[20px] font-bold text-[#001011] dark:text-white leading-tight">
  {getGreeting()}, {firstName}
  </h1>
- <p className="text-[13px] text-[#888888] mt-0.5">
+ <p className="text-[13px] text-[#888888] dark:text-white/55 mt-0.5">
  Here&apos;s an overview of your portfolio and trading activity
  </p>
  </div>
@@ -166,35 +165,35 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  }
 
  return (
- <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[340px] bg-white border-b sm:border border-[#e5e5e5] shadow-xl z-50 max-h-[calc(100vh-56px)] sm:max-h-[480px] overflow-y-auto">
- <div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-white border-b border-[#f0f0ec]">
- <span className="text-[15px] font-bold text-[#001011]">Notifications</span>
+ <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[340px] bg-white dark:bg-[#0a0a0a] border-b sm:border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-xl z-50 max-h-[calc(100vh-56px)] sm:max-h-[480px] overflow-y-auto">
+ <div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-white dark:bg-[#0a0a0a] border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
+ <span className="text-[15px] font-bold text-[#001011] dark:text-white">Notifications</span>
  {unread > 0 && (
  <span className="w-5 h-5 rounded-full bg-[#16a34a] flex items-center justify-center text-[10px] font-bold text-white shrink-0">{unread}</span>
  )}
  {unread > 0 && (
- <button onClick={markAllRead} className="ml-auto text-[12px] text-[#555555] hover:text-[#001011] transition-colors whitespace-nowrap">
+ <button onClick={markAllRead} className="ml-auto text-[12px] text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors whitespace-nowrap">
  Mark all as read
  </button>
  )}
- <button onClick={onClose} className="w-6 h-6 rounded-full flex items-center justify-center bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors ml-auto shrink-0">
+ <button onClick={onClose} className="w-6 h-6 rounded-full flex items-center justify-center bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors ml-auto shrink-0">
  <CloseIcon />
  </button>
  </div>
  {loading ? (
- <div className="px-4 py-8 text-center text-[13px] text-[#aaaaaa]">Loading…</div>
+ <div className="px-4 py-8 text-center text-[13px] text-[#aaaaaa] dark:text-white/55">Loading…</div>
  ) : notifs.length === 0 ? (
- <div className="px-4 py-10 text-center text-[13px] text-[#aaaaaa]">No notifications yet</div>
+ <div className="px-4 py-10 text-center text-[13px] text-[#aaaaaa] dark:text-white/55">No notifications yet</div>
  ) : notifs.map((n) => (
  <div key={n.id} onClick={() => { if (!n.is_read) markOneRead(n.id); }}
- className="flex gap-3 px-4 py-3.5 border-b border-[#f5f5f0] hover:bg-[#fafaf7] transition-colors cursor-pointer">
- <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#16a34a]" : "bg-[#ebebea]"}`}>
+ className="flex gap-3 px-4 py-3.5 border-b border-[#f5f5f0] dark:border-transparent dark:shadow-card-dark hover:bg-[#fafaf7] dark:hover:bg-white/5 transition-colors cursor-pointer">
+ <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#16a34a]" : "bg-[#ebebea] dark:bg-white/5"}`}>
  <SyncIcon color={!n.is_read ? "white" : "#999999"} />
  </div>
  <div className="flex-1 min-w-0">
- <p className="text-[13px] font-semibold text-[#001011] leading-snug mb-0.5">{n.title}</p>
- {n.body && <p className="text-[12px] text-[#666666] leading-snug mb-1">{n.body}</p>}
- <p className="text-[11px] text-[#aaaaaa] text-right">{timeAgo(n.created_at)}</p>
+ <p className="text-[13px] font-semibold text-[#001011] dark:text-white leading-snug mb-0.5">{n.title}</p>
+ {n.body && <p className="text-[12px] text-[#666666] dark:text-white/80 leading-snug mb-1">{n.body}</p>}
+ <p className="text-[11px] text-[#aaaaaa] dark:text-white/55 text-right">{timeAgo(n.created_at)}</p>
  </div>
  {!n.is_read && <span className="w-2 h-2 rounded-full bg-[#16a34a] shrink-0 mt-1.5" />}
  </div>
@@ -215,20 +214,20 @@ function ProfileDropdown({
  onEditProfile: () => void;
 }) {
  return (
- <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[290px] bg-white border-b sm:border border-[#e5e5e5] shadow-xl z-50">
+ <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[290px] bg-white dark:bg-[#0a0a0a] border-b sm:border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-xl z-50">
 
  {/* User info row */}
- <div className="flex items-center gap-3 px-4 py-4 border-b border-[#f0f0ec]">
+ <div className="flex items-center gap-3 px-4 py-4 border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
  <div className="w-11 h-11 bg-[#c07858] flex items-center justify-center text-[14px] font-bold text-white shrink-0">
  AJ
  </div>
  <div className="flex-1 min-w-0">
- <p className="text-[14px] font-bold text-[#001011] leading-tight">Adisko James</p>
- <p className="text-[12px] text-[#888888] truncate">adiskojames@gmail.com</p>
+ <p className="text-[14px] font-bold text-[#001011] dark:text-white leading-tight">Adisko James</p>
+ <p className="text-[12px] text-[#888888] dark:text-white/55 truncate">adiskojames@gmail.com</p>
  </div>
  <button
  onClick={onEditProfile}
- className="flex items-center gap-1 text-[12px] text-[#555555] hover:text-[#001011] transition-colors shrink-0"
+ className="flex items-center gap-1 text-[12px] text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors shrink-0"
  >
  <PencilIcon />
  Edit profile
@@ -236,13 +235,13 @@ function ProfileDropdown({
  </div>
 
  {/* About */}
- <div className="bg-[#f5f5ef] border-b border-[#e5e5e5] px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#eeeee9] transition-colors">
- <span className="text-[13px] font-medium text-[#001011]">About HagoCapitals</span>
+ <div className="bg-[#f5f5ef] dark:bg-white/5 border-b border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#eeeee9] dark:hover:bg-white/5 transition-colors">
+ <span className="text-[13px] font-medium text-[#001011] dark:text-white">About HagoCapitals</span>
  <ExternalIcon />
  </div>
 
  {/* Logout */}
- <div className="px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#fafaf7] transition-colors">
+ <div className="px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#fafaf7] dark:hover:bg-white/5 transition-colors">
  <button className="text-[13px] font-medium text-[#ef4444]">Logout</button>
  <LogoutIcon />
  </div>
@@ -266,17 +265,17 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  onClick={onClose}
  >
  <div
- className="bg-white w-full max-w-[420px]"
+ className="bg-white dark:bg-[#0a0a0a] w-full max-w-[420px]"
  onClick={(e) => e.stopPropagation()}
  >
  <div className="px-6 py-7">
 
  {/* Header */}
  <div className="flex items-center justify-between mb-6">
- <h2 className="text-[16px] font-bold text-[#001011]">Edit profile</h2>
+ <h2 className="text-[16px] font-bold text-[#001011] dark:text-white">Edit profile</h2>
  <button
  onClick={onClose}
- className="w-7 h-7 rounded-full flex items-center justify-center bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors"
+ className="w-7 h-7 rounded-full flex items-center justify-center bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors"
  >
  <CloseIcon />
  </button>
@@ -288,10 +287,10 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  AJ
  </div>
  <div className="flex items-center gap-2">
- <button className="h-8 px-4 rounded-full border border-[#ef4444] text-[12px] font-medium text-[#ef4444] hover:bg-[#fff5f5] transition-colors">
+ <button className="h-8 px-4 rounded-full border border-[#ef4444] text-[12px] font-medium text-[#ef4444] hover:bg-[#fff5f5] dark:hover:bg-red-500/10 transition-colors">
  Remove
  </button>
- <button className="h-8 px-4 rounded-full border border-[#d4d4d4] text-[12px] font-medium text-[#555555] hover:bg-[#f5f5f5] transition-colors">
+ <button className="h-8 px-4 rounded-full border border-[#d4d4d4] dark:border-transparent dark:shadow-card-dark text-[12px] font-medium text-[#555555] dark:text-white/80 hover:bg-[#f5f5f5] dark:hover:bg-white/5 transition-colors">
  Change
  </button>
  </div>
@@ -303,37 +302,37 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
  {/* First + Last name — side by side */}
  <div className="grid grid-cols-2 gap-3">
  <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">
  First name
  </label>
  <input
  value={firstName}
  onChange={(e) => setFirstName(e.target.value)}
- className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
+ className="w-full h-10 px-3 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#16a34a] transition-colors"
  />
  </div>
  <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">
  Last name
  </label>
  <input
  value={lastName}
  onChange={(e) => setLastName(e.target.value)}
- className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
+ className="w-full h-10 px-3 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#16a34a] transition-colors"
  />
  </div>
  </div>
 
  {/* Username */}
  <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">
  Choose username
  </label>
  <div className="relative">
  <input
  value={username}
  onChange={(e) => setUsername(e.target.value)}
- className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
+ className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#16a34a] transition-colors"
  />
  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#16a34a]">
  <GreenCheckCircleIcon />
@@ -343,14 +342,14 @@ function EditProfileModal({ onClose }: { onClose: () => void }) {
 
  {/* Email */}
  <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">
  Email
  </label>
  <div className="relative">
  <input
  value={email}
  onChange={(e) => setEmail(e.target.value)}
- className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
+ className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#16a34a] transition-colors"
  />
  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#16a34a]">
  <GreenCheckCircleIcon />
@@ -461,7 +460,7 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  return (
  <>
  <div
- className="overflow-hidden rounded-xl bg-white/55 border border-white/90 backdrop-blur-2xl"
+ className="overflow-hidden rounded-xl bg-white/55 dark:bg-white/5 border border-white/90 dark:border-transparent dark:shadow-card-dark backdrop-blur-2xl"
  style={{ boxShadow: "0 8px 32px rgba(31,41,55,0.08), inset 0 1px 0 rgba(255,255,255,0.6)" }}
  >
 
@@ -483,7 +482,7 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  </div>
 
  {/* ── Balance label ── */}
- <div className="text-[11px] font-semibold uppercase tracking-[0.7px] text-[#888888] mb-1.5">
+ <div className="text-[11px] font-semibold uppercase tracking-[0.7px] text-[#888888] dark:text-white/55 mb-1.5">
  Total Balance
  </div>
 
@@ -503,7 +502,7 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  <div className="flex-1 min-w-0">
  {/* Amount */}
  <div className="flex items-baseline gap-2 flex-wrap mb-1">
- <span className="text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#001011] leading-none">
+ <span className="text-[28px] sm:text-[34px] lg:text-[40px] font-bold text-[#001011] dark:text-white leading-none">
  ${portfolio}
  </span>
  <span className={`text-[13px] font-semibold flex items-center gap-0.5 ${pctColor}`}>
@@ -523,7 +522,7 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  <span className="text-[13px] font-bold" style={{ color: todayColor }}>
  ${fmt(Math.abs(todayPnl))}
  </span>
- <span className="text-[11px] font-semibold text-[#888888]">
+ <span className="text-[11px] font-semibold text-[#888888] dark:text-white/55">
  {todayUp ? "+" : ""}{todayPnlPct.toFixed(2)}% today
  </span>
  </div>
@@ -551,7 +550,7 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  </div>
 
 {/* ── 4-button action grid ── */}
- <div className="grid grid-cols-4 gap-2 px-4 pb-5 pt-4 border-t border-black/[0.06]">
+ <div className="grid grid-cols-4 gap-2 px-4 pb-5 pt-4 border-t border-black/[0.06] dark:border-white/[0.06]">
 
  {/* Deposit — primary */}
  <button
@@ -569,7 +568,7 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  {/* Withdraw */}
  <button
  onClick={() => setModal("withdraw")}
- className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-black/[0.04]"
+ className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-black/[0.04] dark:bg-white/[0.04]"
  >
  <div className="w-7 h-7 rounded-[9px] flex items-center justify-center bg-[rgba(22,163,74,0.12)]">
  <svg viewBox="0 0 14 14" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" className="w-3.5 h-3.5">
@@ -582,7 +581,7 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  {/* Transfer */}
  <button
  onClick={() => setModal("transfer")}
- className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-black/[0.04]"
+ className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-black/[0.04] dark:bg-white/[0.04]"
  >
  <div className="w-7 h-7 rounded-[9px] flex items-center justify-center bg-[rgba(22,163,74,0.12)]">
  <svg viewBox="0 0 14 14" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" className="w-3.5 h-3.5">
@@ -595,7 +594,7 @@ function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  {/* History */}
  <button
  onClick={() => router.push("/trade-history")}
- className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-black/[0.04]"
+ className="flex flex-col items-center gap-1.5 rounded-[14px] p-3 transition-all hover:-translate-y-0.5 active:scale-95 bg-black/[0.04] dark:bg-white/[0.04]"
  >
  <div className="w-7 h-7 rounded-[9px] flex items-center justify-center bg-[rgba(22,163,74,0.12)]">
  <svg viewBox="0 0 14 14" fill="none" stroke="#16a34a" strokeWidth="2" strokeLinecap="round" className="w-3.5 h-3.5">
@@ -632,11 +631,11 @@ function PortfolioTargetBar() {
 
  return (
  <div
- className="rounded-xl px-5 py-4 bg-white/55 border border-white/90 backdrop-blur-2xl"
+ className="rounded-xl px-5 py-4 bg-white/55 dark:bg-white/5 border border-white/90 dark:border-transparent dark:shadow-card-dark backdrop-blur-2xl"
  style={{ boxShadow: "0 8px 32px rgba(31,41,55,0.08), inset 0 1px 0 rgba(255,255,255,0.6)" }}
  >
  <div className="flex items-center justify-between mb-2">
- <span className="text-[11px] font-semibold uppercase tracking-[0.7px] text-[#888888]">
+ <span className="text-[11px] font-semibold uppercase tracking-[0.7px] text-[#888888] dark:text-white/55">
  Portfolio Target
  </span>
  <span className="text-[11px] font-bold text-[#16a34a]">
@@ -650,7 +649,7 @@ function PortfolioTargetBar() {
  />
  </div>
  <div className="flex items-center justify-end mt-1.5">
- <span className="text-[10px] font-semibold text-[#888888]">
+ <span className="text-[10px] font-semibold text-[#888888] dark:text-white/55">
  {pct.toFixed(1)}%
  </span>
  </div>
@@ -661,8 +660,8 @@ function PortfolioTargetBar() {
 function StatBox({ label, value }: { label: string; value: string }) {
  return (
  <div className="flex flex-col gap-0.5 min-w-0">
- <span className="text-[11px] text-[#888888] whitespace-nowrap">{label}</span>
- <span className="text-[14px] font-bold text-[#001011] whitespace-nowrap">{value}</span>
+ <span className="text-[11px] text-[#888888] dark:text-white/55 whitespace-nowrap">{label}</span>
+ <span className="text-[14px] font-bold text-[#001011] dark:text-white whitespace-nowrap">{value}</span>
  </div>
  );
 }
@@ -714,24 +713,24 @@ function TransferModal({ onClose }: { onClose: () => void }) {
  onClick={onClose}
  >
  <div
- className="bg-white w-full max-w-[340px] rounded-2xl overflow-hidden"
+ className="bg-white dark:bg-[#0a0a0a] w-full max-w-[340px] rounded-2xl overflow-hidden"
  onClick={(e) => e.stopPropagation()}
  >
  {success ? (
  <div className="px-6 py-7 flex flex-col items-center text-center">
- <div className="w-14 h-14 bg-[#eaf5f0] flex items-center justify-center mb-4">
+ <div className="w-14 h-14 bg-[#eaf5f0] dark:bg-[#06811d]/10 flex items-center justify-center mb-4">
  <BigCheckIcon />
  </div>
- <h2 className="text-[16px] font-bold text-[#001011] mb-2">Transfer successful</h2>
- <p className="text-[12px] text-[#888888] mb-1">
- Balance: <span className="font-semibold text-[#001011]">${fmt(balance)}</span>
+ <h2 className="text-[16px] font-bold text-[#001011] dark:text-white mb-2">Transfer successful</h2>
+ <p className="text-[12px] text-[#888888] dark:text-white/55 mb-1">
+ Balance: <span className="font-semibold text-[#001011] dark:text-white">${fmt(balance)}</span>
  </p>
- <p className="text-[12px] text-[#888888] mb-6">
- Profit: <span className="font-semibold text-[#001011]">${fmt(profit)}</span>
+ <p className="text-[12px] text-[#888888] dark:text-white/55 mb-6">
+ Profit: <span className="font-semibold text-[#001011] dark:text-white">${fmt(profit)}</span>
  </p>
  <button
  onClick={onClose}
- className="w-full h-10 rounded-full text-[13px] font-medium text-[#001011] border border-[#e5e5e5] bg-white hover:bg-[#f8f8f8] transition-colors"
+ className="w-full h-10 rounded-full text-[13px] font-medium text-[#001011] dark:text-white border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] hover:bg-[#f8f8f8] dark:hover:bg-white/5 transition-colors"
  >
  Done
  </button>
@@ -740,10 +739,10 @@ function TransferModal({ onClose }: { onClose: () => void }) {
  <>
  {/* Header */}
  <div className="flex items-center justify-between px-6 pt-6 pb-4">
- <h2 className="text-[16px] font-bold text-[#001011]">Transfer funds</h2>
+ <h2 className="text-[16px] font-bold text-[#001011] dark:text-white">Transfer funds</h2>
  <button
  onClick={onClose}
- className="w-7 h-7 rounded-full flex items-center justify-center bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors"
+ className="w-7 h-7 rounded-full flex items-center justify-center bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors"
  >
  <CloseIcon />
  </button>
@@ -759,11 +758,11 @@ function TransferModal({ onClose }: { onClose: () => void }) {
  <>
  {/* From / To pools */}
  <div className="flex flex-col gap-2">
- <div className="flex items-center justify-between px-4 py-3 bg-[#f5f5ef]">
+ <div className="flex items-center justify-between px-4 py-3 bg-[#f5f5ef] dark:bg-white/5">
  <div>
- <p className="text-[10px] font-semibold uppercase tracking-wider text-[#888888] mb-0.5">From</p>
- <p className="text-[13px] font-bold text-[#001011]">{fromLabel}</p>
- <p className="text-[11px] text-[#888888]">Available: ${fmt(fromValue)}</p>
+ <p className="text-[10px] font-semibold uppercase tracking-wider text-[#888888] dark:text-white/55 mb-0.5">From</p>
+ <p className="text-[13px] font-bold text-[#001011] dark:text-white">{fromLabel}</p>
+ <p className="text-[11px] text-[#888888] dark:text-white/55">Available: ${fmt(fromValue)}</p>
  </div>
  </div>
 
@@ -771,16 +770,16 @@ function TransferModal({ onClose }: { onClose: () => void }) {
  <div className="flex justify-center -my-2 relative z-10">
  <button
  onClick={() => { setDirection((p) => p === "balance_to_profit" ? "profit_to_balance" : "balance_to_profit"); setAmount(""); }}
- className="w-10 h-10 rounded-full bg-white border-2 border-gray-200 flex items-center justify-center hover:border-green-500 hover:bg-green-50 transition-all shadow-sm"
+ className="w-10 h-10 rounded-full bg-white dark:bg-[#0a0a0a] border-2 border-gray-200 flex items-center justify-center hover:border-green-500 hover:bg-green-50 transition-all shadow-sm"
  >
  <ArrowDownUp className="w-4 h-4 text-gray-600" />
  </button>
  </div>
 
- <div className="flex items-center justify-between px-4 py-3 bg-[#f5f5ef]">
+ <div className="flex items-center justify-between px-4 py-3 bg-[#f5f5ef] dark:bg-white/5">
  <div>
- <p className="text-[10px] font-semibold uppercase tracking-wider text-[#888888] mb-0.5">To</p>
- <p className="text-[13px] font-bold text-[#001011]">{toLabel}</p>
+ <p className="text-[10px] font-semibold uppercase tracking-wider text-[#888888] dark:text-white/55 mb-0.5">To</p>
+ <p className="text-[13px] font-bold text-[#001011] dark:text-white">{toLabel}</p>
  </div>
  </div>
  </div>
@@ -796,7 +795,7 @@ function TransferModal({ onClose }: { onClose: () => void }) {
  const v = e.target.value;
  if (v === "" || /^\d*\.?\d{0,2}$/.test(v)) setAmount(v);
  }}
- className="text-[44px] font-bold text-[#aaaaaa] bg-transparent border-none outline-none text-center w-full placeholder:text-[#aaaaaa]"
+ className="text-[44px] font-bold text-[#aaaaaa] dark:text-white/55 bg-transparent border-none outline-none text-center w-full placeholder:text-[#aaaaaa] dark:placeholder:text-white/55"
  />
  <button
  onClick={() => setAmount(String(fromValue))}
@@ -871,14 +870,14 @@ function TradeAssetIcon({ asset, logoUrl }: { asset: string; logoUrl?: string })
 function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: boolean }) {
  const [open, setOpen] = useState(true);
  const statusCls = (s: string) =>
- s === "open" ? "bg-[#eaf5f0] text-[#16a34a]" :
- s === "pending" ? "bg-[#fef3c7] text-[#d97706]" :
- "bg-[#f0f0ec] text-[#555555]";
+ s === "open" ? "bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#16a34a]" :
+ s === "pending" ? "bg-[#fef3c7] dark:bg-amber-500/10 text-[#d97706]" :
+ "bg-[#f0f0ec] dark:bg-white/5 text-[#555555] dark:text-white/80";
 
  const dirCls = (d: string) =>
  d === "Buy"
- ? "bg-[#eaf5f0] text-[#16a34a]"
- : "bg-[#fee2e2] text-[#dc2626]";
+ ? "bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#16a34a]"
+ : "bg-[#fee2e2] dark:bg-red-500/10 text-[#dc2626]";
 
  const pnlCls = (pos: boolean) =>
  pos ? "text-[#16a34a]" : "text-[#dc2626]";
@@ -892,17 +891,17 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  };
 
  return (
- <div className="bg-white border border-[#e5e5e5] rounded-xl overflow-hidden">
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl overflow-hidden">
  {/* Accordion header */}
  <button
  onClick={() => setOpen((v) => !v)}
  className="w-full flex items-center justify-between px-5 pt-5 pb-3 text-left"
  >
- <h2 className="text-[16px] font-bold text-[#001011]">Trade Copied</h2>
+ <h2 className="text-[16px] font-bold text-[#001011] dark:text-white">Trade Copied</h2>
  <svg
  width="16" height="16" viewBox="0 0 16 16" fill="none"
  stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
- className={`text-[#888888] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+ className={`text-[#888888] dark:text-white/55 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
  >
  <polyline points="4,6 8,10 12,6" />
  </svg>
@@ -911,7 +910,7 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  {open && (loading ? (
  <div className="px-5 pb-5 space-y-3">
  {[1, 2, 3].map((i) => (
- <div key={i} className="border border-[#f0f0ec] p-4 space-y-3">
+ <div key={i} className="border border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark p-4 space-y-3">
  <div className="flex items-center justify-between">
  <div className="flex items-center gap-2.5">
  <Sk className="w-8 h-8 rounded-full" />
@@ -930,15 +929,15 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  ) : trades.length === 0 ? (
  /* ── Empty state ── */
  <div className="flex flex-col items-center justify-center py-12 px-6 text-center">
- <div className="w-[60px] h-[60px] rounded-full bg-[#f0f0ec] flex items-center justify-center mb-4">
- <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="">
+ <div className="w-[60px] h-[60px] rounded-full bg-[#f0f0ec] dark:bg-white/5 flex items-center justify-center mb-4">
+ <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#888888] dark:text-white/35">
  <line x1="18" y1="20" x2="18" y2="10" />
  <line x1="12" y1="20" x2="12" y2="4" />
  <line x1="6" y1="20" x2="6" y2="14" />
  </svg>
  </div>
- <p className="text-[15px] font-bold text-[#001011] mb-1.5">No trades yet</p>
- <p className="text-[13px] text-[#888888] leading-relaxed mb-5 max-w-[220px]">
+ <p className="text-[15px] font-bold text-[#001011] dark:text-white mb-1.5">No trades yet</p>
+ <p className="text-[13px] text-[#888888] dark:text-white/55 leading-relaxed mb-5 max-w-[220px]">
  Start copying expert traders to see your trades here
  </p>
  <a
@@ -954,14 +953,14 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  {/* ── Mobile cards (< sm) ── */}
  <div className="sm:hidden flex flex-col gap-3 px-4 pb-4">
  {trades.map((t) => (
- <div key={t.id} className="border border-[#e5e5e5] rounded-lg overflow-hidden">
+ <div key={t.id} className="border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-lg overflow-hidden">
  {/* Asset row + status */}
  <div className="flex items-center justify-between px-4 pt-4 pb-3">
  <div className="flex items-center gap-2.5">
  <TradeAssetIcon asset={t.asset} logoUrl={t.asset_logo || undefined} />
  <div>
- <p className="text-[14px] font-bold text-[#001011] leading-tight">{t.asset}</p>
- <p className="text-[11px] text-[#aaaaaa]">
+ <p className="text-[14px] font-bold text-[#001011] dark:text-white leading-tight">{t.asset}</p>
+ <p className="text-[11px] text-[#aaaaaa] dark:text-white/55">
  {typeLbl[t.asset_type] ?? t.asset_type} · {DURATION_LABELS[t.duration] ?? t.duration}
  </p>
  </div>
@@ -972,12 +971,12 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  </div>
 
  {/* Divider */}
- <div className="border-t border-[#f0f0ec]" />
+ <div className="border-t border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark" />
 
  {/* Labels */}
  <div className="grid grid-cols-3 px-4 pt-3 pb-1 gap-2">
  {["DIRECTION", "ENTRY", "EARNING"].map((lbl) => (
- <span key={lbl} className="text-[10px] font-medium text-[#999999] uppercase tracking-wide">
+ <span key={lbl} className="text-[10px] font-medium text-[#999999] dark:text-white/55 uppercase tracking-wide">
  {lbl}
  </span>
  ))}
@@ -988,7 +987,7 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  <span className={`text-[12px] font-bold px-2.5 py-0.5 w-fit ${dirCls(t.direction)}`}>
  {t.direction}
  </span>
- <span className="text-[13px] text-[#001011]">
+ <span className="text-[13px] text-[#001011] dark:text-white">
  ${Number(t.entry).toLocaleString()}
  </span>
  <span className={`text-[13px] font-bold ${pnlCls(Number(t.earning_pct) >= 0)}`}>
@@ -997,9 +996,9 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  </div>
 
  {/* PNL footer */}
- <div className="border-t border-[#f0f0ec]" />
+ <div className="border-t border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark" />
  <div className="flex items-center gap-2 px-4 py-3">
- <span className="text-[10px] font-medium text-[#999999] uppercase tracking-wide">PNL</span>
+ <span className="text-[10px] font-medium text-[#999999] dark:text-white/55 uppercase tracking-wide">PNL</span>
  <span className={`text-[14px] font-bold ${pnlCls(t.pnl_positive)}`}>{t.pnl_display}</span>
  </div>
  </div>
@@ -1010,9 +1009,9 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  <div className="hidden sm:block overflow-x-auto">
  <table className="w-full min-w-[640px] border-collapse">
  <thead>
- <tr className="border-b border-[#f0f0ec]">
+ <tr className="border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
  {["Asset", "Type", "Direction", "Entry", "Earning %", "P&L", "Duration", "Status"].map((h) => (
- <th key={h} className="px-4 py-3 text-left text-[11px] font-medium text-[#999999] uppercase tracking-wide whitespace-nowrap">
+ <th key={h} className="px-4 py-3 text-left text-[11px] font-medium text-[#999999] dark:text-white/55 uppercase tracking-wide whitespace-nowrap">
  {h}
  </th>
  ))}
@@ -1022,15 +1021,15 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  {trades.map((t) => (
  <tr
  key={t.id}
- className="border-b border-[#f5f5f0] hover:bg-[#fafaf7] transition-colors"
+ className="border-b border-[#f5f5f0] dark:border-transparent dark:shadow-card-dark hover:bg-[#fafaf7] dark:hover:bg-white/5 transition-colors"
  >
  <td className="px-4 py-3.5">
  <div className="flex items-center gap-2.5">
  <TradeAssetIcon asset={t.asset} logoUrl={t.asset_logo || undefined} />
- <p className="text-[13px] font-semibold text-[#001011]">{t.asset}</p>
+ <p className="text-[13px] font-semibold text-[#001011] dark:text-white">{t.asset}</p>
  </div>
  </td>
- <td className="px-4 py-3.5 text-[12px] text-[#555555] capitalize">
+ <td className="px-4 py-3.5 text-[12px] text-[#555555] dark:text-white/80 capitalize">
  {typeLbl[t.asset_type] ?? t.asset_type}
  </td>
  <td className="px-4 py-3.5">
@@ -1038,7 +1037,7 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  {t.direction}
  </span>
  </td>
- <td className="px-4 py-3.5 text-[13px] text-[#001011] whitespace-nowrap">
+ <td className="px-4 py-3.5 text-[13px] text-[#001011] dark:text-white whitespace-nowrap">
  ${Number(t.entry).toLocaleString()}
  </td>
  <td className={`px-4 py-3.5 text-[13px] font-semibold whitespace-nowrap ${pnlCls(Number(t.earning_pct) >= 0)}`}>
@@ -1047,7 +1046,7 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
  <td className={`px-4 py-3.5 text-[13px] font-semibold whitespace-nowrap ${pnlCls(t.pnl_positive)}`}>
  {t.pnl_display}
  </td>
- <td className="px-4 py-3.5 text-[12px] text-[#555555] whitespace-nowrap">
+ <td className="px-4 py-3.5 text-[12px] text-[#555555] dark:text-white/80 whitespace-nowrap">
  {DURATION_LABELS[t.duration] ?? t.duration}
  </td>
  <td className="px-4 py-3.5">
@@ -1073,10 +1072,10 @@ function CopiedTradesCard({ trades, loading }: { trades: CopyTrade[]; loading: b
 function LiveTradingCard() {
  const router = useRouter();
  return (
- <div className="bg-white border border-[#e5e5e5] rounded-xl px-5 py-4">
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl px-5 py-4">
  <button
  onClick={() => router.push("/my-portfolio")}
- className="flex items-center justify-center w-full sm:w-fit gap-2.5 h-10 px-4 rounded-full text-[14px] font-semibold text-[#001011] bg-[#fff5f5] border border-[#fca5a5] hover:opacity-90 transition-opacity cursor-pointer"
+ className="flex items-center justify-center w-full sm:w-fit gap-2.5 h-10 px-4 rounded-full text-[14px] font-semibold text-[#001011] dark:text-white bg-[#fff5f5] dark:bg-red-500/10 border border-[#fca5a5] dark:border-red-500/30 hover:opacity-90 transition-opacity cursor-pointer"
  >
  <span className="relative flex h-3 w-3 shrink-0">
  <span className="animate-ping absolute inline-flex rounded-full h-full w-full bg-red-400 opacity-75" />
@@ -1126,14 +1125,14 @@ function BreakdownCard() {
  const svgWidth = 3 * BAR_W + 2 * BAR_GAP;
 
  return (
- <div className="bg-white border border-[#e5e5e5] rounded-xl p-5">
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl p-5">
 
  {/* Header */}
  <div className="flex items-center gap-2 mb-3">
  <div className="w-7 h-7 bg-[#1a1a1a] flex items-center justify-center text-white">
  <PersonIcon />
  </div>
- <span className="text-[14px] font-semibold text-[#001011]">
+ <span className="text-[14px] font-semibold text-[#001011] dark:text-white">
  Portfolio breakdown
  </span>
  </div>
@@ -1166,7 +1165,7 @@ function BreakdownCard() {
  </span>
  <WavyLineIcon />
  </div>
- <p className="text-[12px] text-[#888888] mb-5 leading-[1.6]">
+ <p className="text-[12px] text-[#888888] dark:text-white/55 mb-5 leading-[1.6]">
  portfolio growth from<br />last month
  </p>
 
@@ -1179,10 +1178,10 @@ function BreakdownCard() {
  <div key={item.category} className="flex items-center gap-2">
  <span className="w-2.5 h-2.5 shrink-0 rounded-sm" style={{ backgroundColor: item.legend_color }} />
  <div className="flex flex-col leading-none gap-0.5">
- <span className="text-[11px] text-[#555555]">
+ <span className="text-[11px] text-[#555555] dark:text-white/80">
  {item.label}
  </span>
- <span className="text-[12px] font-semibold text-[#001011]">
+ <span className="text-[12px] font-semibold text-[#001011] dark:text-white">
  ${parseFloat(item.pnl).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
  </span>
  </div>
@@ -1251,17 +1250,17 @@ function FollowingCard({ copying, loading }: { copying: CopyingTrader[]; loading
  };
 
  return (
- <div className="bg-white border border-[#e5e5e5] rounded-xl overflow-hidden">
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl overflow-hidden">
  {/* Accordion header */}
  <button
  onClick={() => setOpen((v) => !v)}
  className="w-full flex items-center justify-between px-5 pt-5 pb-4 text-left"
  >
- <h2 className="text-[16px] font-bold text-[#001011]">Following</h2>
+ <h2 className="text-[16px] font-bold text-[#001011] dark:text-white">Following</h2>
  <svg
  width="16" height="16" viewBox="0 0 16 16" fill="none"
  stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"
- className={`text-[#888888] transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+ className={`text-[#888888] dark:text-white/55 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
  >
  <polyline points="4,6 8,10 12,6" />
  </svg>
@@ -1271,7 +1270,7 @@ function FollowingCard({ copying, loading }: { copying: CopyingTrader[]; loading
  <div className="px-5 pb-5">
  {/* Search */}
  <div className="relative mb-4">
- <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#aaaaaa] pointer-events-none">
+ <div className="absolute left-3 top-1/2 -translate-y-1/2 text-[#aaaaaa] dark:text-white/55 pointer-events-none">
  <SearchIcon />
  </div>
  <input
@@ -1279,7 +1278,7 @@ function FollowingCard({ copying, loading }: { copying: CopyingTrader[]; loading
  placeholder="Search for trader"
  value={search}
  onChange={(e) => setSearch(e.target.value)}
- className="w-full h-9 pl-8 pr-3 border border-[#e5e5e5] bg-[#fafaf8] text-[13px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#16a34a] transition-colors"
+ className="w-full h-9 pl-8 pr-3 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-[#fafaf8] dark:bg-white/5 text-[13px] text-[#001011] dark:text-white placeholder-[#aaaaaa] outline-none focus:border-[#16a34a] transition-colors"
  />
  </div>
 
@@ -1296,16 +1295,16 @@ function FollowingCard({ copying, loading }: { copying: CopyingTrader[]; loading
  ) : isEmpty ? (
  /* ── No experts followed ── */
  <div className="flex flex-col items-center justify-center py-8 text-center">
- <div className="w-[56px] h-[56px] rounded-full bg-[#f0f0ec] flex items-center justify-center mb-3">
- <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#888888" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="">
+ <div className="w-[56px] h-[56px] rounded-full bg-[#f0f0ec] dark:bg-white/5 flex items-center justify-center mb-3">
+ <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#888888] dark:text-white/35">
  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
  <circle cx="9" cy="7" r="4" />
  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
  </svg>
  </div>
- <p className="text-[14px] font-bold text-[#001011] mb-1">No experts followed</p>
- <p className="text-[12px] text-[#888888] leading-relaxed mb-5 max-w-[200px]">
+ <p className="text-[14px] font-bold text-[#001011] dark:text-white mb-1">No experts followed</p>
+ <p className="text-[12px] text-[#888888] dark:text-white/55 leading-relaxed mb-5 max-w-[200px]">
  Start copying expert traders to see them here
  </p>
  <a
@@ -1318,7 +1317,7 @@ function FollowingCard({ copying, loading }: { copying: CopyingTrader[]; loading
  </div>
  ) : filtered.length === 0 ? (
  /* ── Search returned nothing ── */
- <p className="text-[13px] text-[#aaaaaa] text-center py-6">No traders match your search</p>
+ <p className="text-[13px] text-[#aaaaaa] dark:text-white/55 text-center py-6">No traders match your search</p>
  ) : (
  /* ── Trader list ── */
  <div className="flex flex-col gap-3">
@@ -1343,7 +1342,7 @@ function FollowingCard({ copying, loading }: { copying: CopyingTrader[]; loading
  {getInitials(t.trader_name)}
  </div>
  )}
- <span className="flex-1 text-[13px] font-medium text-[#001011] truncate">
+ <span className="flex-1 text-[13px] font-medium text-[#001011] dark:text-white truncate">
  {t.trader_name}
  </span>
  <span className={`text-[13px] font-semibold shrink-0 ${parseFloat(t.roi) >= 0 ? "text-[#16a34a]" : "text-[#dc2626]"}`}>

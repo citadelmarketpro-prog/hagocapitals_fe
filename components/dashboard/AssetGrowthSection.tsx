@@ -12,6 +12,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { TrendingUp, TrendingDown } from "lucide-react";
+import { useDashboardTheme } from "@/context/DashboardThemeContext";
 
 /* ════════════════════════════════════════════════════════════════
  ASSET GROWTH — cumulative P&L chart with a period picker, rendered
@@ -60,8 +61,8 @@ function CustomTooltip({ active, payload, label }: { active?: boolean; payload?:
   const val = payload[0].value;
   const isPos = val >= 0;
   return (
-    <div className="bg-white border border-[#e5e5e5] rounded-lg px-3 py-2 shadow-lg">
-      <p className="text-[10px] text-[#888888] mb-1">{label}</p>
+    <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-lg px-3 py-2 shadow-lg">
+      <p className="text-[10px] text-[#888888] dark:text-white/55 mb-1">{label}</p>
       <p className={`text-sm font-bold ${isPos ? "text-[#16a34a]" : "text-[#dc2626]"}`}>
         {fmtSigned(val)}
       </p>
@@ -81,6 +82,9 @@ function CustomActiveDot({ cx, cy, payload }: { cx?: number; cy?: number; payloa
 }
 
 export default function AssetGrowthSection() {
+  const { theme } = useDashboardTheme();
+  const gridColor = theme === "dark" ? "#ffffff1a" : "#f0f0ec";
+  const tickColor = theme === "dark" ? "#ffffff8c" : "#aaaaaa";
   const [period, setPeriod] = useState<Period>("all");
   const { data, isLoading } = useSWR<ChartResponse>(`/api/dashboard/portfolio-chart/?period=${period}`);
 
@@ -92,11 +96,11 @@ export default function AssetGrowthSection() {
 
   return (
     <div
-      className="rounded-xl p-4 sm:p-5 bg-white/55 border border-white/90 backdrop-blur-2xl"
+      className="rounded-xl p-4 sm:p-5 bg-white/55 dark:bg-white/5 border border-white/90 dark:border-transparent dark:shadow-card-dark backdrop-blur-2xl"
       style={{ boxShadow: "0 8px 32px rgba(31,41,55,0.08), inset 0 1px 0 rgba(255,255,255,0.6)" }}
     >
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-[16px] font-bold text-[#001011]">Asset Growth</h2>
+        <h2 className="text-[16px] font-bold text-[#001011] dark:text-white">Asset Growth</h2>
         <div className={`flex items-center gap-1.5 ${isPositive ? "text-[#16a34a]" : "text-[#dc2626]"}`}>
           {isPositive ? <TrendingUp className="w-4 h-4" /> : <TrendingDown className="w-4 h-4" />}
           <span className="text-[13px] font-bold">{fmtSigned(totalPnl)}</span>
@@ -105,11 +109,11 @@ export default function AssetGrowthSection() {
 
       <div className="h-48 sm:h-56 md:h-64 w-full">
         {isLoading ? (
-          <div className="h-full w-full animate-pulse rounded bg-[#f0f0ec]" />
+          <div className="h-full w-full animate-pulse rounded bg-[#f0f0ec] dark:bg-white/5" />
         ) : points.length === 0 ? (
           <div className="h-full flex flex-col items-center justify-center gap-2">
-            <TrendingUp className="w-8 h-8 text-[#d4d4d4]" />
-            <p className="text-[#aaaaaa] text-[13px]">No trade data for this period</p>
+            <TrendingUp className="w-8 h-8 text-[#d4d4d4] dark:text-white/35" />
+            <p className="text-[#aaaaaa] dark:text-white/55 text-[13px]">No trade data for this period</p>
           </div>
         ) : (
           <ResponsiveContainer width="100%" height="100%">
@@ -120,11 +124,11 @@ export default function AssetGrowthSection() {
                   <stop offset="95%" stopColor={lineColor} stopOpacity={0} />
                 </linearGradient>
               </defs>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0ec" vertical={false} />
+              <CartesianGrid strokeDasharray="3 3" stroke={gridColor} vertical={false} />
               <XAxis
                 dataKey="date"
                 tickFormatter={(v: string) => formatTick(v, period)}
-                tick={{ fill: "#aaaaaa", fontSize: 10 }}
+                tick={{ fill: tickColor, fontSize: 10 }}
                 axisLine={false}
                 tickLine={false}
                 interval="preserveStartEnd"
@@ -153,7 +157,7 @@ export default function AssetGrowthSection() {
             className={`h-6 px-2.5 rounded-full text-[11px] font-medium transition-colors ${
               period === value
                 ? "bg-[#16a34a] text-white"
-                : "text-[#888888] hover:text-[#001011]"
+                : "text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white"
             }`}
           >
             {label}

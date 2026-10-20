@@ -172,21 +172,21 @@ function adaptArticle(a: ApiArticle): NewsArticle {
 
 function impactStyles(impact: Impact) {
  if (impact === "positive") return {
- bg: "bg-[#dcfce7]",
+ bg: "bg-[#dcfce7] dark:bg-green-500/10",
  text: "text-[#16a34a]",
  dot: "bg-[#22c55e]",
  label: "Bullish",
  };
  if (impact === "negative") return {
- bg: "bg-[#fee2e2]",
+ bg: "bg-[#fee2e2] dark:bg-red-500/10",
  text: "text-[#dc2626]",
  dot: "bg-[#ef4444]",
  label: "Bearish",
  };
  return {
- bg: "bg-[#f0f0ec]",
- text: "text-[#555555]",
- dot: "bg-[#aaaaaa]",
+ bg: "bg-[#f0f0ec] dark:bg-white/5",
+ text: "text-[#555555] dark:text-white/80",
+ dot: "bg-[#aaaaaa] dark:bg-white/15",
  label: "Neutral",
  };
 }
@@ -200,14 +200,14 @@ function categoryStyle(cat: string) {
 ══════════════════════════════════════════════════════════════ */
 
 function Sk({ className }: { className?: string }) {
- return <div className={`animate-pulse rounded bg-[#e5e3d5] ${className ?? ""}`} />;
+ return <div className={`animate-pulse rounded bg-[#e5e3d5] dark:bg-white/5 ${className ?? ""}`} />;
 }
 
 function NewsSkeleton() {
  return (
  <div className="space-y-4">
  {/* Featured skeleton */}
- <div className="border border-[#e5e5e5] bg-white p-6 lg:p-8">
+ <div className="border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] p-6 lg:p-8">
  <div className="flex gap-2 mb-4"><Sk className="h-5 w-16" /><Sk className="h-5 w-20" /></div>
  <Sk className="h-8 w-3/4 mb-3" />
  <Sk className="h-4 w-full mb-2" /><Sk className="h-4 w-5/6 mb-6" />
@@ -216,12 +216,12 @@ function NewsSkeleton() {
  {/* Grid skeletons */}
  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
  {[1, 2, 3, 4, 5, 6].map((i) => (
- <div key={i} className="border border-[#e5e5e5] bg-white p-4">
+ <div key={i} className="border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] p-4">
  <div className="flex justify-between mb-3"><Sk className="h-5 w-16" /><Sk className="h-5 w-12" /></div>
  <Sk className="h-5 w-full mb-2" /><Sk className="h-5 w-4/5 mb-2" /><Sk className="h-5 w-3/5 mb-4" />
  <Sk className="h-4 w-full mb-1" /><Sk className="h-4 w-5/6 mb-4" />
  <div className="flex gap-1 mb-4"><Sk className="h-5 w-10" /><Sk className="h-5 w-10" /></div>
- <div className="flex justify-between pt-3 border-t border-[#f0f0ec]">
+ <div className="flex justify-between pt-3 border-t border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
  <Sk className="h-4 w-20" /><Sk className="h-4 w-16" />
  </div>
  </div>
@@ -283,7 +283,7 @@ export default function NewsPage() {
  const totalPages = data?.total_pages ?? 1;
 
  return (
- <div className="min-h-screen bg-white">
+ <div className="min-h-screen bg-white dark:bg-black">
  <DashNav />
 
  {/* Hero Banner */}
@@ -294,7 +294,7 @@ export default function NewsPage() {
  {/* Search + Category filter */}
  <div className="py-5 flex flex-col sm:flex-row gap-3">
  <div className="relative flex-1">
- <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#aaaaaa] pointer-events-none">
+ <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#aaaaaa] dark:text-white/55 pointer-events-none">
  <SearchIcon />
  </div>
  <input
@@ -302,7 +302,7 @@ export default function NewsPage() {
  placeholder="Search news, assets, sources..."
  value={search}
  onChange={(e) => setSearch(e.target.value)}
- className="w-full h-11 pl-10 pr-4 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-11 pl-10 pr-4 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white placeholder-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
  />
  </div>
  </div>
@@ -318,7 +318,7 @@ export default function NewsPage() {
  className={`flex-shrink-0 h-8 px-4 rounded-full text-[12px] font-semibold transition-all ${
  active
  ? "bg-[#001011] text-white"
- : "bg-[#f5f5f0] text-[#555555] hover:bg-[#eaeaea] border border-[#e5e5e5]"
+ : "bg-[#f5f5f0] dark:bg-white/5 text-[#555555] dark:text-white/80 hover:bg-[#eaeaea] dark:hover:bg-white/5 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark"
  }`}
  >
  {cat}
@@ -331,11 +331,11 @@ export default function NewsPage() {
  <NewsSkeleton />
  ) : filtered.length === 0 ? (
  <div className="flex flex-col items-center justify-center py-24 text-center">
- <div className="w-14 h-14 rounded-full bg-[#f0f0ec] flex items-center justify-center mb-4">
+ <div className="w-14 h-14 rounded-full bg-[#f0f0ec] dark:bg-white/5 flex items-center justify-center mb-4">
  <SearchIcon />
  </div>
- <p className="text-[16px] font-semibold text-[#001011] mb-1">No results found</p>
- <p className="text-[13px] text-[#888888]">Try a different keyword or category</p>
+ <p className="text-[16px] font-semibold text-[#001011] dark:text-white mb-1">No results found</p>
+ <p className="text-[13px] text-[#888888] dark:text-white/55">Try a different keyword or category</p>
  </div>
  ) : (
  <>
@@ -344,7 +344,7 @@ export default function NewsPage() {
  <div className="mb-8">
  <div className="flex items-center gap-2 mb-3">
  <span className="w-1.5 h-1.5 rounded-full bg-[#06811d]" />
- <span className="text-[11px] font-bold text-[#555555] uppercase tracking-widest">Top Story</span>
+ <span className="text-[11px] font-bold text-[#555555] dark:text-white/80 uppercase tracking-widest">Top Story</span>
  </div>
  <FeaturedCard article={featured} onClick={() => setSelectedArticle(featured)} />
  </div>
@@ -355,10 +355,10 @@ export default function NewsPage() {
  <>
  <div className="flex items-center justify-between mb-4">
  <div>
- <h2 className="text-[18px] font-bold text-[#001011]">Latest News</h2>
- <p className="text-[12px] text-[#888888] mt-0.5">Real-time market intelligence</p>
+ <h2 className="text-[18px] font-bold text-[#001011] dark:text-white">Latest News</h2>
+ <p className="text-[12px] text-[#888888] dark:text-white/55 mt-0.5">Real-time market intelligence</p>
  </div>
- <span className="text-[12px] text-[#aaaaaa]">
+ <span className="text-[12px] text-[#aaaaaa] dark:text-white/55">
  {isSearching ? `${filtered.length} results` : `${data?.total ?? 0} articles`}
  </span>
  </div>
@@ -375,18 +375,18 @@ export default function NewsPage() {
  <button
  onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
  disabled={currentPage === 1}
- className="h-9 px-4 rounded-full text-[13px] font-semibold border border-[#e5e5e5] bg-white text-[#001011] disabled:opacity-30 hover:border-[#06811d] hover:text-[#001011] transition-colors"
+ className="h-9 px-4 rounded-full text-[13px] font-semibold border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[#001011] dark:text-white disabled:opacity-30 hover:border-[#06811d] hover:text-[#001011] dark:hover:text-white transition-colors"
  >
  ← Previous
  </button>
- <span className="text-[13px] text-[#888888]">
- Page <span className="font-bold text-[#001011]">{currentPage}</span> of{" "}
- <span className="font-bold text-[#001011]">{totalPages}</span>
+ <span className="text-[13px] text-[#888888] dark:text-white/55">
+ Page <span className="font-bold text-[#001011] dark:text-white">{currentPage}</span> of{" "}
+ <span className="font-bold text-[#001011] dark:text-white">{totalPages}</span>
  </span>
  <button
  onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
  disabled={currentPage >= totalPages}
- className="h-9 px-4 rounded-full text-[13px] font-semibold border border-[#e5e5e5] bg-white text-[#001011] disabled:opacity-30 hover:border-[#06811d] hover:text-[#001011] transition-colors"
+ className="h-9 px-4 rounded-full text-[13px] font-semibold border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[#001011] dark:text-white disabled:opacity-30 hover:border-[#06811d] hover:text-[#001011] dark:hover:text-white transition-colors"
  >
  Next →
  </button>
@@ -481,11 +481,14 @@ function FeaturedCard({ article, onClick }: { article: NewsArticle; onClick: () 
 
  return (
  <button onClick={onClick} className="w-full text-left group">
- <div className="relative overflow-hidden flex flex-col sm:flex-row border border-[#e5e5e5] hover:border-[#06811d] transition-colors bg-white">
+ <div className="relative overflow-hidden flex flex-col sm:flex-row border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark hover:border-[#06811d] transition-colors bg-white dark:bg-[#0a0a0a]">
  <div className="w-full sm:w-1.5 h-1.5 sm:h-auto shrink-0" style={{ backgroundColor: meta.color }} />
  <div className="flex-1 p-5 lg:p-8">
  <div className="flex flex-wrap items-center gap-2 mb-4">
- <span className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full" style={{ backgroundColor: meta.bg, color: meta.color }}>
+ <span className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full dark:hidden" style={{ backgroundColor: meta.bg, color: meta.color }}>
+ {article.category}
+ </span>
+ <span className="hidden dark:inline-block px-2.5 py-0.5 text-[11px] font-semibold rounded-full" style={{ backgroundColor: meta.darkBg, color: meta.darkColor }}>
  {article.category}
  </span>
  <span className={`flex items-center gap-1 px-2.5 py-0.5 text-[11px] font-semibold rounded-full ${imp.bg} ${imp.text}`}>
@@ -493,21 +496,21 @@ function FeaturedCard({ article, onClick }: { article: NewsArticle; onClick: () 
  {imp.label}
  </span>
  </div>
- <h2 className="text-[18px] sm:text-[22px] lg:text-[26px] font-extrabold text-[#001011] leading-tight mb-3 group-hover:text-[#06811d] transition-colors">
+ <h2 className="text-[18px] sm:text-[22px] lg:text-[26px] font-extrabold text-[#001011] dark:text-white leading-tight mb-3 group-hover:text-[#06811d] transition-colors">
  {article.headline}
  </h2>
- <p className="text-[13px] sm:text-[14px] text-[#555555] leading-relaxed mb-5 line-clamp-2">
+ <p className="text-[13px] sm:text-[14px] text-[#555555] dark:text-white/80 leading-relaxed mb-5 line-clamp-2">
  {article.excerpt}
  </p>
  <div className="flex flex-wrap items-center justify-between gap-3">
  <div className="flex flex-wrap gap-1.5">
  {article.assets.map((a) => (
- <span key={a} className="px-2 py-0.5 text-[11px] font-mono font-bold text-[#001011] bg-[#f0f0ec] border border-[#e5e5e5]">
+ <span key={a} className="px-2 py-0.5 text-[11px] font-mono font-bold text-[#001011] dark:text-white bg-[#f0f0ec] dark:bg-white/5 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark">
  {a}
  </span>
  ))}
  </div>
- <div className="flex items-center gap-3 text-[12px] text-[#aaaaaa]">
+ <div className="flex items-center gap-3 text-[12px] text-[#aaaaaa] dark:text-white/55">
  <span className="flex items-center gap-1.5">
  <div className="w-5 h-5 rounded-full flex items-center justify-center text-[8px] font-bold text-white shrink-0" style={{ backgroundColor: article.sourceColor }}>
  {article.sourceInitials}
@@ -537,12 +540,15 @@ function NewsCard({ article, onClick }: { article: NewsArticle; onClick: () => v
  return (
  <button
  onClick={onClick}
- className="text-left group border border-[#e5e5e5] hover:border-[#06811d] bg-white transition-colors overflow-hidden flex flex-col w-full"
+ className="text-left group border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark hover:border-[#06811d] bg-white dark:bg-[#0a0a0a] transition-colors overflow-hidden flex flex-col w-full"
  >
  <div className="h-[3px] w-full" style={{ backgroundColor: meta.color }} />
  <div className="p-4 flex flex-col gap-3 flex-1">
  <div className="flex items-center justify-between gap-2">
- <span className="px-2.5 py-0.5 text-[10px] font-semibold rounded-full" style={{ backgroundColor: meta.bg, color: meta.color }}>
+ <span className="px-2.5 py-0.5 text-[10px] font-semibold rounded-full dark:hidden" style={{ backgroundColor: meta.bg, color: meta.color }}>
+ {article.category}
+ </span>
+ <span className="hidden dark:inline-block px-2.5 py-0.5 text-[10px] font-semibold rounded-full" style={{ backgroundColor: meta.darkBg, color: meta.darkColor }}>
  {article.category}
  </span>
  <span className={`flex items-center gap-1 text-[10px] font-bold ${imp.text}`}>
@@ -550,27 +556,27 @@ function NewsCard({ article, onClick }: { article: NewsArticle; onClick: () => v
  {imp.label}
  </span>
  </div>
- <p className="text-[14px] font-bold text-[#001011] leading-snug line-clamp-3 group-hover:text-[#06811d] transition-colors">
+ <p className="text-[14px] font-bold text-[#001011] dark:text-white leading-snug line-clamp-3 group-hover:text-[#06811d] transition-colors">
  {article.headline}
  </p>
- <p className="text-[12px] text-[#666666] leading-relaxed line-clamp-2">
+ <p className="text-[12px] text-[#666666] dark:text-white/80 leading-relaxed line-clamp-2">
  {article.excerpt}
  </p>
  {article.assets.length > 0 && (
  <div className="flex flex-wrap gap-1">
  {article.assets.slice(0, 3).map((a) => (
- <span key={a} className="px-1.5 py-0.5 text-[10px] font-mono font-bold text-[#001011] bg-[#f0f0ec]">
+ <span key={a} className="px-1.5 py-0.5 text-[10px] font-mono font-bold text-[#001011] dark:text-white bg-[#f0f0ec] dark:bg-white/5">
  {a}
  </span>
  ))}
  </div>
  )}
- <div className="mt-auto flex items-center gap-2 pt-3 border-t border-[#f0f0ec]">
+ <div className="mt-auto flex items-center gap-2 pt-3 border-t border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
  <div className="w-5 h-5 rounded-full flex items-center justify-center text-[7px] font-bold text-white shrink-0" style={{ backgroundColor: article.sourceColor }}>
  {article.sourceInitials}
  </div>
- <span className="text-[11px] text-[#888888] truncate">{article.source}</span>
- <span className="text-[11px] text-[#aaaaaa] ml-auto shrink-0">{article.time}</span>
+ <span className="text-[11px] text-[#888888] dark:text-white/55 truncate">{article.source}</span>
+ <span className="text-[11px] text-[#aaaaaa] dark:text-white/55 ml-auto shrink-0">{article.time}</span>
  </div>
  </div>
  </button>
@@ -605,30 +611,33 @@ function NewsModal({ article, onClose }: { article: NewsArticle; onClose: () => 
  onClick={onClose}
  >
  <div
- className="relative w-full sm:max-w-[680px] max-h-[92vh] sm:max-h-[88vh] bg-white overflow-hidden flex flex-col"
+ className="relative w-full sm:max-w-[680px] max-h-[92vh] sm:max-h-[88vh] bg-white dark:bg-[#0a0a0a] overflow-hidden flex flex-col"
  onClick={(e) => e.stopPropagation()}
  >
  <div className="h-1 w-full shrink-0" style={{ backgroundColor: meta.color }} />
  <div className="overflow-y-auto flex-1">
- <div className="px-5 sm:px-8 pt-6 pb-5 border-b border-[#f0f0ec]">
+ <div className="px-5 sm:px-8 pt-6 pb-5 border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
  <div className="flex items-start justify-between gap-4 mb-4">
  <div className="flex flex-wrap items-center gap-2">
- <span className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full" style={{ backgroundColor: meta.bg, color: meta.color }}>
+ <span className="px-2.5 py-0.5 text-[11px] font-semibold rounded-full dark:hidden" style={{ backgroundColor: meta.bg, color: meta.color }}>
  {article.category}
  </span>
- <span className="text-[12px] text-[#aaaaaa]">{article.time} · {article.readTime}</span>
+ <span className="hidden dark:inline-block px-2.5 py-0.5 text-[11px] font-semibold rounded-full" style={{ backgroundColor: meta.darkBg, color: meta.darkColor }}>
+ {article.category}
+ </span>
+ <span className="text-[12px] text-[#aaaaaa] dark:text-white/55">{article.time} · {article.readTime}</span>
  </div>
  <button
  onClick={onClose}
- className="w-7 h-7 rounded-full flex items-center justify-center bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors shrink-0"
+ className="w-7 h-7 rounded-full flex items-center justify-center bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors shrink-0"
  >
  <ModalCloseIcon />
  </button>
  </div>
- <h2 className="text-[18px] sm:text-[22px] font-extrabold text-[#001011] leading-tight mb-3">
+ <h2 className="text-[18px] sm:text-[22px] font-extrabold text-[#001011] dark:text-white leading-tight mb-3">
  {article.headline}
  </h2>
- <p className="text-[13px] sm:text-[14px] text-[#555555] leading-relaxed mb-4">
+ <p className="text-[13px] sm:text-[14px] text-[#555555] dark:text-white/80 leading-relaxed mb-4">
  {article.excerpt}
  </p>
  <div className="flex flex-wrap items-center gap-3">
@@ -640,7 +649,7 @@ function NewsModal({ article, onClose }: { article: NewsArticle; onClose: () => 
  <div className="w-6 h-6 rounded-full flex items-center justify-center text-[9px] font-bold text-white shrink-0" style={{ backgroundColor: article.sourceColor }}>
  {article.sourceInitials}
  </div>
- <span className="text-[13px] font-semibold text-[#001011]">{article.source}</span>
+ <span className="text-[13px] font-semibold text-[#001011] dark:text-white">{article.source}</span>
  </div>
  </div>
  </div>
@@ -652,23 +661,23 @@ function NewsModal({ article, onClose }: { article: NewsArticle; onClose: () => 
  <div className="px-5 sm:px-8 py-6 space-y-4">
  {article.body.length > 0 ? (
  article.body.map((para, i) => (
- <p key={i} className="text-[13px] sm:text-[14px] text-[#333333] leading-[1.8]">
+ <p key={i} className="text-[13px] sm:text-[14px] text-[#333333] dark:text-white/80 leading-[1.8]">
  {para}
  </p>
  ))
  ) : (
- <p className="text-[13px] text-[#555555] leading-[1.8]">{article.excerpt}</p>
+ <p className="text-[13px] text-[#555555] dark:text-white/80 leading-[1.8]">{article.excerpt}</p>
  )}
  </div>
 
- <div className="px-5 sm:px-8 pb-6 pt-2 border-t border-[#f0f0ec]">
+ <div className="px-5 sm:px-8 pb-6 pt-2 border-t border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
  <div className="flex flex-wrap items-center justify-between gap-4">
  {article.assets.length > 0 && (
  <div>
- <p className="text-[11px] font-semibold text-[#aaaaaa] uppercase tracking-wider mb-2">Affected Assets</p>
+ <p className="text-[11px] font-semibold text-[#aaaaaa] dark:text-white/55 uppercase tracking-wider mb-2">Affected Assets</p>
  <div className="flex flex-wrap gap-2">
  {article.assets.map((a) => (
- <span key={a} className="px-3 py-1 text-[12px] font-mono font-bold text-[#001011] bg-[#f5f5f0] border border-[#e5e5e5]">
+ <span key={a} className="px-3 py-1 text-[12px] font-mono font-bold text-[#001011] dark:text-white bg-[#f5f5f0] dark:bg-white/5 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark">
  {a}
  </span>
  ))}

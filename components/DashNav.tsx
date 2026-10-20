@@ -6,6 +6,8 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import useSWR, { mutate as globalMutate } from "swr";
 import { useAuth } from "@/context/AuthContext";
+import { useDashboardTheme } from "@/context/DashboardThemeContext";
+import LangSwitcher from "@/components/LangSwitcher";
 import { api, ApiError } from "@/lib/api";
 
 const NOTIF_KEY = "/api/auth/notifications/";
@@ -54,6 +56,7 @@ const SIDEBAR_EXTRA_ITEMS = [
 
 export default function DashNav() {
  const { user, logout } = useAuth();
+ const { theme, toggleTheme } = useDashboardTheme();
  const [menuOpen, setMenuOpen] = useState(false);
  const [showNotif, setShowNotif] = useState(false);
  const [showProfile, setShowProfile] = useState(false);
@@ -91,13 +94,13 @@ export default function DashNav() {
  return (
  <>
  {/* ── Main bar ── */}
- <header className="sticky top-0 z-40 h-[56px] bg-white border-b border-[#e5e5e5] flex items-center">
+ <header className="sticky top-0 z-40 h-[56px] bg-white dark:bg-[#0a0a0a] border-b border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark flex items-center">
  <div className="w-full max-w-[1360px] mx-auto px-4 lg:px-6 flex items-center justify-between gap-4">
 
  {/* Logo */}
  <Link href="/" className="flex items-center shrink-0">
  <Image
- src="/logos/logo_one.png"
+ src={theme === "dark" ? "/logos/logo_one_dark.png" : "/logos/logo_one.png"}
  alt="HagoCapitals"
  width={376}
  height={284}
@@ -115,13 +118,13 @@ export default function DashNav() {
  title={label}
  className={`flex items-center gap-1.5 h-9 px-3 lg:px-3 text-[13px] transition-colors rounded-sm whitespace-nowrap ${
  isActive(href)
- ? "font-bold text-[#001011]"
- : "text-[#555555] hover:text-[#001011]"
+ ? "font-bold text-[#001011] dark:text-white"
+ : "text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white"
  }`}
  >
  <span
  className={`scale-[1.4] lg:scale-100 transition-transform ${
- isActive(href) ? "text-[#001011]" : "text-[#888888]"
+ isActive(href) ? "text-[#001011] dark:text-white" : "text-[#888888] dark:text-white/55"
  }`}
  >
  {icon}
@@ -134,11 +137,26 @@ export default function DashNav() {
  {/* Right actions */}
  <div className="flex items-center gap-1.5 shrink-0">
 
+ {/* Language switcher */}
+ <div className="hidden sm:block">
+ <LangSwitcher dark={theme === "dark"} />
+ </div>
+
+ {/* Theme toggle */}
+ <button
+ onClick={toggleTheme}
+ className="w-8 h-8 flex items-center justify-center text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors"
+ aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+ title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+ >
+ {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+ </button>
+
  {/* Bell + notification dropdown */}
  <div className="relative">
  <button
  onClick={() => { setShowNotif((v) => !v); setShowProfile(false); }}
- className="relative w-8 h-8 flex items-center justify-center text-[#555555] hover:text-[#001011] transition-colors"
+ className="relative w-8 h-8 flex items-center justify-center text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors"
  aria-label="Notifications"
  >
  <BellIcon />
@@ -160,7 +178,7 @@ export default function DashNav() {
  <div className="relative">
  <button
  onClick={() => { setShowProfile((v) => !v); setShowNotif(false); }}
- className="flex items-center gap-2 h-8 pl-1 pr-2.5 sm:border sm:border-[#e5e5e5] sm: hover:bg-[#f5f5f5] transition-colors rounded-full"
+ className="flex items-center gap-2 h-8 pl-1 pr-2.5 sm:border sm:border-[#e5e5e5] dark:sm:border-white/10 sm: hover:bg-[#f5f5f5] dark:hover:bg-white/5 transition-colors rounded-full"
  >
  {user?.avatar_url ? (
  // eslint-disable-next-line @next/next/no-img-element
@@ -173,10 +191,10 @@ export default function DashNav() {
  {initials}
  </div>
  )}
- <span className="hidden sm:inline text-[13px] font-medium text-[#001011] whitespace-nowrap">
+ <span className="hidden sm:inline text-[13px] font-medium text-[#001011] dark:text-white whitespace-nowrap">
  Hey, {user?.first_name || user?.email?.split("@")[0] || "…"}
  </span>
- <span className="hidden sm:inline text-[#888888]"><ChevronDownIcon /></span>
+ <span className="hidden sm:inline text-[#888888] dark:text-white/55"><ChevronDownIcon /></span>
  </button>
  {showProfile && (
  <>
@@ -194,7 +212,7 @@ export default function DashNav() {
 
  {/* Mobile hamburger */}
  <button
- className="md:hidden w-8 h-8 flex items-center justify-center text-[#555555] hover:text-[#001011] transition-colors"
+ className="md:hidden w-8 h-8 flex items-center justify-center text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors"
  onClick={() => setMenuOpen((v) => !v)}
  aria-label="Toggle menu"
  >
@@ -213,28 +231,37 @@ export default function DashNav() {
  aria-hidden="true"
  />
  <aside
- className={`md:hidden fixed top-0 left-0 bottom-0 z-40 w-[280px] max-w-[80vw] bg-white border-r border-[#e5e5e5] shadow-xl flex flex-col transition-transform duration-300 ease-out ${
+ className={`md:hidden fixed top-0 left-0 bottom-0 z-40 w-[280px] max-w-[80vw] bg-white dark:bg-[#0a0a0a] border-r border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-xl flex flex-col transition-transform duration-300 ease-out ${
  menuOpen ? "translate-x-0" : "-translate-x-full"
  }`}
  >
  {/* Sidebar header */}
- <div className="flex items-center justify-between h-[56px] px-4 border-b border-[#e5e5e5] shrink-0">
+ <div className="flex items-center justify-between h-[56px] px-4 border-b border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shrink-0">
  <Link href="/" className="flex items-center shrink-0" onClick={() => setMenuOpen(false)}>
  <Image
- src="/logos/logo_one.png"
+ src={theme === "dark" ? "/logos/logo_one_dark.png" : "/logos/logo_one.png"}
  alt="HagoCapitals"
  width={376}
  height={284}
  className="h-9 w-auto object-contain"
  />
  </Link>
+ <div className="flex items-center gap-1 shrink-0">
  <button
- className="w-8 h-8 flex items-center justify-center text-[#555555] hover:text-[#001011] transition-colors"
+ onClick={toggleTheme}
+ className="w-8 h-8 flex items-center justify-center text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors"
+ aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+ >
+ {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+ </button>
+ <button
+ className="w-8 h-8 flex items-center justify-center text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors"
  onClick={() => setMenuOpen(false)}
  aria-label="Close menu"
  >
  <XIcon />
  </button>
+ </div>
  </div>
 
  {/* Nav items */}
@@ -244,38 +271,44 @@ export default function DashNav() {
  key={href}
  href={href}
  onClick={() => setMenuOpen(false)}
- className={`flex items-center gap-3 px-5 py-3.5 border-b border-[#f0f0ec] last:border-0 transition-colors ${
+ className={`flex items-center gap-3 px-5 py-3.5 border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark last:border-0 transition-colors ${
  isActive(href)
- ? "text-[#001011] font-semibold bg-[#f8fef0]"
- : "text-[#555555] hover:bg-[#f5f5f5]"
+ ? "text-[#001011] dark:text-white font-semibold bg-[#f8fef0] dark:bg-[#06811d]/10"
+ : "text-[#555555] dark:text-white/80 hover:bg-[#f5f5f5] dark:hover:bg-white/5"
  }`}
  >
- <span className={isActive(href) ? "text-[#001011]" : "text-[#888888]"}>
+ <span className={isActive(href) ? "text-[#001011] dark:text-white" : "text-[#888888] dark:text-white/55"}>
  {icon}
  </span>
  <span className="text-[14px]">{label}</span>
  </Link>
  ))}
 
- <div className="h-px bg-[#f0f0ec] my-1" />
+ <div className="h-px bg-[#f0f0ec] dark:bg-white/5 my-1" />
 
  {SIDEBAR_EXTRA_ITEMS.map(({ href, label, icon }) => (
  <Link
  key={href}
  href={href}
  onClick={() => setMenuOpen(false)}
- className={`flex items-center gap-3 px-5 py-3.5 border-b border-[#f0f0ec] last:border-0 transition-colors ${
+ className={`flex items-center gap-3 px-5 py-3.5 border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark last:border-0 transition-colors ${
  isActive(href)
- ? "text-[#001011] font-semibold bg-[#f8fef0]"
- : "text-[#555555] hover:bg-[#f5f5f5]"
+ ? "text-[#001011] dark:text-white font-semibold bg-[#f8fef0] dark:bg-[#06811d]/10"
+ : "text-[#555555] dark:text-white/80 hover:bg-[#f5f5f5] dark:hover:bg-white/5"
  }`}
  >
- <span className={isActive(href) ? "text-[#001011]" : "text-[#888888]"}>
+ <span className={isActive(href) ? "text-[#001011] dark:text-white" : "text-[#888888] dark:text-white/55"}>
  {icon}
  </span>
  <span className="text-[14px]">{label}</span>
  </Link>
  ))}
+
+ <div className="h-px bg-[#f0f0ec] dark:bg-white/5 my-1" />
+
+ <div className="px-5 py-3">
+ <LangSwitcher dark={theme === "dark"} openUp />
+ </div>
  </nav>
  </aside>
 
@@ -320,11 +353,11 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  }
 
  return (
- <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[340px] bg-white border-b sm:border border-[#e5e5e5] shadow-xl z-50 max-h-[calc(100vh-56px)] sm:max-h-[480px] overflow-y-auto">
+ <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[340px] bg-white dark:bg-[#0a0a0a] border-b sm:border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-xl z-50 max-h-[calc(100vh-56px)] sm:max-h-[480px] overflow-y-auto">
 
  {/* Header */}
- <div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-white border-b border-[#f0f0ec]">
- <span className="text-[15px] font-bold text-[#001011]">Notifications</span>
+ <div className="sticky top-0 flex items-center gap-2 px-4 py-3 bg-white dark:bg-[#0a0a0a] border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
+ <span className="text-[15px] font-bold text-[#001011] dark:text-white">Notifications</span>
  {unread > 0 && (
  <span className="w-5 h-5 rounded-full bg-[#16a34a] flex items-center justify-center text-[10px] font-bold text-white shrink-0">
  {unread}
@@ -333,14 +366,14 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  {unread > 0 && (
  <button
  onClick={markAllRead}
- className="ml-auto text-[12px] text-[#555555] hover:text-[#001011] transition-colors whitespace-nowrap"
+ className="ml-auto text-[12px] text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors whitespace-nowrap"
  >
  Mark all as read
  </button>
  )}
  <button
  onClick={onClose}
- className="w-6 h-6 rounded-full flex items-center justify-center bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors ml-auto shrink-0"
+ className="w-6 h-6 rounded-full flex items-center justify-center bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors ml-auto shrink-0"
  >
  <CloseIcon />
  </button>
@@ -348,11 +381,11 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
 
  {/* Body */}
  {loading ? (
- <div className="px-4 py-8 text-center text-[13px] text-[#aaaaaa]">
+ <div className="px-4 py-8 text-center text-[13px] text-[#aaaaaa] dark:text-white/55">
  Loading…
  </div>
  ) : notifs.length === 0 ? (
- <div className="px-4 py-10 text-center text-[13px] text-[#aaaaaa]">
+ <div className="px-4 py-10 text-center text-[13px] text-[#aaaaaa] dark:text-white/55">
  No notifications yet
  </div>
  ) : (
@@ -360,19 +393,19 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  <div
  key={n.id}
  onClick={() => { if (!n.is_read) markOneRead(n.id); }}
- className="flex gap-3 px-4 py-3.5 border-b border-[#f5f5f0] hover:bg-[#fafaf7] transition-colors cursor-pointer"
+ className="flex gap-3 px-4 py-3.5 border-b border-[#f5f5f0] dark:border-transparent dark:shadow-card-dark hover:bg-[#fafaf7] dark:hover:bg-white/5 transition-colors cursor-pointer"
  >
- <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#16a34a]" : "bg-[#ebebea]"}`}>
+ <div className={`w-9 h-9 flex items-center justify-center shrink-0 ${!n.is_read ? "bg-[#16a34a]" : "bg-[#ebebea] dark:bg-white/5"}`}>
  <SyncIcon color={!n.is_read ? "white" : "#999999"} />
  </div>
  <div className="flex-1 min-w-0">
- <p className="text-[13px] font-semibold text-[#001011] leading-snug mb-0.5">
+ <p className="text-[13px] font-semibold text-[#001011] dark:text-white leading-snug mb-0.5">
  {n.title}
  </p>
  {n.body && (
- <p className="text-[12px] text-[#666666] leading-snug mb-1">{n.body}</p>
+ <p className="text-[12px] text-[#666666] dark:text-white/80 leading-snug mb-1">{n.body}</p>
  )}
- <p className="text-[11px] text-[#aaaaaa] text-right">{timeAgo(n.created_at)}</p>
+ <p className="text-[11px] text-[#aaaaaa] dark:text-white/55 text-right">{timeAgo(n.created_at)}</p>
  </div>
  {!n.is_read && (
  <span className="w-2 h-2 rounded-full bg-[#16a34a] shrink-0 mt-1.5" />
@@ -383,7 +416,7 @@ function NotificationDropdown({ onClose }: { onClose: () => void }) {
  <Link
  href="/notifications"
  onClick={onClose}
- className="sticky bottom-0 block text-center px-4 py-3 text-[12.5px] font-semibold text-[#16a34a] bg-white border-t border-[#f0f0ec] hover:bg-[#fafaf7] transition-colors"
+ className="sticky bottom-0 block text-center px-4 py-3 text-[12.5px] font-semibold text-[#16a34a] bg-white dark:bg-[#0a0a0a] border-t border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark hover:bg-[#fafaf7] dark:hover:bg-white/5 transition-colors"
  >
  View all notifications
  </Link>
@@ -413,10 +446,10 @@ function ProfileDropdown({
  : "…";
 
  return (
- <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[290px] bg-white border-b sm:border border-[#e5e5e5] shadow-xl z-50">
+ <div className="fixed sm:absolute top-[56px] sm:top-full sm:mt-2 left-0 right-0 sm:left-auto sm:right-0 w-full sm:w-[290px] bg-white dark:bg-[#0a0a0a] border-b sm:border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shadow-xl z-50">
 
  {/* User info row */}
- <div className="flex items-center gap-3 px-4 py-4 border-b border-[#f0f0ec]">
+ <div className="flex items-center gap-3 px-4 py-4 border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
  {user?.avatar_url ? (
  // eslint-disable-next-line @next/next/no-img-element
  <img src={user.avatar_url} alt={displayName} className="w-11 h-11 rounded-full object-cover shrink-0" />
@@ -429,12 +462,12 @@ function ProfileDropdown({
  </div>
  )}
  <div className="flex-1 min-w-0">
- <p className="text-[14px] font-bold text-[#001011] leading-tight">{displayName}</p>
- <p className="text-[12px] text-[#888888] truncate">{user?.email ?? ""}</p>
+ <p className="text-[14px] font-bold text-[#001011] dark:text-white leading-tight">{displayName}</p>
+ <p className="text-[12px] text-[#888888] dark:text-white/55 truncate">{user?.email ?? ""}</p>
  </div>
  <button
  onClick={onEditProfile}
- className="flex items-center gap-1 text-[12px] text-[#555555] hover:text-[#001011] transition-colors shrink-0"
+ className="flex items-center gap-1 text-[12px] text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white transition-colors shrink-0"
  >
  <PencilIcon />
  Edit profile
@@ -445,9 +478,9 @@ function ProfileDropdown({
  <Link
  href="/settings"
  onClick={onClose}
- className="border-b border-[#f0f0ec] px-4 py-3 flex items-center justify-between hover:bg-[#f5f5ef] transition-colors"
+ className="border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark px-4 py-3 flex items-center justify-between hover:bg-[#f5f5ef] dark:hover:bg-white/5 transition-colors"
  >
- <span className="text-[13px] font-medium text-[#001011]">Profile &amp; Settings</span>
+ <span className="text-[13px] font-medium text-[#001011] dark:text-white">Profile &amp; Settings</span>
  <SettingsGearIcon />
  </Link>
 
@@ -455,33 +488,33 @@ function ProfileDropdown({
  <Link
  href="/referral"
  onClick={onClose}
- className="border-b border-[#f0f0ec] px-4 py-3 flex items-center justify-between hover:bg-[#f5f5ef] transition-colors"
+ className="border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark px-4 py-3 flex items-center justify-between hover:bg-[#f5f5ef] dark:hover:bg-white/5 transition-colors"
  >
- <span className="text-[13px] font-medium text-[#001011]">Referral</span>
- <span className="text-[#888888]"><GiftIcon /></span>
+ <span className="text-[13px] font-medium text-[#001011] dark:text-white">Referral</span>
+ <span className="text-[#888888] dark:text-white/55"><GiftIcon /></span>
  </Link>
 
  {/* Connect Wallet */}
  <Link
  href="/connect-wallet"
  onClick={onClose}
- className="border-b border-[#f0f0ec] px-4 py-3 flex items-center justify-between hover:bg-[#f5f5ef] transition-colors"
+ className="border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark px-4 py-3 flex items-center justify-between hover:bg-[#f5f5ef] dark:hover:bg-white/5 transition-colors"
  >
- <span className="text-[13px] font-medium text-[#001011]">Connect Wallet</span>
- <span className="text-[#888888]"><WalletNavIcon /></span>
+ <span className="text-[13px] font-medium text-[#001011] dark:text-white">Connect Wallet</span>
+ <span className="text-[#888888] dark:text-white/55"><WalletNavIcon /></span>
  </Link>
 
  {/* About */}
- <div className="bg-[#f5f5ef] border-b border-[#e5e5e5] px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#eeeee9] transition-colors"
+ <div className="bg-[#f5f5ef] dark:bg-white/5 border-b border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#eeeee9] dark:hover:bg-white/5 transition-colors"
  onClick={onClose}
  >
- <span className="text-[13px] font-medium text-[#001011]">About HagoCapitals</span>
+ <span className="text-[13px] font-medium text-[#001011] dark:text-white">About HagoCapitals</span>
  <ExternalIcon />
  </div>
 
  {/* Logout */}
  <div
- className="px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#fafaf7] transition-colors"
+ className="px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#fafaf7] dark:hover:bg-white/5 transition-colors"
  onClick={onLogout}
  >
  <button className="text-[13px] font-medium text-[#ef4444]">Logout</button>
@@ -577,15 +610,15 @@ function EditProfileModal({
  onClick={onClose}
  >
  <div
- className="bg-white w-full max-w-[420px]"
+ className="bg-white dark:bg-[#0a0a0a] w-full max-w-[420px]"
  onClick={(e) => e.stopPropagation()}
  >
  <div className="px-6 py-7">
  <div className="flex items-center justify-between mb-6">
- <h2 className="text-[16px] font-bold text-[#001011]">Edit profile</h2>
+ <h2 className="text-[16px] font-bold text-[#001011] dark:text-white">Edit profile</h2>
  <button
  onClick={onClose}
- className="w-7 h-7 rounded-full flex items-center justify-center bg-[#f0f0ec] text-[#888888] hover:text-[#001011] transition-colors"
+ className="w-7 h-7 rounded-full flex items-center justify-center bg-[#f0f0ec] dark:bg-white/5 text-[#888888] dark:text-white/55 hover:text-[#001011] dark:hover:text-white transition-colors"
  >
  <CloseIcon />
  </button>
@@ -631,14 +664,14 @@ function EditProfileModal({
  type="button"
  onClick={handleRemove}
  disabled={!avatarSrc && !avatarFile}
- className="h-8 px-4 rounded-full border border-[#ef4444] text-[12px] font-medium text-[#ef4444] hover:bg-[#fff5f5] transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+ className="h-8 px-4 rounded-full border border-[#ef4444] text-[12px] font-medium text-[#ef4444] hover:bg-[#fff5f5] dark:hover:bg-red-500/10 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
  >
  Remove
  </button>
  <button
  type="button"
  onClick={() => fileInputRef.current?.click()}
- className="h-8 px-4 rounded-full border border-[#d4d4d4] text-[12px] font-medium text-[#555555] hover:bg-[#f5f5f5] transition-colors"
+ className="h-8 px-4 rounded-full border border-[#d4d4d4] dark:border-transparent dark:shadow-card-dark text-[12px] font-medium text-[#555555] dark:text-white/80 hover:bg-[#f5f5f5] dark:hover:bg-white/5 transition-colors"
  >
  {avatarFile ? "Change again" : "Change"}
  </button>
@@ -649,7 +682,7 @@ function EditProfileModal({
  </div>
 
  {saveError && (
- <div className="mb-4 px-3 py-2.5 text-[12px] text-[#dc2626] bg-[#fef2f2] border border-[#fecaca]">
+ <div className="mb-4 px-3 py-2.5 text-[12px] text-[#dc2626] bg-[#fef2f2] dark:bg-red-500/10 border border-[#fecaca] dark:border-red-500/30">
  {saveError}
  </div>
  )}
@@ -657,30 +690,30 @@ function EditProfileModal({
  <div className="flex flex-col gap-4">
  <div className="grid grid-cols-2 gap-3">
  <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">First name</label>
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">First name</label>
  <input
  value={firstName}
  onChange={(e) => setFirstName(e.target.value)}
- className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
+ className="w-full h-10 px-3 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#16a34a] transition-colors"
  />
  </div>
  <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">Last name</label>
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">Last name</label>
  <input
  value={lastName}
  onChange={(e) => setLastName(e.target.value)}
- className="w-full h-10 px-3 border border-[#e5e5e5] bg-white text-[13px] text-[#001011] outline-none focus:border-[#16a34a] transition-colors"
+ className="w-full h-10 px-3 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#16a34a] transition-colors"
  />
  </div>
  </div>
 
  <div>
- <label className="block text-[12px] font-medium text-[#333333] mb-1.5">Email</label>
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">Email</label>
  <div className="relative">
  <input
  value={user?.email ?? ""}
  readOnly
- className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] bg-[#f5f5f5] text-[13px] text-[#888888] outline-none cursor-not-allowed"
+ className="w-full h-10 px-3 pr-9 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-[#f5f5f5] dark:bg-white/5 text-[13px] text-[#888888] dark:text-white/55 outline-none cursor-not-allowed"
  />
  <div className="absolute right-3 top-1/2 -translate-y-1/2 text-[#22c55e]">
  <GreenCheckCircleIcon />
@@ -792,6 +825,23 @@ function XIcon() {
  );
 }
 
+function SunIcon() {
+ return (
+ <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+ <circle cx="12" cy="12" r="4" />
+ <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+ </svg>
+ );
+}
+
+function MoonIcon() {
+ return (
+ <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+ <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+ </svg>
+ );
+}
+
 function CloseIcon() {
  return (
  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
@@ -832,7 +882,7 @@ function ExternalIcon() {
 
 function SettingsGearIcon() {
  return (
- <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-[#888888]">
+ <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="text-[#888888] dark:text-white/55">
  <circle cx="12" cy="12" r="3" />
  <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
  </svg>

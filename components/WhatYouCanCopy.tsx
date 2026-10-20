@@ -1,27 +1,18 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import { FadeUp, CARD_HOVER } from "@/components/ScrollReveal";
 
-const items = [
-  {
-    title: "Stocks & ETFs",
-    description:
-      "Full-share orders or fractional allocations, instantaneous entry/exit mirroring, price-based T/P and S/L.",
-    icon: "/icons/trade.png",
-  },
-  {
-    title: "Single-Leg Options (Calls & Puts)",
-    description:
-      "Replicate trade by trade: ticker, strike, expiry, premium, quantity, and timestamp.",
-    icon: "/icons/clipboard.svg",
-  },
-  {
-    title: "Multi-Leg Options Strategies",
-    description:
-      "Copy complex structures as a single unit: verticals, iron condors, butterflies, calendars, ratio spreads, etc. We preserve leg ratios and leg timing to reduce legging risk.",
-    icon: "/icons/chart.svg",
-  },
-];
+const ICONS = ["/icons/trade.png", "/icons/clipboard.svg", "/icons/chart.svg"];
 
 export default function WhatYouCanCopy() {
+  const t = useTranslations("whatYouCanCopy");
+  const items = [
+    { title: t("item1Title"), description: t("item1Desc"), icon: ICONS[0] },
+    { title: t("item2Title"), description: t("item2Desc"), icon: ICONS[1] },
+    { title: t("item3Title"), description: t("item3Desc"), icon: ICONS[2] },
+  ];
+
   return (
     <section className="w-full bg-[#eaf5f0]">
       <div className="max-w-[1440px] mx-auto">
@@ -29,7 +20,7 @@ export default function WhatYouCanCopy() {
         {/* ── Header — centered ── */}
         <FadeUp className="text-center px-6 pt-14 pb-12 sm:pt-16 sm:pb-14 lg:pt-20 lg:pb-16 border-t border-[#cfe8dd]">
           <h2 className="text-[26px] sm:text-[38px] lg:text-[52px] font-extrabold text-[#06811d] leading-tight">
-            What you can copy
+            {t("heading")}
           </h2>
         </FadeUp>
 

@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { ChevronDown, Globe } from "lucide-react";
 import { locales, localeNames, type Locale } from "@/i18n/routing";
 
-export default function LangSwitcher({ dark = false }: { dark?: boolean }) {
+export default function LangSwitcher({ dark = false, openUp = false }: { dark?: boolean; openUp?: boolean }) {
   const [open, setOpen] = useState(false);
   const [current, setCurrent] = useState<Locale>("en");
   const ref = useRef<HTMLDivElement>(null);
@@ -53,19 +53,23 @@ export default function LangSwitcher({ dark = false }: { dark?: boolean }) {
       </button>
 
       {open && (
-        <div className="absolute right-0 top-full mt-2 w-44 bg-white rounded-xl shadow-xl border border-[#e5e5e5] z-50 py-1 max-h-64 overflow-y-auto">
+        <div className={`absolute right-0 w-44 rounded-xl shadow-xl z-50 py-1 max-h-64 overflow-y-auto ${
+          openUp ? "bottom-full mb-2" : "top-full mt-2"
+        } ${
+          dark ? "bg-[#0a0a0a] border border-white/10" : "bg-white border border-[#e5e5e5]"
+        }`}>
           {locales.map((locale) => (
             <button
               key={locale}
               onClick={() => select(locale)}
               className={`w-full flex items-center justify-between px-4 py-2 text-[13px] transition-colors text-left ${
                 locale === current
-                  ? "bg-[#eaf5f0] text-[#06811d] font-semibold"
-                  : "text-[#444444] hover:bg-[#f5f5f0]"
+                  ? dark ? "bg-[#06811d]/10 text-[#7be39a] font-semibold" : "bg-[#eaf5f0] text-[#06811d] font-semibold"
+                  : dark ? "text-white/80 hover:bg-white/5" : "text-[#444444] hover:bg-[#f5f5f0]"
               }`}
             >
               <span>{localeNames[locale]}</span>
-              <span className="text-[11px] text-[#aaaaaa] font-mono">{locale.toUpperCase()}</span>
+              <span className={`text-[11px] font-mono ${dark ? "text-white/40" : "text-[#aaaaaa]"}`}>{locale.toUpperCase()}</span>
             </button>
           ))}
         </div>

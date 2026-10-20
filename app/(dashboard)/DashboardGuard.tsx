@@ -7,7 +7,7 @@ import { SWRConfig } from "swr";
 import { useAuth } from "@/context/AuthContext";
 import { api } from "@/lib/api";
 
-function SessionSpinner() {
+export function SessionSpinner() {
  const [progress, setProgress] = useState(12);
 
  useEffect(() => {
@@ -23,7 +23,7 @@ function SessionSpinner() {
  }, []);
 
  return (
- <div className="min-h-screen flex flex-col items-center justify-center bg-[#f2f4ef]">
+ <div className="min-h-screen flex flex-col items-center justify-center bg-[#f2f4ef] dark:bg-black">
  {/* Logo */}
  <div className="mb-8 text-center select-none flex flex-col items-center">
  <Image
@@ -50,7 +50,7 @@ function SessionSpinner() {
  <p className="text-[13px] text-[#6a8a72] mb-5 tracking-wide">Verifying your session…</p>
 
  {/* Progress bar */}
- <div className="w-48 h-[3px] bg-[#c8d4c0] rounded-full overflow-hidden">
+ <div className="w-48 h-[3px] bg-[#c8d4c0] dark:bg-white/5 rounded-full overflow-hidden">
  <div
  className="h-full bg-[#06811d] rounded-full transition-all duration-100 ease-out"
  style={{ width: `${progress}%` }}
@@ -80,11 +80,12 @@ export default function DashboardGuard({ children }: { children: React.ReactNode
  }
  }, [user, loading, pathname, router]);
 
- // Still verifying session — show spinner only during the actual check
+ // Still verifying session — show a spinner, never a blank page, for as
+ // long as a redirect may be in flight (including the async session-expiry
+ // cascade in AuthContext, which can resolve after this check runs).
  if (loading) return <SessionSpinner />;
- // redirect already fired in useEffect — render nothing while navigation completes
- if (!user) return null;
- if (user.kyc_status === "not_submitted" && pathname !== "/kyc") return null;
+ if (!user) return <SessionSpinner />;
+ if (user.kyc_status === "not_submitted" && pathname !== "/kyc") return <SessionSpinner />;
 
  return (
  <SWRConfig value={{

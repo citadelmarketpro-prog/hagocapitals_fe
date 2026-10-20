@@ -2,12 +2,38 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+// Dashboard routes have their own auth-check loader (DashboardGuard's
+// SessionSpinner) — this generic splash screen should never show there.
+const DASHBOARD_ROUTES = [
+ "/connect-wallet",
+ "/dashboard",
+ "/kyc",
+ "/my-portfolio",
+ "/news",
+ "/notifications",
+ "/profile",
+ "/referral",
+ "/settings",
+ "/signals",
+ "/stocks",
+ "/trade-history",
+ "/traders",
+ "/transactions",
+];
 
 export default function Preloader() {
+ const pathname = usePathname();
  const [visible, setVisible] = useState(true);
  const [fading, setFading] = useState(false);
 
+ const isDashboardRoute = DASHBOARD_ROUTES.some(
+ (p) => pathname === p || pathname.startsWith(p + "/"),
+ );
+
  useEffect(() => {
+ if (isDashboardRoute) return;
  const hide = () => {
  setFading(true);
  setTimeout(() => setVisible(false), 500);
@@ -27,7 +53,7 @@ export default function Preloader() {
  };
  }, []);
 
- if (!visible) return null;
+ if (isDashboardRoute || !visible) return null;
 
  return (
  <div

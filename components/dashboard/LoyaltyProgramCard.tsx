@@ -59,19 +59,19 @@ export default function LoyaltyProgramCard() {
 
  return (
  <>
- <div className="bg-white border border-[#e5e5e5] rounded-xl p-5">
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl p-5">
  <div className="flex items-center gap-2">
- <h2 className="text-[16px] font-bold text-[#001011]">Loyalty Program</h2>
+ <h2 className="text-[16px] font-bold text-[#001011] dark:text-white">Loyalty Program</h2>
  <button
  onClick={() => setShowInfoModal(true)}
- className="p-1 rounded-full hover:bg-[#f0f0ec] transition-colors"
+ className="p-1 rounded-full hover:bg-[#f0f0ec] dark:hover:bg-white/5 transition-colors"
  aria-label="About Loyalty Program"
  >
- <Info className="w-3.5 h-3.5 text-[#888888]" />
+ <Info className="w-3.5 h-3.5 text-[#888888] dark:text-white/55" />
  </button>
  </div>
  <p
- className="mt-1 text-[12px] text-[#888888] cursor-pointer hover:text-[#16a34a] transition-colors underline decoration-dashed underline-offset-4 w-fit"
+ className="mt-1 text-[12px] text-[#888888] dark:text-white/55 cursor-pointer hover:text-[#16a34a] transition-colors underline decoration-dashed underline-offset-4 w-fit"
  onClick={() => setShowInfoModal(true)}
  >
  Deposit more to increase your Loyalty Rank
@@ -79,28 +79,28 @@ export default function LoyaltyProgramCard() {
 
  <div className="mt-4 flex flex-col gap-3">
  {/* Current tier */}
- <div className="p-3.5 bg-[#f5f5ef] rounded-xl flex items-center justify-between gap-3">
- <span className="text-[12.5px] text-[#555555]">Current Tier</span>
+ <div className="p-3.5 bg-[#f5f5ef] dark:bg-white/5 rounded-xl flex items-center justify-between gap-3">
+ <span className="text-[12.5px] text-[#555555] dark:text-white/80">Current Tier</span>
  <div className="flex items-center gap-2.5">
  <TierBadge tier={current} />
- <span className="text-[13.5px] font-bold text-[#001011] capitalize">{current}</span>
+ <span className="text-[13.5px] font-bold text-[#001011] dark:text-white capitalize">{current}</span>
  </div>
  </div>
 
  {/* Next tier */}
  {!isMax && (
- <div className="p-3.5 bg-[#f5f5ef] rounded-xl flex items-center justify-between gap-3">
- <span className="text-[12.5px] text-[#555555]">Next Tier</span>
+ <div className="p-3.5 bg-[#f5f5ef] dark:bg-white/5 rounded-xl flex items-center justify-between gap-3">
+ <span className="text-[12.5px] text-[#555555] dark:text-white/80">Next Tier</span>
  <div className="flex items-center gap-2.5">
  <TierBadge tier={next} />
- <span className="text-[13.5px] font-bold text-[#001011] capitalize">{next}</span>
+ <span className="text-[13.5px] font-bold text-[#001011] dark:text-white capitalize">{next}</span>
  </div>
  </div>
  )}
 
  {/* Upgrade amount / max tier message */}
  {!isMax ? (
- <div className="p-3.5 rounded-xl bg-[#eaf5f0] border border-[#16a34a]/15">
+ <div className="p-3.5 rounded-xl bg-[#eaf5f0] dark:bg-[#06811d]/10 border border-[#16a34a]/15">
  <div className="flex items-start gap-2.5">
  <div className="w-8 h-8 rounded-full bg-[#16a34a]/10 border border-[#16a34a]/25 flex items-center justify-center shrink-0">
  <TrendingUp className="w-4 h-4 text-[#16a34a]" />

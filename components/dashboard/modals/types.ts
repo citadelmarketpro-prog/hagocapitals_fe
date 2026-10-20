@@ -19,3 +19,22 @@ export interface SavedPaymentMethod {
   address:      string;
   has_method:   boolean;
 }
+
+export interface StockPosition {
+  id: number;
+  symbol: string;
+  name: string;
+  logo_url: string;
+  quantity: number;
+  original_quantity: number;
+  entry_price: number;
+  cost_basis: number;
+  current_price: number | null;
+  current_value: number | null;
+  unrealized_pnl: number | null;
+  unrealized_pnl_pct: number | null;
+  realized_pnl: number;
+  status: "open" | "closed";
+  opened_at: string;
+  closed_at: string | null;
+}

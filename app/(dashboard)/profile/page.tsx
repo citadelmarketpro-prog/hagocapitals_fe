@@ -57,15 +57,15 @@ export default function ProfilePage() {
  : "";
 
  return (
- <div className="min-h-screen bg-[#f5f5f0]">
+ <div className="min-h-screen bg-[#f5f5f0] dark:bg-black">
  <DashNav />
 
  <div className="max-w-[1000px] mx-auto px-4 sm:px-6 py-8">
  {/* Header */}
  <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
  <div>
- <h1 className="text-[20px] sm:text-[22px] font-bold text-[#001011]">My Profile</h1>
- <p className="text-[13px] text-[#666666] mt-0.5">
+ <h1 className="text-[20px] sm:text-[22px] font-bold text-[#001011] dark:text-white">My Profile</h1>
+ <p className="text-[13px] text-[#666666] dark:text-white/80 mt-0.5">
  View your account information and trading statistics
  </p>
  </div>
@@ -84,32 +84,32 @@ export default function ProfilePage() {
  </div>
  ) : !profile ? (
  <div className="flex items-center justify-center py-24">
- <p className="text-[13px] text-[#888888]">Failed to load profile</p>
+ <p className="text-[13px] text-[#888888] dark:text-white/55">Failed to load profile</p>
  </div>
  ) : (
  <>
  {/* Identity strip */}
- <div className="rounded-3xl bg-white border border-[#e5e5e5] p-6 mb-4 flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
- <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 flex items-center justify-center bg-[#eaf5f0] text-[24px] font-bold text-[#06811d]">
+ <div className="rounded-3xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-6 mb-4 flex flex-col sm:flex-row items-center sm:items-start gap-5 text-center sm:text-left">
+ <div className="w-20 h-20 rounded-full overflow-hidden shrink-0 flex items-center justify-center bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[24px] font-bold text-[#06811d]">
  {profile.avatar_url
  // eslint-disable-next-line @next/next/no-img-element
  ? <img src={profile.avatar_url} alt={profile.first_name || profile.email} className="w-full h-full object-cover" />
  : initials}
  </div>
  <div className="flex-1 min-w-0">
- <p className="text-[18px] font-bold text-[#001011]">
+ <p className="text-[18px] font-bold text-[#001011] dark:text-white">
  {profile.first_name} {profile.last_name}
  </p>
  {profile.bio && (
- <p className="text-[13px] text-[#555555] mt-2 max-w-[480px]">{profile.bio}</p>
+ <p className="text-[13px] text-[#555555] dark:text-white/80 mt-2 max-w-[480px]">{profile.bio}</p>
  )}
  </div>
  {(() => {
  const k = kycLabel(profile.kyc_status);
  const tones = {
- good: "bg-[#eaf5f0] text-[#06811d]",
- warn: "bg-[#fef3c7]/60 text-[#b45309]",
- bad: "bg-[#fee2e2]/60 text-[#dc2626]",
+ good: "bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#06811d]",
+ warn: "bg-[#fef3c7]/60 dark:bg-amber-500/10 text-[#b45309]",
+ bad: "bg-[#fee2e2]/60 dark:bg-red-500/10 text-[#dc2626]",
  };
  return (
  <span className={`shrink-0 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-[12px] font-semibold ${tones[k.tone]}`}>
@@ -147,29 +147,29 @@ export default function ProfilePage() {
 
  {/* Info panels */}
  <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
- <div className="rounded-2xl bg-white border border-[#e5e5e5] p-6">
- <h2 className="text-[15px] font-bold text-[#001011] mb-4">Personal Information</h2>
+ <div className="rounded-2xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-6">
+ <h2 className="text-[15px] font-bold text-[#001011] dark:text-white mb-4">Personal Information</h2>
  <div className="flex flex-col gap-4">
  <InfoRow icon={<User className="w-4 h-4" />} label="Full Name" value={`${profile.first_name} ${profile.last_name}`.trim() || "—"} />
  <InfoRow icon={<Mail className="w-4 h-4" />} label="Email Address" value={profile.email} />
  </div>
  </div>
 
- <div className="rounded-2xl bg-white border border-[#e5e5e5] p-6">
- <h2 className="text-[15px] font-bold text-[#001011] mb-4">Account</h2>
+ <div className="rounded-2xl bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-6">
+ <h2 className="text-[15px] font-bold text-[#001011] dark:text-white mb-4">Account</h2>
  <div className="flex flex-col gap-4">
  <InfoRow icon={<Calendar className="w-4 h-4" />} label="Member Since" value={new Date(profile.date_joined).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })} />
  <InfoRow icon={<ShieldCheck className="w-4 h-4" />} label="Transfers" value={profile.allow_transfer ? "Enabled" : "Disabled"} />
  </div>
  {(profile.kyc_status === "submitted" || profile.kyc_status === "under_review") && (
- <div className="mt-5 p-4 rounded-xl bg-[#fef3c7]/60 border border-[#d97706]/15">
+ <div className="mt-5 p-4 rounded-xl bg-[#fef3c7]/60 dark:bg-amber-500/10 border border-[#d97706]/15">
  <p className="text-[12.5px] text-[#b45309] leading-relaxed">
  Your KYC is awaiting approval. We&apos;ll notify you once it has been reviewed.
  </p>
  </div>
  )}
  {profile.kyc_status === "rejected" && (
- <div className="mt-5 p-4 rounded-xl bg-[#fee2e2]/60 border border-[#dc2626]/15">
+ <div className="mt-5 p-4 rounded-xl bg-[#fee2e2]/60 dark:bg-red-500/10 border border-[#dc2626]/15">
  <p className="text-[12.5px] text-[#dc2626] mb-3 leading-relaxed">
  Your KYC was rejected. Please resubmit with corrected information.
  </p>
@@ -182,7 +182,7 @@ export default function ProfilePage() {
  </div>
  )}
  {profile.kyc_status === "not_submitted" && (
- <div className="mt-5 p-4 rounded-xl bg-[#eaf5f0] border border-[#06811d]/15">
+ <div className="mt-5 p-4 rounded-xl bg-[#eaf5f0] dark:bg-[#06811d]/10 border border-[#06811d]/15">
  <p className="text-[12.5px] text-[#06811d] mb-3 leading-relaxed">
  Complete your KYC verification to unlock all features and increase your trading limits.
  </p>
@@ -206,12 +206,12 @@ export default function ProfilePage() {
 function InfoRow({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
  return (
  <div className="flex items-start gap-3">
- <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#eaf5f0] text-[#06811d]">
+ <div className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#06811d]">
  {icon}
  </div>
  <div className="flex-1 min-w-0">
- <p className="text-[11.5px] text-[#888888] mb-0.5">{label}</p>
- <p className="text-[13.5px] font-semibold text-[#001011] truncate">{value}</p>
+ <p className="text-[11.5px] text-[#888888] dark:text-white/55 mb-0.5">{label}</p>
+ <p className="text-[13.5px] font-semibold text-[#001011] dark:text-white truncate">{value}</p>
  </div>
  </div>
  );

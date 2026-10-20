@@ -3,67 +3,64 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { Plus, Minus } from "lucide-react";
 import { m, AnimatePresence } from "framer-motion";
 import { FadeUp, SlideIn, ICON_BTN_TAP, ICON_BTN_SPRING } from "@/components/ScrollReveal";
 
-const navGroups = [
-  {
-    label: "LEGALS",
-    links: [
-      { label: "Terms Of Service",            href: "/terms" },
-      { label: "Privacy Policy",              href: "/privacy-policy" },
-      { label: "Cookies Policy",              href: "/cookie-policy" },
-      { label: "Risk Disclaimer",             href: "/risk-disclaimer" },
-      { label: "Conflict of Interest Policy", href: "/conflict-of-interest" },
-      { label: "Declaration of Consent",      href: "/declaration-of-consent" },
-      { label: "End-User License Agreement",  href: "/eula" },
-    ],
-  },
-  {
-    label: "FEATURES",
-    links: [
-      { label: "AutoGuard™",     href: "/autoguard" },
-      // { label: "Copy Trading",   href: "/copy-trading" },
-      // { label: "Smart Portfolio", href: "/smart-portfolio" },
-    ],
-  },
-  {
-    label: "RESOURCES",
-    links: [
-      { label: "Affiliate Guide", href: "/affiliate-guide" },
-      { label: "Leader Guide",    href: "/leader-guide" },
-      { label: "User Guide",      href: "/user-guide" },
-      // { label: "Blog",            href: "/blog" },
-    ],
-  },
-  {
-    label: "ABOUT US",
-    links: [
-      { label: "Company", href: "/company" },
-      // { label: "Careers", href: "/careers" },
-      // { label: "Press",   href: "/press" },
-    ],
-  },
-  {
-    label: "PARTNERSHIPS",
-    links: [
-      { label: "Leader",    href: "/leader" },
-      { label: "Affiliate", href: "/affiliate" },
-      { label: "Broker",    href: "/broker" },
-    ],
-  },
-  {
-    label: "CONTACT",
-    links: [
-      { label: "support@hagocapitals.com", href: "mailto:support@hagocapitals.com" },
-    ],
-  },
-];
-
 export default function Footer() {
+  const t = useTranslations("footer");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
+
+  const navGroups = [
+    {
+      label: t("groupLegals"),
+      links: [
+        { label: t("linkTermsOfService"),        href: "/terms" },
+        { label: t("linkPrivacyPolicy"),          href: "/privacy-policy" },
+        { label: t("linkCookiesPolicy"),          href: "/cookie-policy" },
+        { label: t("linkRiskDisclaimer"),         href: "/risk-disclaimer" },
+        { label: t("linkConflictOfInterest"),     href: "/conflict-of-interest" },
+        { label: t("linkDeclarationOfConsent"),   href: "/declaration-of-consent" },
+        { label: t("linkEula"),                   href: "/eula" },
+      ],
+    },
+    {
+      label: t("groupFeatures"),
+      links: [
+        { label: t("linkAutoguard"), href: "/autoguard" },
+      ],
+    },
+    {
+      label: t("groupResources"),
+      links: [
+        { label: t("linkAffiliateGuide"), href: "/affiliate-guide" },
+        { label: t("linkLeaderGuide"),    href: "/leader-guide" },
+        { label: t("linkUserGuide"),      href: "/user-guide" },
+      ],
+    },
+    {
+      label: t("groupAboutUs"),
+      links: [
+        { label: t("linkCompany"), href: "/company" },
+      ],
+    },
+    {
+      label: t("groupPartnerships"),
+      links: [
+        { label: t("linkLeader"),    href: "/leader" },
+        { label: t("linkAffiliate"), href: "/affiliate" },
+        { label: t("linkBroker"),    href: "/broker" },
+      ],
+    },
+    {
+      label: t("groupContact"),
+      links: [
+        { label: "support@hagocapitals.com", href: "mailto:support@hagocapitals.com" },
+      ],
+    },
+  ];
 
   return (
     <footer className="w-full bg-white border-t border-[#e8ead8]">
@@ -85,7 +82,7 @@ export default function Footer() {
             </Link>
 
             <p className=" text-[#444444] text-[13px] mt-5">
-              Copytrade with HagoCapitals
+              {t("tagline")}
             </p>
 
             <div className="flex gap-3 flex-col md:flex-row">
@@ -154,23 +151,23 @@ export default function Footer() {
         {/* ── Disclaimer ── */}
         <div className="px-6 lg:px-[72px] pt-10 pb-6 border-t border-[#e8ead8]">
           <p className="text-[16px] font-bold text-[#333333] mb-4">
-            Disclaimer
+            {t("disclaimerTitle")}
           </p>
           <p className="text-[14px] leading-[1.85] text-[#888888] mb-4">
-            HagoCapitals (Europe) Ltd., a Financial Services Company authorised and regulated by the Cyprus Securities Exchange Commission (CySEC) under the license 12718031. Registered in Cyprus under Company No. HE 200595. Registered Office: 4 Profiti Ilia Str., Kanika Business Centre, 7th floor, Germasogeia, 4046, Limassol, Cyprus. HagoCapitals (UK) Ltd, a Financial Services Company authorised and regulated by the Financial Conduct Authority (FCA) under the license 12718031. Registered Office: 24th floor, One Canada Square, Canary Wharf, London E14 5AB. HagoCapitals (USA) Ltd, a financial company authorised and regulated by SEC, SEC Number 0002090792. HagoCapitals Limited is authorised by the Australian Securities and Investments Commission (ASIC) to provide financial services under Australian Financial Services License 12718031. Registered Office: Level 3, 60 Castlereagh Street, Sydney NSW 2000, Australia. HagoCapitals (ME) Limited, is licensed and regulated by the Abu Dhabi Global Market (&ldquo;ADGM&rdquo;)&apos;s Financial Services Regulatory Authority (&ldquo;FSRA&rdquo;) as an Authorised Person to conduct the Regulated Activities of (a) Dealing in Investments as Principal (Matched), (b) Arranging Deals in Investments, (c) Providing Custody, (d) Arranging Custody and (e) Managing Assets (under Financial Services Permission Number 220073) under the Financial Services and Market Regulations 2015 (&ldquo;FSMR&rdquo;). Its registered office and its principal place of business is at Office 207 and 208, 15th Floor Floor, Al Sarab Tower, ADGM Square, Al Maryah Island, Abu Dhabi, United Arab Emirates (&ldquo;UAE&rdquo;). Clients who are tax residents of Finland may be subject to Finnish income taxes on income (profits) and assets in accordance with applicable Finnish tax laws.
+            {t("disclaimerP1")}
           </p>
           <p className="text-[14px] leading-[1.85] text-[#888888]">
-            Past performance is not an indication of future results. You should seek advice from an independent and suitably licensed financial advisor and ensure that you have the risk appetite, relevant experience and knowledge before you decide to trade. Under no circumstances shall HagoCapitals have any liability to any person or entity for any direct, indirect, special, consequential or incidental damages whatsoever. Stock and options investments are risky and do not benefit from the protections available to clients receiving MiFID regulated investment services for dispute resolution. Trading with HagoCapitals by following and/or copying or replicating the trades of other traders involves a high level of risks, even when following and/or copying or replicating the top-performing traders. Such risks includes the risk that you may be following/copying the trading decisions of possibly inexperienced/unprofessional traders, or traders whose ultimate purpose or intention, or financial status may differ from yours. Past performance of a HagoCapitals Community Member is not a reliable indicator of his future performance. Content on HagoCapitals&apos;s social trading platform is generated by members of its community and does not contain advice or recommendations by or on behalf of HagoCapitals- Your Social Investment Network.
+            {t("disclaimerP2")}
           </p>
         </div>
 
         {/* ── Copyright ── */}
         <div className="px-6 lg:px-[72px] py-5 border-t border-[#e8ead8] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <p className="text-[12px] text-[#888888]">
-            Copyright &copy; 2006-2026 HagoCapitals - Your Social Investment Network, All rights reserved.
+            {t("copyright")}
           </p>
           <p className="text-[12px] text-[#888888]">
-            SEC Number: 0002090792
+            {t("secNumber")}
           </p>
         </div>
 

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import DashNav from "@/components/DashNav";
 import { api, ApiError } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
+import { SessionSpinner } from "@/app/(dashboard)/DashboardGuard";
 
 // ─── Option lists ────────────────────────────────────────────────────────────
 
@@ -122,7 +123,7 @@ export default function KycPage() {
  }
  }, [kycLocked, router]);
 
- if (kycLocked) return null;
+ if (kycLocked) return <SessionSpinner />;
 
  // ── Validation per step ──────────────────────────────────────────────────
 
@@ -191,8 +192,28 @@ export default function KycPage() {
 
  const currentStepValid = step === 1 ? step1Valid() : step === 2 ? step2Valid() : step3Valid();
 
+ function isStepValid(s: number) {
+ return s === 1 ? step1Valid() : s === 2 ? step2Valid() : step3Valid();
+ }
+
+ // Lets the numbered pills be clicked to jump directly between steps —
+ // always free to go back, but a forward jump is only allowed once every
+ // step in between is already filled in (same rule the Next button uses).
+ function canJumpTo(target: number) {
+ if (target <= step) return true;
+ for (let s = step; s < target; s++) {
+ if (!isStepValid(s)) return false;
+ }
+ return true;
+ }
+
+ function goToStep(target: number) {
+ if (target === step || !canJumpTo(target)) return;
+ setStep(target);
+ }
+
  return (
- <div className="min-h-screen bg-[#f5f5f0]">
+ <div className="min-h-screen bg-[#f5f5f0] dark:bg-black">
  <DashNav />
 
  {/* ── Hero banner ── */}
@@ -244,22 +265,31 @@ export default function KycPage() {
  </div>
  </div>
 
- {/* Step progress pills */}
+ {/* Step progress pills — click a number to jump straight to that step */}
  <div className="max-w-275 mx-auto mt-6 flex items-center gap-2">
  {[1, 2, 3].map((s) => (
  <div key={s} className="flex items-center gap-2">
- <div
+ <button
+ type="button"
+ onClick={() => goToStep(s)}
+ disabled={!canJumpTo(s)}
+ aria-label={`Go to step ${s}`}
+ aria-current={s === step ? "step" : undefined}
  className={`w-7 h-7 rounded-full flex items-center justify-center text-[12px] font-bold transition-colors ${
+ canJumpTo(s) ? "cursor-pointer" : "cursor-not-allowed"
+ } ${
  s < step
- ? "bg-[#001011] text-[#34d399]"
+ ? "bg-[#001011] text-[#34d399] hover:opacity-80"
  : s === step
  ? "bg-[#001011] text-white"
- : "bg-white/50 text-[#001011]"
+ : canJumpTo(s)
+ ? "bg-white/50 text-[#001011] hover:bg-white/70"
+ : "bg-white/30 text-[#001011]/50"
  }`}
  >
  {s < step ? "✓" : s}
- </div>
- <span className={`text-[12px] font-medium hidden sm:block ${s === step ? "text-[#001011]" : "text-[#3a5010]"}`}>
+ </button>
+ <span className={`text-[12px] font-medium hidden sm:block ${s === step ? "text-[#001011] dark:text-white" : "text-[#3a5010]"}`}>
  {s === 1 ? "Personal" : s === 2 ? "Address & ID" : "Financial"}
  </span>
  {s < 3 && <div className="w-8 h-px bg-[#001011]/30 mx-1" />}
@@ -268,15 +298,43 @@ export default function KycPage() {
  </div>
  </div>
 
+ {/* ── Instructional notices ── */}
+ <div className="max-w-275 mx-auto px-4 pt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+ <div className="flex gap-3 p-4 bg-[#eaf5f0] dark:bg-[#06811d]/10 border border-[#cfe8dd] dark:border-transparent dark:shadow-card-dark rounded-xl">
+ <FileTextIcon className="w-5 h-5 text-[#06811d] shrink-0 mt-0.5" />
+ <div>
+ <h3 className="text-[13px] font-bold text-[#001011] dark:text-white mb-1">
+ Why we need this information
+ </h3>
+ <p className="text-[12px] text-[#445520] dark:text-white/70 leading-relaxed">
+ KYC verification helps us comply with financial regulations, prevent fraud, and
+ keep your account secure. Your information is encrypted and never shared with
+ third parties.
+ </p>
+ </div>
+ </div>
+ <div className="flex gap-3 p-4 bg-[#eef4fb] dark:bg-blue-500/10 border border-[#cfe0f5] dark:border-transparent dark:shadow-card-dark rounded-xl">
+ <UploadIcon className="w-5 h-5 text-[#2563eb] dark:text-blue-400 shrink-0 mt-0.5" />
+ <div>
+ <h3 className="text-[13px] font-bold text-[#001011] dark:text-white mb-1">
+ Upload requirements
+ </h3>
+ <p className="text-[12px] text-[#334a6b] dark:text-white/70 leading-relaxed">
+ Maximum file size: 10MB per image • Accepted formats: JPG, PNG, PDF
+ </p>
+ </div>
+ </div>
+ </div>
+
  {/* ── Body ── */}
  <div className="max-w-275 mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-6">
 
  {/* Form card */}
- <div className="bg-white shadow-sm">
+ <div className="bg-white dark:bg-[#0a0a0a] shadow-sm">
  <div className="px-6 sm:px-10 py-8">
 
  {error && (
- <div className="mb-6 px-4 py-3 text-[13px] text-[#dc2626] bg-[#fef2f2] border border-[#fecaca]">
+ <div className="mb-6 px-4 py-3 text-[13px] text-[#dc2626] bg-[#fef2f2] dark:bg-red-500/10 border border-[#fecaca] dark:border-red-500/30">
  {error}
  </div>
  )}
@@ -286,12 +344,12 @@ export default function KycPage() {
  {step === 3 && <Step3 form={form} set={set} />}
 
  {/* Navigation buttons */}
- <div className="flex items-center justify-end gap-3 mt-10 pt-6 border-t border-[#f0f0ec]">
+ <div className="flex items-center justify-end gap-3 mt-10 pt-6 border-t border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
  {step > 1 && (
  <button
  type="button"
  onClick={() => setStep((s) => s - 1)}
- className="h-11 px-8 rounded-full border border-[#d4d4d4] text-[14px] font-medium text-[#001011] hover:bg-[#f5f5f5] transition-colors"
+ className="h-11 px-8 rounded-full border border-[#d4d4d4] dark:border-transparent dark:shadow-card-dark text-[14px] font-medium text-[#001011] dark:text-white hover:bg-[#f5f5f5] dark:hover:bg-white/5 transition-colors"
  >
  Back
  </button>
@@ -416,18 +474,18 @@ function Step2({ form, set }: { form: KycForm; set: (k: keyof KycForm, v: string
  <button
  type="button"
  onClick={() => frontRef.current?.click()}
- className="flex flex-col items-center justify-center h-24 border-2 border-dashed border-[#d4d4d4] bg-[#fafaf7] hover:border-[#06811d] hover:bg-[#eaf5f0] transition-all gap-1.5 rounded-2xl"
+ className="flex flex-col items-center justify-center h-24 border-2 border-dashed border-[#d4d4d4] dark:border-transparent dark:shadow-card-dark bg-[#fafaf7] dark:bg-white/5 hover:border-[#06811d] hover:bg-[#eaf5f0] dark:hover:bg-[#06811d]/10 transition-all gap-1.5 rounded-2xl"
  >
  {form.id_front ? (
  <>
- <span className="w-8 h-8 rounded-full bg-[#dcfce7] flex items-center justify-center text-[#16a34a] text-[16px]">✓</span>
+ <span className="w-8 h-8 rounded-full bg-[#dcfce7] dark:bg-green-500/10 flex items-center justify-center text-[#16a34a] text-[16px]">✓</span>
  <span className="text-[11px] font-medium text-[#16a34a] text-center px-2 truncate w-full">{form.id_front.name}</span>
  </>
  ) : (
  <>
  <UploadIcon />
- <span className="text-[12px] font-semibold text-[#555555]">Front of ID</span>
- <span className="text-[10px] text-[#aaaaaa]">JPG, PNG or PDF</span>
+ <span className="text-[12px] font-semibold text-[#555555] dark:text-white/80">Front of ID</span>
+ <span className="text-[10px] text-[#aaaaaa] dark:text-white/55">JPG, PNG or PDF</span>
  </>
  )}
  </button>
@@ -438,18 +496,18 @@ function Step2({ form, set }: { form: KycForm; set: (k: keyof KycForm, v: string
  <button
  type="button"
  onClick={() => backRef.current?.click()}
- className="flex flex-col items-center justify-center h-24 border-2 border-dashed border-[#d4d4d4] bg-[#fafaf7] hover:border-[#06811d] hover:bg-[#eaf5f0] transition-all gap-1.5 rounded-2xl"
+ className="flex flex-col items-center justify-center h-24 border-2 border-dashed border-[#d4d4d4] dark:border-transparent dark:shadow-card-dark bg-[#fafaf7] dark:bg-white/5 hover:border-[#06811d] hover:bg-[#eaf5f0] dark:hover:bg-[#06811d]/10 transition-all gap-1.5 rounded-2xl"
  >
  {form.id_back ? (
  <>
- <span className="w-8 h-8 rounded-full bg-[#dcfce7] flex items-center justify-center text-[#16a34a] text-[16px]">✓</span>
+ <span className="w-8 h-8 rounded-full bg-[#dcfce7] dark:bg-green-500/10 flex items-center justify-center text-[#16a34a] text-[16px]">✓</span>
  <span className="text-[11px] font-medium text-[#16a34a] text-center px-2 truncate w-full">{form.id_back.name}</span>
  </>
  ) : (
  <>
  <UploadIcon />
- <span className="text-[12px] font-semibold text-[#555555]">Back of ID</span>
- <span className="text-[10px] text-[#aaaaaa]">JPG, PNG or PDF</span>
+ <span className="text-[12px] font-semibold text-[#555555] dark:text-white/80">Back of ID</span>
+ <span className="text-[10px] text-[#aaaaaa] dark:text-white/55">JPG, PNG or PDF</span>
  </>
  )}
  </button>
@@ -507,7 +565,7 @@ function FieldRow({ num, label, children }: { num: number; label: string; childr
  {num}
  </div>
  <div className="flex-1">
- <label className="block text-[13px] font-semibold text-[#001011] mb-2">
+ <label className="block text-[13px] font-semibold text-[#001011] dark:text-white mb-2">
  {label}
  </label>
  {children}
@@ -536,7 +594,7 @@ function KycInput({
  value={value}
  onChange={(e) => onChange(e.target.value)}
  maxLength={maxLength}
- className="w-full h-12 px-4 bg-[#f8f8f4] border border-[#e5e5e0] focus:border-[#06811d] focus:bg-white text-[14px] text-[#001011] placeholder-[#bbbbbb] outline-none transition-all"
+ className="w-full h-12 px-4 bg-[#f8f8f4] dark:bg-white/5 border border-[#e5e5e0] dark:border-transparent dark:shadow-card-dark focus:border-[#06811d] focus:bg-white dark:focus:bg-black text-[14px] text-[#001011] dark:text-white placeholder-[#bbbbbb] outline-none transition-all"
  />
  );
 }
@@ -557,14 +615,14 @@ function KycSelect({
  <select
  value={value}
  onChange={(e) => onChange(e.target.value)}
- className="w-full h-12 px-4 pr-10 bg-[#f8f8f4] border border-[#e5e5e0] focus:border-[#06811d] focus:bg-white text-[14px] text-[#001011] outline-none appearance-none transition-all cursor-pointer"
+ className="w-full h-12 px-4 pr-10 bg-[#f8f8f4] dark:bg-white/5 border border-[#e5e5e0] dark:border-transparent dark:shadow-card-dark focus:border-[#06811d] focus:bg-white dark:focus:bg-black text-[14px] text-[#001011] dark:text-white outline-none appearance-none transition-all cursor-pointer"
  >
  <option value="" disabled>{placeholder}</option>
  {options.map((o) => (
  <option key={o.value} value={o.value}>{o.label}</option>
  ))}
  </select>
- <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#888888]">
+ <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[#888888] dark:text-white/55">
  <ChevronDownIcon />
  </div>
  </div>
@@ -600,31 +658,31 @@ function PrivacySidebar() {
  return (
  <div className="lg:sticky lg:top-18 self-start space-y-4">
  {/* Main security card */}
- <div className="bg-white border border-[#e5e5e5] p-6">
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-6">
  {/* Header */}
- <div className="flex items-center gap-3 mb-4 pb-4 border-b border-[#f0f0ec]">
+ <div className="flex items-center gap-3 mb-4 pb-4 border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
  {/* eslint-disable-next-line @next/next/no-img-element */}
- <div className="w-10 h-10 rounded-xl bg-[#f5fce8] flex items-center justify-center shrink-0">
+ <div className="w-10 h-10 rounded-xl bg-[#f5fce8] dark:bg-[#06811d]/10 flex items-center justify-center shrink-0">
  <img src="/icons/lock-guard.png" alt="" className="w-5 h-5 object-contain" />
  </div>
  <div>
- <h3 className="text-[14px] font-bold text-[#001011] leading-tight">
+ <h3 className="text-[14px] font-bold text-[#001011] dark:text-white leading-tight">
  Privacy &amp; Security
  </h3>
- <p className="text-[11px] text-[#888888]">Bank-level protection</p>
+ <p className="text-[11px] text-[#888888] dark:text-white/55">Bank-level protection</p>
  </div>
  </div>
 
  <ul className="flex flex-col gap-4">
  {SECURITY_ITEMS.map((item) => (
  <li key={item.title} className="flex items-start gap-3">
- <div className="w-8 h-8 rounded-lg bg-[#f5fce8] flex items-center justify-center shrink-0 mt-0.5">
+ <div className="w-8 h-8 rounded-lg bg-[#f5fce8] dark:bg-[#06811d]/10 flex items-center justify-center shrink-0 mt-0.5">
  {/* eslint-disable-next-line @next/next/no-img-element */}
  <img src={item.icon} alt="" className="w-4 h-4 object-contain" style={{ filter: "invert(58%) sepia(47%) saturate(498%) hue-rotate(38deg) brightness(95%)" }} />
  </div>
  <div>
- <p className="text-[13px] font-semibold text-[#001011] leading-tight">{item.title}</p>
- <p className="text-[11px] text-[#888888] leading-snug mt-0.5">{item.desc}</p>
+ <p className="text-[13px] font-semibold text-[#001011] dark:text-white leading-tight">{item.title}</p>
+ <p className="text-[11px] text-[#888888] dark:text-white/55 leading-snug mt-0.5">{item.desc}</p>
  </div>
  </li>
  ))}
@@ -632,7 +690,7 @@ function PrivacySidebar() {
  </div>
 
  {/* Terms note */}
- <div className="bg-[#f5fce8] border border-[#d4e8a0] p-4">
+ <div className="bg-[#f5fce8] dark:bg-[#06811d]/10 border border-[#d4e8a0] dark:border-[#06811d]/30 p-4">
  <p className="text-[12px] text-[#445520] leading-relaxed">
  By submitting this form, you agree to our{" "}
  <span className="text-[#06811d] underline cursor-pointer font-medium">Terms of Service</span>
@@ -654,12 +712,24 @@ function ChevronDownIcon() {
  );
 }
 
-function UploadIcon() {
+function UploadIcon({ className = "text-[#aaaaaa] dark:text-white/55" }: { className?: string }) {
  return (
- <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-[#aaaaaa]">
+ <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
  <polyline points="16,16 12,12 8,16" />
  <line x1="12" y1="12" x2="12" y2="21" />
  <path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3" />
+ </svg>
+ );
+}
+
+function FileTextIcon({ className }: { className?: string }) {
+ return (
+ <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={className}>
+ <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+ <polyline points="14,2 14,8 20,8" />
+ <line x1="8" y1="13" x2="16" y2="13" />
+ <line x1="8" y1="17" x2="16" y2="17" />
+ <line x1="8" y1="9" x2="10" y2="9" />
  </svg>
  );
 }

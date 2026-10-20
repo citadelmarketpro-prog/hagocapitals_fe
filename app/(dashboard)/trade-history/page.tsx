@@ -54,15 +54,15 @@ const DURATION_LABELS: Record<string, string> = {
 const TYPE_LABEL: Record<string, string> = { stock: "Stock", crypto: "Crypto", forex: "Forex" };
 
 function statusCls(s: string) {
- if (s === "open") return "bg-[#eaf5f0] text-[#06811d]";
- if (s === "pending") return "bg-[#fef3c7] text-[#d97706]";
- return "bg-[#f0f0ec] text-[#555555]";
+ if (s === "open") return "bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#06811d]";
+ if (s === "pending") return "bg-[#fef3c7] dark:bg-amber-500/10 text-[#d97706]";
+ return "bg-[#f0f0ec] dark:bg-white/5 text-[#555555] dark:text-white/80";
 }
 
 function dirCls(d: string) {
  return d === "Buy"
- ? "bg-[#eaf5f0] text-[#06811d]"
- : "bg-[#fee2e2] text-[#dc2626]";
+ ? "bg-[#eaf5f0] dark:bg-[#06811d]/10 text-[#06811d]"
+ : "bg-[#fee2e2] dark:bg-red-500/10 text-[#dc2626]";
 }
 
 function pnlCls(pos: boolean) {
@@ -86,7 +86,7 @@ function formatDateTime(iso: string | null): string {
 ───────────────────────────────────────────────────────────── */
 
 function Sk({ className }: { className?: string }) {
- return <div className={`animate-pulse rounded bg-[#e5e3d5] ${className ?? ""}`} />;
+ return <div className={`animate-pulse rounded bg-[#e5e3d5] dark:bg-white/5 ${className ?? ""}`} />;
 }
 
 /* ─────────────────────────────────────────────────────────────
@@ -135,9 +135,9 @@ function TradeAssetIcon({ asset, logoUrl }: { asset: string; logoUrl?: string })
 
 function Row({ label, children }: { label: string; children: React.ReactNode }) {
  return (
- <div className="flex items-center justify-between py-2.5 border-b border-[#f5f5f0] last:border-0">
- <span className="text-[12px] text-[#888888]">{label}</span>
- <span className="text-[12px] font-semibold text-[#001011] text-right">{children}</span>
+ <div className="flex items-center justify-between py-2.5 border-b border-[#f5f5f0] dark:border-transparent dark:shadow-card-dark last:border-0">
+ <span className="text-[12px] text-[#888888] dark:text-white/55">{label}</span>
+ <span className="text-[12px] font-semibold text-[#001011] dark:text-white text-right">{children}</span>
  </div>
  );
 }
@@ -153,7 +153,7 @@ function Chip({ active, label, onClick }: { active: boolean; label: string; onCl
  className={`h-8 px-3 rounded-full text-[12px] font-semibold whitespace-nowrap transition-colors ${
  active
  ? "bg-[#06811d] text-white"
- : "bg-[#f0f0ec] text-[#555555] hover:bg-[#e0e0d8]"
+ : "bg-[#f0f0ec] dark:bg-white/5 text-[#555555] dark:text-white/80 hover:bg-[#e0e0d8] dark:hover:bg-white/5"
  }`}
  >
  {label}
@@ -241,24 +241,24 @@ export default function TradeHistoryPage() {
  <>
  <DashNav />
 
- <main className="min-h-screen bg-[#f5f4ed] pb-20">
+ <main className="min-h-screen bg-[#f5f4ed] dark:bg-black pb-20">
  <div className="max-w-[900px] mx-auto px-4 pt-6">
 
  {/* ── Header ── */}
  <div className="flex items-center gap-3 mb-6">
  <button
  onClick={() => router.back()}
- className="w-8 h-8 rounded-full flex items-center justify-center bg-white border border-[#e5e5e5] hover:bg-[#f5f5f5] transition-colors"
+ className="w-8 h-8 rounded-full flex items-center justify-center bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark hover:bg-[#f5f5f5] dark:hover:bg-white/5 transition-colors"
  >
  <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" strokeWidth="1.8"
  strokeLinecap="round" strokeLinejoin="round"
- className="w-3.5 h-3.5 text-[#555555]">
+ className="w-3.5 h-3.5 text-[#555555] dark:text-white/80">
  <path d="M9 2L4 7l5 5" />
  </svg>
  </button>
  <div>
- <h1 className="text-[18px] font-bold text-[#001011] leading-none">Trade History</h1>
- <p className="text-[12px] text-[#888888] mt-0.5">
+ <h1 className="text-[18px] font-bold text-[#001011] dark:text-white leading-none">Trade History</h1>
+ <p className="text-[12px] text-[#888888] dark:text-white/55 mt-0.5">
  {loading ? "All copied trades" : `${trades.length} trade${trades.length !== 1 ? "s" : ""} total`}
  </p>
  </div>
@@ -269,14 +269,14 @@ export default function TradeHistoryPage() {
  <div className="space-y-2.5 mb-5">
  {copying.map((c) => (
  <Link key={c.id} href={`/traders/${c.trader_id}`}>
- <div className="flex items-center gap-3.5 p-3.5 bg-white border border-[#e5e5e5] rounded-xl hover:border-[#06811d] transition-colors cursor-pointer">
+ <div className="flex items-center gap-3.5 p-3.5 bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl hover:border-[#06811d] transition-colors cursor-pointer">
  {c.avatar_url ? (
  <Image
  src={c.avatar_url}
  alt={c.trader_name}
  width={44}
  height={44}
- className="w-11 h-11 rounded-full object-cover shrink-0 border-2 border-[#cfe8dd]"
+ className="w-11 h-11 rounded-full object-cover shrink-0 border-2 border-[#cfe8dd] dark:border-[#06811d]/30"
  unoptimized
  />
  ) : (
@@ -294,11 +294,11 @@ export default function TradeHistoryPage() {
  </svg>
  <span className="text-[11px] text-[#06811d] font-semibold">Currently Copying</span>
  </div>
- <p className="text-[13.5px] font-bold text-[#001011] truncate">{c.trader_name}</p>
+ <p className="text-[13.5px] font-bold text-[#001011] dark:text-white truncate">{c.trader_name}</p>
  </div>
  <div className="text-right shrink-0">
- <p className="text-[11px] text-[#aaaaaa] mb-0.5">Allocated</p>
- <p className="text-[13px] font-bold text-[#001011]">
+ <p className="text-[11px] text-[#aaaaaa] dark:text-white/55 mb-0.5">Allocated</p>
+ <p className="text-[13px] font-bold text-[#001011] dark:text-white">
  ${parseFloat(c.allocated_amount).toLocaleString("en-US", { minimumFractionDigits: 2 })}
  </p>
  </div>
@@ -313,7 +313,7 @@ export default function TradeHistoryPage() {
  <div className="relative flex-1">
  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.6"
  strokeLinecap="round" strokeLinejoin="round"
- className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#aaaaaa] pointer-events-none">
+ className="absolute left-3 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#aaaaaa] dark:text-white/55 pointer-events-none">
  <circle cx="6.5" cy="6.5" r="4.5" /><path d="M10.5 10.5l3 3" />
  </svg>
  <input
@@ -321,7 +321,7 @@ export default function TradeHistoryPage() {
  placeholder="Search by asset or trader…"
  value={filters.search}
  onChange={(e) => set("search", e.target.value)}
- className="w-full h-10 pl-9 pr-4 text-[13px] bg-white border border-[#e5e5e5] text-[#001011] placeholder:text-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
+ className="w-full h-10 pl-9 pr-4 text-[13px] bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[#001011] dark:text-white placeholder:text-[#aaaaaa] dark:placeholder:text-white/55 outline-none focus:border-[#06811d] transition-colors"
  />
  </div>
 
@@ -330,7 +330,7 @@ export default function TradeHistoryPage() {
  className={`h-10 px-3.5 rounded-full flex items-center gap-2 border text-[13px] font-semibold transition-colors ${
  filtersOpen || hasActiveFilters
  ? "bg-[#06811d] border-[#06811d] text-white"
- : "bg-white border-[#e5e5e5] text-[#555555] hover:bg-[#f5f5f5]"
+ : "bg-white dark:bg-[#0a0a0a] border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark text-[#555555] dark:text-white/80 hover:bg-[#f5f5f5] dark:hover:bg-white/5"
  }`}
  >
  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8"
@@ -348,10 +348,10 @@ export default function TradeHistoryPage() {
 
  {/* ── Collapsible filter panel ── */}
  {filtersOpen && (
- <div className="bg-white border border-[#e5e5e5] rounded-xl p-4 mb-4 space-y-3">
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl p-4 mb-4 space-y-3">
 
  <div className="flex items-center gap-2 flex-wrap">
- <span className="text-[11px] font-semibold text-[#888888] uppercase tracking-wider w-16 shrink-0">Status</span>
+ <span className="text-[11px] font-semibold text-[#888888] dark:text-white/55 uppercase tracking-wider w-16 shrink-0">Status</span>
  <div className="flex gap-1.5 flex-wrap">
  {(["all", "open", "closed", "pending"] as StatusFilter[]).map((v) => (
  <Chip key={v} active={filters.status === v}
@@ -362,7 +362,7 @@ export default function TradeHistoryPage() {
  </div>
 
  <div className="flex items-center gap-2 flex-wrap">
- <span className="text-[11px] font-semibold text-[#888888] uppercase tracking-wider w-16 shrink-0">Side</span>
+ <span className="text-[11px] font-semibold text-[#888888] dark:text-white/55 uppercase tracking-wider w-16 shrink-0">Side</span>
  <div className="flex gap-1.5 flex-wrap">
  {(["all", "Buy", "Sell"] as DirectionFilter[]).map((v) => (
  <Chip key={v} active={filters.direction === v}
@@ -373,7 +373,7 @@ export default function TradeHistoryPage() {
  </div>
 
  <div className="flex items-center gap-2 flex-wrap">
- <span className="text-[11px] font-semibold text-[#888888] uppercase tracking-wider w-16 shrink-0">Type</span>
+ <span className="text-[11px] font-semibold text-[#888888] dark:text-white/55 uppercase tracking-wider w-16 shrink-0">Type</span>
  <div className="flex gap-1.5 flex-wrap">
  {(["all", "stock", "crypto", "forex"] as TypeFilter[]).map((v) => (
  <Chip key={v} active={filters.assetType === v}
@@ -384,7 +384,7 @@ export default function TradeHistoryPage() {
  </div>
 
  <div className="flex items-center gap-2 flex-wrap">
- <span className="text-[11px] font-semibold text-[#888888] uppercase tracking-wider w-16 shrink-0">Date</span>
+ <span className="text-[11px] font-semibold text-[#888888] dark:text-white/55 uppercase tracking-wider w-16 shrink-0">Date</span>
  <div className="flex gap-1.5 flex-wrap">
  {([
  { v: "all", l: "All time" },
@@ -410,7 +410,7 @@ export default function TradeHistoryPage() {
 
  {/* ── Results count ── */}
  {!loading && (
- <p className="text-[12px] text-[#888888] mb-3">
+ <p className="text-[12px] text-[#888888] dark:text-white/55 mb-3">
  {filtered.length} trade{filtered.length !== 1 ? "s" : ""} found
  </p>
  )}
@@ -419,7 +419,7 @@ export default function TradeHistoryPage() {
  {loading ? (
  <div className="space-y-3">
  {[1, 2, 3, 4, 5].map((i) => (
- <div key={i} className="bg-white border border-[#e5e5e5] rounded-xl p-4 space-y-3">
+ <div key={i} className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl p-4 space-y-3">
  <div className="flex items-center justify-between">
  <div className="flex items-center gap-2.5">
  <Sk className="w-9 h-9 rounded-full" />
@@ -440,17 +440,17 @@ export default function TradeHistoryPage() {
  ))}
  </div>
  ) : filtered.length === 0 ? (
- <div className="bg-white border border-[#e5e5e5] rounded-xl flex flex-col items-center justify-center py-16 text-center">
- <div className="w-14 h-14 rounded-full bg-[#f0f0ec] flex items-center justify-center mb-4">
- <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#888888"
+ <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl flex flex-col items-center justify-center py-16 text-center">
+ <div className="w-14 h-14 rounded-full bg-[#f0f0ec] dark:bg-white/5 flex items-center justify-center mb-4">
+ <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" className="text-[#888888] dark:text-white/35"
  strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
  <circle cx="11" cy="11" r="8" /><path d="M21 21l-4.35-4.35M11 8v6M8 11h6" />
  </svg>
  </div>
- <p className="text-[15px] font-bold text-[#001011] mb-1">
+ <p className="text-[15px] font-bold text-[#001011] dark:text-white mb-1">
  {trades.length === 0 ? "No trades yet" : "No trades match"}
  </p>
- <p className="text-[13px] text-[#888888] mb-5">
+ <p className="text-[13px] text-[#888888] dark:text-white/55 mb-5">
  {trades.length === 0
  ? "Start copying expert traders to see your trade history here"
  : "Try adjusting or clearing your filters"}
@@ -487,15 +487,15 @@ export default function TradeHistoryPage() {
  const reference = `HG-${String(t.id).padStart(6, "0")}`;
 
  return (
- <div key={t.id} className="bg-white border border-[#e5e5e5] rounded-xl overflow-hidden">
+ <div key={t.id} className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl overflow-hidden">
 
  {/* Top row */}
  <div className="flex items-center justify-between px-4 pt-4 pb-2">
  <div className="flex items-center gap-2.5 min-w-0">
  <TradeAssetIcon asset={t.asset} logoUrl={t.asset_logo || undefined} />
  <div className="min-w-0">
- <p className="text-[14px] font-bold text-[#001011] leading-tight">{t.asset}</p>
- <p className="text-[11px] text-[#aaaaaa] truncate">
+ <p className="text-[14px] font-bold text-[#001011] dark:text-white leading-tight">{t.asset}</p>
+ <p className="text-[11px] text-[#aaaaaa] dark:text-white/55 truncate">
  {TYPE_LABEL[t.asset_type] ?? t.asset_type} · {DURATION_LABELS[t.duration] ?? t.duration} · {t.trader_name}
  </p>
  </div>
@@ -518,16 +518,16 @@ export default function TradeHistoryPage() {
  <span className={`text-[11px] font-semibold px-2.5 py-0.5 rounded-full ${dirCls(t.direction)}`}>
  {t.direction}
  </span>
- <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f0f0ec] text-[#555555]">
+ <span className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#f0f0ec] dark:bg-white/5 text-[#555555] dark:text-white/80">
  {TYPE_LABEL[t.asset_type] ?? t.asset_type}
  </span>
- <span className="ml-auto text-[11px] text-[#aaaaaa]">
+ <span className="ml-auto text-[11px] text-[#aaaaaa] dark:text-white/55">
  {new Date(t.created_at).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
  </span>
  </div>
 
  {/* Full trade details */}
- <div className="border-t border-[#f0f0ec] px-4">
+ <div className="border-t border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark px-4">
  <Row label="Direction">
  <span className={t.direction === "Buy" ? "text-[#06811d]" : "text-[#dc2626]"}>
  {t.direction.toUpperCase()}
@@ -549,7 +549,7 @@ export default function TradeHistoryPage() {
  <div className="px-4 py-3">
  <button
  onClick={() => toggleExpand(t.id)}
- className="w-full flex items-center justify-center gap-1.5 py-2 text-[12px] font-semibold text-[#555555] hover:text-[#001011] border border-[#e5e5e5] rounded-xl transition-colors hover:bg-[#f5f5f5]"
+ className="w-full flex items-center justify-center gap-1.5 py-2 text-[12px] font-semibold text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark rounded-xl transition-colors hover:bg-[#f5f5f5] dark:hover:bg-white/5"
  >
  <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8"
  strokeLinecap="round" strokeLinejoin="round"
@@ -564,56 +564,56 @@ export default function TradeHistoryPage() {
  {isOpen && (
  <>
  <div className="px-4 pb-4">
- <div className="bg-[#fafaf7] rounded-xl p-4 grid grid-cols-2 gap-x-6 gap-y-4">
+ <div className="bg-[#fafaf7] dark:bg-white/5 rounded-xl p-4 grid grid-cols-2 gap-x-6 gap-y-4">
  <div>
- <p className="text-[11px] text-[#888888] mb-1">Order Type</p>
- <p className="text-[12.5px] font-semibold text-[#001011]">Market</p>
+ <p className="text-[11px] text-[#888888] dark:text-white/55 mb-1">Order Type</p>
+ <p className="text-[12.5px] font-semibold text-[#001011] dark:text-white">Market</p>
  </div>
  <div>
- <p className="text-[11px] text-[#888888] mb-1">Order ID</p>
- <p className="text-[12.5px] font-semibold text-[#001011] break-all">{reference}</p>
+ <p className="text-[11px] text-[#888888] dark:text-white/55 mb-1">Order ID</p>
+ <p className="text-[12.5px] font-semibold text-[#001011] dark:text-white break-all">{reference}</p>
  </div>
  <div>
- <p className="text-[11px] text-[#888888] mb-1">Time in Force</p>
- <p className="text-[12.5px] font-semibold text-[#001011]">Day</p>
+ <p className="text-[11px] text-[#888888] dark:text-white/55 mb-1">Time in Force</p>
+ <p className="text-[12.5px] font-semibold text-[#001011] dark:text-white">Day</p>
  </div>
  <div>
- <p className="text-[11px] text-[#888888] mb-1">Account</p>
- <p className="text-[12.5px] font-semibold text-[#001011]">
+ <p className="text-[11px] text-[#888888] dark:text-white/55 mb-1">Account</p>
+ <p className="text-[12.5px] font-semibold text-[#001011] dark:text-white">
  Individual ({user?.email?.split("@")[0] ?? "member"})
  </p>
  </div>
  <div>
- <p className="text-[11px] text-[#888888] mb-1">{isFilled ? "Filled" : "Opened"}</p>
- <p className="text-[12.5px] font-semibold text-[#001011]">{formatDateTime(t.created_at)}</p>
+ <p className="text-[11px] text-[#888888] dark:text-white/55 mb-1">{isFilled ? "Filled" : "Opened"}</p>
+ <p className="text-[12.5px] font-semibold text-[#001011] dark:text-white">{formatDateTime(t.created_at)}</p>
  </div>
  <div>
- <p className="text-[11px] text-[#888888] mb-1">Currency</p>
- <p className="text-[12.5px] font-semibold text-[#001011]">USD</p>
+ <p className="text-[11px] text-[#888888] dark:text-white/55 mb-1">Currency</p>
+ <p className="text-[12.5px] font-semibold text-[#001011] dark:text-white">USD</p>
  </div>
  </div>
  </div>
 
  <div className="px-4 pb-5">
- <div className="border border-[#f0f0ec] rounded-xl overflow-hidden">
- <div className="px-4 py-3 border-b border-[#f0f0ec]">
- <p className="text-[13px] font-bold text-[#001011]">Fills</p>
+ <div className="border border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark rounded-xl overflow-hidden">
+ <div className="px-4 py-3 border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
+ <p className="text-[13px] font-bold text-[#001011] dark:text-white">Fills</p>
  </div>
  <div className="overflow-x-auto">
  <table className="w-full text-[12px]">
  <thead>
- <tr className="border-b border-[#f5f5f0]">
+ <tr className="border-b border-[#f5f5f0] dark:border-transparent dark:shadow-card-dark">
  {["Time", "Qty", "Price", "Amount"].map((h) => (
- <th key={h} className="text-left text-[#888888] font-normal px-4 py-2">{h}</th>
+ <th key={h} className="text-left text-[#888888] dark:text-white/55 font-normal px-4 py-2">{h}</th>
  ))}
  </tr>
  </thead>
  <tbody>
  <tr>
- <td className="text-[#555555] px-4 py-3 whitespace-nowrap">{formatDateTime(t.created_at)}</td>
- <td className="text-[#555555] px-4 py-3 whitespace-nowrap">{qty.toFixed(4)}</td>
- <td className="text-[#555555] px-4 py-3 whitespace-nowrap">${money(entryPrice)}</td>
- <td className="text-[#555555] px-4 py-3 whitespace-nowrap">${money(totalCost)}</td>
+ <td className="text-[#555555] dark:text-white/80 px-4 py-3 whitespace-nowrap">{formatDateTime(t.created_at)}</td>
+ <td className="text-[#555555] dark:text-white/80 px-4 py-3 whitespace-nowrap">{qty.toFixed(4)}</td>
+ <td className="text-[#555555] dark:text-white/80 px-4 py-3 whitespace-nowrap">${money(entryPrice)}</td>
+ <td className="text-[#555555] dark:text-white/80 px-4 py-3 whitespace-nowrap">${money(totalCost)}</td>
  </tr>
  </tbody>
  </table>

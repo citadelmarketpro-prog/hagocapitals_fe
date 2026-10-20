@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import DashboardGuard from "./DashboardGuard";
+import { DashboardThemeProvider } from "@/context/DashboardThemeContext";
 
 export const metadata: Metadata = {
   robots: {
@@ -10,5 +11,9 @@ export const metadata: Metadata = {
 };
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
-  return <DashboardGuard>{children}</DashboardGuard>;
+  return (
+    <DashboardThemeProvider>
+      <DashboardGuard>{children}</DashboardGuard>
+    </DashboardThemeProvider>
+  );
 }

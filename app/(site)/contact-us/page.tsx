@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReadyToInvest from "@/components/ReadyToInvest";
@@ -18,6 +19,7 @@ const COUNTRIES = [
 ];
 
 export default function ContactUsPage() {
+  const t = useTranslations("contactUsPage");
   const [form, setForm] = useState({
     firstName: "",
     lastName: "",
@@ -51,10 +53,10 @@ export default function ContactUsPage() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] pt-[120px] lg:pt-[150px] pb-16 lg:pb-24">
           <div className="text-center mb-12">
             <h1 className="text-[32px] lg:text-[46px] font-bold text-[#001011]">
-              Contact Us
+              {t("heading")}
             </h1>
             <p className="mt-3 text-[14px] lg:text-[15px] text-[#555555]">
-              Have a question? Send us a message and our team will get back to you shortly.
+              {t("subtitle")}
             </p>
           </div>
 
@@ -67,17 +69,17 @@ export default function ContactUsPage() {
                   </svg>
                 </div>
                 <p className="text-[16px] font-bold text-[#001011]">
-                  Message sent!
+                  {t("successTitle")}
                 </p>
                 <p className="text-[13px] text-[#555555]">
-                  Thank you for reaching out. Our team will get back to you shortly.
+                  {t("successBody")}
                 </p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 {/* First / Last name */}
                 <div className="grid grid-cols-2 gap-4">
-                  <FormField label="First Name">
+                  <FormField label={t("firstName")}>
                     <input
                       type="text"
                       name="firstName"
@@ -87,7 +89,7 @@ export default function ContactUsPage() {
                       className={inputCls}
                     />
                   </FormField>
-                  <FormField label="Last Name">
+                  <FormField label={t("lastName")}>
                     <input
                       type="text"
                       name="lastName"
@@ -101,7 +103,7 @@ export default function ContactUsPage() {
 
                 {/* Company / Country */}
                 <div className="grid grid-cols-2 gap-4">
-                  <FormField label="Company">
+                  <FormField label={t("company")}>
                     <input
                       type="text"
                       name="company"
@@ -110,7 +112,7 @@ export default function ContactUsPage() {
                       className={inputCls}
                     />
                   </FormField>
-                  <FormField label="Country">
+                  <FormField label={t("country")}>
                     <select
                       name="country"
                       value={form.country}
@@ -125,7 +127,7 @@ export default function ContactUsPage() {
                 </div>
 
                 {/* Phone */}
-                <FormField label="Phone Number">
+                <FormField label={t("phone")}>
                   <input
                     type="tel"
                     name="phone"
@@ -136,7 +138,7 @@ export default function ContactUsPage() {
                 </FormField>
 
                 {/* Message */}
-                <FormField label="Free text Message">
+                <FormField label={t("message")}>
                   <textarea
                     name="message"
                     value={form.message}
@@ -151,7 +153,7 @@ export default function ContactUsPage() {
                   className="w-full h-[50px] rounded-full text-[14px] font-bold flex items-center justify-center gap-2 transition-opacity hover:opacity-90"
                   style={{ backgroundColor: "#06811d", color: "#ffffff" }}
                 >
-                  Send message
+                  {t("submit")}
                   <ArrowRightIcon />
                 </button>
               </form>
