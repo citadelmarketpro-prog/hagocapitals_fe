@@ -6,6 +6,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { SWRConfig } from "swr";
 import { useAuth } from "@/context/AuthContext";
 import { api } from "@/lib/api";
+import AbandonedDepositPopup from "@/components/dashboard/AbandonedDepositPopup";
 
 export function SessionSpinner() {
  const [progress, setProgress] = useState(12);
@@ -95,7 +96,10 @@ export default function DashboardGuard({ children }: { children: React.ReactNode
  dedupingInterval: 15000,
  refreshInterval: 30000,
  }}>
- <>{children}</>
+ <>
+ {children}
+ <AbandonedDepositPopup />
+ </>
  </SWRConfig>
  );
 }

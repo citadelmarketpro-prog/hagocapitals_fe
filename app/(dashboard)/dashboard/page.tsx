@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import useSWR, { mutate } from "swr";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import DashNav from "@/components/DashNav";
 import { api, ApiError } from "@/lib/api";
 import { toast } from "sonner";
@@ -434,9 +434,19 @@ function KycBadge({ status }: { status: string | null }) {
 
 function PortfolioCard({ kycStatus }: { kycStatus: string | null }) {
  const router = useRouter();
+ const searchParams = useSearchParams();
  const [modal, setModal] = useState<"none" | "addFunds" | "withdraw" | "transfer">("none");
 
  const { data: stats } = useSWR<DashStats>("/api/dashboard/stats/");
+
+ // Lets the abandoned-deposit popup's "Complete Your Deposit" button deep
+ // link straight into this modal from anywhere in the dashboard.
+ useEffect(() => {
+ if (searchParams.get("openDeposit") === "1") {
+ setModal("addFunds");
+ router.replace("/dashboard");
+ }
+ }, [searchParams, router]);
 
  const close = () => {
  setModal("none");

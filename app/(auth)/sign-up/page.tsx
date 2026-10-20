@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import AuthLayout from "@/components/AuthLayout";
+import PhoneCountryInput from "@/components/PhoneCountryInput";
 import { useAuth } from "@/context/AuthContext";
 import { ApiError } from "@/lib/api";
 
@@ -20,15 +21,22 @@ export default function SignUpPage() {
  const t = useTranslations("signUp");
  const tc = useTranslations("authCommon");
 
+ const [firstName, setFirstName] = useState("");
+ const [lastName, setLastName] = useState("");
  const [email, setEmail] = useState("");
+ const [phone, setPhone] = useState("");
  const [password, setPassword] = useState("");
  const [showPassword, setShowPassword] = useState(false);
  const [error, setError] = useState("");
  const [submitting, setSubmitting] = useState(false);
 
  const checks = REQUIREMENT_TESTS.map((r) => r.test(password));
+ const phoneDigitCount = phone.replace(/\D/g, "").length;
  const allValid =
+ firstName.trim() !== "" &&
+ lastName.trim() !== "" &&
  email.trim() !== "" &&
+ phoneDigitCount >= 8 &&
  checks.every(Boolean);
 
  async function handleSubmit(e: React.FormEvent) {
@@ -40,7 +48,15 @@ export default function SignUpPage() {
  const refCode = typeof window !== "undefined"
  ? new URLSearchParams(window.location.search).get("ref") ?? undefined
  : undefined;
- await register(email.trim(), password, password, refCode);
+ await register({
+ email: email.trim(),
+ password,
+ password2: password,
+ firstName: firstName.trim(),
+ lastName: lastName.trim(),
+ phone,
+ referralCode: refCode,
+ });
  // register() handles redirect to /dashboard on success
  } catch (err) {
  setError(err instanceof ApiError ? err.detail : tc("error"));
@@ -74,6 +90,34 @@ export default function SignUpPage() {
 
  {/* Form */}
  <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+ {/* First / Last name */}
+ <div className="flex flex-col sm:flex-row gap-4">
+ <div className="flex-1 flex flex-col gap-1.5">
+ <label className="text-[13px] font-medium text-[#001011]">
+ First Name
+ </label>
+ <input
+ type="text"
+ placeholder="Jane"
+ value={firstName}
+ onChange={(e) => setFirstName(e.target.value)}
+ className="h-[46px] border border-[#e5e5e5] bg-white px-4 text-[14px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
+ />
+ </div>
+ <div className="flex-1 flex flex-col gap-1.5">
+ <label className="text-[13px] font-medium text-[#001011]">
+ Last Name
+ </label>
+ <input
+ type="text"
+ placeholder="Doe"
+ value={lastName}
+ onChange={(e) => setLastName(e.target.value)}
+ className="h-[46px] border border-[#e5e5e5] bg-white px-4 text-[14px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
+ />
+ </div>
+ </div>
+
  {/* Email */}
  <div className="flex flex-col gap-1.5">
  <label className="text-[13px] font-medium text-[#001011]">
@@ -86,6 +130,14 @@ export default function SignUpPage() {
  onChange={(e) => setEmail(e.target.value)}
  className="h-[46px] border border-[#e5e5e5] bg-white px-4 text-[14px] text-[#001011] placeholder-[#aaaaaa] outline-none focus:border-[#06811d] transition-colors"
  />
+ </div>
+
+ {/* Phone */}
+ <div className="flex flex-col gap-1.5">
+ <label className="text-[13px] font-medium text-[#001011]">
+ Phone Number
+ </label>
+ <PhoneCountryInput onChange={setPhone} />
  </div>
 
  {/* Password */}

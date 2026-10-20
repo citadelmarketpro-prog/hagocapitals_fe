@@ -38,7 +38,15 @@ interface AuthContextValue {
   loading: boolean;
   login: (email: string, password: string) => Promise<{ requires_2fa: boolean }>;
   verifyTwoFactor: (email: string, code: string) => Promise<void>;
-  register: (email: string, password: string, password2: string, referralCode?: string) => Promise<void>;
+  register: (input: {
+    email: string;
+    password: string;
+    password2: string;
+    firstName: string;
+    lastName: string;
+    phone: string;
+    referralCode?: string;
+  }) => Promise<void>;
   logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
 }
@@ -131,10 +139,23 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [router]);
 
   const register = useCallback(
-    async (email: string, password: string, password2: string, referralCode?: string) => {
+    async (input: {
+      email: string;
+      password: string;
+      password2: string;
+      firstName: string;
+      lastName: string;
+      phone: string;
+      referralCode?: string;
+    }) => {
       await api.post("/api/auth/register/", {
-        email, password, password2,
-        ...(referralCode ? { referral_code: referralCode } : {}),
+        email: input.email,
+        password: input.password,
+        password2: input.password2,
+        first_name: input.firstName,
+        last_name: input.lastName,
+        phone: input.phone,
+        ...(input.referralCode ? { referral_code: input.referralCode } : {}),
       });
       const me = await api.get<AuthUser>("/api/auth/me/");
       setUser(me);

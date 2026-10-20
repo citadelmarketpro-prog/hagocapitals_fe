@@ -253,14 +253,14 @@ export default function KycPage() {
  {/* Stats card */}
  <div className="bg-[#001011]/20 backdrop-blur-sm rounded-xl px-5 py-3 border border-white/20">
  <div className="flex items-center gap-1.5 mb-0.5">
- <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
- <polyline points="1,9 4,5 7,7 11,2" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
- <polyline points="8,2 11,2 11,5" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+ <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+ <circle cx="6" cy="6" r="5"/>
+ <polyline points="6,3.2 6,6 8.2,7.3"/>
  </svg>
- <p className="text-[12px] font-semibold text-white/90">Verified users</p>
+ <p className="text-[12px] font-semibold text-white/90">Avg. verification time</p>
  </div>
- <p className="text-[28px] font-black text-white leading-none">118K+</p>
- <p className="text-[11px] text-white/70 mt-0.5">Trusted globally</p>
+ <p className="text-[28px] font-black text-white leading-none">&lt;3 min</p>
+ <p className="text-[11px] text-white/70 mt-0.5">Fast, secure &amp; hassle-free</p>
  </div>
  </div>
  </div>
