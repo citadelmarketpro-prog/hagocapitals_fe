@@ -100,12 +100,12 @@ export default function DashNav() {
  {/* Logo */}
  <Link href="/" className="flex items-center shrink-0">
  <Image
- src={theme === "dark" ? "/logos/logo_one_dark.png" : "/logos/logo_one.png"}
+ src={theme === "dark" ? "/logos/logo_wordmark_dark.png" : "/logos/logo_wordmark.png"}
  alt="HagoCapitals"
- width={376}
- height={284}
+ width={1400}
+ height={328}
  priority
- className="h-9 sm:h-10 w-auto object-contain"
+ className="h-8 sm:h-9 w-auto object-contain"
  />
  </Link>
 
@@ -239,11 +239,11 @@ export default function DashNav() {
  <div className="flex items-center justify-between h-[56px] px-4 border-b border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark shrink-0">
  <Link href="/" className="flex items-center shrink-0" onClick={() => setMenuOpen(false)}>
  <Image
- src={theme === "dark" ? "/logos/logo_one_dark.png" : "/logos/logo_one.png"}
+ src={theme === "dark" ? "/logos/logo_wordmark_dark.png" : "/logos/logo_wordmark.png"}
  alt="HagoCapitals"
- width={376}
- height={284}
- className="h-9 w-auto object-contain"
+ width={1400}
+ height={328}
+ className="h-8 w-auto object-contain"
  />
  </Link>
  <div className="flex items-center gap-1 shrink-0">

@@ -65,10 +65,10 @@ export default function Preloader() {
  <Image
  src="/logos/logo_two.png"
  alt="HagoCapitals"
- width={815}
- height={473}
+ width={800}
+ height={1035}
  priority
- className="w-[150px] sm:w-[180px] h-auto object-contain animate-preloader-pulse"
+ className="w-[90px] sm:w-[110px] h-auto object-contain animate-preloader-pulse"
  />
  </div>
  );

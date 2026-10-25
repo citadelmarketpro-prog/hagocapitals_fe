@@ -46,12 +46,12 @@ export default function Navbar({ transparent = false }: NavbarProps) {
         {/* ── Logo ── */}
         <Link href="/" className="flex items-center shrink-0">
           <Image
-            src="/logos/logo_one.png"
+            src="/logos/logo_wordmark.png"
             alt="HagoCapitals"
-            width={376}
-            height={284}
+            width={1400}
+            height={328}
             priority
-            className={`h-11 lg:h-13 w-auto object-contain transition-all duration-300 ${
+            className={`h-9 lg:h-10 w-auto object-contain transition-all duration-300 ${
               isOverlay ? "brightness-0 invert lg:brightness-100 lg:invert-0" : ""
             }`}
           />

@@ -31,10 +31,10 @@ export default function AuthLayout({
           <Image
             src="/logos/logo_one.png"
             alt="HagoCapitals"
-            width={376}
-            height={284}
+            width={1600}
+            height={375}
             priority
-            className="h-14 w-auto object-contain"
+            className="h-14 sm:h-16 w-auto max-w-full object-contain"
           />
         </Link>
 

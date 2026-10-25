@@ -75,9 +75,9 @@ export default function Footer() {
               <Image
                 src="/logos/logo_one.png"
                 alt="HagoCapitals"
-                width={376}
-                height={284}
-                className="h-16 w-auto object-contain"
+                width={1600}
+                height={375}
+                className="h-16 sm:h-20 w-auto max-w-full object-contain"
               />
             </Link>
 

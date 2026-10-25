@@ -30,10 +30,10 @@ export function SessionSpinner() {
  <Image
  src="/logos/logo_two.png"
  alt="HagoCapitals"
- width={815}
- height={473}
+ width={800}
+ height={1035}
  priority
- className="w-[110px] h-auto object-contain mb-2"
+ className="w-[64px] h-auto object-contain mb-2"
  />
  <p className="text-[12px] text-[#6a8a72] uppercase tracking-[0.18em] mt-1">
  Copy Trading Platform
