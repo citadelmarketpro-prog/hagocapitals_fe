@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Affiliate Guide | HagoCapitals",
     description:
       "Step-by-step guide to the HagoCapitals Affiliate Programme. Learn how to track referrals and maximise commission earnings.",
-    url: "https://hagocapitals.com/affiliate-guide",
+    url: "https://hagoscapitals.com/affiliate-guide",
     images: [
       {
         url: "/opengraph-image.png",

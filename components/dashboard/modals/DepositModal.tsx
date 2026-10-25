@@ -544,7 +544,7 @@ export default function DepositModal({ isOpen, onClose }: DepositModalProps) {
  <p className="text-[10px] text-[#888888] dark:text-white/55 mt-0.5">
  Your deposit will be credited within 30 minutes to 24 hours after verification. If you don&apos;t see it,
  contact us at{" "}
- <a href="mailto:support@hagocapitals.com" className="text-[#06811d] hover:underline">support@hagocapitals.com</a>
+ <a href="mailto:support@hagoscapitals.com" className="text-[#06811d] hover:underline">support@hagoscapitals.com</a>
  </p>
  </div>
  </div>

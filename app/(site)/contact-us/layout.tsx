@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Contact Us | HagoCapitals",
     description:
       "Get in touch with the HagoCapitals team. Send us a message and we'll get back to you shortly.",
-    url: "https://hagocapitals.com/contact-us",
+    url: "https://hagoscapitals.com/contact-us",
     images: [
       {
         url: "/opengraph-image.png",

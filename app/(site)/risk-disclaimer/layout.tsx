@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Risk Disclaimer | HagoCapitals",
     description:
       "Important risk disclosure for HagoCapitals users. Copy trading involves financial risk.",
-    url: "https://hagocapitals.com/risk-disclaimer",
+    url: "https://hagoscapitals.com/risk-disclaimer",
     images: [
       {
         url: "/opengraph-image.png",

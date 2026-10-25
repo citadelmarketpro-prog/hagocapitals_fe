@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Terms of Service | HagoCapitals",
     description: "Read the HagoCapitals Terms of Service governing use of our copy trading platform.",
-    url: "https://hagocapitals.com/terms",
+    url: "https://hagoscapitals.com/terms",
     images: [
       {
         url: "/opengraph-image.png",

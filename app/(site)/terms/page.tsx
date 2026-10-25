@@ -257,8 +257,8 @@ export default function TermsPage() {
                 </Body>
                 <Body>
                   For questions about these Terms, please contact us at{" "}
-                  <a href="mailto:support@hagocapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
-                    support@hagocapitals.com
+                  <a href="mailto:support@hagoscapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
+                    support@hagoscapitals.com
                   </a>.
                 </Body>
               </FadeUp>

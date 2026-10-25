@@ -57,7 +57,7 @@ export default function Footer() {
     {
       label: t("groupContact"),
       links: [
-        { label: "support@hagocapitals.com", href: "mailto:support@hagocapitals.com" },
+        { label: "support@hagoscapitals.com", href: "mailto:support@hagoscapitals.com" },
       ],
     },
   ];

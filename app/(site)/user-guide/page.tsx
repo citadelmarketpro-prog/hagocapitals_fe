@@ -148,7 +148,7 @@ export default function UserGuidePage() {
                       is to enter your personal details, like name, country and phone number. Please
                       note that it is not possible to change your e-mail address later, but we can
                       change it for you with a simple e-mail request to:{" "}
-                      <LimeLink href="mailto:support@hagocapitals.com">support@hagocapitals.com</LimeLink>
+                      <LimeLink href="mailto:support@hagoscapitals.com">support@hagoscapitals.com</LimeLink>
                     </BodyText>
                     <BodyText>
                       In order to ensure smooth connectivity please note that your e-mail address at
@@ -642,8 +642,8 @@ export default function UserGuidePage() {
                     <SmallSubHeading>c. Delete Account</SmallSubHeading>
                     <BodyText>
                       In order to process the deletion of your account please send an email to{" "}
-                      <LimeLink href="mailto:support@hagocapitals.com">
-                        support@hagocapitals.com
+                      <LimeLink href="mailto:support@hagoscapitals.com">
+                        support@hagoscapitals.com
                       </LimeLink>{" "}
                       with the title &apos;Delete Account&apos;. Kindly note that due to regulatory obligations
                       HagoCapitals is legally obliged to maintain data for Live accounts for a period of

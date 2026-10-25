@@ -158,7 +158,7 @@ export default function EulaPage() {
                 <BodyText>
                   Any questions, complaints or claims with respect to the HagoCapitals Platform should
                   be directed to{" "}
-                  <LimeLink href="mailto:support@hagocapitals.com">support@hagocapitals.com</LimeLink>
+                  <LimeLink href="mailto:support@hagoscapitals.com">support@hagoscapitals.com</LimeLink>
                 </BodyText>
               </FadeUp>
         </section>
@@ -286,7 +286,7 @@ export default function EulaPage() {
                     discretion, to unilaterally change and/or amend the terms and conditions of this
                     Agreement. Any new format of this Agreement posted on HagoCapitals&apos;s Website shall
                     be considered as sufficient notice. You should regularly check{" "}
-                    <LimeLink href="https://www.hagocapitals.com">www.hagocapitals.com</LimeLink>{" "}
+                    <LimeLink href="https://www.hagoscapitals.com">www.hagoscapitals.com</LimeLink>{" "}
                     to stay informed about any modifications to the End-User License Agreement or
                     other relevant Terms and Conditions.
                   </BodyText>

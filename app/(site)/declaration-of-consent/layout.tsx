@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Declaration of Consent | HagoCapitals",
     description:
       "Review the consents you provide when creating a HagoCapitals account and using our services.",
-    url: "https://hagocapitals.com/declaration-of-consent",
+    url: "https://hagoscapitals.com/declaration-of-consent",
     images: [
       {
         url: "/opengraph-image.png",

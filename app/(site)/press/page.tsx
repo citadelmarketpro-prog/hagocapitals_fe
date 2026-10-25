@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Press | HagoCapitals",
     description:
       "HagoCapitals in the news. Latest press coverage, media mentions, and official press releases.",
-    url: "https://hagocapitals.com/press",
+    url: "https://hagoscapitals.com/press",
     images: [
       {
         url: "/opengraph-image.png",
@@ -58,8 +58,8 @@ export default async function PressPage() {
               </h1>
               <p className="mt-3 text-[14px] lg:text-[15px] text-[#555555] max-w-xl">
                 {t("subtitle")}{" "}
-                <a href="mailto:press@hagocapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
-                  press@hagocapitals.com
+                <a href="mailto:press@hagoscapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
+                  press@hagoscapitals.com
                 </a>
               </p>
             </div>

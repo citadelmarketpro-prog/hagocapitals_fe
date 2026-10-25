@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "EULA | HagoCapitals",
     description: "Read the HagoCapitals End User Licence Agreement governing use of our software.",
-    url: "https://hagocapitals.com/eula",
+    url: "https://hagoscapitals.com/eula",
     images: [
       {
         url: "/opengraph-image.png",

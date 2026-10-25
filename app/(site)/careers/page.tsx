@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Careers | HagoCapitals",
     description:
       "Join the HagoCapitals team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
-    url: "https://hagocapitals.com/careers",
+    url: "https://hagoscapitals.com/careers",
     images: [
       {
         url: "/opengraph-image.png",
@@ -168,8 +168,8 @@ export default async function CareersPage() {
 
           <p className="mt-8 text-[13px] text-[#666666]">
             {t("noFitPrefix")}{" "}
-            <a href="mailto:careers@hagocapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
-              careers@hagocapitals.com
+            <a href="mailto:careers@hagoscapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
+              careers@hagoscapitals.com
             </a>{" "}
             {t("noFitSuffix")}
           </p>
