@@ -124,92 +124,71 @@ export default function UserGuidePage() {
                 <div className="flex flex-col gap-4">
                   <LimeSubHeading>B. Registration</LimeSubHeading>
                   <BodyText>
-                    Upon your registration, a free Demo account will be automatically created for you,
-                    with exactly the same functionality as a Live account. This means that you can try
-                    out HagoCapitals risk-free and experiment with different CopyTrading strategies before
-                    investing any real funds!
+                    Upon completing your registration with HagoCapitals, a free Demo account is
+                    automatically created for you. This Demo account offers exactly the same
+                    functionality, tools, and trading environment as a full Live account. It gives you
+                    the perfect opportunity to explore HagoCapitals completely risk-free. You can test
+                    different CopyTrading strategies, familiarize yourself with the platform, monitor
+                    performance, and gain confidence while working towards funding your account.
                   </BodyText>
+                  <BodyText>Key advantages of the Demo account include:</BodyText>
                   <BulletList
                     items={[
-                      "Demo is designed to provide the same experience as your Real account, irrespective to your selected Broker",
-                      "Rates accurately represent the market at all times",
-                      "Comprehensive Stop Out level at your desired level",
+                      "A fully realistic trading experience that mirrors a real Live account in every way",
+                      "Live market rates that accurately reflect current market conditions at all times",
+                      "Flexible and comprehensive Stop Out levels that you can set according to your preferred risk tolerance",
                     ]}
                   />
-                  <div>
-                    <LimeLink href="#">Try now</LimeLink>
-                  </div>
+                  <BodyText>
+                    Once you feel ready, simply click <LimeLink href="#">Try now</LimeLink> to begin
+                    your risk-free journey.
+                  </BodyText>
 
                   {/* a. Personal Details */}
                   <div className="flex flex-col gap-2 mt-1">
                     <SmallSubHeading>a. Personal Details</SmallSubHeading>
                     <BodyText>
-                      After registration you will be prompted to complete your account. The first step
-                      is to enter your personal details, like name, country and phone number. Please
-                      note that it is not possible to change your e-mail address later, but we can
-                      change it for you with a simple e-mail request to:{" "}
-                      <LimeLink href="mailto:support@hagoscapitals.com">support@hagoscapitals.com</LimeLink>
+                      After registration, you will be guided to complete your account profile. This is
+                      a quick and straightforward process. You will be asked to provide basic personal
+                      information such as your full name, country of residence, and phone number.
                     </BodyText>
                     <BodyText>
-                      In order to ensure smooth connectivity please note that your e-mail address at
-                      HagoCapitals should be the same as in your broker(s).
+                      Please note that the email address you use during registration cannot be changed
+                      later through the platform. However, if you ever need to update it, our support
+                      team is happy to assist—just send a simple request to{" "}
+                      <LimeLink href="mailto:support@hagoscapitals.com">support@hagoscapitals.com</LimeLink>{" "}
+                      and we will take care of it for you.
+                    </BodyText>
+                    <BodyText>
+                      Completing your personal details ensures your account is properly set up and
+                      ready for the next steps.
                     </BodyText>
                   </div>
 
-                  {/* b. Setup Broker Account */}
+                  {/* b. Set Up and Fund Your HagoCapitals Trading Account */}
                   <div className="flex flex-col gap-3 mt-1">
-                    <SmallSubHeading>b. Setup Broker Account</SmallSubHeading>
+                    <SmallSubHeading>b. Set Up and Fund Your HagoCapitals Trading Account</SmallSubHeading>
                     <BodyText>
-                      After that you will be prompted to add a Live trading account. You can create a
-                      new trading account with one of our supported brokerage firms.
-                    </BodyText>
-
-                    <p className="text-[14px] font-semibold text-[#001011]">
-                      Connect an existing broker account
-                    </p>
-                    <BodyText>
-                      You can connect any MT4, MT5, ActTrader, XOH account you already own from any
-                      broker by following the on-screen instructions.
+                      Once your personal details are complete, you will be prompted to activate your
+                      Live trading account directly within the HagoCapitals platform. There is no need
+                      to open or link any external broker accounts. Everything is handled seamlessly
+                      inside HagoCapitals.
                     </BodyText>
                     <BodyText>
-                      In case your broker is not on our list you may select &quot;Other Brokers&quot; and you
-                      will be asked to provide the brokers IP in addition to your Broker Account
-                      Username and Password.
+                      You can create and fund your Live account using our supported deposit methods.
+                      The process is simple and guided with clear on-screen instructions at every step.
+                      After funding, your account becomes fully active and ready for live CopyTrading.
                     </BodyText>
                     <BodyText>
-                      Please note that the required password is the MT4, MT5, ActTrader, XOH Master
-                      password, and not the Read-Only (Investor) password. If you provide the Read-Only
-                      (Investor) password, although your HagoCapitals account will be connected to your
-                      Broker account, you will not be able to receive any signals as it will be set to
-                      read-only mode.
-                    </BodyText>
-                    <BodyText>
-                      If you do not have the Broker Account Username, Broker Account Password
-                      available, then please contact your Broker as they can remind/reset them for you
-                      — unfortunately, HagoCapitals does not have access to this information and thus
-                      cannot provide it.
-                    </BodyText>
-
-                    <p className="text-[14px] font-semibold text-[#001011]">
-                      Create a new broker account
-                    </p>
-                    <BodyText>
-                      You can also create a new Trading Account through HagoCapitals with our supported
-                      brokerage firms. In order to do so, please follow the on-screen instructions for
-                      each broker account.
-                    </BodyText>
-                    <BodyText>
-                      Keep in mind that for some brokers you will be directed to the broker&apos;s website
-                      to create your trading account. After that you will need to return to HagoCapitals
-                      to eventually connect your new trading account. You will be provided with
-                      instructions (on-screen or via email) that you need to follow for the specific
-                      broker.
+                      HagoCapitals provides a complete, self-contained trading environment so you can
+                      focus on strategies and performance rather than managing multiple platforms or
+                      external connections.
                     </BodyText>
                     <NoteBlock>
-                      Please remember that if you ever change your Broker Password, connectivity with
-                      your HagoCapitals account will be lost, so you will need to repeat this process,
-                      and re-connect your Broker account to HagoCapitals using the updated Broker
-                      Password.
+                      If you ever need to update your deposit method, account settings, or personal
+                      information, you can do so easily by logging into your HagoCapitals account and
+                      following the on-screen prompts. Our support team is also available to help with
+                      any adjustments you may require.
                     </NoteBlock>
                   </div>
                 </div>
