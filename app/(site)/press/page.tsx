@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Press | HagoCapitals",
     description:
       "HagoCapitals in the news. Latest press coverage, media mentions, and official press releases.",
-    url: "https://hagoscapitals.com/press",
+    url: "https://hagoscapital.com/press",
     images: [
       {
         url: "/opengraph-image.png",

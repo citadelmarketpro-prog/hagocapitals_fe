@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Privacy Policy | HagoCapitals",
     description:
       "Learn how HagoCapitals collects, uses, and protects your personal data.",
-    url: "https://hagoscapitals.com/privacy-policy",
+    url: "https://hagoscapital.com/privacy-policy",
     images: [
       {
         url: "/opengraph-image.png",

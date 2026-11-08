@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     "investment platform",
     "HagoCapitals",
   ],
-  authors: [{ name: "HagoCapitals", url: "https://hagoscapitals.com" }],
+  authors: [{ name: "HagoCapitals", url: "https://hagoscapital.com" }],
   creator: "HagoCapitals",
   publisher: "HagoCapitals",
   icons: {
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://hagoscapitals.com",
+    url: "https://hagoscapital.com",
     siteName: "HagoCapitals",
     title: "HagoCapitals — Copy Trading Platform",
     description:

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Leader Trader Guide | HagoCapitals",
     description:
       "Everything you need to know about becoming a Leader Trader. Set up your profile, manage followers, and maximise performance fees.",
-    url: "https://hagoscapitals.com/leader-guide",
+    url: "https://hagoscapital.com/leader-guide",
     images: [
       {
         url: "/opengraph-image.png",

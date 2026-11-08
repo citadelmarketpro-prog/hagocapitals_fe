@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Cookie Policy | HagoCapitals",
     description: "Find out which cookies HagoCapitals uses and how to manage your preferences.",
-    url: "https://hagoscapitals.com/cookie-policy",
+    url: "https://hagoscapital.com/cookie-policy",
     images: [
       {
         url: "/opengraph-image.png",

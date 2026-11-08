@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Careers | HagoCapitals",
     description:
       "Join the HagoCapitals team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
-    url: "https://hagoscapitals.com/careers",
+    url: "https://hagoscapital.com/careers",
     images: [
       {
         url: "/opengraph-image.png",

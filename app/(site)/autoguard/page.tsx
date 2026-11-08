@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "AutoGuard Risk Protection | HagoCapitals",
     description:
       "Automated risk management that sets stop-loss limits, monitors drawdown, and safeguards your capital 24/7.",
-    url: "https://hagoscapitals.com/autoguard",
+    url: "https://hagoscapital.com/autoguard",
     images: [
       {
         url: "/opengraph-image.png",

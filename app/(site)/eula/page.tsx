@@ -286,7 +286,7 @@ export default function EulaPage() {
                     discretion, to unilaterally change and/or amend the terms and conditions of this
                     Agreement. Any new format of this Agreement posted on HagoCapitals&apos;s Website shall
                     be considered as sufficient notice. You should regularly check{" "}
-                    <LimeLink href="https://www.hagoscapitals.com">www.hagoscapitals.com</LimeLink>{" "}
+                    <LimeLink href="https://www.hagoscapital.com">www.hagoscapital.com</LimeLink>{" "}
                     to stay informed about any modifications to the End-User License Agreement or
                     other relevant Terms and Conditions.
                   </BodyText>

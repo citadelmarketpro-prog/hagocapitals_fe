@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Broker Partnership | HagoCapitals",
     description:
       "Partner with HagoCapitals as a broker. Integrate copy trading technology and offer best-in-class social investing tools.",
-    url: "https://hagoscapitals.com/broker",
+    url: "https://hagoscapital.com/broker",
     images: [
       {
         url: "/opengraph-image.png",

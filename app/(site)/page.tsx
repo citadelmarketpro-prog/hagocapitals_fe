@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: "HagoCapitals — Copy Top Traders Automatically",
     description:
       "Join HagoCapitals and automatically copy the trades of expert investors. Real-time signals, smart portfolios, and AutoGuard risk protection.",
-    url: "https://hagoscapitals.com",
+    url: "https://hagoscapital.com",
     images: [
       {
         url: "/opengraph-image.png",
