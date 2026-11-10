@@ -158,7 +158,7 @@ export default function EulaPage() {
                 <BodyText>
                   Any questions, complaints or claims with respect to the HagoCapitals Platform should
                   be directed to{" "}
-                  <LimeLink href="mailto:support@hagoscapitals.com">support@hagoscapitals.com</LimeLink>
+                  <LimeLink href="mailto:support@hagoscapital.com">support@hagoscapital.com</LimeLink>
                 </BodyText>
               </FadeUp>
         </section>

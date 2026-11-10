@@ -156,7 +156,7 @@ export default function UserGuidePage() {
                       Please note that the email address you use during registration cannot be changed
                       later through the platform. However, if you ever need to update it, our support
                       team is happy to assist—just send a simple request to{" "}
-                      <LimeLink href="mailto:support@hagoscapitals.com">support@hagoscapitals.com</LimeLink>{" "}
+                      <LimeLink href="mailto:support@hagoscapital.com">support@hagoscapital.com</LimeLink>{" "}
                       and we will take care of it for you.
                     </BodyText>
                     <BodyText>
@@ -621,8 +621,8 @@ export default function UserGuidePage() {
                     <SmallSubHeading>c. Delete Account</SmallSubHeading>
                     <BodyText>
                       In order to process the deletion of your account please send an email to{" "}
-                      <LimeLink href="mailto:support@hagoscapitals.com">
-                        support@hagoscapitals.com
+                      <LimeLink href="mailto:support@hagoscapital.com">
+                        support@hagoscapital.com
                       </LimeLink>{" "}
                       with the title &apos;Delete Account&apos;. Kindly note that due to regulatory obligations
                       HagoCapitals is legally obliged to maintain data for Live accounts for a period of

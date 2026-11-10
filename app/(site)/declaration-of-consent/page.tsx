@@ -135,10 +135,10 @@ export default function DeclarationOfConsentPage() {
                   <p className="text-[14px] leading-[1.8] text-[#444444]">
                     {t("withdrawPrefix")}{" "}
                     <a
-                      href="mailto:dpo@hagoscapitals.com"
+                      href="mailto:support@hagoscapital.com"
                       className="text-[#06811d] hover:underline underline-offset-2 transition-opacity hover:opacity-80"
                     >
-                      dpo@hagoscapitals.com
+                      support@hagoscapital.com
                     </a>
                   </p>
                 </div>

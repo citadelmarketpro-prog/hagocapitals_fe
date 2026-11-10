@@ -195,7 +195,7 @@ export default function AffiliateGuidePage() {
                     "If a User registers for an Investor account through an Affiliate URL, the account will be linked to the respective Affiliate.",
                     "If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, but with prior landings from an Affiliate URL in the last 30 days, on registration we will take into account the reference responsible for the initial introduction of the service and the account will be linked to the respective (first) Affiliate.",
                     "If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, or without any previous landings on an Affiliate URL, the account will not be linked to any Affiliate. If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, and without an active Affiliate tracking cookie, however he/she has a previously existing account registered within the last 30 days (with the same email) under an Affiliate, then the new Live account goes to the first/introducing Affiliate.",
-                    "If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, the account will not be linked to any Affiliate. However if this was unintentional and the User mistakenly registered for an Investor account through the HagoCapitals main website (without using an Affiliate URL) instead of registering through an intended Affiliate, then the User (as the account owner) may send an email to affiliates@hagoscapitals.com",
+                    "If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, the account will not be linked to any Affiliate. However if this was unintentional and the User mistakenly registered for an Investor account through the HagoCapitals main website (without using an Affiliate URL) instead of registering through an intended Affiliate, then the User (as the account owner) may send an email to support@hagoscapital.com",
                     "from the registered email address within 5 days after activation of the account and request to be placed under the desired Affiliate. The email requesting linkage should also contain the User's account number, email and the Affiliate URL that the User wishes to be linked under.",
                     "Please note: Requests from Affiliates to link referral accounts will not be accepted under any circumstances. The request must be initiated by the actual Account Owner.",
                     "If a User registers for an Investor account through an Affiliate URL other than the intended one, the account cannot be unregistered from the Affiliate or be moved to another Affiliate under any circumstances.",
@@ -249,18 +249,18 @@ export default function AffiliateGuidePage() {
                     </BodyText>
                     <CardArrowLine>
                       Account is NOT linked under any Affiliate{" "}
-                      <LimeLink href="#">affiliates@hagoscapitals.com</LimeLink>{" "}
+                      <LimeLink href="#">support@hagoscapital.com</LimeLink>{" "}
                       The client can email the Affiliates Department at
                     </CardArrowLine>
                     <CardArrowLine>
                       The client can email the Affiliates Department at{" "}
-                      <LimeLink href="#">affiliates@hagoscapitals.com</LimeLink>{" "}
+                      <LimeLink href="#">support@hagoscapital.com</LimeLink>{" "}
                       within 5 days after the activation of the account, to request linkage under
                       Affiliate A.
                     </CardArrowLine>
                     <CardArrowLine>
                       The client can email the Affiliates Department at{" "}
-                      <LimeLink href="#">affiliates@hagoscapitals.com</LimeLink>{" "}
+                      <LimeLink href="#">support@hagoscapital.com</LimeLink>{" "}
                       within 5 days after the activation of the account, to request linkage under
                       Affiliate A.
                     </CardArrowLine>
@@ -299,7 +299,7 @@ export default function AffiliateGuidePage() {
                 <BodyText>
                   The HagoCapitals Customer Support Dept. is here to help you. You can contact us by
                   email at{" "}
-                  <LimeLink href="mailto:support@hagoscapitals.com">support@hagoscapitals.com</LimeLink>
+                  <LimeLink href="mailto:support@hagoscapital.com">support@hagoscapital.com</LimeLink>
                   , by telephone or by Live Chat. For further details please visit{" "}
                   <LimeLink href="#">https://www.hagoscapital.com/help-center</LimeLink>.
                 </BodyText>
@@ -323,8 +323,8 @@ export default function AffiliateGuidePage() {
 
                 <BodyText>
                   For Affiliate specific issues please contact the Affiliates Department at{" "}
-                  <LimeLink href="mailto:affiliates@hagoscapitals.com">
-                    affiliates@hagoscapitals.com
+                  <LimeLink href="mailto:support@hagoscapital.com">
+                    support@hagoscapital.com
                   </LimeLink>
                   . Examples of issues handled by the Affiliates Department:
                 </BodyText>
@@ -346,8 +346,8 @@ export default function AffiliateGuidePage() {
                 <BodyText>
                   Should you wish to make a suggestion or complaint about any aspect of our service,
                   please feel free to contact the Affiliates Accounts Department at{" "}
-                  <LimeLink href="mailto:affiliates@hagoscapitals.com">
-                    affiliates@hagoscapitals.com
+                  <LimeLink href="mailto:support@hagoscapital.com">
+                    support@hagoscapital.com
                   </LimeLink>
                 </BodyText>
               </FadeUp>

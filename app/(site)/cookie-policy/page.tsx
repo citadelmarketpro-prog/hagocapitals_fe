@@ -258,7 +258,7 @@ export default function CookiePolicyPage() {
                 </BodyText>
                 <BodyText>
                   If you have any questions regarding our privacy or security measures, please email{" "}
-                  <LimeLink href="mailto:support@hagoscapitals.com">support@hagoscapitals.com</LimeLink>
+                  <LimeLink href="mailto:support@hagoscapital.com">support@hagoscapital.com</LimeLink>
                 </BodyText>
               </FadeUp>
         </section>

@@ -58,8 +58,8 @@ export default async function PressPage() {
               </h1>
               <p className="mt-3 text-[14px] lg:text-[15px] text-[#555555] max-w-xl">
                 {t("subtitle")}{" "}
-                <a href="mailto:press@hagoscapitals.com" className="text-[#06811d] hover:underline underline-offset-2">
-                  press@hagoscapitals.com
+                <a href="mailto:support@hagoscapital.com" className="text-[#06811d] hover:underline underline-offset-2">
+                  support@hagoscapital.com
                 </a>
               </p>
             </div>
