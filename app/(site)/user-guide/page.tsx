@@ -109,14 +109,14 @@ export default function UserGuidePage() {
               ═══════════════════════════════════ */}
               <section id="onboarding" className="flex flex-col gap-6 scroll-mt-[136px] lg:scroll-mt-28">
         <FadeUp>
-                <SectionHeading>HagoCapitals Leaders</SectionHeading>
+                <SectionHeading>HagosCapital Leaders</SectionHeading>
 
                 {/* A. Login */}
                 <div className="flex flex-col gap-3">
                   <LimeSubHeading>A. Login</LimeSubHeading>
                   <BodyText>
-                    You can login to your account by entering your HagoCapitals Username or your
-                    HagoCapitals registered email address, together with your HagoCapitals password.
+                    You can login to your account by entering your HagosCapital Username or your
+                    HagosCapital registered email address, together with your HagosCapital password.
                   </BodyText>
                 </div>
 
@@ -124,10 +124,10 @@ export default function UserGuidePage() {
                 <div className="flex flex-col gap-4">
                   <LimeSubHeading>B. Registration</LimeSubHeading>
                   <BodyText>
-                    Upon completing your registration with HagoCapitals, a free Demo account is
+                    Upon completing your registration with HagosCapital, a free Demo account is
                     automatically created for you. This Demo account offers exactly the same
                     functionality, tools, and trading environment as a full Live account. It gives you
-                    the perfect opportunity to explore HagoCapitals completely risk-free. You can test
+                    the perfect opportunity to explore HagosCapital completely risk-free. You can test
                     different CopyTrading strategies, familiarize yourself with the platform, monitor
                     performance, and gain confidence while working towards funding your account.
                   </BodyText>
@@ -165,14 +165,14 @@ export default function UserGuidePage() {
                     </BodyText>
                   </div>
 
-                  {/* b. Set Up and Fund Your HagoCapitals Trading Account */}
+                  {/* b. Set Up and Fund Your HagosCapital Trading Account */}
                   <div className="flex flex-col gap-3 mt-1">
-                    <SmallSubHeading>b. Set Up and Fund Your HagoCapitals Trading Account</SmallSubHeading>
+                    <SmallSubHeading>b. Set Up and Fund Your HagosCapital Trading Account</SmallSubHeading>
                     <BodyText>
                       Once your personal details are complete, you will be prompted to activate your
-                      Live trading account directly within the HagoCapitals platform. There is no need
+                      Live trading account directly within the HagosCapital platform. There is no need
                       to open or link any external broker accounts. Everything is handled seamlessly
-                      inside HagoCapitals.
+                      inside HagosCapital.
                     </BodyText>
                     <BodyText>
                       You can create and fund your Live account using our supported deposit methods.
@@ -180,13 +180,13 @@ export default function UserGuidePage() {
                       After funding, your account becomes fully active and ready for live CopyTrading.
                     </BodyText>
                     <BodyText>
-                      HagoCapitals provides a complete, self-contained trading environment so you can
+                      HagosCapital provides a complete, self-contained trading environment so you can
                       focus on strategies and performance rather than managing multiple platforms or
                       external connections.
                     </BodyText>
                     <NoteBlock>
                       If you ever need to update your deposit method, account settings, or personal
-                      information, you can do so easily by logging into your HagoCapitals account and
+                      information, you can do so easily by logging into your HagosCapital account and
                       following the on-screen prompts. Our support team is also available to help with
                       any adjustments you may require.
                     </NoteBlock>
@@ -198,7 +198,7 @@ export default function UserGuidePage() {
                   <LimeSubHeading>C. Applicable Fees</LimeSubHeading>
                   <BodyText>
                     In order to be able to CopyTrade with a Live Trading Account you do not need to
-                    pay any subscription fee. The HagoCapitals Platform is available to all End-Users
+                    pay any subscription fee. The HagosCapital Platform is available to all End-Users
                     holding a linked trading account with a Co-operating Broker.
                   </BodyText>
                 </div>
@@ -242,7 +242,7 @@ export default function UserGuidePage() {
                     <BodyText>
                       Clicking on any trade will show additional information for the specific
                       trade/order. Here you can also find the Trader Ticket and Broker Ticket, which
-                      are essential IDs if you wish to contact HagoCapitals over specific trades.
+                      are essential IDs if you wish to contact HagosCapital over specific trades.
                     </BodyText>
 
                     {/* 1. Update */}
@@ -370,7 +370,7 @@ export default function UserGuidePage() {
                     {
                       n: "1",
                       title: "Navigate to the Leaders\u2019 tab.",
-                      text: "Here you can explore all of the Leader\u2019s that are available for copytrading in HagoCapitals. You can click/tap on any of the Leaders to open their profiles, where you can view all of the Leader\u2019s trading statistics.",
+                      text: "Here you can explore all of the Leader\u2019s that are available for copytrading in HagosCapital. You can click/tap on any of the Leaders to open their profiles, where you can view all of the Leader\u2019s trading statistics.",
                     },
                     {
                       n: "2",
@@ -488,8 +488,8 @@ export default function UserGuidePage() {
                 <SectionHeading>Community</SectionHeading>
 
                 <BodyText>
-                  Here you can learn what is happening in the HagoCapitals community and participate in
-                  discussions about investment topics. This is where HagoCapitals&apos;s users are sharing
+                  Here you can learn what is happening in the HagosCapital community and participate in
+                  discussions about investment topics. This is where HagosCapital&apos;s users are sharing
                   their thoughts about the markets.
                 </BodyText>
 
@@ -588,7 +588,7 @@ export default function UserGuidePage() {
 
                     <NumberedItem n="1" title="Change Password">
                       <BodyText>
-                        You can also change your password for logging into your HagoCapitals account —
+                        You can also change your password for logging into your HagosCapital account —
                         in order to do that you will need your Current Password. If you have forgotten
                         your Current Password, you can always reset it by clicking on the Forgot
                         Password.
@@ -625,7 +625,7 @@ export default function UserGuidePage() {
                         support@hagoscapital.com
                       </LimeLink>{" "}
                       with the title &apos;Delete Account&apos;. Kindly note that due to regulatory obligations
-                      HagoCapitals is legally obliged to maintain data for Live accounts for a period of
+                      HagosCapital is legally obliged to maintain data for Live accounts for a period of
                       time as per respective licences for EU and Global regions.
                     </BodyText>
                   </div>

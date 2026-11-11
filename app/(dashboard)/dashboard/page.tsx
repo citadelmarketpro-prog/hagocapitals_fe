@@ -236,7 +236,7 @@ function ProfileDropdown({
 
  {/* About */}
  <div className="bg-[#f5f5ef] dark:bg-white/5 border-b border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#eeeee9] dark:hover:bg-white/5 transition-colors">
- <span className="text-[13px] font-medium text-[#001011] dark:text-white">About HagoCapitals</span>
+ <span className="text-[13px] font-medium text-[#001011] dark:text-white">About HagosCapital</span>
  <ExternalIcon />
  </div>
 

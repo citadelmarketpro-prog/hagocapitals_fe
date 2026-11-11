@@ -47,8 +47,8 @@ export default function Navbar({ transparent = false }: NavbarProps) {
         <Link href="/" className="flex items-center shrink-0">
           <Image
             src="/logos/logo_wordmark.png"
-            alt="HagoCapitals"
-            width={1400}
+            alt="HagosCapital"
+            width={1460}
             height={328}
             priority
             className={`h-9 lg:h-10 w-auto object-contain transition-all duration-300 ${

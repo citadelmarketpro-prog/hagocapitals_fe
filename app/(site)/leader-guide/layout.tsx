@@ -3,9 +3,9 @@
 export const metadata: Metadata = {
   title: "Leader Trader Guide",
   description:
-    "Everything you need to know about becoming a Leader Trader on HagoCapitals. Set up your profile, manage followers, and maximise your performance fees.",
+    "Everything you need to know about becoming a Leader Trader on HagosCapital. Set up your profile, manage followers, and maximise your performance fees.",
   openGraph: {
-    title: "Leader Trader Guide | HagoCapitals",
+    title: "Leader Trader Guide | HagosCapital",
     description:
       "Everything you need to know about becoming a Leader Trader. Set up your profile, manage followers, and maximise performance fees.",
     url: "https://hagoscapital.com/leader-guide",
@@ -14,13 +14,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "HagosCapital — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Leader Trader Guide | HagoCapitals",
+    title: "Leader Trader Guide | HagosCapital",
     description:
       "Everything you need to know about becoming a Leader Trader. Set up your profile, manage followers, and maximise performance fees.",
     images: ["/opengraph-image.png"],

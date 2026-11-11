@@ -30,8 +30,8 @@ export default function AuthLayout({
         <Link href="/" className="flex items-center mb-10 shrink-0">
           <Image
             src="/logos/logo_one.png"
-            alt="HagoCapitals"
-            width={1600}
+            alt="HagosCapital"
+            width={1648}
             height={375}
             priority
             className="h-14 sm:h-16 w-auto max-w-full object-contain"
@@ -57,7 +57,7 @@ export default function AuthLayout({
       <div className="hidden lg:flex relative w-[48%] xl:w-[46%] shrink-0 flex-col">
         <Image
           src="/account_creation_green.jpg"
-          alt="HagoCapitals trading background"
+          alt="HagosCapital trading background"
           fill
           className="object-cover object-center"
           priority

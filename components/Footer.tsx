@@ -74,8 +74,8 @@ export default function Footer() {
             <Link href="/" className="inline-flex items-center">
               <Image
                 src="/logos/logo_one.png"
-                alt="HagoCapitals"
-                width={1600}
+                alt="HagosCapital"
+                width={1648}
                 height={375}
                 className="h-16 sm:h-20 w-auto max-w-full object-contain"
               />

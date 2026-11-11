@@ -7,7 +7,7 @@ import ReadyToInvest from "@/components/ReadyToInvest";
 import { FadeUp } from "@/components/ScrollReveal";
 
 const NAV_SECTIONS = [
-  { id: "affiliates-guide",       label: "HagoCapitals Affiliates Guide" },
+  { id: "affiliates-guide",       label: "HagosCapital Affiliates Guide" },
   { id: "creating-account",       label: "Creating an Affiliate account" },
   { id: "account-linkage",        label: "Account Linkage Policy" },
   { id: "advertising-guidelines", label: "Advertising and Promotional Guidelines" },
@@ -109,21 +109,21 @@ export default function AffiliateGuidePage() {
             <main className="flex-1 min-w-0 flex flex-col gap-16 pb-4">
 
               {/* ═══════════════════════════════════
-                  1. HagoCapitals AFFILIATES GUIDE
+                  1. HagosCapital AFFILIATES GUIDE
               ═══════════════════════════════════ */}
               <section id="affiliates-guide" className="flex flex-col gap-5 scroll-mt-[136px] lg:scroll-mt-28">
         <FadeUp>
-                <SectionHeading>HagoCapitals Affiliates Guide</SectionHeading>
+                <SectionHeading>HagosCapital Affiliates Guide</SectionHeading>
 
                 <LimeBulletList items={["Introduction to Affiliates"]} />
 
                 <div className="flex flex-col gap-4">
                   <BodyText>
                     An Affiliate can be either an Individual user or a corporation that participates in
-                    HagoCapitals&apos;s Affiliate Program, promoting HagoCapitals&apos;s service. Affiliates register
+                    HagosCapital&apos;s Affiliate Program, promoting HagosCapital&apos;s service. Affiliates register
                     for the program and then they are given a unique and personalised URL, which they use
-                    to advertise and promote HagoCapitals. By promoting HagoCapitals, Affiliates introduce
-                    Referral Clients (new users) to HagoCapitals&apos;s services.
+                    to advertise and promote HagosCapital. By promoting HagosCapital, Affiliates introduce
+                    Referral Clients (new users) to HagosCapital&apos;s services.
                   </BodyText>
                   <BodyText>
                     Affiliates receive a commission for their service for accounts that sign up through the
@@ -131,14 +131,14 @@ export default function AffiliateGuidePage() {
                     per individual unless a written permission is granted from the affiliate department.
                   </BodyText>
                   <BodyText>
-                    To endorse Affiliates&apos; efforts, HagoCapitals provides its Affiliates with resources,
+                    To endorse Affiliates&apos; efforts, HagosCapital provides its Affiliates with resources,
                     guidelines, support, and a variety of promotional tools, such as banners. Additionally,
                     it provides widgets (dynamic and non-dynamic ones) which can be easily integrated into
                     personal website pages, in order to enhance Affiliates&apos; advertising strategies.
                   </BodyText>
                   <BodyText>
                     The Affiliate Program offers a lucrative opportunity to supplement monthly earnings.
-                    HagoCapitals&apos;s Program is flexible; therefore depending on the time and effort Affiliates
+                    HagosCapital&apos;s Program is flexible; therefore depending on the time and effort Affiliates
                     are willing to commit, they can enjoy equivalent earnings.
                   </BodyText>
                 </div>
@@ -148,7 +148,7 @@ export default function AffiliateGuidePage() {
                 </p>
 
                 <BodyText>
-                  HagoCapitals does not directly represent, endorse, or hold commercial associations with
+                  HagosCapital does not directly represent, endorse, or hold commercial associations with
                   Affiliates in any manner.
                 </BodyText>
 
@@ -173,7 +173,7 @@ export default function AffiliateGuidePage() {
                   items={[
                     "How to Open an Account",
                     "Affiliates Supporting Documents",
-                    "Your HagoCapitals Affiliate URL and How to Use It",
+                    "Your HagosCapital Affiliate URL and How to Use It",
                     "Tracking",
                     "Affiliate Banners and Logo",
                   ]}
@@ -193,9 +193,9 @@ export default function AffiliateGuidePage() {
                 <ul className="flex flex-col gap-3 pl-5 list-disc">
                   {[
                     "If a User registers for an Investor account through an Affiliate URL, the account will be linked to the respective Affiliate.",
-                    "If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, but with prior landings from an Affiliate URL in the last 30 days, on registration we will take into account the reference responsible for the initial introduction of the service and the account will be linked to the respective (first) Affiliate.",
-                    "If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, or without any previous landings on an Affiliate URL, the account will not be linked to any Affiliate. If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, and without an active Affiliate tracking cookie, however he/she has a previously existing account registered within the last 30 days (with the same email) under an Affiliate, then the new Live account goes to the first/introducing Affiliate.",
-                    "If a User registers for an Investor account through HagoCapitals's main website without using an Affiliate URL, the account will not be linked to any Affiliate. However if this was unintentional and the User mistakenly registered for an Investor account through the HagoCapitals main website (without using an Affiliate URL) instead of registering through an intended Affiliate, then the User (as the account owner) may send an email to support@hagoscapital.com",
+                    "If a User registers for an Investor account through HagosCapital's main website without using an Affiliate URL, but with prior landings from an Affiliate URL in the last 30 days, on registration we will take into account the reference responsible for the initial introduction of the service and the account will be linked to the respective (first) Affiliate.",
+                    "If a User registers for an Investor account through HagosCapital's main website without using an Affiliate URL, or without any previous landings on an Affiliate URL, the account will not be linked to any Affiliate. If a User registers for an Investor account through HagosCapital's main website without using an Affiliate URL, and without an active Affiliate tracking cookie, however he/she has a previously existing account registered within the last 30 days (with the same email) under an Affiliate, then the new Live account goes to the first/introducing Affiliate.",
+                    "If a User registers for an Investor account through HagosCapital's main website without using an Affiliate URL, the account will not be linked to any Affiliate. However if this was unintentional and the User mistakenly registered for an Investor account through the HagosCapital main website (without using an Affiliate URL) instead of registering through an intended Affiliate, then the User (as the account owner) may send an email to support@hagoscapital.com",
                     "from the registered email address within 5 days after activation of the account and request to be placed under the desired Affiliate. The email requesting linkage should also contain the User's account number, email and the Affiliate URL that the User wishes to be linked under.",
                     "Please note: Requests from Affiliates to link referral accounts will not be accepted under any circumstances. The request must be initiated by the actual Account Owner.",
                     "If a User registers for an Investor account through an Affiliate URL other than the intended one, the account cannot be unregistered from the Affiliate or be moved to another Affiliate under any circumstances.",
@@ -297,7 +297,7 @@ export default function AffiliateGuidePage() {
                 <SectionHeading>Support Assistance</SectionHeading>
 
                 <BodyText>
-                  The HagoCapitals Customer Support Dept. is here to help you. You can contact us by
+                  The HagosCapital Customer Support Dept. is here to help you. You can contact us by
                   email at{" "}
                   <LimeLink href="mailto:support@hagoscapital.com">support@hagoscapital.com</LimeLink>
                   , by telephone or by Live Chat. For further details please visit{" "}
@@ -310,10 +310,10 @@ export default function AffiliateGuidePage() {
 
                 <BulletList
                   items={[
-                    "General Questions Regarding HagoCapitals's Service",
+                    "General Questions Regarding HagosCapital's Service",
                     "Informing on Change of Name or Contact Details",
                     "Account Sign Up Process",
-                    "Failure to Receive HagoCapitals Email Containing Username or Password",
+                    "Failure to Receive HagosCapital Email Containing Username or Password",
                     "Request for Linkage of Accounts",
                     "Account Types (Affiliate, Live Investor, Leader)",
                     "Technical Issues (banners, code errors, display problems, linkage loss, signal errors, etc.)",
@@ -331,7 +331,7 @@ export default function AffiliateGuidePage() {
 
                 <BulletList
                   items={[
-                    "Questions Regarding HagoCapitals's Affiliates Program",
+                    "Questions Regarding HagosCapital's Affiliates Program",
                     "Inquiries on Correct Usage of Affiliates URL links",
                     "Referral Accounts",
                     "General Information on using Banners & Logos",
@@ -367,9 +367,9 @@ export default function AffiliateGuidePage() {
                 <BulletList
                   items={[
                     "Account Inactivity - an Affiliate account is considered inactive if there has been no successful login into the account for a period of more than 6 months.",
-                    "Failure to specifically acknowledge or abide by formal notifications made to the Affiliate by either email or telephone, during which HagoCapitals has made every reasonable effort to inform the Affiliate that they are engaging in conduct/ actions that directly or indirectly violates either the Affiliates Program codes or existing Regulatory codes.",
+                    "Failure to specifically acknowledge or abide by formal notifications made to the Affiliate by either email or telephone, during which HagosCapital has made every reasonable effort to inform the Affiliate that they are engaging in conduct/ actions that directly or indirectly violates either the Affiliates Program codes or existing Regulatory codes.",
                     "Affiliates who perform inappropriate behaviour, for example solicitation of customers in an unethical or illegal manner; such instances will be examined on a case-by-case basis.",
-                    `Failure to abide by all of the advertisement guidelines as stated in Section "Advertising and Promotional Guidelines", may lead to the suspension of one's Affiliate account solely at HagoCapitals's discretion.`,
+                    `Failure to abide by all of the advertisement guidelines as stated in Section "Advertising and Promotional Guidelines", may lead to the suspension of one's Affiliate account solely at HagosCapital's discretion.`,
                   ]}
                 />
 

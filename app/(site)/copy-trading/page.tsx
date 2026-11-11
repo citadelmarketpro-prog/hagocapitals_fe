@@ -3,9 +3,9 @@
 export const metadata: Metadata = {
   title: "Copy Trading",
   description:
-    "Discover how HagoCapitals copy trading works. Follow expert traders, mirror their positions in real time, and grow your portfolio without years of experience.",
+    "Discover how HagosCapital copy trading works. Follow expert traders, mirror their positions in real time, and grow your portfolio without years of experience.",
   openGraph: {
-    title: "Copy Trading | HagoCapitals",
+    title: "Copy Trading | HagosCapital",
     description:
       "Follow expert traders and mirror their positions in real time. Grow your portfolio without years of experience.",
     url: "https://hagoscapital.com/copy-trading",
@@ -14,13 +14,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "HagosCapital — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Copy Trading | HagoCapitals",
+    title: "Copy Trading | HagosCapital",
     description:
       "Follow expert traders and mirror their positions in real time. Grow your portfolio without years of experience.",
     images: ["/opengraph-image.png"],

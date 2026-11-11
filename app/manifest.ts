@@ -2,10 +2,10 @@
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "HagoCapitals — Copy Trading Platform",
-    short_name: "HagoCapitals",
+    name: "HagosCapital — Copy Trading Platform",
+    short_name: "HagosCapital",
     description:
-      "Copy top traders automatically with HagoCapitals. Real-time trade copying and smart portfolio management.",
+      "Copy top traders automatically with HagosCapital. Real-time trade copying and smart portfolio management.",
     start_url: "/",
     display: "standalone",
     background_color: "#ffffff",

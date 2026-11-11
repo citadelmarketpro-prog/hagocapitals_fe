@@ -46,11 +46,11 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "HagoCapitals — Copy Trading Platform",
-    template: "%s | HagoCapitals",
+    default: "HagosCapital — Copy Trading Platform",
+    template: "%s | HagosCapital",
   },
   description:
-    "Copy top traders automatically with HagoCapitals. Real-time trade copying, smart portfolio management, and AutoGuard risk protection for every investor.",
+    "Copy top traders automatically with HagosCapital. Real-time trade copying, smart portfolio management, and AutoGuard risk protection for every investor.",
   keywords: [
     "copy trading",
     "social trading",
@@ -60,11 +60,11 @@ export const metadata: Metadata = {
     "stock copy trading",
     "auto trading",
     "investment platform",
-    "HagoCapitals",
+    "HagosCapital",
   ],
-  authors: [{ name: "HagoCapitals", url: "https://hagoscapital.com" }],
-  creator: "HagoCapitals",
-  publisher: "HagoCapitals",
+  authors: [{ name: "HagosCapital", url: "https://hagoscapital.com" }],
+  creator: "HagosCapital",
+  publisher: "HagosCapital",
   icons: {
     icon: [
       { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
@@ -80,26 +80,26 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://hagoscapital.com",
-    siteName: "HagoCapitals",
-    title: "HagoCapitals — Copy Trading Platform",
+    siteName: "HagosCapital",
+    title: "HagosCapital — Copy Trading Platform",
     description:
-      "Copy top traders automatically with HagoCapitals. Real-time trade copying, smart portfolio management, and AutoGuard risk protection.",
+      "Copy top traders automatically with HagosCapital. Real-time trade copying, smart portfolio management, and AutoGuard risk protection.",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "HagosCapital — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "HagoCapitals — Copy Trading Platform",
+    title: "HagosCapital — Copy Trading Platform",
     description:
-      "Copy top traders automatically with HagoCapitals. Real-time trade copying, smart portfolio management, and AutoGuard risk protection.",
+      "Copy top traders automatically with HagosCapital. Real-time trade copying, smart portfolio management, and AutoGuard risk protection.",
     images: ["/opengraph-image.png"],
-    creator: "@HagoCapitals",
+    creator: "@HagosCapital",
   },
   robots: {
     index: true,

@@ -3,26 +3,26 @@
 export const metadata: Metadata = {
   title: "Careers",
   description:
-    "Join the HagoCapitals team. We're hiring engineers, designers, and financial professionals passionate about democratising investing. View open roles.",
+    "Join the HagosCapital team. We're hiring engineers, designers, and financial professionals passionate about democratising investing. View open roles.",
   openGraph: {
-    title: "Careers | HagoCapitals",
+    title: "Careers | HagosCapital",
     description:
-      "Join the HagoCapitals team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
+      "Join the HagosCapital team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
     url: "https://hagoscapital.com/careers",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "HagosCapital — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Careers | HagoCapitals",
+    title: "Careers | HagosCapital",
     description:
-      "Join the HagoCapitals team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
+      "Join the HagosCapital team. We're hiring engineers, designers, and financial professionals passionate about democratising investing.",
     images: ["/opengraph-image.png"],
   },
 };
@@ -34,12 +34,12 @@ import Footer from "@/components/Footer";
 import { FadeUp } from "@/components/ScrollReveal";
 
 const LIFE_PHOTOS = [
-  { src: "/images/team/team_3.jpg",   alt: "HagoCapitals team member at work" },
-  { src: "/images/business-1.jpg",    alt: "HagoCapitals team collaborating" },
-  { src: "/images/team/team_4.jpg",   alt: "HagoCapitals team member" },
-  { src: "/images/team/team_5.jpg",   alt: "HagoCapitals team member" },
-  { src: "/images/business-2.jpg",    alt: "HagoCapitals office" },
-  { src: "/images/team/team_6.jpg",   alt: "HagoCapitals team member" },
+  { src: "/images/team/team_3.jpg",   alt: "HagosCapital team member at work" },
+  { src: "/images/business-1.jpg",    alt: "HagosCapital team collaborating" },
+  { src: "/images/team/team_4.jpg",   alt: "HagosCapital team member" },
+  { src: "/images/team/team_5.jpg",   alt: "HagosCapital team member" },
+  { src: "/images/business-2.jpg",    alt: "HagosCapital office" },
+  { src: "/images/team/team_6.jpg",   alt: "HagosCapital team member" },
 ];
 
 const DEPT_COLORS: Record<string, string> = {
@@ -91,7 +91,7 @@ export default async function CareersPage() {
             <div className="relative rounded-3xl overflow-hidden aspect-4/3">
               <Image
                 src="/images/happy-business.jpg"
-                alt="The HagoCapitals team at work"
+                alt="The HagosCapital team at work"
                 fill
                 className="object-cover"
                 priority
@@ -121,7 +121,7 @@ export default async function CareersPage() {
       </FadeUp>
         </section>
 
-      {/* Life at HagoCapitals — photo gallery */}
+      {/* Life at HagosCapital — photo gallery */}
       <section className="w-full bg-white">
         <FadeUp>
         <div className="max-w-[1440px] mx-auto px-6 lg:px-[72px] py-14 lg:py-20">

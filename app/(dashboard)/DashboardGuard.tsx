@@ -29,7 +29,7 @@ export function SessionSpinner() {
  <div className="mb-8 text-center select-none flex flex-col items-center">
  <Image
  src="/logos/logo_two.png"
- alt="HagoCapitals"
+ alt="HagosCapital"
  width={800}
  height={1035}
  priority

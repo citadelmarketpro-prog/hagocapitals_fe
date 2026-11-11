@@ -101,8 +101,8 @@ export default function DashNav() {
  <Link href="/" className="flex items-center shrink-0">
  <Image
  src={theme === "dark" ? "/logos/logo_wordmark_dark.png" : "/logos/logo_wordmark.png"}
- alt="HagoCapitals"
- width={1400}
+ alt="HagosCapital"
+ width={1460}
  height={328}
  priority
  className="h-8 sm:h-9 w-auto object-contain"
@@ -240,8 +240,8 @@ export default function DashNav() {
  <Link href="/" className="flex items-center shrink-0" onClick={() => setMenuOpen(false)}>
  <Image
  src={theme === "dark" ? "/logos/logo_wordmark_dark.png" : "/logos/logo_wordmark.png"}
- alt="HagoCapitals"
- width={1400}
+ alt="HagosCapital"
+ width={1460}
  height={328}
  className="h-8 w-auto object-contain"
  />
@@ -508,7 +508,7 @@ function ProfileDropdown({
  <div className="bg-[#f5f5ef] dark:bg-white/5 border-b border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark px-4 py-3 flex items-center justify-between cursor-pointer hover:bg-[#eeeee9] dark:hover:bg-white/5 transition-colors"
  onClick={onClose}
  >
- <span className="text-[13px] font-medium text-[#001011] dark:text-white">About HagoCapitals</span>
+ <span className="text-[13px] font-medium text-[#001011] dark:text-white">About HagosCapital</span>
  <ExternalIcon />
  </div>
 

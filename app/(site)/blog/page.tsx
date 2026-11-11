@@ -3,26 +3,26 @@
 export const metadata: Metadata = {
   title: "Blog",
   description:
-    "Trading tips, platform updates, market insights, and community stories from the HagoCapitals team. Stay informed and invest smarter.",
+    "Trading tips, platform updates, market insights, and community stories from the HagosCapital team. Stay informed and invest smarter.",
   openGraph: {
-    title: "Blog | HagoCapitals",
+    title: "Blog | HagosCapital",
     description:
-      "Trading tips, platform updates, market insights, and community stories from the HagoCapitals team.",
+      "Trading tips, platform updates, market insights, and community stories from the HagosCapital team.",
     url: "https://hagoscapital.com/blog",
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "HagosCapital — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog | HagoCapitals",
+    title: "Blog | HagosCapital",
     description:
-      "Trading tips, platform updates, market insights, and community stories from the HagoCapitals team.",
+      "Trading tips, platform updates, market insights, and community stories from the HagosCapital team.",
     images: ["/opengraph-image.png"],
   },
 };

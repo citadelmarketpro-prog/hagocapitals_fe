@@ -3,9 +3,9 @@
 export const metadata: Metadata = {
   title: "Smart Portfolio",
   description:
-    "Build a diversified investment portfolio automatically with HagoCapitals Smart Portfolio. Intelligent allocation across top-performing traders and asset classes.",
+    "Build a diversified investment portfolio automatically with HagosCapital Smart Portfolio. Intelligent allocation across top-performing traders and asset classes.",
   openGraph: {
-    title: "Smart Portfolio | HagoCapitals",
+    title: "Smart Portfolio | HagosCapital",
     description:
       "Build a diversified investment portfolio automatically. Intelligent allocation across top-performing traders and asset classes.",
     url: "https://hagoscapital.com/smart-portfolio",
@@ -14,13 +14,13 @@ export const metadata: Metadata = {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "HagoCapitals — Copy Trading Platform",
+        alt: "HagosCapital — Copy Trading Platform",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Smart Portfolio | HagoCapitals",
+    title: "Smart Portfolio | HagosCapital",
     description:
       "Build a diversified investment portfolio automatically. Intelligent allocation across top-performing traders and asset classes.",
     images: ["/opengraph-image.png"],
