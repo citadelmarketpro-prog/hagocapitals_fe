@@ -8,7 +8,7 @@ import ThemeAwareToaster from "@/components/ThemeAwareToaster";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 
-import Script from "next/script";
+import SmartsuppChat from "@/components/SmartsuppChat";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -141,11 +141,8 @@ export default async function RootLayout({
         </NextIntlClientProvider>
 
         
-        {/* LiveChat - Jivo */}
-        <Script
-          src="//code.jivosite.com/widget/wlChsKiI52"
-          strategy="afterInteractive"
-        />
+        {/* LiveChat - Smartsupp */}
+        <SmartsuppChat project="HagosCapital" website="hagoscapital.com" color="#06811d" />
       
       </body>
     </html>
