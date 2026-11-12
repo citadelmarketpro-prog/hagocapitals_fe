@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: "HagosCapital — Copy Trading Platform",
-    template: "%s | HagosCapital",
+    template: "HagosCapital | %s",
   },
   description:
     "Copy top traders automatically with HagosCapital. Real-time trade copying, smart portfolio management, and AutoGuard risk protection for every investor.",
