@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
+import { toast } from "sonner";
 import AuthLayout from "@/components/AuthLayout";
 import { api, ApiError } from "@/lib/api";
 
@@ -26,7 +27,9 @@ export default function ForgotPasswordPage() {
  await api.post("/api/auth/password/forgot/", { email: email.trim() });
  setSent(true);
  } catch (err) {
- setError(err instanceof ApiError ? err.detail : tc("error"));
+ const message = err instanceof ApiError ? err.detail : tc("error");
+ setError(message);
+ toast.error(message);
  } finally {
  setSubmitting(false);
  }
