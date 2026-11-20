@@ -37,7 +37,7 @@ export default function LangSwitcher({ dark = false, openUp = false }: { dark?: 
   }
 
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative inline-block">
       <button
         onClick={() => setOpen(!open)}
         className={`flex items-center gap-1.5 text-[13px] font-medium transition-colors py-1.5 px-2.5 rounded-md ${

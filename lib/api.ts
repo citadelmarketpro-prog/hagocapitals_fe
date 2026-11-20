@@ -83,11 +83,20 @@ async function _fetch(input: string, init: RequestInit = {}, retry = true): Prom
 
 async function _json<T>(res: Response): Promise<T> {
   const text = await res.text();
-  const body = text ? JSON.parse(text) : {};
+  let body: Record<string, unknown> = {};
+  if (text) {
+    try {
+      body = JSON.parse(text);
+    } catch {
+      // Non-JSON response (e.g. an HTML 404/500 page from a misrouted
+      // request) — fall through with an empty body so callers still get
+      // a clean ApiError instead of a raw JSON.parse SyntaxError.
+    }
+  }
   if (!res.ok) {
     const detail =
-      body?.detail ??
-      Object.values(body).flat().join(" ") ??
+      (body?.detail as string | undefined) ||
+      Object.values(body).flat().join(" ") ||
       `Request failed (${res.status})`;
     throw new ApiError(res.status, detail as string, body);
   }

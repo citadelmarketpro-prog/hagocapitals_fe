@@ -109,27 +109,27 @@ export default function DashNav() {
  />
  </Link>
 
- {/* Desktop nav — flex-1 so it sits between logo and actions without overlapping */}
+ {/* Desktop nav — icons only on tablets (md–lg), labels from xl (1280px) up, where all seven fit beside the logo and actions without overlapping */}
  <nav className="hidden md:flex flex-1 items-center justify-center gap-0.5 min-w-0">
  {NAV_ITEMS.map(({ href, label, icon }) => (
  <Link
  key={href}
  href={href}
  title={label}
- className={`flex items-center gap-1.5 h-9 px-3 lg:px-3 text-[13px] transition-colors rounded-sm whitespace-nowrap ${
+ className={`flex items-center gap-1.5 h-9 px-2.5 xl:px-2 2xl:px-3 text-[13px] transition-colors rounded-sm whitespace-nowrap ${
  isActive(href)
  ? "font-bold text-[#001011] dark:text-white"
  : "text-[#555555] dark:text-white/80 hover:text-[#001011] dark:hover:text-white"
  }`}
  >
  <span
- className={`scale-[1.4] lg:scale-100 transition-transform ${
+ className={`scale-[1.4] xl:scale-100 transition-transform ${
  isActive(href) ? "text-[#001011] dark:text-white" : "text-[#888888] dark:text-white/55"
  }`}
  >
  {icon}
  </span>
- <span className="hidden lg:inline">{label}</span>
+ <span className="hidden xl:inline">{label}</span>
  </Link>
  ))}
  </nav>
@@ -191,7 +191,7 @@ export default function DashNav() {
  {initials}
  </div>
  )}
- <span className="hidden sm:inline text-[13px] font-medium text-[#001011] dark:text-white whitespace-nowrap">
+ <span className="hidden sm:inline md:hidden 2xl:inline max-w-[140px] truncate text-[13px] font-medium text-[#001011] dark:text-white whitespace-nowrap">
  Hey, {user?.first_name || user?.email?.split("@")[0] || "…"}
  </span>
  <span className="hidden sm:inline text-[#888888] dark:text-white/55"><ChevronDownIcon /></span>

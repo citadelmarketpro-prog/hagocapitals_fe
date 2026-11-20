@@ -88,10 +88,10 @@ export default function Navbar({ transparent = false }: NavbarProps) {
         {/* ── Right side actions ── */}
         <div className="flex items-center gap-2.5 shrink-0">
 
-          {/* Language switcher — visible md+ only, hamburger drawer has its own on mobile */}
-          <div className="hidden md:block">
-            <LangSwitcher dark={isOverlay} />
-          </div>
+          {/* Language switcher — always visible in the top bar so its
+              dropdown never has to fight the mobile drawer's overflow-hidden
+              slide animation, which was clipping it. */}
+          <LangSwitcher dark={isOverlay} />
 
           {/* Sign In — visible md+ only */}
           <Link
@@ -104,7 +104,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
           {/* Get Started */}
           <Link
             href="/sign-up"
-            className="btn-fx btn-fx-primary inline-flex items-center justify-center h-8 lg:h-11 px-3.5 lg:px-6 text-[12px] lg:text-[14px] font-bold"
+            className="btn-fx btn-fx-primary hidden sm:inline-flex items-center justify-center h-8 lg:h-11 px-3.5 lg:px-6 text-[12px] lg:text-[14px] font-bold"
           >
             {t("getStarted")}
           </Link>
@@ -175,11 +175,7 @@ export default function Navbar({ transparent = false }: NavbarProps) {
                 {t("contactUs")}
               </Link>
 
-              <div className="pt-3 pb-1">
-                <LangSwitcher />
-              </div>
-
-              <div className="pt-1 flex gap-3">
+              <div className="pt-3 flex gap-3">
                 <Link
                   href="/sign-in"
                   className="btn-fx btn-fx-ghost flex-1 inline-flex items-center justify-center h-[44px] text-[14px] font-bold border"
