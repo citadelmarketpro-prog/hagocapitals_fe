@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useTranslations } from "next-intl";
 import AuthLayout from "@/components/AuthLayout";
 import PhoneCountryInput from "@/components/PhoneCountryInput";
+import Turnstile from "@/components/Turnstile";
 import { useAuth } from "@/context/AuthContext";
 import { ApiError } from "@/lib/api";
 
@@ -29,6 +30,7 @@ export default function SignUpPage() {
  const [showPassword, setShowPassword] = useState(false);
  const [error, setError] = useState("");
  const [submitting, setSubmitting] = useState(false);
+ const [captchaToken, setCaptchaToken] = useState("");
 
  const checks = REQUIREMENT_TESTS.map((r) => r.test(password));
  const phoneDigitCount = phone.replace(/\D/g, "").length;
@@ -37,7 +39,8 @@ export default function SignUpPage() {
  lastName.trim() !== "" &&
  email.trim() !== "" &&
  phoneDigitCount >= 8 &&
- checks.every(Boolean);
+ checks.every(Boolean) &&
+ captchaToken !== "";
 
  async function handleSubmit(e: React.FormEvent) {
  e.preventDefault();
@@ -56,6 +59,7 @@ export default function SignUpPage() {
  lastName: lastName.trim(),
  phone,
  referralCode: refCode,
+ turnstileToken: captchaToken,
  });
  // register() handles redirect to /dashboard on success
  } catch (err) {
@@ -179,6 +183,9 @@ export default function SignUpPage() {
  </div>
  )}
  </div>
+
+ {/* Captcha */}
+ <Turnstile onVerify={setCaptchaToken} />
 
  {/* Submit */}
  <button

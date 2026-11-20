@@ -46,6 +46,7 @@ interface AuthContextValue {
     lastName: string;
     phone: string;
     referralCode?: string;
+    turnstileToken: string;
   }) => Promise<void>;
   logout: () => Promise<void>;
   refreshUser: () => Promise<void>;
@@ -147,6 +148,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       lastName: string;
       phone: string;
       referralCode?: string;
+      turnstileToken: string;
     }) => {
       await api.post("/api/auth/register/", {
         email: input.email,
@@ -155,6 +157,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         first_name: input.firstName,
         last_name: input.lastName,
         phone: input.phone,
+        turnstile_token: input.turnstileToken,
         ...(input.referralCode ? { referral_code: input.referralCode } : {}),
       });
       const me = await api.get<AuthUser>("/api/auth/me/");
