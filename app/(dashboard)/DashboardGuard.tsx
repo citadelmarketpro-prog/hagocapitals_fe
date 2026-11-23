@@ -90,6 +90,10 @@ export default function DashboardGuard({ children }: { children: React.ReactNode
 
  return (
  <SWRConfig value={{
+ // Fresh cache per dashboard mount. Logout is a client-side router.push,
+ // so without this the next user to sign in on the same tab could be served
+ // the previous user's cached data — e.g. their special deposit wallets.
+ provider: () => new Map(),
  fetcher: (url: string) => api.get(url),
  revalidateOnFocus: true,
  revalidateOnReconnect: true,
