@@ -10,6 +10,7 @@ import { api } from "@/lib/api";
 import { useAuth } from "@/context/AuthContext";
 import { useDashboardTheme } from "@/context/DashboardThemeContext";
 import { AssetIcon } from "@/components/AssetIcon";
+import TraderPortfolioTab from "@/components/dashboard/TraderPortfolioTab";
 
 /* ══════════════════════════════════════════════════════════════
  TYPES
@@ -521,7 +522,9 @@ export default function TraderDetailPage() {
  setTimeFilter={setTimeFilter}
  />
  )}
- {activeTab === "portfolio" && <PortfolioTab trader={trader} />}
+ {/* Open positions; blurred while the server reports it locked (trader.blur_portfolio
+ on and no admin-granted access for this user). */}
+ {activeTab === "portfolio" && trader && <TraderPortfolioTab traderId={trader.id} traderName={trader.name} />}
  {activeTab === "history" && <TradeHistoryTab trader={trader} />}
  {activeTab === "copiers" && <CopiersTab trader={trader} />}
  </div>
@@ -988,73 +991,6 @@ function OverviewTab({
  </div>
  </div>
  )}
- </div>
- );
-}
-
-/* ══════════════════════════════════════════════════════════════
- PORTFOLIO TAB — aggregate breakdown + top traded (no per-position
- relational data in orchard_capitals' Trader model, so this mirrors
- the same JSON-backed summary shown in the Overview tab).
-══════════════════════════════════════════════════════════════ */
-
-function PortfolioTab({ trader }: { trader?: TraderDetail }) {
- if (!trader) return null;
- return (
- <div className="flex flex-col gap-5">
- <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-5 lg:p-6">
- <h3 className="text-[18px] font-bold text-[#001011] dark:text-white mb-1">Portfolio Breakdown</h3>
- <p className="text-[12px] text-[#888888] dark:text-white/55 mb-5">How this trader&apos;s capital is allocated</p>
-
- {trader.portfolio_breakdown.length === 0 ? (
- <p className="text-[13px] text-[#888888] dark:text-white/55 py-6 text-center">No breakdown data available.</p>
- ) : (
- <>
- <div className="flex flex-wrap gap-x-5 gap-y-2 mb-3">
- {trader.portfolio_breakdown.map(({ name, percentage }) => (
- <div key={name} className="min-w-0">
- <p className="text-[12px] font-semibold text-[#001011] dark:text-white truncate">{name}</p>
- <p className="text-[12px] text-[#888888] dark:text-white/55">{percentage}%</p>
- </div>
- ))}
- </div>
- <div className="flex h-2.5 w-full overflow-hidden rounded-full gap-0.5">
- {trader.portfolio_breakdown.map(({ name, percentage }, i) => (
- <div key={name} className="h-full shrink-0" style={{ width: `${percentage}%`, backgroundColor: PORTFOLIO_COLORS[i % PORTFOLIO_COLORS.length] }} />
- ))}
- </div>
- </>
- )}
- </div>
-
- <div className="bg-white dark:bg-[#0a0a0a] border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark p-5 lg:p-6">
- <h3 className="text-[18px] font-bold text-[#001011] dark:text-white mb-5">Top Traded</h3>
- <div className="overflow-x-auto">
- <table className="w-full min-w-[600px]">
- <thead>
- <tr className="border-b border-[#f0f0ec] dark:border-transparent dark:shadow-card-dark">
- <th className="text-left py-2.5 text-[12px] font-medium text-[#888888] dark:text-white/55 pr-4">Asset ({trader.top_traded.length})</th>
- <th className="text-left py-2.5 text-[12px] font-medium text-[#888888] dark:text-white/55 pr-4">Avg. Profit</th>
- <th className="text-left py-2.5 text-[12px] font-medium text-[#888888] dark:text-white/55 pr-4">Avg. Loss</th>
- <th className="text-left py-2.5 text-[12px] font-medium text-[#888888] dark:text-white/55">Profitable %</th>
- </tr>
- </thead>
- <tbody>
- {trader.top_traded.map((a, i) => (
- <tr key={i} className="border-b border-[#f5f5f0] dark:border-transparent dark:shadow-card-dark last:border-0">
- <td className="py-4 pr-4">
- <p className="text-[13px] font-semibold text-[#001011] dark:text-white">{a.name}</p>
- <p className="text-[11px] text-[#888888] dark:text-white/55">{a.ticker}</p>
- </td>
- <td className="py-4 pr-4 text-[13px] font-semibold text-[#16a34a]">+{Number(a.avg_profit).toFixed(2)}%</td>
- <td className="py-4 pr-4 text-[13px] font-semibold text-[#dc2626]">{Number(a.avg_loss).toFixed(2)}%</td>
- <td className="py-4 text-[13px] text-[#001011] dark:text-white">{Number(a.profitable_pct).toFixed(2)}%</td>
- </tr>
- ))}
- </tbody>
- </table>
- </div>
- </div>
  </div>
  );
 }
