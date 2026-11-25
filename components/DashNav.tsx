@@ -464,6 +464,9 @@ function ProfileDropdown({
  <div className="flex-1 min-w-0">
  <p className="text-[14px] font-bold text-[#001011] dark:text-white leading-tight">{displayName}</p>
  <p className="text-[12px] text-[#888888] dark:text-white/55 truncate">{user?.email ?? ""}</p>
+ {user?.bio && (
+ <p className="text-[12px] text-[#555555] dark:text-white/70 mt-1 line-clamp-2 break-words">{user.bio}</p>
+ )}
  </div>
  <button
  onClick={onEditProfile}
@@ -542,6 +545,7 @@ function EditProfileModal({
 
  const [firstName, setFirstName] = useState(user?.first_name ?? "");
  const [lastName, setLastName] = useState(user?.last_name ?? "");
+ const [bio, setBio] = useState(user?.bio ?? "");
  const [avatarFile, setAvatarFile] = useState<File | null>(null);
  const [avatarPreview, setAvatarPreview] = useState<string | null>(null);
  const [removeAvatar, setRemoveAvatar] = useState(false);
@@ -575,17 +579,20 @@ function EditProfileModal({
  form.append("remove_avatar", "1");
  form.append("first_name", firstName.trim());
  form.append("last_name", lastName.trim());
+ form.append("bio", bio.trim());
  await api.patchForm("/api/auth/me/", form);
  } else if (avatarFile) {
  const form = new FormData();
  form.append("avatar", avatarFile);
  form.append("first_name", firstName.trim());
  form.append("last_name", lastName.trim());
+ form.append("bio", bio.trim());
  await api.patchForm("/api/auth/me/", form);
  } else {
  await api.patch("/api/auth/me/", {
  first_name: firstName.trim(),
  last_name: lastName.trim(),
+ bio: bio.trim(),
  });
  }
  await refreshUser();
@@ -719,6 +726,17 @@ function EditProfileModal({
  <GreenCheckCircleIcon />
  </div>
  </div>
+ </div>
+
+ <div>
+ <label className="block text-[12px] font-medium text-[#333333] dark:text-white/80 mb-1.5">Bio</label>
+ <textarea
+ value={bio}
+ onChange={(e) => setBio(e.target.value)}
+ rows={3}
+ placeholder="Tell others a little about yourself"
+ className="w-full px-3 py-2 border border-[#e5e5e5] dark:border-transparent dark:shadow-card-dark bg-white dark:bg-[#0a0a0a] text-[13px] text-[#001011] dark:text-white outline-none focus:border-[#16a34a] transition-colors resize-none"
+ />
  </div>
  </div>
 
