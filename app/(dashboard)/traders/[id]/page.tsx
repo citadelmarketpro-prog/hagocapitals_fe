@@ -415,6 +415,13 @@ export default function TraderDetailPage() {
  {trader.name}
  </h1>
 
+ {/* Trader bio (Trader.bio, sent by the API as `desc`) */}
+ {trader.desc && (
+ <p className="text-[13px] sm:text-[14px] leading-relaxed text-[#555555] dark:text-white/70 mb-4 max-w-[720px] whitespace-pre-line break-words">
+ {trader.desc}
+ </p>
+ )}
+
  {/* Stats inline */}
  <div className="flex flex-wrap items-start gap-x-6 gap-y-2 mb-4">
  {[
