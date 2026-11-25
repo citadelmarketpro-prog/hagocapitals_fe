@@ -417,7 +417,7 @@ export default function TraderDetailPage() {
 
  {/* Trader bio (Trader.bio, sent by the API as `desc`) */}
  {trader.desc && (
- <p className="text-[13px] sm:text-[14px] leading-relaxed text-[#555555] dark:text-white/70 mb-4 max-w-[720px] whitespace-pre-line break-words">
+ <p className="text-[13px] sm:text-[14px] leading-relaxed text-[#555555] dark:text-white/70 mb-4 max-w-[900px] whitespace-pre-line break-words">
  {trader.desc}
  </p>
  )}
