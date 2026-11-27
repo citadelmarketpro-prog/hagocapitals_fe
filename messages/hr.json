@@ -208,9 +208,9 @@
   "trustSection": {
     "heading": "Vaša sredstva se čuvaju u vrhunskim institucijama",
     "stat1Title": "Društveno",
-    "stat1Desc": "Više od 35 milijuna korisnika diljem svijeta",
+    "stat1Desc": "Više od 1,2 milijuna korisnika diljem svijeta",
     "stat2Title": "Pouzdano",
-    "stat2Desc": "Vodeća tvrtka u fintech sektoru od 2007. godine",
+    "stat2Desc": "Vodeća tvrtka u fintech sektoru od {startYear}. godine",
     "stat3Title": "Sigurno",
     "stat3Desc": "Primjena najboljih sigurnosnih praksi za zaštitu novca i imovine klijenata",
     "stat4Title": "Globalno",
@@ -311,7 +311,7 @@
     "statTradersCaption": "Rastuća trgovačka zajednica",
     "statMarketsLabel": "Dostupna tržišta",
     "statMarketsCaption": "Dionice, indeksi, roba i više",
-    "asOf": "Stanje na {year} · Provjereni podaci brokera"
+    "asOf": "Od {startYear}. · Provjereni podaci brokera"
   },
   "readyToInvest": {
     "heading": "Spremni za pametnije ulaganje?",
@@ -349,7 +349,7 @@
     "disclaimerTitle": "Odricanje od odgovornosti",
     "disclaimerP1": "HagosCapital (Europe) Ltd., tvrtka za financijske usluge ovlaštena i regulirana od strane Ciparskog povjerenstva za vrijednosne papire i burzu (CySEC) pod licencom 12718031. Registrirana na Cipru pod brojem tvrtke HE 200595. Registrirani ured: 4 Profiti Ilia Str., Kanika Business Centre, 7. kat, Germasogeia, 4046, Limassol, Cipar. HagosCapital (UK) Ltd, tvrtka za financijske usluge ovlaštena i regulirana od strane Financial Conduct Authority (FCA) pod licencom 12718031. Registrirani ured: 24. kat, One Canada Square, Canary Wharf, London E14 5AB. HagosCapital (USA) Ltd, financijska tvrtka ovlaštena i regulirana od strane SEC-a, SEC broj 0002090792. HagosCapital Limited je ovlaštena od strane Australskog povjerenstva za vrijednosne papire i investicije (ASIC) za pružanje financijskih usluga prema australskoj licenci za financijske usluge 12718031. Registrirani ured: Level 3, 60 Castlereagh Street, Sydney NSW 2000, Australija. HagosCapital (ME) Limited je licencirana i regulirana od strane Regulatornog tijela za financijske usluge („FSRA”) unutar Abu Dhabi Global Market („ADGM”) kao Ovlaštena osoba za obavljanje Reguliranih aktivnosti (a) trgovanja ulaganjima kao nalogodavac (uparen), (b) organiziranja investicijskih poslova, (c) pružanja skrbništva, (d) organiziranja skrbništva i (e) upravljanja imovinom (prema broju dozvole za financijske usluge 220073) sukladno Financial Services and Market Regulations 2015 („FSMR”). Njezin registrirani ured i glavno mjesto poslovanja nalaze se na Office 207 i 208, 15. kat, Al Sarab Tower, ADGM Square, Al Maryah Island, Abu Dhabi, Ujedinjeni Arapski Emirati („UAE”). Klijenti koji su porezni rezidenti Finske mogu podlijegati finskom porezu na dohodak od prihoda (dobiti) i imovine sukladno važećim finskim poreznim zakonima.",
     "disclaimerP2": "Prošli rezultati nisu pokazatelj budućih rezultata. Trebali biste potražiti savjet neovisnog i propisno licenciranog financijskog savjetnika te se uvjeriti da imate odgovarajuću sklonost riziku, relevantno iskustvo i znanje prije nego što odlučite trgovati. HagosCapital ni pod kojim okolnostima neće biti odgovoran bilo kojoj osobi ili subjektu za bilo kakvu izravnu, neizravnu, posebnu, posljedičnu ili slučajnu štetu bilo koje vrste. Ulaganja u dionice i opcije su rizična i ne koriste zaštite dostupne klijentima koji primaju MiFID regulirane investicijske usluge za rješavanje sporova. Trgovanje s HagosCapital praćenjem i/ili kopiranjem ili repliciranjem transakcija drugih trgovaca uključuje visoku razinu rizika, čak i kada pratite i/ili kopirate najuspješnije trgovce. Takvi rizici uključuju rizik da možda pratite/kopirate trgovačke odluke možda neiskusnih/neprofesionalnih trgovaca, ili trgovaca čija se krajnja svrha ili namjera, ili financijsko stanje, mogu razlikovati od vaših. Prošli rezultati člana zajednice HagosCapital nisu pouzdan pokazatelj njegovih budućih rezultata. Sadržaj na platformi za društveno trgovanje tvrtke HagosCapital generiraju članovi njezine zajednice i ne sadrži savjete niti preporuke od strane ili u ime HagosCapital - Your Social Investment Network.",
-    "copyright": "Copyright © 2006-2026 HagosCapital - Your Social Investment Network, Sva prava pridržana.",
+    "copyright": "Copyright © {startYear}-{currentYear} HagosCapital - Your Social Investment Network, Sva prava pridržana.",
     "secNumber": "SEC broj: 0002090792"
   },
   "nav": {

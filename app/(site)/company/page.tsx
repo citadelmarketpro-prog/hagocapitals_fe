@@ -29,6 +29,7 @@ export const metadata: Metadata = {
 
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import { yearsInOperation } from "@/lib/company";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReadyToInvest from "@/components/ReadyToInvest";
@@ -37,7 +38,7 @@ import { FadeUp } from "@/components/ScrollReveal";
 export default async function CompanyPage() {
   const t = await getTranslations("companyPage");
   const STATS = [
-    { value: "7+", label: t("stat1Label") },
+    { value: String(yearsInOperation()), label: t("stat1Label") },
     { value: "118+", label: t("stat2Label") },
     { value: "10M+", label: t("stat3Label") },
     { value: "1.2M+", label: t("stat4Label") },

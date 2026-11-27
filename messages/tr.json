@@ -208,9 +208,9 @@
   "trustSection": {
     "heading": "Fonlarınız üst düzey kurumlarda saklanmaktadır",
     "stat1Title": "Sosyal",
-    "stat1Desc": "Dünya genelinde 35 milyondan fazla kullanıcı",
+    "stat1Desc": "Dünya genelinde 1,2 milyondan fazla kullanıcı",
     "stat2Title": "Güvenilir",
-    "stat2Desc": "2007'den beri fintech alanında lider",
+    "stat2Desc": "{startYear}'ten beri fintech alanında lider",
     "stat3Title": "Güvenli",
     "stat3Desc": "Müşteri parası ve varlıklarının güvenliği için en iyi güvenlik uygulamalarını kullanıyoruz",
     "stat4Title": "Küresel",
@@ -311,7 +311,7 @@
     "statTradersCaption": "Büyüyen bir alım satım topluluğu",
     "statMarketsLabel": "Mevcut piyasalar",
     "statMarketsCaption": "Hisse senetleri, endeksler, emtialar ve daha fazlası",
-    "asOf": "{year} itibarıyla · Doğrulanmış aracı kurum verileri"
+    "asOf": "{startYear}'ten beri · Doğrulanmış aracı kurum verileri"
   },
   "readyToInvest": {
     "heading": "Daha akıllı yatırım yapmaya hazır mısınız?",
@@ -349,7 +349,7 @@
     "disclaimerTitle": "Sorumluluk Reddi",
     "disclaimerP1": "HagosCapital (Europe) Ltd., Kıbrıs Menkul Kıymetler ve Borsa Komisyonu (CySEC) tarafından 12718031 lisans numarasıyla yetkilendirilmiş ve düzenlenmiş bir finansal hizmetler şirketidir. Kıbrıs'ta HE 200595 şirket numarasıyla kayıtlıdır. Kayıtlı ofis: 4 Profiti Ilia Str., Kanika Business Centre, 7. kat, Germasogeia, 4046, Limasol, Kıbrıs. HagosCapital (UK) Ltd, Financial Conduct Authority (FCA) tarafından 12718031 lisans numarasıyla yetkilendirilmiş ve düzenlenmiş bir finansal hizmetler şirketidir. Kayıtlı ofis: 24. kat, One Canada Square, Canary Wharf, Londra E14 5AB. HagosCapital (USA) Ltd, SEC tarafından yetkilendirilmiş ve düzenlenmiş bir finansal şirkettir, SEC numarası 0002090792. HagosCapital Limited, Avustralya Menkul Kıymetler ve Yatırımlar Komisyonu (ASIC) tarafından Avustralya finansal hizmetler lisansı 12718031 kapsamında finansal hizmetler sunmaya yetkilendirilmiştir. Kayıtlı ofis: Level 3, 60 Castlereagh Street, Sidney NSW 2000, Avustralya. HagosCapital (ME) Limited, Abu Dhabi Global Market (\"ADGM\") Finansal Hizmetler Düzenleme Otoritesi (\"FSRA\") tarafından, (a) yatırımların asil olarak (eşleştirilmiş) alım satımı, (b) yatırım işlemlerinin düzenlenmesi, (c) saklama hizmeti sağlanması, (d) saklama hizmetinin düzenlenmesi ve (e) varlık yönetimi (220073 Finansal Hizmetler İzin Numarası kapsamında) Düzenlenmiş Faaliyetlerini 2015 Finansal Hizmetler ve Pazar Yönetmeliği (\"FSMR\") uyarınca yürütmek üzere Yetkili Kişi olarak lisanslanmış ve düzenlenmiştir. Kayıtlı ofisi ve ana iş yeri, Office 207 ve 208, 15. kat, Al Sarab Tower, ADGM Square, Al Maryah Adası, Abu Dabi, Birleşik Arap Emirlikleri'nde (\"BAE\") bulunmaktadır. Finlandiya'da vergi mükellefi olan müşteriler, geçerli Fin vergi yasaları uyarınca gelir (kâr) ve varlıklar üzerinden Fin gelir vergisine tabi olabilirler.",
     "disclaimerP2": "Geçmiş performans, gelecekteki sonuçların bir göstergesi değildir. Alım satım yapmaya karar vermeden önce bağımsız ve uygun şekilde lisanslanmış bir finansal danışmandan tavsiye almalı ve risk iştahınızın, ilgili deneyim ve bilginizin yeterli olduğundan emin olmalısınız. HagosCapital hiçbir koşulda herhangi bir kişi veya kuruluşa karşı doğrudan, dolaylı, özel, sonuçsal veya arızi zararlardan sorumlu tutulamaz. Hisse senedi ve opsiyon yatırımları risklidir ve uyuşmazlık çözümü için MiFID düzenlemesine tabi yatırım hizmetleri alan müşterilere sağlanan korumalardan yararlanamaz. HagosCapital ile diğer yatırımcıların işlemlerini takip ederek ve/veya kopyalayarak veya çoğaltarak alım satım yapmak, en başarılı yatırımcıları takip etmek ve/veya kopyalamak dahi olsa yüksek düzeyde risk içerir. Bu riskler arasında, deneyimsiz/profesyonel olmayan yatırımcıların veya nihai amacı, niyeti ya da mali durumu sizinkinden farklı olabilecek yatırımcıların alım satım kararlarını takip etme/kopyalama riski bulunmaktadır. Bir HagosCapital Topluluk Üyesinin geçmiş performansı, gelecekteki performansının güvenilir bir göstergesi değildir. HagosCapital'in sosyal alım satım platformundaki içerik, topluluk üyeleri tarafından oluşturulur ve HagosCapital - Your Social Investment Network tarafından veya adına verilen tavsiye veya öneriler içermez.",
-    "copyright": "Telif Hakkı © 2006-2026 HagosCapital - Your Social Investment Network, Tüm hakları saklıdır.",
+    "copyright": "Telif Hakkı © {startYear}-{currentYear} HagosCapital - Your Social Investment Network, Tüm hakları saklıdır.",
     "secNumber": "SEC Numarası: 0002090792"
   },
   "nav": {

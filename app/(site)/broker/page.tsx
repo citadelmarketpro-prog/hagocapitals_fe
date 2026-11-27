@@ -5,6 +5,7 @@ import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import ReadyToInvest from "@/components/ReadyToInvest";
+import { yearsInOperation } from "@/lib/company";
 import { FadeUp } from "@/components/ScrollReveal";
 
 /* ── Why Partner data ─────────────────────────────────────────────── */
@@ -256,8 +257,8 @@ export default function BrokerPage() {
             </h2>
             <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#555555]">
               HagosCapital is a leading copy trading partner. We developed it. So we know
-              everything about building and optimizing social trading networks over the past
-              7 years and counting.
+              everything about building and optimizing social trading networks over the past{" "}
+              {yearsInOperation()} years and counting.
             </p>
             <p className="text-[14px] lg:text-[15px] leading-[1.8] text-[#555555]">
               Our client support is anything and all-about mutual, with our in-house team

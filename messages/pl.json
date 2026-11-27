@@ -208,9 +208,9 @@
   "trustSection": {
     "heading": "Twoje środki są przechowywane w instytucjach najwyższej klasy",
     "stat1Title": "Społeczność",
-    "stat1Desc": "Ponad 35 milionów użytkowników na całym świecie",
+    "stat1Desc": "Ponad 1,2 miliona użytkowników na całym świecie",
     "stat2Title": "Niezawodność",
-    "stat2Desc": "Lider w branży fintech od 2007 roku",
+    "stat2Desc": "Lider w branży fintech od {startYear} roku",
     "stat3Title": "Bezpieczeństwo",
     "stat3Desc": "Stosowanie najlepszych praktyk bezpieczeństwa dla ochrony środków i aktywów klientów",
     "stat4Title": "Globalny zasięg",
@@ -311,7 +311,7 @@
     "statTradersCaption": "Rosnąca społeczność tradingowa",
     "statMarketsLabel": "Dostępne rynki",
     "statMarketsCaption": "Akcje, indeksy, surowce i więcej",
-    "asOf": "Stan na {year} · Zweryfikowane dane brokera"
+    "asOf": "Od {startYear} r. · Zweryfikowane dane brokera"
   },
   "readyToInvest": {
     "heading": "Gotowy na mądrzejsze inwestowanie?",
@@ -349,7 +349,7 @@
     "disclaimerTitle": "Zastrzeżenie",
     "disclaimerP1": "HagosCapital (Europe) Ltd., firma świadcząca usługi finansowe, autoryzowana i regulowana przez Cypryjską Komisję Papierów Wartościowych i Giełd (CySEC) na podstawie licencji 12718031. Zarejestrowana na Cyprze pod numerem spółki HE 200595. Siedziba: 4 Profiti Ilia Str., Kanika Business Centre, 7. piętro, Germasogeia, 4046, Limassol, Cypr. HagosCapital (UK) Ltd, firma świadcząca usługi finansowe, autoryzowana i regulowana przez Financial Conduct Authority (FCA) na podstawie licencji 12718031. Siedziba: 24. piętro, One Canada Square, Canary Wharf, Londyn E14 5AB. HagosCapital (USA) Ltd, firma finansowa autoryzowana i regulowana przez SEC, numer SEC 0002090792. HagosCapital Limited posiada zezwolenie Australijskiej Komisji Papierów Wartościowych i Inwestycji (ASIC) na świadczenie usług finansowych na podstawie australijskiej licencji na usługi finansowe 12718031. Siedziba: Level 3, 60 Castlereagh Street, Sydney NSW 2000, Australia. HagosCapital (ME) Limited posiada licencję i jest regulowana przez Financial Services Regulatory Authority („FSRA”) Abu Dhabi Global Market („ADGM”) jako Osoba Upoważniona do prowadzenia Działalności Regulowanej w zakresie (a) obrotu inwestycjami jako zleceniodawca (dopasowany), (b) organizowania transakcji inwestycyjnych, (c) świadczenia usług powierniczych, (d) organizowania usług powierniczych oraz (e) zarządzania aktywami (na podstawie numeru zezwolenia na usługi finansowe 220073) zgodnie z Financial Services and Market Regulations 2015 („FSMR”). Jej siedziba i główne miejsce prowadzenia działalności znajdują się w Office 207 i 208, 15. piętro, Al Sarab Tower, ADGM Square, Al Maryah Island, Abu Zabi, Zjednoczone Emiraty Arabskie („ZEA”). Klienci będący rezydentami podatkowymi Finlandii mogą podlegać fińskiemu podatkowi dochodowemu od dochodów (zysków) i aktywów zgodnie z obowiązującymi fińskimi przepisami podatkowymi.",
     "disclaimerP2": "Wyniki osiągnięte w przeszłości nie są wskaźnikiem przyszłych wyników. Przed podjęciem decyzji o rozpoczęciu handlu należy zasięgnąć porady niezależnego i odpowiednio licencjonowanego doradcy finansowego oraz upewnić się, że posiada się odpowiednią tolerancję ryzyka, doświadczenie i wiedzę. W żadnym wypadku HagosCapital nie ponosi odpowiedzialności wobec jakiejkolwiek osoby lub podmiotu za jakiekolwiek szkody bezpośrednie, pośrednie, szczególne, wtórne lub przypadkowe. Inwestycje w akcje i opcje są ryzykowne i nie korzystają z ochrony dostępnej dla klientów otrzymujących usługi inwestycyjne regulowane przez MiFID w zakresie rozstrzygania sporów. Handel z HagosCapital poprzez śledzenie i/lub kopiowanie lub odwzorowywanie transakcji innych traderów wiąże się z wysokim poziomem ryzyka, nawet przy śledzeniu i/lub kopiowaniu najlepiej radzących sobie traderów. Ryzyko to obejmuje ryzyko, że możesz śledzić/kopiować decyzje handlowe potencjalnie niedoświadczonych/nieprofesjonalnych traderów, lub traderów, których ostateczny cel, intencja lub sytuacja finansowa mogą różnić się od Twojej. Wyniki osiągnięte w przeszłości przez członka społeczności HagosCapital nie są wiarygodnym wskaźnikiem jego przyszłych wyników. Treści na platformie social tradingowej HagosCapital są tworzone przez członków jej społeczności i nie zawierają porad ani rekomendacji ze strony HagosCapital - Your Social Investment Network ani w jej imieniu.",
-    "copyright": "Copyright © 2006-2026 HagosCapital - Your Social Investment Network, Wszelkie prawa zastrzeżone.",
+    "copyright": "Copyright © {startYear}-{currentYear} HagosCapital - Your Social Investment Network, Wszelkie prawa zastrzeżone.",
     "secNumber": "Numer SEC: 0002090792"
   },
   "nav": {

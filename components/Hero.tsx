@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Stagger, StaggerItem, FadeUp, FadeIn } from "@/components/ScrollReveal";
+import { companyYearParams } from "@/lib/company";
 
 /* ─────────────────────────────────────────────────────────────────
    Integrations badge — rotates through one broker/platform name at
@@ -251,7 +252,7 @@ export default function Hero() {
           <FadeIn delay={0.15} className="flex items-center justify-center gap-4 sm:gap-6 mt-10 sm:mt-14">
             <span className="h-px w-10 sm:w-16 bg-[#e3e3e3]" />
             <span className="text-[10.5px] sm:text-[12px] tracking-[0.18em] text-[#999999] font-semibold uppercase whitespace-nowrap">
-              {t("asOf", { year: new Date().getFullYear() })}
+              {t("asOf", companyYearParams())}
             </span>
             <span className="h-px w-10 sm:w-16 bg-[#e3e3e3]" />
           </FadeIn>

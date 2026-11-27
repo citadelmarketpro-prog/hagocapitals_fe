@@ -208,9 +208,9 @@
   "trustSection": {
     "heading": "Dina medel förvaras hos förstklassiga institutioner",
     "stat1Title": "Socialt",
-    "stat1Desc": "Mer än 35 miljoner användare globalt",
+    "stat1Desc": "Mer än 1,2 miljoner användare globalt",
     "stat2Title": "Pålitlig",
-    "stat2Desc": "En ledare inom fintech-branschen sedan 2007",
+    "stat2Desc": "En ledare inom fintech-branschen sedan {startYear}",
     "stat3Title": "Säkrat",
     "stat3Desc": "Använder bästa säkerhetspraxis för att skydda kundernas pengar och tillgångar",
     "stat4Title": "Globalt",
@@ -311,7 +311,7 @@
     "statTradersCaption": "En växande handelsgemenskap",
     "statMarketsLabel": "Tillgängliga marknader",
     "statMarketsCaption": "Aktier, index, råvaror och mer",
-    "asOf": "Per {year} · Verifierad mäklardata"
+    "asOf": "Sedan {startYear} · Verifierad mäklardata"
   },
   "readyToInvest": {
     "heading": "Redo att investera smartare?",
@@ -349,7 +349,7 @@
     "disclaimerTitle": "Ansvarsfriskrivning",
     "disclaimerP1": "HagosCapital (Europe) Ltd., ett finansiellt tjänsteföretag auktoriserat och reglerat av Cyperns värdepappers- och börskommission (CySEC) under licens 12718031. Registrerat på Cypern med företagsnummer HE 200595. Registrerat kontor: 4 Profiti Ilia Str., Kanika Business Centre, 7:e våningen, Germasogeia, 4046, Limassol, Cypern. HagosCapital (UK) Ltd, ett finansiellt tjänsteföretag auktoriserat och reglerat av Financial Conduct Authority (FCA) under licens 12718031. Registrerat kontor: 24:e våningen, One Canada Square, Canary Wharf, London E14 5AB. HagosCapital (USA) Ltd, ett finansiellt bolag auktoriserat och reglerat av SEC, SEC-nummer 0002090792. HagosCapital Limited är auktoriserat av Australian Securities and Investments Commission (ASIC) att tillhandahålla finansiella tjänster under den australiska licensen för finansiella tjänster 12718031. Registrerat kontor: Level 3, 60 Castlereagh Street, Sydney NSW 2000, Australien. HagosCapital (ME) Limited är licensierat och reglerat av Financial Services Regulatory Authority (\"FSRA\") inom Abu Dhabi Global Market (\"ADGM\") som en auktoriserad person för att bedriva de reglerade verksamheterna (a) handel med investeringar som huvudman (matchad), (b) arrangering av investeringsaffärer, (c) tillhandahållande av förvaring, (d) arrangering av förvaring och (e) kapitalförvaltning (under tillstånd för finansiella tjänster nummer 220073) enligt Financial Services and Market Regulations 2015 (\"FSMR\"). Dess registrerade kontor och huvudsakliga verksamhetsort finns på Office 207 och 208, 15:e våningen, Al Sarab Tower, ADGM Square, Al Maryah Island, Abu Dhabi, Förenade Arabemiraten (\"UAE\"). Kunder som är skatteresidenta i Finland kan bli föremål för finsk inkomstskatt på inkomst (vinster) och tillgångar i enlighet med tillämplig finsk skattelagstiftning.",
     "disclaimerP2": "Tidigare resultat är ingen indikation på framtida resultat. Du bör söka råd från en oberoende och vederbörligen licensierad finansiell rådgivare och säkerställa att du har rätt riskaptit, erfarenhet och kunskap innan du bestämmer dig för att handla. Under inga omständigheter ska HagosCapital hållas ansvarigt gentemot någon person eller enhet för direkta, indirekta, särskilda, följd- eller oförutsedda skador av något slag. Investeringar i aktier och optioner är riskfyllda och omfattas inte av det skydd som finns tillgängligt för kunder som får MiFID-reglerade investeringstjänster för tvistlösning. Att handla med HagosCapital genom att följa och/eller kopiera eller replikera andra handlares affärer innebär en hög risknivå, även när man följer och/eller kopierar de mest framgångsrika handlarna. Sådana risker inkluderar risken att du kan följa/kopiera handelsbeslut från eventuellt oerfarna/icke-professionella handlare, eller handlare vars yttersta syfte eller avsikt, eller finansiella status, kan skilja sig från din egen. Tidigare resultat för en HagosCapital-communitymedlem är ingen tillförlitlig indikator på dennes framtida resultat. Innehåll på HagosCapital sociala handelsplattform skapas av medlemmar i communityn och innehåller inga råd eller rekommendationer från eller på uppdrag av HagosCapital - Your Social Investment Network.",
-    "copyright": "Copyright © 2006-2026 HagosCapital - Your Social Investment Network, Alla rättigheter förbehållna.",
+    "copyright": "Copyright © {startYear}-{currentYear} HagosCapital - Your Social Investment Network, Alla rättigheter förbehållna.",
     "secNumber": "SEC-nummer: 0002090792"
   },
   "nav": {

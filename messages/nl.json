@@ -208,9 +208,9 @@
   "trustSection": {
     "heading": "Uw tegoeden worden aangehouden bij toonaangevende instellingen",
     "stat1Title": "Sociaal",
-    "stat1Desc": "Meer dan 35 miljoen gebruikers wereldwijd",
+    "stat1Desc": "Meer dan 1,2 miljoen gebruikers wereldwijd",
     "stat2Title": "Betrouwbaar",
-    "stat2Desc": "Een koploper in de fintech-sector sinds 2007",
+    "stat2Desc": "Een koploper in de fintech-sector sinds {startYear}",
     "stat3Title": "Beveiligd",
     "stat3Desc": "Gebruik van de beste beveiligingspraktijken voor de veiligheid van klantgeld en -activa",
     "stat4Title": "Wereldwijd",
@@ -311,7 +311,7 @@
     "statTradersCaption": "Een groeiende handelsgemeenschap",
     "statMarketsLabel": "Beschikbare markten",
     "statMarketsCaption": "Aandelen, indices, grondstoffen en meer",
-    "asOf": "Per {year} · Geverifieerde brokergegevens"
+    "asOf": "Sinds {startYear} · Geverifieerde brokergegevens"
   },
   "readyToInvest": {
     "heading": "Klaar om slimmer te beleggen?",
@@ -349,7 +349,7 @@
     "disclaimerTitle": "Disclaimer",
     "disclaimerP1": "HagosCapital (Europe) Ltd., een financiële dienstverlener die is gemachtigd en gereguleerd door de Cyprus Securities Exchange Commission (CySEC) onder licentie 12718031. Geregistreerd in Cyprus onder bedrijfsnummer HE 200595. Statutaire zetel: 4 Profiti Ilia Str., Kanika Business Centre, 7e verdieping, Germasogeia, 4046, Limassol, Cyprus. HagosCapital (UK) Ltd, een financiële dienstverlener die is gemachtigd en gereguleerd door de Financial Conduct Authority (FCA) onder licentie 12718031. Statutaire zetel: 24e verdieping, One Canada Square, Canary Wharf, Londen E14 5AB. HagosCapital (USA) Ltd, een financiële onderneming die is gemachtigd en gereguleerd door de SEC, SEC-nummer 0002090792. HagosCapital Limited is gemachtigd door de Australian Securities and Investments Commission (ASIC) om financiële diensten te verlenen onder de Australische vergunning voor financiële diensten 12718031. Statutaire zetel: Level 3, 60 Castlereagh Street, Sydney NSW 2000, Australië. HagosCapital (ME) Limited is gelicentieerd en gereguleerd door de Financial Services Regulatory Authority (\"FSRA\") van de Abu Dhabi Global Market (\"ADGM\") als Geautoriseerde Persoon om de Gereguleerde Activiteiten uit te voeren van (a) Handelen in Beleggingen als Principaal (Matched), (b) Regelen van Beleggingstransacties, (c) Verlenen van Bewaring, (d) Regelen van Bewaring en (e) Vermogensbeheer (onder Financial Services Permission Number 220073) krachtens de Financial Services and Market Regulations 2015 (\"FSMR\"). De statutaire zetel en voornaamste vestigingsplaats bevinden zich op Office 207 en 208, 15e verdieping, Al Sarab Tower, ADGM Square, Al Maryah Island, Abu Dhabi, Verenigde Arabische Emiraten (\"VAE\"). Klanten die fiscaal inwoner zijn van Finland kunnen onderworpen zijn aan de Finse inkomstenbelasting op inkomen (winsten) en vermogen in overeenstemming met de toepasselijke Finse belastingwetgeving.",
     "disclaimerP2": "Resultaten uit het verleden bieden geen garantie voor de toekomst. U dient advies in te winnen bij een onafhankelijke en naar behoren gelicentieerde financieel adviseur en ervoor te zorgen dat u over de juiste risicobereidheid, ervaring en kennis beschikt voordat u besluit te gaan handelen. HagosCapital is onder geen enkele omstandigheid aansprakelijk jegens enige persoon of entiteit voor directe, indirecte, speciale, gevolg- of incidentele schade van welke aard dan ook. Beleggingen in aandelen en opties zijn risicovol en genieten niet van de bescherming die beschikbaar is voor klanten die MiFID-gereguleerde beleggingsdiensten ontvangen voor geschillenbeslechting. Handelen met HagosCapital door het volgen en/of kopiëren of nabootsen van de transacties van andere traders brengt een hoog risiconiveau met zich mee, zelfs bij het volgen en/of kopiëren van de best presterende traders. Dergelijke risico's omvatten het risico dat u mogelijk de handelsbeslissingen volgt/kopieert van mogelijk onervaren/niet-professionele traders, of traders wiens uiteindelijke doel of intentie, of financiële status, kan afwijken van de uwe. Resultaten uit het verleden van een HagosCapital Community-lid zijn geen betrouwbare indicator voor zijn toekomstige prestaties. Inhoud op het social trading-platform van HagosCapital wordt gegenereerd door leden van de community en bevat geen advies of aanbevelingen door of namens HagosCapital - Your Social Investment Network.",
-    "copyright": "Copyright © 2006-2026 HagosCapital - Your Social Investment Network, Alle rechten voorbehouden.",
+    "copyright": "Copyright © {startYear}-{currentYear} HagosCapital - Your Social Investment Network, Alle rechten voorbehouden.",
     "secNumber": "SEC-nummer: 0002090792"
   },
   "nav": {

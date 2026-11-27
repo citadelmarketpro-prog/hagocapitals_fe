@@ -208,9 +208,9 @@
   "trustSection": {
     "heading": "Varasi säilytetään huippuluokan instituutioissa",
     "stat1Title": "Sosiaalinen",
-    "stat1Desc": "Yli 35 miljoonaa käyttäjää maailmanlaajuisesti",
+    "stat1Desc": "Yli 1,2 miljoonaa käyttäjää maailmanlaajuisesti",
     "stat2Title": "Luotettava",
-    "stat2Desc": "Fintech-alan johtaja vuodesta 2007",
+    "stat2Desc": "Fintech-alan johtaja vuodesta {startYear}",
     "stat3Title": "Suojattu",
     "stat3Desc": "Parhaiden turvallisuuskäytäntöjen käyttö asiakkaiden rahojen ja varojen suojaamiseksi",
     "stat4Title": "Globaali",
@@ -311,7 +311,7 @@
     "statTradersCaption": "Kasvava kaupankäyntiyhteisö",
     "statMarketsLabel": "Saatavilla olevat markkinat",
     "statMarketsCaption": "Osakkeet, indeksit, hyödykkeet ja muut",
-    "asOf": "Tilanne {year} · Vahvistettua välittäjädataa"
+    "asOf": "Vuodesta {startYear} · Vahvistettua välittäjädataa"
   },
   "readyToInvest": {
     "heading": "Valmis sijoittamaan älykkäämmin?",
@@ -349,7 +349,7 @@
     "disclaimerTitle": "Vastuuvapauslauseke",
     "disclaimerP1": "HagosCapital (Europe) Ltd. on rahoituspalveluyhtiö, jolla on Kyproksen arvopaperi- ja pörssikomission (CySEC) myöntämä toimilupa 12718031. Rekisteröity Kyproksella yritysnumerolla HE 200595. Rekisteröity toimipaikka: 4 Profiti Ilia Str., Kanika Business Centre, 7. kerros, Germasogeia, 4046, Limassol, Kypros. HagosCapital (UK) Ltd on rahoituspalveluyhtiö, jolla on Ison-Britannian finanssivalvonnan (FCA) myöntämä toimilupa 12718031. Rekisteröity toimipaikka: 24. kerros, One Canada Square, Canary Wharf, Lontoo E14 5AB. HagosCapital (USA) Ltd on rahoitusyhtiö, jolla on SEC:n myöntämä toimilupa, SEC-numero 0002090792. HagosCapital Limitedillä on Australian arvopaperi- ja sijoituskomission (ASIC) lupa tarjota rahoituspalveluja Australian rahoituspalvelulisenssillä 12718031. Rekisteröity toimipaikka: Level 3, 60 Castlereagh Street, Sydney NSW 2000, Australia. HagosCapital (ME) Limited on Abu Dhabi Global Marketin (\"ADGM\") finanssipalveluiden sääntelyviranomaisen (\"FSRA\") lisensoima ja valvoma valtuutettuna henkilönä harjoittamaan säänneltyjä toimintoja: (a) sijoitusten kauppaa päämiehenä (yhdistetty), (b) sijoitustoimien järjestämistä, (c) säilytyspalvelujen tarjoamista, (d) säilytyspalvelujen järjestämistä ja (e) varainhoitoa (rahoituspalvelulupanumerolla 220073) vuoden 2015 rahoituspalvelu- ja markkina-asetusten (\"FSMR\") mukaisesti. Sen rekisteröity toimipaikka ja päätoimipaikka sijaitsevat osoitteessa Office 207 ja 208, 15. kerros, Al Sarab Tower, ADGM Square, Al Maryah Island, Abu Dhabi, Yhdistyneet arabiemiirikunnat (\"UAE\"). Suomessa verotuksellisesti asuvat asiakkaat voivat olla velvollisia maksamaan Suomen tuloveroa tuloista (voitoista) ja varoista sovellettavan Suomen verolainsäädännön mukaisesti.",
     "disclaimerP2": "Aiempi tuotto ei ole tae tulevasta tuotosta. Sinun tulisi hakea neuvoja riippumattomalta ja asianmukaisesti lisensoidulta talousneuvojalta ja varmistaa, että sinulla on riittävä riskinsietokyky, kokemus ja tietämys ennen kaupankäyntipäätöksen tekemistä. HagosCapital ei missään olosuhteissa ole vastuussa kenellekään henkilölle tai yhteisölle mistään välittömistä, välillisistä, erityisistä, seuraamuksellisista tai satunnaisista vahingoista. Osake- ja optiosijoitukset ovat riskialttiita eivätkä ne hyödy suojista, jotka ovat käytettävissä asiakkaille, jotka saavat MiFID-säänneltyjä sijoituspalveluja riitojen ratkaisuun. Kaupankäyntiin HagosCapitalin kanssa seuraamalla ja/tai kopioimalla tai jäljittelemällä muiden kauppiaiden kauppoja liittyy korkea riskitaso, vaikka seuraisit ja/tai kopioisit parhaiten menestyviä kauppiaita. Näihin riskeihin kuuluu riski siitä, että saatat seurata/kopioida mahdollisesti kokemattomien/epäammattimaisten kauppiaiden kaupankäyntipäätöksiä, tai kauppiaita, joiden lopullinen tarkoitus tai aikomus tai taloudellinen tilanne voi poiketa omastasi. HagosCapital-yhteisön jäsenen aiempi tuotto ei ole luotettava osoitus tulevasta tuotosta. HagosCapitalin sosiaalisen kaupankäyntialustan sisällön tuottavat sen yhteisön jäsenet, eikä se sisällä HagosCapital - Your Social Investment Network -yhtiön tai sen puolesta annettuja neuvoja tai suosituksia.",
-    "copyright": "Copyright © 2006-2026 HagosCapital - Your Social Investment Network, Kaikki oikeudet pidätetään.",
+    "copyright": "Copyright © {startYear}-{currentYear} HagosCapital - Your Social Investment Network, Kaikki oikeudet pidätetään.",
     "secNumber": "SEC-numero: 0002090792"
   },
   "nav": {

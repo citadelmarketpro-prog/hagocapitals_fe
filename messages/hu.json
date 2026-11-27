@@ -208,9 +208,9 @@
   "trustSection": {
     "heading": "Pénzeszközeit elsőrangú intézményekben tartjuk",
     "stat1Title": "Közösségi",
-    "stat1Desc": "Több mint 35 millió felhasználó világszerte",
+    "stat1Desc": "Több mint 1,2 millió felhasználó világszerte",
     "stat2Title": "Megbízható",
-    "stat2Desc": "Vezető szerepben a fintech szektorban 2007 óta",
+    "stat2Desc": "Vezető szerepben a fintech szektorban {startYear} óta",
     "stat3Title": "Biztonságos",
     "stat3Desc": "A legjobb biztonsági gyakorlatok alkalmazása az ügyfelek pénzének és eszközeinek védelmére",
     "stat4Title": "Globális",
@@ -311,7 +311,7 @@
     "statTradersCaption": "Egyre növekvő kereskedési közösség",
     "statMarketsLabel": "Elérhető piacok",
     "statMarketsCaption": "Részvények, indexek, nyersanyagok és több",
-    "asOf": "{year}-tól · Ellenőrzött brókeradatok"
+    "asOf": "{startYear} óta · Ellenőrzött brókeradatok"
   },
   "readyToInvest": {
     "heading": "Készen áll okosabban befektetni?",
@@ -349,7 +349,7 @@
     "disclaimerTitle": "Jogi nyilatkozat",
     "disclaimerP1": "A HagosCapital (Europe) Ltd. egy pénzügyi szolgáltató vállalat, amelyet a Ciprusi Értékpapír- és Tőzsdebizottság (CySEC) engedélyezett és szabályoz a 12718031 számú engedély alapján. Ciprusán bejegyezve HE 200595 cégszám alatt. Székhely: 4 Profiti Ilia Str., Kanika Business Centre, 7. emelet, Germasogeia, 4046, Limassol, Ciprus. A HagosCapital (UK) Ltd egy pénzügyi szolgáltató vállalat, amelyet a Financial Conduct Authority (FCA) engedélyezett és szabályoz a 12718031 számú engedély alapján. Székhely: 24. emelet, One Canada Square, Canary Wharf, London E14 5AB. A HagosCapital (USA) Ltd egy pénzügyi vállalat, amelyet a SEC engedélyezett és szabályoz, SEC-szám: 0002090792. A HagosCapital Limitedet az Ausztrál Értékpapír- és Befektetési Bizottság (ASIC) engedélyezte pénzügyi szolgáltatások nyújtására az ausztrál pénzügyi szolgáltatási engedély (12718031) alapján. Székhely: Level 3, 60 Castlereagh Street, Sydney NSW 2000, Ausztrália. A HagosCapital (ME) Limitedet az Abu Dhabi Global Market („ADGM”) Pénzügyi Szolgáltatások Szabályozó Hatósága („FSRA”) engedélyezte és szabályozza Felhatalmazott Személyként a Szabályozott Tevékenységek végzésére: (a) befektetésekkel való kereskedés megbízóként (párosított), (b) befektetési ügyletek szervezése, (c) letétkezelés biztosítása, (d) letétkezelés szervezése és (e) vagyonkezelés (220073 számú pénzügyi szolgáltatási engedély alapján) a 2015. évi Pénzügyi Szolgáltatási és Piaci Szabályozás („FSMR”) szerint. Bejegyzett székhelye és fő üzleti tevékenységének helye az Office 207 és 208, 15. emelet, Al Sarab Tower, ADGM Square, Al Maryah Island, Abu Dhabi, Egyesült Arab Emírségek („EAE”). Azok az ügyfelek, akik Finnországban adóügyi illetőséggel rendelkeznek, a vonatkozó finn adójogszabályok szerint finn jövedelemadó hatálya alá eshetnek a jövedelem (nyereség) és eszközök után.",
     "disclaimerP2": "A múltbeli teljesítmény nem jelzi előre a jövőbeli eredményeket. Kereskedési döntés előtt független és megfelelő engedéllyel rendelkező pénzügyi tanácsadó véleményét kell kikérnie, és meg kell győződnie arról, hogy rendelkezik a megfelelő kockázatvállalási hajlandósággal, tapasztalattal és tudással. A HagosCapital semmilyen körülmények között nem vállal felelősséget semmilyen személlyel vagy szervezettel szemben bármilyen közvetlen, közvetett, különleges, következményi vagy véletlen kárért. A részvény- és opciós befektetések kockázatosak, és nem részesülnek azokból a védelmekből, amelyek a MiFID által szabályozott befektetési szolgáltatásokat igénybe vevő ügyfelek számára elérhetők vitarendezés esetén. A HagosCapitalszal való kereskedés, amely más kereskedők üzleteinek követésével és/vagy másolásával vagy replikálásával jár, magas kockázati szintet jelent, még akkor is, ha a legjobban teljesítő kereskedőket követi és/vagy másolja. Ilyen kockázatok közé tartozik annak kockázata, hogy esetleg tapasztalatlan/nem professzionális kereskedők kereskedési döntéseit követi/másolja, vagy olyan kereskedőkét, akiknek végső célja vagy szándéka, illetve pénzügyi helyzete eltérhet az Önétől. Egy HagosCapital közösségi tag múltbeli teljesítménye nem megbízható mutatója jövőbeli teljesítményének. A HagosCapital social trading platformján megjelenő tartalmat a közösség tagjai hozzák létre, és nem tartalmaz tanácsot vagy ajánlást a HagosCapital - Your Social Investment Network részéről vagy nevében.",
-    "copyright": "Copyright © 2006-2026 HagosCapital - Your Social Investment Network, Minden jog fenntartva.",
+    "copyright": "Copyright © {startYear}-{currentYear} HagosCapital - Your Social Investment Network, Minden jog fenntartva.",
     "secNumber": "SEC-szám: 0002090792"
   },
   "nav": {

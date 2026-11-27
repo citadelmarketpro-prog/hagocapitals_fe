@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { FadeUp, FadeIn, CARD_HOVER } from "@/components/ScrollReveal";
+import { companyYearParams } from "@/lib/company";
 
 const ICONS = ["/icons/people.svg", "/icons/security-user.svg", "/icons/lock-guard.png", "/icons/global.svg"];
 
@@ -17,7 +18,7 @@ export default function TrustSection() {
   const t = useTranslations("trustSection");
   const stats = [
     { title: t("stat1Title"), description: t("stat1Desc"), icon: ICONS[0] },
-    { title: t("stat2Title"), description: t("stat2Desc"), icon: ICONS[1] },
+    { title: t("stat2Title"), description: t("stat2Desc", companyYearParams()), icon: ICONS[1] },
     { title: t("stat3Title"), description: t("stat3Desc"), icon: ICONS[2] },
     { title: t("stat4Title"), description: t("stat4Desc"), icon: ICONS[3] },
   ];

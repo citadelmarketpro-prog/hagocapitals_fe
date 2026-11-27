@@ -208,9 +208,9 @@
   "trustSection": {
     "heading": "Vaše prostriedky sú uložené v špičkových inštitúciách",
     "stat1Title": "Sociálne",
-    "stat1Desc": "Viac ako 35 miliónov používateľov po celom svete",
+    "stat1Desc": "Viac ako 1,2 milióna používateľov po celom svete",
     "stat2Title": "Spoľahlivé",
-    "stat2Desc": "Líder vo fintech sektore od roku 2007",
+    "stat2Desc": "Líder vo fintech sektore od roku {startYear}",
     "stat3Title": "Zabezpečené",
     "stat3Desc": "Využívame najlepšie bezpečnostné postupy na ochranu peňazí a aktív klientov",
     "stat4Title": "Globálne",
@@ -311,7 +311,7 @@
     "statTradersCaption": "Rastúca obchodná komunita",
     "statMarketsLabel": "Dostupné trhy",
     "statMarketsCaption": "Akcie, indexy, komodity a ďalšie",
-    "asOf": "Stav k {year} · Overené dáta brokera"
+    "asOf": "Od roku {startYear} · Overené dáta brokera"
   },
   "readyToInvest": {
     "heading": "Pripravení investovať múdrejšie?",
@@ -349,7 +349,7 @@
     "disclaimerTitle": "Vyhlásenie o odmietnutí zodpovednosti",
     "disclaimerP1": "HagosCapital (Europe) Ltd., spoločnosť poskytujúca finančné služby, autorizovaná a regulovaná Cyperskou komisiou pre cenné papiere a burzu (CySEC) na základe licencie 12718031. Registrovaná na Cypre pod číslom spoločnosti HE 200595. Sídlo: 4 Profiti Ilia Str., Kanika Business Centre, 7. poschodie, Germasogeia, 4046, Limassol, Cyprus. HagosCapital (UK) Ltd, spoločnosť poskytujúca finančné služby, autorizovaná a regulovaná Financial Conduct Authority (FCA) na základe licencie 12718031. Sídlo: 24. poschodie, One Canada Square, Canary Wharf, Londýn E14 5AB. HagosCapital (USA) Ltd, finančná spoločnosť autorizovaná a regulovaná SEC, číslo SEC 0002090792. HagosCapital Limited je oprávnená austrálskou komisiou pre cenné papiere a investície (ASIC) poskytovať finančné služby na základe austrálskej licencie na finančné služby 12718031. Sídlo: Level 3, 60 Castlereagh Street, Sydney NSW 2000, Austrália. HagosCapital (ME) Limited je licencovaná a regulovaná Úradom pre reguláciu finančných služieb („FSRA“) v rámci Abu Dhabi Global Market („ADGM“) ako Oprávnená osoba na výkon Regulovaných činností (a) obchodovania s investíciami ako mandant (spárované), (b) organizovania investičných obchodov, (c) poskytovania úschovy, (d) organizovania úschovy a (e) správy aktív (pod číslom povolenia na finančné služby 220073) podľa Financial Services and Market Regulations 2015 („FSMR“). Jej sídlo a hlavné miesto podnikania sa nachádza na adrese Office 207 a 208, 15. poschodie, Al Sarab Tower, ADGM Square, Al Maryah Island, Abu Dhabi, Spojené arabské emiráty („SAE“). Klienti, ktorí sú daňovými rezidentmi Fínska, môžu podliehať fínskej dani z príjmu z príjmov (ziskov) a majetku v súlade s platnými fínskymi daňovými zákonmi.",
     "disclaimerP2": "Minulá výkonnosť nie je ukazovateľom budúcich výsledkov. Pred rozhodnutím obchodovať by ste mali vyhľadať radu nezávislého a riadne licencovaného finančného poradcu a uistiť sa, že máte primeranú ochotu riskovať, relevantné skúsenosti a znalosti. HagosCapital za žiadnych okolností nenesie zodpovednosť voči žiadnej osobe alebo subjektu za akékoľvek priame, nepriame, osobitné, následné alebo náhodné škody akéhokoľvek druhu. Investície do akcií a opcií sú rizikové a nevzťahuje sa na ne ochrana dostupná klientom, ktorí využívajú investičné služby regulované MiFID na riešenie sporov. Obchodovanie s HagosCapital prostredníctvom sledovania a/alebo kopírovania či replikovania obchodov iných obchodníkov zahŕňa vysokú mieru rizika, a to aj pri sledovaní a/alebo kopírovaní najúspešnejších obchodníkov. Medzi tieto riziká patrí riziko, že môžete sledovať/kopírovať obchodné rozhodnutia prípadne neskúsených/neprofesionálnych obchodníkov, alebo obchodníkov, ktorých konečný účel či zámer, alebo finančná situácia sa môže líšiť od vašich. Minulá výkonnosť člena komunity HagosCapital nie je spoľahlivým ukazovateľom jeho budúcej výkonnosti. Obsah na platforme sociálneho obchodovania HagosCapital vytvárajú členovia jej komunity a neobsahuje rady ani odporúčania od spoločnosti HagosCapital - Your Social Investment Network alebo v jej mene.",
-    "copyright": "Copyright © 2006-2026 HagosCapital - Your Social Investment Network, Všetky práva vyhradené.",
+    "copyright": "Copyright © {startYear}-{currentYear} HagosCapital - Your Social Investment Network, Všetky práva vyhradené.",
     "secNumber": "Číslo SEC: 0002090792"
   },
   "nav": {

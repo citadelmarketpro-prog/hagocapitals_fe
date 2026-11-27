@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { Plus, Minus } from "lucide-react";
 import { m, AnimatePresence } from "framer-motion";
 import { FadeUp, SlideIn, ICON_BTN_TAP, ICON_BTN_SPRING } from "@/components/ScrollReveal";
+import { companyYearParams } from "@/lib/company";
 
 export default function Footer() {
   const t = useTranslations("footer");
@@ -164,7 +165,7 @@ export default function Footer() {
         {/* ── Copyright ── */}
         <div className="px-6 lg:px-[72px] py-5 border-t border-[#e8ead8] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
           <p className="text-[12px] text-[#888888]">
-            {t("copyright")}
+            {t("copyright", companyYearParams())}
           </p>
           <p className="text-[12px] text-[#888888]">
             {t("secNumber")}
